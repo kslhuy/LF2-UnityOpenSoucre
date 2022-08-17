@@ -47,8 +47,13 @@ namespace LF2
         [ServerRpc]
         public void HostGameReadyServerRpc(int nbBot)
         {
-            NumberBot.Value = nbBot;
             OnHostClickedReady?.Invoke(nbBot);
+        }
+
+        [ServerRpc]
+        public void HostChangeNumberBOTServerRpc(int nbBot)
+        {
+            NumberBot.Value = nbBot;
         }
     }
 }

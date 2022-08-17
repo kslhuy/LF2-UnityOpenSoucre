@@ -166,6 +166,15 @@ namespace LF2.Client
             m_CurrentCharacterGraphics = selectedCharacterGraphics;
         }
 
+        public void NotShowCharacterGraphic(){
+
+            if (m_CurrentCharacterGraphics)
+            {
+                m_CurrentCharacterGraphics.SetActive(false);
+            }
+
+        }
+
 
 
 

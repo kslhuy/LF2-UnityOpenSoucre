@@ -228,7 +228,7 @@ namespace LF2.Client
 
             for (int i = 0; i < CharSelectData.LobbyBOTs.Count; ++i)
             {
-                if (CharSelectData.LobbyBOTs[i].SeatState == CharSelectData.SeatState.LockedIn && m_LastIndexBOTUpdateUI >= i ){
+                if (CharSelectData.LobbyBOTs[i].SeatState == CharSelectData.SeatState.LockedIn && m_LastIndexBOTUpdateUI <= i ){
                     // Last index is locked , but not update UI 
                     // So do it
                     UpdateBOTSelection(CharSelectData.LobbyBOTs[i].SeatState, currentIdxBOT,CharSelectData.LobbyBOTs[i].PlayerChamp,CharSelectData.LobbyBOTs[i].PlayerTeam);
@@ -242,18 +242,12 @@ namespace LF2.Client
             }
 
 
-            if (CharSelectData.LobbyBOTs[currentIdxBOT].SeatState == CharSelectData.SeatState.Inactive)
-            {
-                // we haven't chosen a seat yet (or were kicked out of our seat by someone else)
-                UpdateBOTSelection(CharSelectData.SeatState.Inactive);
-                // make sure our player num is properly set in Lobby UI
-                OnAssignedBOTNumber(currentIdxBOT);
-            }
-            else
-            {
-                // we have a seat! Note that if our seat is LockedIn, this function will also switch the lobby mode
-                UpdateBOTSelection(CharSelectData.LobbyBOTs[currentIdxBOT].SeatState, currentIdxBOT,CharSelectData.LobbyBOTs[currentIdxBOT].PlayerChamp,CharSelectData.LobbyBOTs[currentIdxBOT].PlayerTeam);
-            }
+            // case ERROR (dont care much)
+            if (currentIdxBOT == -1) return;
+            
+            // we have a seat! Note that if our seat is LockedIn, this function will also switch the lobby mode
+            UpdateBOTSelection(CharSelectData.LobbyBOTs[currentIdxBOT].SeatState, currentIdxBOT,CharSelectData.LobbyBOTs[currentIdxBOT].PlayerChamp,CharSelectData.LobbyBOTs[currentIdxBOT].PlayerTeam);
+            
 
         }
 
@@ -286,14 +280,14 @@ namespace LF2.Client
                 UpdateCharacterSelection(CharSelectData.SeatState.Inactive);
             }
             
-            else if (CharSelectData.LobbyPlayers[localPlayerIdx].SeatState == CharSelectData.SeatState.Inactive)
-            {
-                // we haven't chosen a seat yet (or were kicked out of our seat by someone else)
-                // Debug.Log("Inactive");
-                UpdateCharacterSelection(CharSelectData.SeatState.Inactive);
-                // make sure our player num is properly set in Lobby UI
-                OnAssignedPlayerNumber(CharSelectData.LobbyPlayers[localPlayerIdx].PlayerNumber);
-            }
+            // else if (CharSelectData.LobbyPlayers[localPlayerIdx].SeatState == CharSelectData.SeatState.Inactive)
+            // {
+            //     // we haven't chosen a seat yet (or were kicked out of our seat by someone else)
+            //     // Debug.Log("Inactive");
+            //     UpdateCharacterSelection(CharSelectData.SeatState.Inactive);
+            //     // make sure our player num is properly set in Lobby UI
+            //     OnAssignedPlayerNumber(CharSelectData.LobbyPlayers[localPlayerIdx].PlayerNumber);
+            // }
             else
             {
                 // we have a seat! Note that if our seat is LockedIn, this function will also switch the lobby mode
@@ -316,19 +310,19 @@ namespace LF2.Client
             m_LastTeamSelected = teamType;
 
             // Bat dau chon champion
-            if (state == CharSelectData.SeatState.Inactive)
-            {
-                // Debug.Log("Inactive");
-                if (m_CurrentCharacterGraphics)
-                {
-                    m_CurrentCharacterGraphics.SetActive(false);
-                }
+            // if (state == CharSelectData.SeatState.Inactive)
+            // {
+            //     // Debug.Log("Inactive");
+            //     if (m_CurrentCharacterGraphics)
+            //     {
+            //         m_CurrentCharacterGraphics.SetActive(false);
+            //     }
 
-                // m_UIAvatarInfoBox.ConfigureForNoSelection();
-            }
+            //     // m_UIAvatarInfoBox.ConfigureForNoSelection();
+            // }
 
-            else
-            {
+            // else
+            // {
 
                 // change character preview when selecting a new seat
                 if (isNewChamp)
@@ -369,12 +363,13 @@ namespace LF2.Client
                 }
 
 
-            }
+            // }
         }
 
 
         private void UpdateBOTSelection(CharSelectData.SeatState state, int playerNumber = -1,CharacterTypeEnum champ = 0 , TeamType teamType = 0)
         {
+            Debug.Log(playerNumber);
             bool isNewChamp = m_LastChampSelected != champ;
             bool isNewTeam = m_LastTeamSelected != teamType;
 
@@ -382,16 +377,12 @@ namespace LF2.Client
             m_LastTeamSelected = teamType;
 
             // Bat dau chon champion
-            // if (state == CharSelectData.SeatState.Inactive )
-            // {
-            //     // Debug.Log("Inactive");
-            //     if (m_CurrentCharacterGraphics)
-            //     {
-            //         m_CurrentCharacterGraphics.SetActive(false);
-            //     }
+            if (state == CharSelectData.SeatState.Inactive )
+            {
+                Debug.Log("Inactive");
+                m_UIAvatarInfoBox[playerNumber].NotShowCharacterGraphic();
 
-            //     // m_UIAvatarInfoBox.ConfigureForNoSelection();
-            // }
+            }
             
             if (playerNumber == -1) return;
                 // change character preview when selecting a new seat
@@ -399,22 +390,8 @@ namespace LF2.Client
                 {
                     // Lay thong tin champion
                     
-                    // CharSelectData.AvatarByHero.TryGetValue(m_PlayerSeats[seatIdx].NameChampion,out avatar);
-                    // Debug.Log(avatar.CharacterClass.CharacterType); 
                     Avatar newChamp =  CharSelectData.AvatarByHero[champ];
-                    Debug.Log(playerNumber); 
                     m_UIAvatarInfoBox[playerNumber].ShowCharacterGraphic(newChamp);
-                    // var selectedCharacterGraphics = GetCharacterGraphics(newChamp, playerNumber);
-
-                    // if (m_CurrentCharacterGraphics)
-                    // {
-                    //     m_CurrentCharacterGraphics.SetActive(false);
-                    // }
-
-                    // selectedCharacterGraphics.SetActive(true);
-                    // m_CurrentCharacterGraphics = selectedCharacterGraphics;
-                    // m_CurrentCharacterGraphicsAnimator = m_CurrentCharacterGraphics.GetComponent<Animator>();
-                    // Debug.Log("player number " + playerNumber);
                     m_UIAvatarInfoBox[playerNumber].ConfigureForChampion(newChamp.Portrait,newChamp.CharacterClass);
                 }
             
@@ -422,13 +399,7 @@ namespace LF2.Client
                     m_UIAvatarInfoBox[playerNumber].ConfigureNewTeam(teamType);
                 }
                 
-                // if (state == CharSelectData.SeatState.LockedIn && !m_HasLocalBOTLockedIn)
-                // {
-                //     // the local player has locked in their seat choice! Rearrange the UI appropriately
-                //     // the character should act excited
-                //     ConfigureUIForLobbyMode(CharSelectData.IsLobbyClosed.Value ? LobbyMode.LobbyEnding : LobbyMode.ChampChosen);
-                //     m_HasLocalPlayerLockedIn = true;
-                // }
+
 
             
         }
@@ -485,6 +456,7 @@ namespace LF2.Client
 
         private void OnHostChangeNumberBOT(int previousValue, int newValue)
         {
+            Debug.Log("nunber bot changed");
             m_BackGroundBox.ConfigureNumberBOT(newValue);
         }
 
@@ -621,6 +593,13 @@ namespace LF2.Client
             if (NetworkManager.IsHost){
                 BackGroundSelectData.ChangeBackGroundServerRpc(left);
 
+            }
+
+        }
+
+        public void OnHostChangedNumberBot(int nbBot){
+            if (NetworkManager.IsHost){
+                BackGroundSelectData.HostChangeNumberBOTServerRpc(nbBot);
             }
 
         }

@@ -75,8 +75,13 @@ namespace LF2.Server
         {
             if (BackGroundSelectData.LobbyModeChange.Value == LobbyMode.ChooseAI){
                 // Now only Host can change (select) champ for BOT 
-                int idxBOT = FindBotIdx();
+                
+                if ( CharSelectData.IsLobbyClosed.Value == true){ return;}
 
+
+
+                int idxBOT = FindBotIdx();
+                Debug.Log(idxBOT);
                 CharSelectData.LobbyBOTs[idxBOT] = new CharSelectData.LobbyPlayerState(clientId,
                 CharSelectData.LobbyBOTs[idxBOT].PlayerName,
                 CharSelectData.LobbyBOTs[idxBOT].PlayerNumber,
@@ -85,10 +90,9 @@ namespace LF2.Server
                 newChampId
                 );
 
+                if (EveryBOTReady())   CloseLobby();
 
-
-                if (EveryBOTReady()) CloseLobbyIfReady();
-
+                
 
                 return;
             } 
@@ -164,7 +168,7 @@ namespace LF2.Server
             GotoBackGroundChooseState();
             // BackGroundSelectData.IsChooseBackGround.Value = true;
 
-            // CloseLobbyIfReady();
+            // CloseLobby();
         }
 
 
@@ -211,7 +215,7 @@ namespace LF2.Server
             // everybody's ready !
             // Save our choices so the next scene can use the info
             if (!EveryBodyReady()) return;
-            CloseLobbyIfReady();
+            CloseLobby();
         }
 
 
@@ -220,7 +224,7 @@ namespace LF2.Server
         /// Looks through all our connections and sees if everyone has locked in their choice;
         /// if so, we lock in the whole lobby, save state, and begin the transition to gameplay
         /// </summary>
-        private void CloseLobbyIfReady()
+        private void CloseLobby()
         {
 
             // No BOT COM so only Player vs Player 
@@ -477,7 +481,7 @@ namespace LF2.Server
             if (!CharSelectData.IsLobbyClosed.Value)
             {
                 // If the lobby is not already closing, close if the remaining players are all ready
-                CloseLobbyIfReady();
+                CloseLobby();
             }
         }
     }

@@ -663,41 +663,46 @@ namespace LF2.Client
         public float ScoreAction(StateAction action){
             float score_Main = 1f;
             float score_Sup = 0;
+            int totalConsideraion = action.considerations.Length; 
 #if UNITY_EDITOR	
-            if (action.considerations.Length == 0) {
+            if (totalConsideraion == 0) {
                 Debug.Log($"Miss Consideration in action {action}");
                 return 0;
                 }
 #endif
 
-            for (int c = 0 ; c < action.considerations.Length ; c++){
+            for (int c = 0 ; c < totalConsideraion ; c++){
                 if (action.considerations[c].isSubConsideration){
                     score_Sup += action.considerations[c].ScoreConsideration(this);
                     continue;
                 }
                 float considerationScore = action.considerations[c].ScoreConsideration(this);
-                score_Main *= considerationScore;
+                // if one consideration have 0 Score , that mean multiplie by 0 is 0 
+                // So dont need to waste time more .  
+                if (considerationScore == 0) return action.Score = 0;
 
-                if (score_Main == 0){
-                    action.Score = 0;
-                    return action.Score;
-                }
+                score_Main *= MakeUpScore(considerationScore , totalConsideraion) ;
+
             }
-            // Add more Score_Sup in to ScoreMain and do some normalization (0,1)
+            // Add more Score_Sup  in to ScoreMain and do some normalization (0,1)
+            // Score_Sup is a bonus , they have in some Consideration ,
+            //  this consideration design for some special case (some thing like if ennemy is Davis do DDJ , so me (John) Do some thing to counter him )
             float score_Total = score_Main + score_Sup; 
             score_Main = score_Total/(score_Total+1); 
 
-            // Aveaging scheme of overalle score
+            return action.Score = score_Main;
+        }
+
+        private float MakeUpScore(float score_Main , int nbTotConsideration ){
+            // Make up one score of a Consideration , so overrall can be higher 
             // Action More Considerations so more difficulty to perform than Action have less consideration 
             float originalScore = score_Main;
-            float modFactor = 1 - (1/action.considerations.Length);
+            float modFactor = 1 - (1/nbTotConsideration);
 
             float makeupValue = (1 - originalScore)*modFactor;
 
-            action.Score = originalScore + (makeupValue * originalScore);
-
-            return action.Score;
-        }
+            return originalScore + (makeupValue * originalScore);
+        } 
 
 
 //                 // Loop throgh all the considerations of the action 

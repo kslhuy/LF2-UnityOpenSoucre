@@ -38,6 +38,7 @@ namespace LF2.Client
         private TextMeshProUGUI m_TextReadyButton;
 
         [SerializeField] Image[] ImageNumberBOT  ;
+        private int _nbBOTcurrent ;
 
  
 
@@ -83,7 +84,12 @@ namespace LF2.Client
 
         #endregion
         public void ConfigureNumberBOT(int numberBot){
-            ImageNumberBOT[numberBot].color = Color.blue;       
+            if ( _nbBOTcurrent != numberBot){
+                ImageNumberBOT[_nbBOTcurrent].color = Color.white;
+                _nbBOTcurrent = numberBot;
+                ImageNumberBOT[_nbBOTcurrent].color = Color.blue;       
+
+            }
         }
 
 
@@ -92,6 +98,8 @@ namespace LF2.Client
             ClientCharSelectState.Instance.OnHostChangedBackGround(Left);
         }
         public void OnClickNumberCOMAI(int i){
+            ClientCharSelectState.Instance.OnHostChangedNumberBot(i);
+
             nbBot = i;
             if (nbBot > 0){
                 m_TextReadyButton.text = "READY!";

@@ -302,7 +302,7 @@ namespace LF2.Client
             StateType nextState = GetActionReact(attkdata );
             Debug.Log($"nextState : {nextState}");            
             if (nextState == StateType.AmorAbsord){
-                m_ClientVisual.VibrationHitLag(attkdata.Facing);
+                // m_ClientVisual.VibrationHitLag(attkdata.Facing);
                 return;
             }
             DamagePopup.Create(m_ClientVisual.PhysicsWrapper.Transform.position ,Math.Abs(attkdata.Amount_injury));
