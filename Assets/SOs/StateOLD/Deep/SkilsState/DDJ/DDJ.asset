@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58beba8069618df499690c32ca3bf74b, type: 3}
+  m_Name: DDJ
+  m_EditorClassIdentifier: 
+  StateType: 15
+  Logic: 1
+  ManaCost: 0
+  DamageDetails:
+  - {fileID: 11400000, guid: 6dd3bc46633a40d41a41d2823e7e82c0, type: 2}
+  Dx: 0
+  Dy: 0
+  Dz: 0
+  DurationSeconds: 1.5
+  expirable: 1
+  ReuseTimeSeconds: 0.3
+  Range: 0
+  maxRange: 0.3
+  ActionInterruptible: 0
+  vizAnim:
+  - AnimNames: DDJ_1_anim
+    AnimHashId: -1443893879
+  Projectiles: []
+  Spawns: []
+  Sound: {fileID: 0}

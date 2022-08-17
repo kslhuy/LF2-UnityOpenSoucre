@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4b193cd211c5954182e65671734e24d, type: 3}
+  m_Name: AttackJump
+  m_EditorClassIdentifier: 
+  StateType: 9
+  Logic: 1
+  UseMana: 0
+  ManaCost: 0
+  DamageDetails:
+  - {fileID: 11400000, guid: 16e2cf73c1adece46b5f0fd4177c262e, type: 2}
+  Dx: 0
+  Dy: 0
+  Dz: 0
+  Projectiles: []
+  DurationSeconds: 4
+  expirable: 1
+  ReuseTimeSeconds: 0
+  ActionInterruptible: 0
+  Sounds: {fileID: 11400000, guid: 0672f2e383016fe44bda20feb2e33f22, type: 2}
+  delayLoopSound: 0
+  Start_Sounds: []
+  vizAnim:
+  - AnimNames: Jump_Attack_anim
+    AnimHashId: -1321550174
+  SpawnsFX:
+  - _Object: {fileID: 3526290567721581141, guid: 4db002a752d0d224a8c1bdd5e34cd63f, type: 3}
+    pivot: {x: 0, y: 50, z: 0}

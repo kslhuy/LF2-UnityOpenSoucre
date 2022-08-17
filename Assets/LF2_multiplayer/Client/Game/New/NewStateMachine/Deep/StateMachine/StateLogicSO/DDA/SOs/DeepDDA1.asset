@@ -1,0 +1,46 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af6fe91693b05fa4d86f6eb1c61f8574, type: 3}
+  m_Name: DeepDDA1
+  m_EditorClassIdentifier: 
+  StateType: 30
+  Logic: 3
+  UseMana: 1
+  ManaCost: -75
+  DamageDetails:
+  - {fileID: 11400000, guid: 4e2d5f76eb0c7984990d544252fa0fc1, type: 2}
+  Dx: 0
+  Dy: 0
+  Dz: 0
+  Projectiles:
+  - ProjectilePrefab: {fileID: 4477627029082403580, guid: d2c2b131f78655f45a0a014787ad8905, type: 3}
+    pivot: {x: 20, y: 35, z: 0}
+    ProjectileDamage:
+    - {fileID: 11400000, guid: 4e2d5f76eb0c7984990d544252fa0fc1, type: 2}
+    Speed_m_s: 400
+    Range: 0
+    MaxVictims: 1
+    DestroyAfterSec: 0.5
+    Sounds: {fileID: 11400000, guid: 0672f2e383016fe44bda20feb2e33f22, type: 2}
+  DurationSeconds: 0.7
+  expirable: 1
+  ReuseTimeSeconds: 0.7
+  ActionInterruptible: 0
+  Sounds: {fileID: 11400000, guid: 0672f2e383016fe44bda20feb2e33f22, type: 2}
+  delayLoopSound: 0
+  Start_Sounds: []
+  vizAnim:
+  - AnimNames: DDA_1_anim
+    AnimHashId: -192548385
+  SpawnsFX:
+  - _Object: {fileID: 3526290567721581141, guid: 4db002a752d0d224a8c1bdd5e34cd63f, type: 3}
+    pivot: {x: 0, y: 50, z: 0}

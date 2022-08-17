@@ -1,0 +1,1671 @@
+fileFormatVersion: 2
+guid: 96738240f9825ef40ab6c760fec76c03
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 6922948085510808472
+    second: davis_1_0
+  - first:
+      213: 371116580003523274
+    second: davis_1_1
+  - first:
+      213: -1658303633312804975
+    second: davis_1_2
+  - first:
+      213: -7451122485709846677
+    second: davis_1_3
+  - first:
+      213: -3036806798722093363
+    second: davis_1_4
+  - first:
+      213: -5788199270506141302
+    second: davis_1_5
+  - first:
+      213: 721772666124430335
+    second: davis_1_6
+  - first:
+      213: -6977430260693860650
+    second: davis_1_7
+  - first:
+      213: -3160666809978467434
+    second: davis_1_8
+  - first:
+      213: -2105676702409495416
+    second: davis_1_9
+  - first:
+      213: -3121355369718608574
+    second: davis_1_10
+  - first:
+      213: 7482741567325013950
+    second: davis_1_11
+  - first:
+      213: 7098480854697794211
+    second: davis_1_12
+  - first:
+      213: -6741898963449283636
+    second: davis_1_13
+  - first:
+      213: -4981654885725960380
+    second: davis_1_14
+  - first:
+      213: -5807403018768659311
+    second: davis_1_15
+  - first:
+      213: 341492445472598639
+    second: davis_1_16
+  - first:
+      213: 4721964123309950178
+    second: davis_1_17
+  - first:
+      213: 2807461187449511674
+    second: davis_1_18
+  - first:
+      213: 228654787478526124
+    second: davis_1_19
+  - first:
+      213: -3110157684398649892
+    second: davis_1_20
+  - first:
+      213: -8008726785939672200
+    second: davis_1_21
+  - first:
+      213: -1654913157218246040
+    second: davis_1_22
+  - first:
+      213: -1066256955332790701
+    second: davis_1_23
+  - first:
+      213: 8052750943829223827
+    second: davis_1_24
+  - first:
+      213: -5891834902360766127
+    second: davis_1_25
+  - first:
+      213: 2484704879561863782
+    second: davis_1_26
+  - first:
+      213: 2160376875559751960
+    second: davis_1_27
+  - first:
+      213: -3637140170120604957
+    second: davis_1_28
+  - first:
+      213: -3350203373250992921
+    second: davis_1_29
+  - first:
+      213: 4816324716170013957
+    second: davis_1_30
+  - first:
+      213: 7931782658484609845
+    second: davis_1_31
+  - first:
+      213: 4702028456394100197
+    second: davis_1_32
+  - first:
+      213: -8012838548489194073
+    second: davis_1_33
+  - first:
+      213: -1179460102535466449
+    second: davis_1_34
+  - first:
+      213: -7944080913640800607
+    second: davis_1_35
+  - first:
+      213: -8753763581938443077
+    second: davis_1_36
+  - first:
+      213: -1076157094901092542
+    second: davis_1_37
+  - first:
+      213: -1797361465211185190
+    second: davis_1_38
+  - first:
+      213: 1288738735764537534
+    second: davis_1_39
+  - first:
+      213: 7784889475765940987
+    second: davis_1_40
+  - first:
+      213: -5282350375344653719
+    second: davis_1_41
+  - first:
+      213: 575325972017402533
+    second: davis_1_42
+  - first:
+      213: -525009103958946476
+    second: davis_1_43
+  - first:
+      213: 4271346069488096192
+    second: davis_1_44
+  - first:
+      213: -6696045955345136281
+    second: davis_1_45
+  - first:
+      213: -8990005730806780954
+    second: davis_1_46
+  - first:
+      213: 1641758746774616478
+    second: davis_1_47
+  - first:
+      213: 6054331980146045388
+    second: davis_1_48
+  - first:
+      213: 5120807873816720103
+    second: davis_1_49
+  - first:
+      213: 4249072170114375587
+    second: davis_1_50
+  - first:
+      213: 433077722341536632
+    second: davis_1_51
+  - first:
+      213: -6229782024072558216
+    second: davis_1_52
+  - first:
+      213: -3627601203468327646
+    second: davis_1_53
+  - first:
+      213: 6354602958087833388
+    second: davis_1_54
+  - first:
+      213: 2618951568200134628
+    second: davis_1_55
+  - first:
+      213: -2824727721956680133
+    second: davis_1_56
+  - first:
+      213: 2830407204267630146
+    second: davis_1_57
+  - first:
+      213: -9068216485051311372
+    second: davis_1_58
+  - first:
+      213: 3733291140829563896
+    second: davis_1_59
+  - first:
+      213: -4263328347930538096
+    second: davis_1_60
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 0
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 1
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 0
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 1024
+    resizeAlgorithm: 0
+    textureFormat: 4
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 1024
+    resizeAlgorithm: 0
+    textureFormat: 4
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 512
+    resizeAlgorithm: 0
+    textureFormat: 4
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 1024
+    resizeAlgorithm: 0
+    textureFormat: 4
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 1024
+    resizeAlgorithm: 0
+    textureFormat: 4
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: davis_1_0
+      rect:
+        serializedVersion: 2
+        x: 14
+        y: 481
+        width: 50
+        height: 71
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 893a75bba90431060800000000000000
+      internalID: 6922948085510808472
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: davis_1_1
+      rect:
+        serializedVersion: 2
+        x: 93
+        y: 481
+        width: 51
+        height: 71
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aca2e513098762500800000000000000
+      internalID: 371116580003523274
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: davis_1_2
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 481
+        width: 49
+        height: 70
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 19f86aea1a58cf8e0800000000000000
+      internalID: -1658303633312804975
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: davis_1_3
+      rect:
+        serializedVersion: 2
+        x: 254
+        y: 481
+        width: 47
+        height: 71
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b67c655b39b489890800000000000000
+      internalID: -7451122485709846677
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: davis_1_4
+      rect:
+        serializedVersion: 2
+        x: 342
+        y: 481
+        width: 39
+        height: 72
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dceada66e481bd5d0800000000000000
+      internalID: -3036806798722093363
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: davis_1_5
+      rect:
+        serializedVersion: 2
+        x: 417
+        y: 481
+        width: 50
+        height: 72
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a896e404e6f2cafa0800000000000000
+      internalID: -5788199270506141302
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: davis_1_6
+      rect:
+        serializedVersion: 2
+        x: 497
+        y: 481
+        width: 49
+        height: 71
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ffbeeec6a60440a00800000000000000
+      internalID: 721772666124430335
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: davis_1_7
+      rect:
+        serializedVersion: 2
+        x: 570
+        y: 481
+        width: 59
+        height: 71
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6def74a55203b2f90800000000000000
+      internalID: -6977430260693860650
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: davis_1_8
+      rect:
+        serializedVersion: 2
+        x: 648
+        y: 491
+        width: 68
+        height: 60
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 69bcdd1484e0324d0800000000000000
+      internalID: -3160666809978467434
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: davis_1_9
+      rect:
+        serializedVersion: 2
+        x: 728
+        y: 491
+        width: 69
+        height: 59
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 88ce01d023227c2e0800000000000000
+      internalID: -2105676702409495416
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: davis_1_10
+      rect:
+        serializedVersion: 2
+        x: 14
+        y: 406
+        width: 46
+        height: 72
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 24d0a2234d7bea4d0800000000000000
+      internalID: -3121355369718608574
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: davis_1_11
+      rect:
+        serializedVersion: 2
+        x: 93
+        y: 406
+        width: 47
+        height: 72
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eb7057a6fc908d760800000000000000
+      internalID: 7482741567325013950
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: davis_1_12
+      rect:
+        serializedVersion: 2
+        x: 173
+        y: 406
+        width: 52
+        height: 71
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3aa5c2d5abed28260800000000000000
+      internalID: 7098480854697794211
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: davis_1_13
+      rect:
+        serializedVersion: 2
+        x: 250
+        y: 406
+        width: 51
+        height: 72
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ccbf704ec96ff62a0800000000000000
+      internalID: -6741898963449283636
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: davis_1_14
+      rect:
+        serializedVersion: 2
+        x: 342
+        y: 401
+        width: 39
+        height: 72
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 44707be764b9ddab0800000000000000
+      internalID: -4981654885725960380
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: davis_1_15
+      rect:
+        serializedVersion: 2
+        x: 417
+        y: 401
+        width: 49
+        height: 71
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 19c43ce29b5f76fa0800000000000000
+      internalID: -5807403018768659311
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: davis_1_16
+      rect:
+        serializedVersion: 2
+        x: 490
+        y: 401
+        width: 59
+        height: 71
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f6aafd1e1993db400800000000000000
+      internalID: 341492445472598639
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: davis_1_17
+      rect:
+        serializedVersion: 2
+        x: 647
+        y: 417
+        width: 70
+        height: 49
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2e447042a59c78140800000000000000
+      internalID: 4721964123309950178
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: davis_1_18
+      rect:
+        serializedVersion: 2
+        x: 725
+        y: 417
+        width: 67
+        height: 45
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: afedf9e431b16f620800000000000000
+      internalID: 2807461187449511674
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: davis_1_19
+      rect:
+        serializedVersion: 2
+        x: 14
+        y: 326
+        width: 46
+        height: 72
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ca899d751585c2300800000000000000
+      internalID: 228654787478526124
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: davis_1_20
+      rect:
+        serializedVersion: 2
+        x: 93
+        y: 326
+        width: 47
+        height: 72
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cdd87f9701086d4d0800000000000000
+      internalID: -3110157684398649892
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: davis_1_21
+      rect:
+        serializedVersion: 2
+        x: 173
+        y: 326
+        width: 52
+        height: 71
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 873f8e49b694bd090800000000000000
+      internalID: -8008726785939672200
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: davis_1_22
+      rect:
+        serializedVersion: 2
+        x: 250
+        y: 326
+        width: 51
+        height: 72
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 862e2e960419809e0800000000000000
+      internalID: -1654913157218246040
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: davis_1_23
+      rect:
+        serializedVersion: 2
+        x: 334
+        y: 321
+        width: 50
+        height: 71
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 356791ac2f4e331f0800000000000000
+      internalID: -1066256955332790701
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: davis_1_24
+      rect:
+        serializedVersion: 2
+        x: 413
+        y: 321
+        width: 51
+        height: 71
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 399e1af615e11cf60800000000000000
+      internalID: 8052750943829223827
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: davis_1_25
+      rect:
+        serializedVersion: 2
+        x: 483
+        y: 321
+        width: 72
+        height: 67
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 159c9816f5ffb3ea0800000000000000
+      internalID: -5891834902360766127
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: davis_1_26
+      rect:
+        serializedVersion: 2
+        x: 574
+        y: 326
+        width: 46
+        height: 72
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 662f6f56ce17b7220800000000000000
+      internalID: 2484704879561863782
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: davis_1_27
+      rect:
+        serializedVersion: 2
+        x: 653
+        y: 326
+        width: 47
+        height: 72
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 81115b872533bfd10800000000000000
+      internalID: 2160376875559751960
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: davis_1_28
+      rect:
+        serializedVersion: 2
+        x: 725
+        y: 325
+        width: 73
+        height: 68
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3e258a12948468dc0800000000000000
+      internalID: -3637140170120604957
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: davis_1_29
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 241
+        width: 53
+        height: 61
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7e42f0c38cfa181d0800000000000000
+      internalID: -3350203373250992921
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: davis_1_30
+      rect:
+        serializedVersion: 2
+        x: 92
+        y: 241
+        width: 51
+        height: 65
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 50d6f36bfc507d240800000000000000
+      internalID: 4816324716170013957
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: davis_1_31
+      rect:
+        serializedVersion: 2
+        x: 167
+        y: 241
+        width: 64
+        height: 61
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5332492bd4a531e60800000000000000
+      internalID: 7931782658484609845
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: davis_1_32
+      rect:
+        serializedVersion: 2
+        x: 247
+        y: 241
+        width: 64
+        height: 61
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5ed062bf7f5f04140800000000000000
+      internalID: 4702028456394100197
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: davis_1_33
+      rect:
+        serializedVersion: 2
+        x: 328
+        y: 241
+        width: 60
+        height: 61
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7a5beb24bcdacc090800000000000000
+      internalID: -8012838548489194073
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: davis_1_34
+      rect:
+        serializedVersion: 2
+        x: 413
+        y: 241
+        width: 40
+        height: 69
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f22b0a92947b1afe0800000000000000
+      internalID: -1179460102535466449
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: davis_1_35
+      rect:
+        serializedVersion: 2
+        x: 488
+        y: 241
+        width: 46
+        height: 71
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1aeba73af74f0c190800000000000000
+      internalID: -7944080913640800607
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: davis_1_36
+      rect:
+        serializedVersion: 2
+        x: 573
+        y: 241
+        width: 43
+        height: 73
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bbcdec2d662648680800000000000000
+      internalID: -8753763581938443077
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: davis_1_37
+      rect:
+        serializedVersion: 2
+        x: 652
+        y: 241
+        width: 44
+        height: 73
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 24f67ebe2d8b011f0800000000000000
+      internalID: -1076157094901092542
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: davis_1_38
+      rect:
+        serializedVersion: 2
+        x: 733
+        y: 241
+        width: 44
+        height: 73
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ad79c1d254d7e07e0800000000000000
+      internalID: -1797361465211185190
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: davis_1_39
+      rect:
+        serializedVersion: 2
+        x: 182
+        y: 168
+        width: 47
+        height: 70
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eb008895d0582e110800000000000000
+      internalID: 1288738735764537534
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: davis_1_40
+      rect:
+        serializedVersion: 2
+        x: 252
+        y: 167
+        width: 51
+        height: 72
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bf2b4ba6bbb790c60800000000000000
+      internalID: 7784889475765940987
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: davis_1_41
+      rect:
+        serializedVersion: 2
+        x: 343
+        y: 161
+        width: 39
+        height: 71
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 96a3e6a125251b6b0800000000000000
+      internalID: -5282350375344653719
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: davis_1_42
+      rect:
+        serializedVersion: 2
+        x: 563
+        y: 185
+        width: 70
+        height: 47
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5a257206ce7fbf700800000000000000
+      internalID: 575325972017402533
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: davis_1_43
+      rect:
+        serializedVersion: 2
+        x: 655
+        y: 166
+        width: 44
+        height: 72
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 45d4ea6600bc6b8f0800000000000000
+      internalID: -525009103958946476
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: davis_1_44
+      rect:
+        serializedVersion: 2
+        x: 14
+        y: 81
+        width: 48
+        height: 60
+      alignment: 9
+      pivot: {x: 0.44, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0c35990ae9ed64b30800000000000000
+      internalID: 4271346069488096192
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: davis_1_45
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 81
+        width: 45
+        height: 61
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 76546f74eadd213a0800000000000000
+      internalID: -6696045955345136281
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: davis_1_46
+      rect:
+        serializedVersion: 2
+        x: 177
+        y: 81
+        width: 44
+        height: 61
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6eb298e3b651d3380800000000000000
+      internalID: -8990005730806780954
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: davis_1_47
+      rect:
+        serializedVersion: 2
+        x: 252
+        y: 81
+        width: 47
+        height: 69
+      alignment: 9
+      pivot: {x: 0.59, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e99346cb1e2b8c610800000000000000
+      internalID: 1641758746774616478
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: davis_1_48
+      rect:
+        serializedVersion: 2
+        x: 335
+        y: 79
+        width: 53
+        height: 69
+      alignment: 9
+      pivot: {x: 0.62, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cc174e4dbde450450800000000000000
+      internalID: 6054331980146045388
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: davis_1_49
+      rect:
+        serializedVersion: 2
+        x: 411
+        y: 81
+        width: 47
+        height: 71
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7e27ed941a3c01740800000000000000
+      internalID: 5120807873816720103
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: davis_1_50
+      rect:
+        serializedVersion: 2
+        x: 504
+        y: 81
+        width: 39
+        height: 72
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3af5aac40acb7fa30800000000000000
+      internalID: 4249072170114375587
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: davis_1_51
+      rect:
+        serializedVersion: 2
+        x: 571
+        y: 81
+        width: 47
+        height: 71
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8737d48d4e9920600800000000000000
+      internalID: 433077722341536632
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: davis_1_52
+      rect:
+        serializedVersion: 2
+        x: 656
+        y: 81
+        width: 40
+        height: 72
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8798a03814e5b89a0800000000000000
+      internalID: -6229782024072558216
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: davis_1_53
+      rect:
+        serializedVersion: 2
+        x: 14
+        y: 1
+        width: 46
+        height: 71
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 225ad70eceb28adc0800000000000000
+      internalID: -3627601203468327646
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: davis_1_54
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 1
+        width: 42
+        height: 71
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c27c875e8b5103850800000000000000
+      internalID: 6354602958087833388
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: davis_1_55
+      rect:
+        serializedVersion: 2
+        x: 172
+        y: 8
+        width: 48
+        height: 67
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4ef65825392685420800000000000000
+      internalID: 2618951568200134628
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: davis_1_56
+      rect:
+        serializedVersion: 2
+        x: 253
+        y: 10
+        width: 51
+        height: 67
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b3ed2995a1d8cc8d0800000000000000
+      internalID: -2824727721956680133
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: davis_1_57
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 10
+        width: 43
+        height: 67
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 24e141c2b50a74720800000000000000
+      internalID: 2830407204267630146
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: davis_1_58
+      rect:
+        serializedVersion: 2
+        x: 407
+        y: 12
+        width: 62
+        height: 66
+      alignment: 9
+      pivot: {x: 0.41, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4fadc2ef629372280800000000000000
+      internalID: -9068216485051311372
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: davis_1_59
+      rect:
+        serializedVersion: 2
+        x: 488
+        y: 11
+        width: 58
+        height: 67
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8fb424443805fc330800000000000000
+      internalID: 3733291140829563896
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: davis_1_60
+      rect:
+        serializedVersion: 2
+        x: 578
+        y: 7
+        width: 40
+        height: 72
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 09f4fb4a47d95d4c0800000000000000
+      internalID: -4263328347930538096
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 80c8af8c59a78c643a54e4c94233873d
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      davis_1_8: -3160666809978467434
+      davis_1_28: -3637140170120604957
+      davis_1_29: -3350203373250992921
+      davis_1_40: 7784889475765940987
+      davis_1_54: 6354602958087833388
+      davis_1_32: 4702028456394100197
+      davis_1_19: 228654787478526124
+      davis_1_33: -8012838548489194073
+      davis_1_3: -7451122485709846677
+      davis_1_47: 1641758746774616478
+      davis_1_53: -3627601203468327646
+      davis_1_9: -2105676702409495416
+      davis_1_1: 371116580003523274
+      davis_1_17: 4721964123309950178
+      davis_1_11: 7482741567325013950
+      davis_1_20: -3110157684398649892
+      davis_1_14: -4981654885725960380
+      davis_1_59: 3733291140829563896
+      davis_1_60: -4263328347930538096
+      davis_1_4: -3036806798722093363
+      davis_1_58: -9068216485051311372
+      davis_1_50: 4249072170114375587
+      davis_1_18: 2807461187449511674
+      davis_1_57: 2830407204267630146
+      davis_1_25: -5891834902360766127
+      davis_1_7: -6977430260693860650
+      davis_1_0: 6922948085510808472
+      davis_1_38: -1797361465211185190
+      davis_1_43: -525009103958946476
+      davis_1_52: -6229782024072558216
+      davis_1_2: -1658303633312804975
+      davis_1_55: 2618951568200134628
+      davis_1_31: 7931782658484609845
+      davis_1_6: 721772666124430335
+      davis_1_26: 2484704879561863782
+      davis_1_34: -1179460102535466449
+      davis_1_37: -1076157094901092542
+      davis_1_42: 575325972017402533
+      davis_1_21: -8008726785939672200
+      davis_1_51: 433077722341536632
+      davis_1_24: 8052750943829223827
+      davis_1_27: 2160376875559751960
+      davis_1_30: 4816324716170013957
+      davis_1_45: -6696045955345136281
+      davis_1_49: 5120807873816720103
+      davis_1_15: -5807403018768659311
+      davis_1_41: -5282350375344653719
+      davis_1_12: 7098480854697794211
+      davis_1_36: -8753763581938443077
+      davis_1_39: 1288738735764537534
+      davis_1_56: -2824727721956680133
+      davis_1_13: -6741898963449283636
+      davis_1_44: 4271346069488096192
+      davis_1_46: -8990005730806780954
+      davis_1_22: -1654913157218246040
+      davis_1_10: -3121355369718608574
+      davis_1_16: 341492445472598639
+      davis_1_5: -5788199270506141302
+      davis_1_23: -1066256955332790701
+      davis_1_35: -7944080913640800607
+      davis_1_48: 6054331980146045388
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

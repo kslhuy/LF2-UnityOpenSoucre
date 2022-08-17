@@ -1,0 +1,19 @@
+{
+    "name": "LF2.Server",
+    "rootNamespace": "",
+    "references": [
+        "Unity.Netcode.Runtime",
+        "LF2.Shared",
+        "Unity.Netcode.Components",
+        "Unity.TextMeshPro"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

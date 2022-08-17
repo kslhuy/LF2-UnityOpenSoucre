@@ -1,0 +1,10 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="True">
+    <ui:VisualElement name="screen" style="height: 100%; width: 100%; align-items: stretch; flex-wrap: nowrap; flex-direction: row; position: relative; top: 0; overflow: hidden; left: 0; right: 0; bottom: 0; flex-grow: 1; flex-basis: 0; flex-shrink: 1; justify-content: space-between;">
+        <ui:VisualElement name="left" style="width: 20%; border-right-width: 2px; border-left-color: rgb(103, 103, 103); border-right-color: rgb(103, 103, 103); border-top-color: rgb(103, 103, 103); border-bottom-color: rgb(103, 103, 103);">
+            <ui:Label text="Character" display-tooltip-when-elided="true" name="Character" />
+            <ui:ListView focusable="true" name="list-character" style="flex-grow: 1;" />
+            <ui:Button text="New Character" display-tooltip-when-elided="true" name="add-character" />
+        </ui:VisualElement>
+        <ui:VisualElement name="right" style="width: 80%;" />
+    </ui:VisualElement>
+</ui:UXML>

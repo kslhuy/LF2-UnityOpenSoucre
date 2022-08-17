@@ -1,0 +1,83 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 616b443e908e8c744a1afd62fb9dda5d, type: 3}
+  m_Name: Visualization Configuration
+  m_EditorClassIdentifier: 
+  Idle: Idle_anim
+  Walk: Walk_anim
+  Run: Run_anim
+  Jump: Jump_anim
+  DoubleJump: DoubleJump_anim
+  DoubleJump2: DoubleJump2_anim
+  Land: StandUp
+  Defense: StandUp
+  Sliding: Sliding_anim
+  Rolling: Rolling_anim
+  Air: Air_anim
+  Attack1: Attack1_anim
+  Attack2: Attack2_anim
+  Attack3: Attack3_anim
+  RunAttack: Run_Attack_anim
+  JumpAttack: Jump_Attack_anim
+  Hurt_1: Hurt1
+  Hurt_2_Back: Hurt2Back
+  Hurt_2_Front: Hurt2Front
+  Fall_Back: Fall_Back
+  Fall_Front: Fall_Front
+  Laying_Back: LayingBack
+  Laying_Front: LayingFront
+  DDA_1: DDA_1_anim
+  DDA_2: DDA_2_anim
+  DDA_3: DDA_3_anim
+  DDJ_1: DDJ_1_anim
+  DDJ_2: DDJ_2_anim
+  DDJ_3: DDJ_3_anim
+  DUA_1: DUA_1_anim
+  DUA_2: DUA_2_anim
+  DUA_3: DUA_3_anim
+  DUJ_1: DUJ_1_anim
+  DUJ_2: DUJ_2_anim
+  DUJ_3: DUJ_3_anim
+  a_Idle: 0
+  a_Walk: 0
+  a_Run: 0
+  a_Land: 0
+  a_Sliding: 0
+  a_Rolling: 0
+  a_Jump: 0
+  a_DoubleJump_1: 0
+  a_DoubleJump_2: 0
+  a_Air: 0
+  a_Attack_1: 0
+  a_Attack_2: 0
+  a_Attack_3: 0
+  a_Jump_Attack: 0
+  a_Run_Attack: 0
+  a_Hurt_1: 0
+  a_Hurt_2_Front: 0
+  a_Hurt_2_Back: 0
+  a_Fall_Back: 0
+  a_Fall_Front: 0
+  a_Laying_Back: 0
+  a_Laying_Front: 0
+  a_DDA_1: 0
+  a_DDA_2: 0
+  a_DDA_3: 0
+  a_DDJ_1: 0
+  a_DDJ_2: 0
+  a_DDJ_3: 0
+  a_DUA_1: 0
+  a_DUA_2: 0
+  a_DUA_3: 0
+  a_DUJ_1: 0
+  a_DUJ_2: 0
+  a_DUJ_3: 0

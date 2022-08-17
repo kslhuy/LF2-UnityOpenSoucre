@@ -1,0 +1,66 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4409266259537521771
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4409266259537521773}
+  - component: {fileID: 4409266259537521770}
+  m_Layer: 0
+  m_Name: GameDataSource
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4409266259537521773
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4409266259537521771}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4409266259537521770
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4409266259537521771}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bba095ab0519fa4899df647ecfad323, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_CharacterData:
+  - {fileID: 11400000, guid: c4bca58da2bd1e7429512482e4d8477b, type: 2}
+  - {fileID: 11400000, guid: 5e72887e71cddf44384bb9236a7bf547, type: 2}
+  - {fileID: 11400000, guid: 9e0f6a9b6ca728d4e90915ad1822c804, type: 2}
+  - {fileID: 11400000, guid: 9838dfab44776754492441aa01044b0f, type: 2}
+  - {fileID: 11400000, guid: 72c063c58ee8039488eacf864ec2247f, type: 2}
+  - {fileID: 11400000, guid: 019e72ee15f24e940919910a042f263e, type: 2}
+  - {fileID: 11400000, guid: 2d80b94515cad4b45a2b693fcaffe211, type: 2}
+  - {fileID: 11400000, guid: 56dbb45f36a3aba4787aab26dd2917d7, type: 2}
+  - {fileID: 11400000, guid: 5ab6efeb33c872247a1bec14cf6aca11, type: 2}
+  m_CharacterSkillsDescription:
+  - {fileID: 11400000, guid: 4380b0622dad9ea4387c4ca0c341b3ec, type: 2}
+  - {fileID: 11400000, guid: 511a566dfe0ee8045a1a2a06da9765de, type: 2}
+  - {fileID: 11400000, guid: fb2d7128826fd7940a103baca9f90f8f, type: 2}
+  - {fileID: 11400000, guid: c1ff2d67e494f7d4e9ea14b032efa805, type: 2}
+  - {fileID: 11400000, guid: 5a0e494253f89cc47801065de251cee8, type: 2}
+  - {fileID: 11400000, guid: aef5993a818bfae45b7d86db8182c7ba, type: 2}
+  - {fileID: 11400000, guid: 3ebf751311d4d3d49b762c6ee1380600, type: 2}
+  - {fileID: 11400000, guid: b96bcde2d99747140ad68b5ced3c772d, type: 2}
+  - {fileID: 11400000, guid: a6d5d5ec84b350843a286ecf731f7966, type: 2}
+  BackGround: 0

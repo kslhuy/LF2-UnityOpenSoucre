@@ -1,0 +1,1131 @@
+fileFormatVersion: 2
+guid: 19bd29a0f1aa68742a3ebbb08b21fac4
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -4030568321996104238
+    second: john_ball 1_0
+  - first:
+      213: 8482709434647452022
+    second: john_ball 1_1
+  - first:
+      213: 1514780463893931386
+    second: john_ball 1_2
+  - first:
+      213: -8454239036693121151
+    second: john_ball 1_3
+  - first:
+      213: 1369577032946896520
+    second: john_ball 1_4
+  - first:
+      213: -2387500991666930720
+    second: john_ball 1_5
+  - first:
+      213: -5760668343737806930
+    second: john_ball 1_6
+  - first:
+      213: 4945980092330294272
+    second: john_ball 1_7
+  - first:
+      213: -4784258896762356695
+    second: john_ball 1_8
+  - first:
+      213: 8950579965802663929
+    second: john_ball 1_9
+  - first:
+      213: 1966716110579408321
+    second: john_ball 1_10
+  - first:
+      213: 1298901804385829350
+    second: john_ball 1_11
+  - first:
+      213: 2296421192842102425
+    second: john_ball 1_12
+  - first:
+      213: 4103881148677602761
+    second: john_ball 1_13
+  - first:
+      213: -4108567447804865883
+    second: john_ball 1_14
+  - first:
+      213: 7797443473716262013
+    second: john_ball 1_15
+  - first:
+      213: 7222735522990635477
+    second: john_ball 1_16
+  - first:
+      213: -3321870301011999180
+    second: john_ball 1_17
+  - first:
+      213: 2869182226075667120
+    second: john_ball 1_18
+  - first:
+      213: 1739568348843648486
+    second: john_ball 1_19
+  - first:
+      213: 8708669645320333218
+    second: john_ball 1_20
+  - first:
+      213: 6289492326431450431
+    second: john_ball 1_21
+  - first:
+      213: -4211244192233871895
+    second: john_ball 1_22
+  - first:
+      213: -2128504700826979425
+    second: john_ball 1_23
+  - first:
+      213: 479512789813348570
+    second: john_ball 1_24
+  - first:
+      213: -7014557494803773650
+    second: john_ball 1_25
+  - first:
+      213: -3470140897161581696
+    second: john_ball 1_26
+  - first:
+      213: -227343500196629924
+    second: john_ball 1_27
+  - first:
+      213: -7005192341681382345
+    second: john_ball 1_28
+  - first:
+      213: 5649575328155627314
+    second: john_ball 1_29
+  - first:
+      213: -6235247817316280343
+    second: john_ball 1_30
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 0
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 1
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 0
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 1024
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 3
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: john_ball 1_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 332
+        width: 82
+        height: 83
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2ddda7c477b8018c0800000000000000
+      internalID: -4030568321996104238
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: john_ball 1_1
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 332
+        width: 81
+        height: 83
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 67914099943a8b570800000000000000
+      internalID: 8482709434647452022
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: john_ball 1_2
+      rect:
+        serializedVersion: 2
+        x: 164
+        y: 332
+        width: 82
+        height: 83
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a7569176ec4950510800000000000000
+      internalID: 1514780463893931386
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: john_ball 1_3
+      rect:
+        serializedVersion: 2
+        x: 246
+        y: 334
+        width: 82
+        height: 78
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1877aab73628caa80800000000000000
+      internalID: -8454239036693121151
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: john_ball 1_4
+      rect:
+        serializedVersion: 2
+        x: 328
+        y: 332
+        width: 82
+        height: 83
+      alignment: 9
+      pivot: {x: 0.2, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 88e455d1e07b10310800000000000000
+      internalID: 1369577032946896520
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: john_ball 1_5
+      rect:
+        serializedVersion: 2
+        x: 410
+        y: 332
+        width: 82
+        height: 83
+      alignment: 9
+      pivot: {x: 0.2, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0ebbcc26f74edded0800000000000000
+      internalID: -2387500991666930720
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: john_ball 1_6
+      rect:
+        serializedVersion: 2
+        x: 492
+        y: 332
+        width: 82
+        height: 83
+      alignment: 9
+      pivot: {x: 0.2, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eaf8ba6a9aefd00b0800000000000000
+      internalID: -5760668343737806930
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: john_ball 1_7
+      rect:
+        serializedVersion: 2
+        x: 574
+        y: 332
+        width: 82
+        height: 83
+      alignment: 9
+      pivot: {x: 0.2, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 00c308560b6a3a440800000000000000
+      internalID: 4945980092330294272
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: john_ball 1_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 249
+        width: 82
+        height: 83
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 92c3af8a1e5ea9db0800000000000000
+      internalID: -4784258896762356695
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: john_ball 1_9
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 249
+        width: 82
+        height: 83
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9ff45638e09d63c70800000000000000
+      internalID: 8950579965802663929
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: john_ball 1_10
+      rect:
+        serializedVersion: 2
+        x: 164
+        y: 249
+        width: 82
+        height: 83
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1cd9f19e1ed2b4b10800000000000000
+      internalID: 1966716110579408321
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: john_ball 1_11
+      rect:
+        serializedVersion: 2
+        x: 246
+        y: 249
+        width: 82
+        height: 83
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6e108882f40a60210800000000000000
+      internalID: 1298901804385829350
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: john_ball 1_12
+      rect:
+        serializedVersion: 2
+        x: 328
+        y: 249
+        width: 82
+        height: 83
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 996480e68e68edf10800000000000000
+      internalID: 2296421192842102425
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: john_ball 1_13
+      rect:
+        serializedVersion: 2
+        x: 410
+        y: 249
+        width: 82
+        height: 83
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9cdb953592ae3f830800000000000000
+      internalID: 4103881148677602761
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: john_ball 1_14
+      rect:
+        serializedVersion: 2
+        x: 492
+        y: 249
+        width: 82
+        height: 83
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5a29bd1acaf6bf6c0800000000000000
+      internalID: -4108567447804865883
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: john_ball 1_15
+      rect:
+        serializedVersion: 2
+        x: 574
+        y: 249
+        width: 82
+        height: 83
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d74bb07d685163c60800000000000000
+      internalID: 7797443473716262013
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: john_ball 1_16
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 166
+        width: 82
+        height: 83
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5d9b372c0bf4c3460800000000000000
+      internalID: 7222735522990635477
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: john_ball 1_17
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 166
+        width: 82
+        height: 83
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 436824eaf8856e1d0800000000000000
+      internalID: -3321870301011999180
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: john_ball 1_18
+      rect:
+        serializedVersion: 2
+        x: 164
+        y: 166
+        width: 82
+        height: 83
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0baca15780261d720800000000000000
+      internalID: 2869182226075667120
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: john_ball 1_19
+      rect:
+        serializedVersion: 2
+        x: 246
+        y: 166
+        width: 82
+        height: 83
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6e5a6575230342810800000000000000
+      internalID: 1739568348843648486
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: john_ball 1_20
+      rect:
+        serializedVersion: 2
+        x: 328
+        y: 166
+        width: 82
+        height: 83
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2a7ab83e6e86bd870800000000000000
+      internalID: 8708669645320333218
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: john_ball 1_21
+      rect:
+        serializedVersion: 2
+        x: 410
+        y: 166
+        width: 82
+        height: 83
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f35ed7e92f3c84750800000000000000
+      internalID: 6289492326431450431
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: john_ball 1_22
+      rect:
+        serializedVersion: 2
+        x: 492
+        y: 166
+        width: 82
+        height: 83
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9e5297328b7ae85c0800000000000000
+      internalID: -4211244192233871895
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: john_ball 1_23
+      rect:
+        serializedVersion: 2
+        x: 574
+        y: 166
+        width: 82
+        height: 83
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f93757c70480672e0800000000000000
+      internalID: -2128504700826979425
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: john_ball 1_24
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 83
+        width: 82
+        height: 83
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ad8c41e775297a600800000000000000
+      internalID: 479512789813348570
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: john_ball 1_25
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 83
+        width: 82
+        height: 83
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e27caa98f1947ae90800000000000000
+      internalID: -7014557494803773650
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: john_ball 1_26
+      rect:
+        serializedVersion: 2
+        x: 164
+        y: 83
+        width: 82
+        height: 83
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 08be0285d3597dfc0800000000000000
+      internalID: -3470140897161581696
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: john_ball 1_27
+      rect:
+        serializedVersion: 2
+        x: 246
+        y: 83
+        width: 82
+        height: 83
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c5239c48a4058dcf0800000000000000
+      internalID: -227343500196629924
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: john_ball 1_28
+      rect:
+        serializedVersion: 2
+        x: 328
+        y: 83
+        width: 82
+        height: 83
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 73c5bca2eae88ce90800000000000000
+      internalID: -7005192341681382345
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: john_ball 1_29
+      rect:
+        serializedVersion: 2
+        x: 410
+        y: 83
+        width: 82
+        height: 83
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 23fe68604d2576e40800000000000000
+      internalID: 5649575328155627314
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: john_ball 1_30
+      rect:
+        serializedVersion: 2
+        x: 492
+        y: 83
+        width: 82
+        height: 83
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9e7555a5523f779a0800000000000000
+      internalID: -6235247817316280343
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: john_ball 1_31
+      rect:
+        serializedVersion: 2
+        x: 574
+        y: 83
+        width: 82
+        height: 83
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 316a2166f996e4c429470b5c6b69772e
+      internalID: -1788868060
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: john_ball 1_32
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 82
+        height: 83
+      alignment: 9
+      pivot: {x: 0.6, y: 0.45}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7b6ff42b227b2254791ba5cd720b84c6
+      internalID: 2066699005
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: john_ball 1_33
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 0
+        width: 82
+        height: 83
+      alignment: 9
+      pivot: {x: 0.65, y: 0.45}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 61359061de46b0c4c8cca8ac5d895297
+      internalID: -419733814
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: john_ball 1_34
+      rect:
+        serializedVersion: 2
+        x: 164
+        y: 0
+        width: 82
+        height: 83
+      alignment: 9
+      pivot: {x: 0.65, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1664fb645af3d894f99da0a13ad4556b
+      internalID: 1937128040
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: john_ball 1_35
+      rect:
+        serializedVersion: 2
+        x: 247
+        y: 0
+        width: 82
+        height: 83
+      alignment: 9
+      pivot: {x: 0.67, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 63f3bb9f796edba43b25fe416522c136
+      internalID: -224788040
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: john_ball 1_36
+      rect:
+        serializedVersion: 2
+        x: 328
+        y: 0
+        width: 82
+        height: 83
+      alignment: 9
+      pivot: {x: 0.65, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f10d27efc74a8d14e8edb9c6af8fb888
+      internalID: -492279117
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: john_ball 1_37
+      rect:
+        serializedVersion: 2
+        x: 410
+        y: 0
+        width: 82
+        height: 83
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 13e23bc405b14e540b27f5427ab30941
+      internalID: -2141182590
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: john_ball 1_38
+      rect:
+        serializedVersion: 2
+        x: 492
+        y: 0
+        width: 82
+        height: 83
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 116c5b132954d4543801087459b233e8
+      internalID: -1710460139
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: john_ball 1_39
+      rect:
+        serializedVersion: 2
+        x: 574
+        y: 0
+        width: 82
+        height: 83
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c4d057d6aa445c34992b41f5eb46a473
+      internalID: 2109846789
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: ef03e88103bd0364d92358fdc49a95a1
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      john_ball 1_10: 1966716110579408321
+      john_ball 1_34: 1937128040
+      john_ball 1_15: 7797443473716262013
+      john_ball 1_12: 2296421192842102425
+      john_ball 1_22: -4211244192233871895
+      john_ball 1_5: -2387500991666930720
+      john_ball 1_18: 2869182226075667120
+      john_ball 1_2: 1514780463893931386
+      john_ball 1_13: 4103881148677602761
+      john_ball 1_33: -419733814
+      john_ball 1_8: -4784258896762356695
+      john_ball 1_20: 8708669645320333218
+      john_ball 1_6: -5760668343737806930
+      john_ball 1_0: -4030568321996104238
+      john_ball 1_3: -8454239036693121151
+      john_ball 1_4: 1369577032946896520
+      john_ball 1_24: 479512789813348570
+      john_ball 1_17: -3321870301011999180
+      john_ball 1_25: -7014557494803773650
+      john_ball 1_19: 1739568348843648486
+      john_ball 1_7: 4945980092330294272
+      john_ball 1_9: 8950579965802663929
+      john_ball 1_11: 1298901804385829350
+      john_ball 1_21: 6289492326431450431
+      john_ball 1_1: 8482709434647452022
+      john_ball 1_23: -2128504700826979425
+      john_ball 1_29: 5649575328155627314
+      john_ball 1_27: -227343500196629924
+      john_ball 1_35: -224788040
+      john_ball 1_36: -492279117
+      john_ball 1_28: -7005192341681382345
+      john_ball 1_38: -1710460139
+      john_ball 1_14: -4108567447804865883
+      john_ball 1_26: -3470140897161581696
+      john_ball 1_16: 7222735522990635477
+      john_ball 1_30: -6235247817316280343
+      john_ball 1_31: -1788868060
+      john_ball 1_32: 2066699005
+      john_ball 1_39: 2109846789
+      john_ball 1_37: -2141182590
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

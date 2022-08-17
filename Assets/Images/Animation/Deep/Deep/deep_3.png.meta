@@ -1,0 +1,1034 @@
+fileFormatVersion: 2
+guid: 5361e41151698a24f97a8d18f0ed8f53
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -2580590142223399399
+    second: deep_3_0
+  - first:
+      213: -2476686162393057836
+    second: deep_3_1
+  - first:
+      213: 8886012191968865512
+    second: deep_3_2
+  - first:
+      213: 5911233733693699288
+    second: deep_3_3
+  - first:
+      213: -6278498255996698146
+    second: deep_3_4
+  - first:
+      213: 1182128861530586240
+    second: deep_3_5
+  - first:
+      213: -5182789871872355045
+    second: deep_3_6
+  - first:
+      213: 4882622262155168010
+    second: deep_3_7
+  - first:
+      213: -7403960880024323500
+    second: deep_3_8
+  - first:
+      213: 4455271163726874182
+    second: deep_3_9
+  - first:
+      213: -809307665560345882
+    second: deep_3_10
+  - first:
+      213: 8289764165103557950
+    second: deep_3_11
+  - first:
+      213: -588858140979394336
+    second: deep_3_12
+  - first:
+      213: -2564025275663386021
+    second: deep_3_13
+  - first:
+      213: -4953886394593788839
+    second: deep_3_14
+  - first:
+      213: 6926265770269209582
+    second: deep_3_15
+  - first:
+      213: 244555123849340326
+    second: deep_3_16
+  - first:
+      213: 6575648852316355462
+    second: deep_3_17
+  - first:
+      213: 2207490816053779073
+    second: deep_3_18
+  - first:
+      213: 4013822383230817894
+    second: deep_3_19
+  - first:
+      213: -2752468124068127579
+    second: deep_3_20
+  - first:
+      213: -5097523228496386902
+    second: deep_3_21
+  - first:
+      213: -6916265390449063437
+    second: deep_3_22
+  - first:
+      213: -1345298291656831078
+    second: deep_3_23
+  - first:
+      213: 1117240908122950575
+    second: deep_3_24
+  - first:
+      213: 8900289970971352688
+    second: deep_3_25
+  - first:
+      213: 3583864668483611265
+    second: deep_3_26
+  - first:
+      213: 7165156469007188074
+    second: deep_3_27
+  - first:
+      213: 5815800864194968005
+    second: deep_3_28
+  - first:
+      213: 4850114729895195588
+    second: deep_3_29
+  - first:
+      213: 3077939024295391879
+    second: deep_3_30
+  - first:
+      213: 6129160928676720666
+    second: deep_3_31
+  - first:
+      213: -9003202888190420227
+    second: deep_3_32
+  - first:
+      213: -2483147162311843435
+    second: deep_3_33
+  - first:
+      213: -191053578735070304
+    second: deep_3_34
+  - first:
+      213: -9102789140874584551
+    second: deep_3_35
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 0
+  spriteMeshType: 0
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 1
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 0
+  alphaUsage: 0
+  alphaIsTransparency: 0
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: 4
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: 4
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: 4
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: 4
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: deep_3_0
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 321
+        width: 71
+        height: 68
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 91646ed20f6ef2cd0800000000000000
+      internalID: -2580590142223399399
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: deep_3_1
+      rect:
+        serializedVersion: 2
+        x: 119
+        y: 321
+        width: 60
+        height: 79
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4d5bf6eae0b01add0800000000000000
+      internalID: -2476686162393057836
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: deep_3_2
+      rect:
+        serializedVersion: 2
+        x: 231
+        y: 321
+        width: 68
+        height: 79
+      alignment: 9
+      pivot: {x: 0.4, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8ec281c2205715b70800000000000000
+      internalID: 8886012191968865512
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: deep_3_3
+      rect:
+        serializedVersion: 2
+        x: 330
+        y: 321
+        width: 93
+        height: 70
+      alignment: 9
+      pivot: {x: 0.3, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8d47e1103cbe80250800000000000000
+      internalID: 5911233733693699288
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: deep_3_4
+      rect:
+        serializedVersion: 2
+        x: 439
+        y: 321
+        width: 97
+        height: 56
+      alignment: 9
+      pivot: {x: 0.3, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ed14860e91b4ed8a0800000000000000
+      internalID: -6278498255996698146
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: deep_3_5
+      rect:
+        serializedVersion: 2
+        x: 550
+        y: 321
+        width: 93
+        height: 56
+      alignment: 9
+      pivot: {x: 0.3, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 08c7446bfe3c76010800000000000000
+      internalID: 1182128861530586240
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: deep_3_6
+      rect:
+        serializedVersion: 2
+        x: 663
+        y: 321
+        width: 49
+        height: 66
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b155e8532180318b0800000000000000
+      internalID: -5182789871872355045
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: deep_3_7
+      rect:
+        serializedVersion: 2
+        x: 777
+        y: 321
+        width: 47
+        height: 68
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a094c24041f82c340800000000000000
+      internalID: 4882622262155168010
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: deep_3_8
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 241
+        width: 51
+        height: 68
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 45af247bec8df3990800000000000000
+      internalID: -7403960880024323500
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: deep_3_9
+      rect:
+        serializedVersion: 2
+        x: 141
+        y: 241
+        width: 48
+        height: 57
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6464bf3b48d44dd30800000000000000
+      internalID: 4455271163726874182
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: deep_3_10
+      rect:
+        serializedVersion: 2
+        x: 231
+        y: 241
+        width: 88
+        height: 64
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6e2664057f2c4c4f0800000000000000
+      internalID: -809307665560345882
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: deep_3_11
+      rect:
+        serializedVersion: 2
+        x: 341
+        y: 241
+        width: 89
+        height: 64
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e3d92cc46982b0370800000000000000
+      internalID: 8289764165103557950
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: deep_3_12
+      rect:
+        serializedVersion: 2
+        x: 457
+        y: 241
+        width: 77
+        height: 69
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0e883d304a4f3d7f0800000000000000
+      internalID: -588858140979394336
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: deep_3_13
+      rect:
+        serializedVersion: 2
+        x: 785
+        y: 241
+        width: 76
+        height: 56
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b5af5f8b890ca6cd0800000000000000
+      internalID: -2564025275663386021
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: deep_3_14
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 161
+        width: 74
+        height: 62
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 95cb8982292404bb0800000000000000
+      internalID: -4953886394593788839
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: deep_3_15
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 164
+        width: 67
+        height: 73
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ee3f7d8650a0f1060800000000000000
+      internalID: 6926265770269209582
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: deep_3_16
+      rect:
+        serializedVersion: 2
+        x: 236
+        y: 165
+        width: 76
+        height: 71
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6a5aa05e695d46300800000000000000
+      internalID: 244555123849340326
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: deep_3_17
+      rect:
+        serializedVersion: 2
+        x: 356
+        y: 161
+        width: 55
+        height: 79
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 68b750abac5614b50800000000000000
+      internalID: 6575648852316355462
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: deep_3_18
+      rect:
+        serializedVersion: 2
+        x: 462
+        y: 165
+        width: 66
+        height: 72
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 18a92df833592ae10800000000000000
+      internalID: 2207490816053779073
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: deep_3_19
+      rect:
+        serializedVersion: 2
+        x: 569
+        y: 161
+        width: 70
+        height: 79
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6661cfff036f3b730800000000000000
+      internalID: 4013822383230817894
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: deep_3_20
+      rect:
+        serializedVersion: 2
+        x: 670
+        y: 161
+        width: 89
+        height: 79
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5ac555903d44dc9d0800000000000000
+      internalID: -2752468124068127579
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: deep_3_21
+      rect:
+        serializedVersion: 2
+        x: 785
+        y: 161
+        width: 76
+        height: 56
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aa4ab2ba1a5f149b0800000000000000
+      internalID: -5097523228496386902
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: deep_3_22
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 81
+        width: 49
+        height: 71
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3f984f5754d7400a0800000000000000
+      internalID: -6916265390449063437
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: deep_3_23
+      rect:
+        serializedVersion: 2
+        x: 110
+        y: 81
+        width: 52
+        height: 72
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a9fcad8d45a845de0800000000000000
+      internalID: -1345298291656831078
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: deep_3_24
+      rect:
+        serializedVersion: 2
+        x: 227
+        y: 81
+        width: 72
+        height: 69
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fab0431cfac318f00800000000000000
+      internalID: 1117240908122950575
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: deep_3_25
+      rect:
+        serializedVersion: 2
+        x: 330
+        y: 81
+        width: 78
+        height: 67
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 07e18b5a29e248b70800000000000000
+      internalID: 8900289970971352688
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: deep_3_26
+      rect:
+        serializedVersion: 2
+        x: 441
+        y: 81
+        width: 75
+        height: 64
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 18ae9088de17cb130800000000000000
+      internalID: 3583864668483611265
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: deep_3_27
+      rect:
+        serializedVersion: 2
+        x: 550
+        y: 81
+        width: 79
+        height: 63
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a60044f88dfbf6360800000000000000
+      internalID: 7165156469007188074
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: deep_3_28
+      rect:
+        serializedVersion: 2
+        x: 667
+        y: 81
+        width: 63
+        height: 68
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5c930c29210e5b050800000000000000
+      internalID: 5815800864194968005
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: deep_3_29
+      rect:
+        serializedVersion: 2
+        x: 790
+        y: 81
+        width: 36
+        height: 73
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4c3fa4b56a11f4340800000000000000
+      internalID: 4850114729895195588
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: deep_3_30
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 1
+        width: 88
+        height: 59
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 78270772c3907ba20800000000000000
+      internalID: 3077939024295391879
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: deep_3_31
+      rect:
+        serializedVersion: 2
+        x: 124
+        y: 2
+        width: 82
+        height: 58
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a10baf414672f0550800000000000000
+      internalID: 6129160928676720666
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: deep_3_32
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 1
+        width: 92
+        height: 59
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dfa93a89ca23e0380800000000000000
+      internalID: -9003202888190420227
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: deep_3_33
+      rect:
+        serializedVersion: 2
+        x: 556
+        y: 24
+        width: 102
+        height: 40
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5912269efc61a8dd0800000000000000
+      internalID: -2483147162311843435
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: deep_3_34
+      rect:
+        serializedVersion: 2
+        x: 667
+        y: 24
+        width: 101
+        height: 39
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0a3dd6a48cd395df0800000000000000
+      internalID: -191053578735070304
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: deep_3_35
+      rect:
+        serializedVersion: 2
+        x: 776
+        y: 15
+        width: 102
+        height: 49
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 91e13e841856ca180800000000000000
+      internalID: -9102789140874584551
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      deep_3_27: 7165156469007188074
+      deep_3_32: -9003202888190420227
+      deep_3_1: -2476686162393057836
+      deep_3_6: -5182789871872355045
+      deep_3_18: 2207490816053779073
+      deep_3_19: 4013822383230817894
+      deep_3_35: -9102789140874584551
+      deep_3_17: 6575648852316355462
+      deep_3_21: -5097523228496386902
+      deep_3_22: -6916265390449063437
+      deep_3_28: 5815800864194968005
+      deep_3_30: 3077939024295391879
+      deep_3_5: 1182128861530586240
+      deep_3_7: 4882622262155168010
+      deep_3_20: -2752468124068127579
+      deep_3_16: 244555123849340326
+      deep_3_29: 4850114729895195588
+      deep_3_31: 6129160928676720666
+      deep_3_3: 5911233733693699288
+      deep_3_23: -1345298291656831078
+      deep_3_0: -2580590142223399399
+      deep_3_14: -4953886394593788839
+      deep_3_15: 6926265770269209582
+      deep_3_34: -191053578735070304
+      deep_3_8: -7403960880024323500
+      deep_3_9: 4455271163726874182
+      deep_3_11: 8289764165103557950
+      deep_3_2: 8886012191968865512
+      deep_3_12: -588858140979394336
+      deep_3_33: -2483147162311843435
+      deep_3_4: -6278498255996698146
+      deep_3_25: 8900289970971352688
+      deep_3_24: 1117240908122950575
+      deep_3_10: -809307665560345882
+      deep_3_13: -2564025275663386021
+      deep_3_26: 3583864668483611265
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

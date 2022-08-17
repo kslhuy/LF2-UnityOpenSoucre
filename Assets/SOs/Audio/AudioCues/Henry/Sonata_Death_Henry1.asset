@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08e854ccd8588da4694c3ae040c10c5e, type: 3}
+  m_Name: Sonata_Death_Henry1
+  m_EditorClassIdentifier: 
+  looping: 0
+  _audioClipGroups:
+  - sequenceMode: 2
+    audioClips:
+    - {fileID: 8300000, guid: effd3432324f15441bd55789dbc926a7, type: 3}
+    - {fileID: 8300000, guid: 66a1c568221e82544981aa9143d26cd2, type: 3}
+    - {fileID: 8300000, guid: d3a6e8cd18b04a94284774fe328d3216, type: 3}
+    - {fileID: 8300000, guid: c31e5cab20587f44c8f5d81204440693, type: 3}

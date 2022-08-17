@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3738e70872773ee47a0621ce6d3c56e4, type: 3}
+  m_Name: Dennis
+  m_EditorClassIdentifier: 
+  m_Guid: c9cadc14986f094aad19168784952d54
+  CharacterClass: {fileID: 11400000, guid: fdb64e20d0f0d9549ac3b3e37296effa, type: 2}
+  Graphics: {fileID: 5307423579264072845, guid: 31cf675ebe7a00449bd7148e17ef04b7, type: 3}
+  GraphicsCharacterSelect: {fileID: 5307423579264072845, guid: 2ca03c50381f17a4eb44828d05723f69, type: 3}
+  Portrait: {fileID: 21300000, guid: fc7bd2e2c71d61b48acdc54a4e279ea6, type: 3}

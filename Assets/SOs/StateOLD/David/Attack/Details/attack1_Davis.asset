@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36e1d2499c49139479e0acbe3178ebb1, type: 3}
+  m_Name: attack1_Davis
+  m_EditorClassIdentifier: 
+  m_AnimationName: Attack1_anim
+  damageAmount: 10
+  Effect: 1
+  fall: 100
+  Bdefend: 20
+  arest: 0
+  vrest: 0
+  Dirxyz: {x: 100, y: 200, z: 0}
+  durration: 0
+  AnimationNameHash: -837999466

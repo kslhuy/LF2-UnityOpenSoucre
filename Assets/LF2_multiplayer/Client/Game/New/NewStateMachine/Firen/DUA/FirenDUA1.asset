@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4bdcd23e130f67145a8697a2f5d76838, type: 3}
+  m_Name: FirenDUA1
+  m_EditorClassIdentifier: 
+  StateType: 39
+  Logic: 3
+  UseMana: 1
+  ManaCost: -150
+  DamageDetails:
+  - {fileID: 11400000, guid: 6cb944f24f82e2e4596304f94081c5fa, type: 2}
+  Dx: 0
+  Dy: 0
+  Dz: 0
+  Projectiles: []
+  DurationSeconds: -1
+  expirable: 0
+  ReuseTimeSeconds: 0
+  ActionInterruptible: 0
+  Sounds: {fileID: 0}
+  delayLoopSound: 0
+  Start_Sounds:
+  - {fileID: 11400000, guid: e14351d842fa6ce47b791e77d479dcba, type: 2}
+  - {fileID: 11400000, guid: 2f1e7a0a47791814f9e131c43af5bea5, type: 2}
+  vizAnim: []
+  SpawnsFX:
+  - _Object: {fileID: 4477627029082403580, guid: c53141d982dfba242abfe24d19342328, type: 3}
+    pivot: {x: 10, y: 30, z: 0}

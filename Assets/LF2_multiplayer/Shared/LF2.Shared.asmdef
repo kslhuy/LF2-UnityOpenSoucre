@@ -1,0 +1,30 @@
+{
+    "name": "LF2.Shared",
+    "rootNamespace": "",
+    "references": [
+        "Unity.Netcode.Runtime",
+        "Unity.TextMeshPro",
+        "Unity.Collections",
+        "Unity.Services.Authentication",
+        "Unity.BossRoom.UnityServices",
+        "Unity.Services.Core",
+        "Unity.Services.Relay",
+        "Unity.Networking.Transport",
+        "Unity.Services.Lobbies",
+        "LF2.Utils",
+        "Unity.BossRoom.Infrastructure",
+        "Unity.Netcode.Components",
+        "Unity.Multiplayer.Samples.Utilities",
+        "Unity.BossRoom.ApplicationLifecycle.Messages",
+        "Unity.InputSystem"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

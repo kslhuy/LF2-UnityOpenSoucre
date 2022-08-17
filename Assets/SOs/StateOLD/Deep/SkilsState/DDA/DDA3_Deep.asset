@@ -1,0 +1,44 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58beba8069618df499690c32ca3bf74b, type: 3}
+  m_Name: DDA3_Deep
+  m_EditorClassIdentifier: 
+  StateType: 34
+  Logic: 0
+  ManaCost: 0
+  DamageDetails:
+  - {fileID: 11400000, guid: e8304f9836ee68249aad7582b34551be, type: 2}
+  Dx: 0
+  Dy: 0
+  Dz: 0
+  DurationSeconds: 0.6
+  expirable: 1
+  ReuseTimeSeconds: 0
+  Range_x: 0
+  Range_y: 0
+  Range_z: 0
+  ActionInterruptible: 0
+  vizAnim:
+  - AnimNames: DDA_1_anim
+    AnimHashId: -192548385
+  - AnimNames: DDA_2_anim
+    AnimHashId: 1913750385
+  - AnimNames: DDA_3_anim
+    AnimHashId: -1186115372
+  Projectiles:
+  - ProjectilePrefab: {fileID: 3165636493918647440, guid: e1e6fa40b644751498970cb113c8b0a1, type: 3}
+    Speed_m_s: 0
+    Range: 0
+    Damage: 0
+    MaxVictims: 0
+  SpawnsFX: []
+  Sounds: {fileID: 0}

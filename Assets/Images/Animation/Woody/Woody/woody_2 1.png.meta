@@ -1,0 +1,1384 @@
+fileFormatVersion: 2
+guid: 672fc5aaf14bb5646a7a718ef5c677a7
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 7212234366283444033
+    second: woody_2 1_0
+  - first:
+      213: -1353556487799840615
+    second: woody_2 1_1
+  - first:
+      213: 1077506778410068180
+    second: woody_2 1_2
+  - first:
+      213: -8204503230330449250
+    second: woody_2 1_3
+  - first:
+      213: 5109203453041075465
+    second: woody_2 1_4
+  - first:
+      213: 6986464003338449900
+    second: woody_2 1_5
+  - first:
+      213: 4049514873457501227
+    second: woody_2 1_6
+  - first:
+      213: -8236937482472941889
+    second: woody_2 1_7
+  - first:
+      213: -8775494809049235299
+    second: woody_2 1_8
+  - first:
+      213: 7775188735091637989
+    second: woody_2 1_9
+  - first:
+      213: 5404374283719424841
+    second: woody_2 1_10
+  - first:
+      213: 8425432576700689187
+    second: woody_2 1_11
+  - first:
+      213: 839475755296964156
+    second: woody_2 1_12
+  - first:
+      213: -4537699655258068962
+    second: woody_2 1_13
+  - first:
+      213: 4191030646814761294
+    second: woody_2 1_14
+  - first:
+      213: 4213211612714232051
+    second: woody_2 1_15
+  - first:
+      213: 3250530709521317056
+    second: woody_2 1_16
+  - first:
+      213: 7288544874469455515
+    second: woody_2 1_17
+  - first:
+      213: 8551024894695302595
+    second: woody_2 1_18
+  - first:
+      213: 7287359900025841714
+    second: woody_2 1_19
+  - first:
+      213: -7630358311704597168
+    second: woody_2 1_20
+  - first:
+      213: 5414727116805925915
+    second: woody_2 1_21
+  - first:
+      213: -3881948353336939730
+    second: woody_2 1_22
+  - first:
+      213: -5682304278088445234
+    second: woody_2 1_23
+  - first:
+      213: -2634041677041440563
+    second: woody_2 1_24
+  - first:
+      213: 4416535172725905453
+    second: woody_2 1_25
+  - first:
+      213: 1747002857897847181
+    second: woody_2 1_26
+  - first:
+      213: -6483010382322647319
+    second: woody_2 1_27
+  - first:
+      213: -4865518879156313728
+    second: woody_2 1_28
+  - first:
+      213: -5242364376149542323
+    second: woody_2 1_29
+  - first:
+      213: 2227517839727284750
+    second: woody_2 1_30
+  - first:
+      213: -2190850680255047533
+    second: woody_2 1_31
+  - first:
+      213: -6724985092063978410
+    second: woody_2 1_32
+  - first:
+      213: 8401892265733071806
+    second: woody_2 1_33
+  - first:
+      213: -9101558006222051346
+    second: woody_2 1_34
+  - first:
+      213: 5352929845524857873
+    second: woody_2 1_35
+  - first:
+      213: -6835677684620026928
+    second: woody_2 1_36
+  - first:
+      213: 3071673657152416901
+    second: woody_2 1_37
+  - first:
+      213: 5836435141394008215
+    second: woody_2 1_38
+  - first:
+      213: -351767285221055195
+    second: woody_2 1_39
+  - first:
+      213: 4773263130846610847
+    second: woody_2 1_40
+  - first:
+      213: -7257461161239232587
+    second: woody_2 1_41
+  - first:
+      213: -5942276011598808615
+    second: woody_2 1_42
+  - first:
+      213: -1853651173865795639
+    second: woody_2 1_43
+  - first:
+      213: 3981072884052125196
+    second: woody_2 1_44
+  - first:
+      213: -6684607607691033935
+    second: woody_2 1_45
+  - first:
+      213: -4057866165041295176
+    second: woody_2 1_46
+  - first:
+      213: 5654567536264897449
+    second: woody_2 1_47
+  - first:
+      213: -8633605340779844121
+    second: woody_2 1_48
+  - first:
+      213: 5145245225756658185
+    second: woody_2 1_49
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 0
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: woody_2 1_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 351
+        width: 80
+        height: 79
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 14f603fa1f0071460800000000000000
+      internalID: 7212234366283444033
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: woody_2 1_1
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 351
+        width: 80
+        height: 79
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 990e349bb83373de0800000000000000
+      internalID: -1353556487799840615
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: woody_2 1_2
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 351
+        width: 80
+        height: 79
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4d82532c4b214fe00800000000000000
+      internalID: 1077506778410068180
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: woody_2 1_3
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 351
+        width: 80
+        height: 79
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e92db9508cfb32e80800000000000000
+      internalID: -8204503230330449250
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: woody_2 1_4
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 351
+        width: 80
+        height: 79
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 90566b7887987e640800000000000000
+      internalID: 5109203453041075465
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: woody_2 1_5
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 351
+        width: 80
+        height: 79
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ce3ba03cef7e4f060800000000000000
+      internalID: 6986464003338449900
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: woody_2 1_6
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 351
+        width: 80
+        height: 79
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b2468197254c23830800000000000000
+      internalID: 4049514873457501227
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: woody_2 1_7
+      rect:
+        serializedVersion: 2
+        x: 560
+        y: 351
+        width: 80
+        height: 79
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fb69918300580bd80800000000000000
+      internalID: -8236937482472941889
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: woody_2 1_8
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 351
+        width: 80
+        height: 79
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d90065a37fd273680800000000000000
+      internalID: -8775494809049235299
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: woody_2 1_9
+      rect:
+        serializedVersion: 2
+        x: 720
+        y: 351
+        width: 80
+        height: 79
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5ee71c8b5f407eb60800000000000000
+      internalID: 7775188735091637989
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: woody_2 1_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 271
+        width: 80
+        height: 79
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 94b3a5607c1300b40800000000000000
+      internalID: 5404374283719424841
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: woody_2 1_11
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 271
+        width: 80
+        height: 79
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 32baf35e9462de470800000000000000
+      internalID: 8425432576700689187
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: woody_2 1_12
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 270
+        width: 80
+        height: 80
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c3e370070ca66ab00800000000000000
+      internalID: 839475755296964156
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: woody_2 1_13
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 270
+        width: 80
+        height: 80
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e182eee843ad601c0800000000000000
+      internalID: -4537699655258068962
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: woody_2 1_14
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 270
+        width: 80
+        height: 80
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e416b221b28892a30800000000000000
+      internalID: 4191030646814761294
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: woody_2 1_15
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 270
+        width: 80
+        height: 80
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3f8e163a3a5587a30800000000000000
+      internalID: 4213211612714232051
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: woody_2 1_16
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 270
+        width: 80
+        height: 80
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0cc348055743c1d20800000000000000
+      internalID: 3250530709521317056
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: woody_2 1_17
+      rect:
+        serializedVersion: 2
+        x: 560
+        y: 270
+        width: 80
+        height: 80
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b96fe3c62fc162560800000000000000
+      internalID: 7288544874469455515
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: woody_2 1_18
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 270
+        width: 80
+        height: 80
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3c5e5d126d75ba670800000000000000
+      internalID: 8551024894695302595
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: woody_2 1_19
+      rect:
+        serializedVersion: 2
+        x: 720
+        y: 270
+        width: 80
+        height: 80
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 238677f0837e12560800000000000000
+      internalID: 7287359900025841714
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: woody_2 1_20
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 191
+        width: 80
+        height: 79
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 05de5e9fa858b1690800000000000000
+      internalID: -7630358311704597168
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: woody_2 1_21
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 191
+        width: 80
+        height: 79
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b1c64e0df99f42b40800000000000000
+      internalID: 5414727116805925915
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: woody_2 1_22
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 191
+        width: 80
+        height: 79
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e2b60f24a8c802ac0800000000000000
+      internalID: -3881948353336939730
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: woody_2 1_23
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 191
+        width: 80
+        height: 79
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ec21bde7d566421b0800000000000000
+      internalID: -5682304278088445234
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: woody_2 1_24
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 190
+        width: 80
+        height: 80
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dc8ee5cec01027bd0800000000000000
+      internalID: -2634041677041440563
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: woody_2 1_25
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 190
+        width: 80
+        height: 80
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d28985cf65faa4d30800000000000000
+      internalID: 4416535172725905453
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: woody_2 1_26
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 190
+        width: 80
+        height: 80
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d89e79ed7d99e3810800000000000000
+      internalID: 1747002857897847181
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: woody_2 1_27
+      rect:
+        serializedVersion: 2
+        x: 560
+        y: 190
+        width: 80
+        height: 80
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9ee3d7ed768b706a0800000000000000
+      internalID: -6483010382322647319
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: woody_2 1_28
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 190
+        width: 80
+        height: 80
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0816ee7ab543a7cb0800000000000000
+      internalID: -4865518879156313728
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: woody_2 1_29
+      rect:
+        serializedVersion: 2
+        x: 720
+        y: 190
+        width: 80
+        height: 80
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d4ab17800616f37b0800000000000000
+      internalID: -5242364376149542323
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: woody_2 1_30
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 111
+        width: 79
+        height: 79
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e025acf5cabb9ee10800000000000000
+      internalID: 2227517839727284750
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: woody_2 1_31
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 111
+        width: 79
+        height: 79
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3989977f9e88891e0800000000000000
+      internalID: -2190850680255047533
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: woody_2 1_32
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 111
+        width: 79
+        height: 79
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 65c9ab370bd0ca2a0800000000000000
+      internalID: -6724985092063978410
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: woody_2 1_33
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 110
+        width: 79
+        height: 80
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eb32f142084899470800000000000000
+      internalID: 8401892265733071806
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: woody_2 1_34
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 110
+        width: 80
+        height: 80
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ee7a5882735c0b180800000000000000
+      internalID: -9101558006222051346
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: woody_2 1_35
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 110
+        width: 80
+        height: 80
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 114881e555d694a40800000000000000
+      internalID: 5352929845524857873
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: woody_2 1_36
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 110
+        width: 80
+        height: 80
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0db9821ec5bc221a0800000000000000
+      internalID: -6835677684620026928
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: woody_2 1_37
+      rect:
+        serializedVersion: 2
+        x: 560
+        y: 110
+        width: 80
+        height: 80
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 58cae70bae6c0aa20800000000000000
+      internalID: 3071673657152416901
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: woody_2 1_38
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 110
+        width: 80
+        height: 80
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 798856d96de2ff050800000000000000
+      internalID: 5836435141394008215
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: woody_2 1_39
+      rect:
+        serializedVersion: 2
+        x: 720
+        y: 110
+        width: 80
+        height: 80
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 525abc094854e1bf0800000000000000
+      internalID: -351767285221055195
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: woody_2 1_40
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 30
+        width: 79
+        height: 79
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f95c49517890e3240800000000000000
+      internalID: 4773263130846610847
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: woody_2 1_41
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 30
+        width: 79
+        height: 79
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5bf34298681584b90800000000000000
+      internalID: -7257461161239232587
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: woody_2 1_42
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 30
+        width: 79
+        height: 80
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9d9f353737bc88da0800000000000000
+      internalID: -5942276011598808615
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: woody_2 1_43
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 30
+        width: 80
+        height: 80
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9cf4e3414128646e0800000000000000
+      internalID: -1853651173865795639
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: woody_2 1_44
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 30
+        width: 80
+        height: 80
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c06edd602bc9f3730800000000000000
+      internalID: 3981072884052125196
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: woody_2 1_45
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 30
+        width: 80
+        height: 80
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1b2c3b02cc08b33a0800000000000000
+      internalID: -6684607607691033935
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: woody_2 1_46
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 30
+        width: 80
+        height: 80
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8b013aee8309fa7c0800000000000000
+      internalID: -4057866165041295176
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: woody_2 1_47
+      rect:
+        serializedVersion: 2
+        x: 560
+        y: 30
+        width: 80
+        height: 80
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9a3668d073f097e40800000000000000
+      internalID: 5654567536264897449
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: woody_2 1_48
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 30
+        width: 80
+        height: 80
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7ede6e37fa54f2880800000000000000
+      internalID: -8633605340779844121
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: woody_2 1_49
+      rect:
+        serializedVersion: 2
+        x: 720
+        y: 30
+        width: 80
+        height: 80
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 90a008ba545976740800000000000000
+      internalID: 5145245225756658185
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 41e4ebb060ec9ef4391d329363ea99b8
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      woody_2 1_36: -6835677684620026928
+      woody_2 1_42: -5942276011598808615
+      woody_2 1_4: 5109203453041075465
+      woody_2 1_48: -8633605340779844121
+      woody_2 1_22: -3881948353336939730
+      woody_2 1_8: -8775494809049235299
+      woody_2 1_20: -7630358311704597168
+      woody_2 1_30: 2227517839727284750
+      woody_2 1_34: -9101558006222051346
+      woody_2 1_5: 6986464003338449900
+      woody_2 1_12: 839475755296964156
+      woody_2 1_24: -2634041677041440563
+      woody_2 1_28: -4865518879156313728
+      woody_2 1_10: 5404374283719424841
+      woody_2 1_40: 4773263130846610847
+      woody_2 1_9: 7775188735091637989
+      woody_2 1_15: 4213211612714232051
+      woody_2 1_25: 4416535172725905453
+      woody_2 1_16: 3250530709521317056
+      woody_2 1_29: -5242364376149542323
+      woody_2 1_31: -2190850680255047533
+      woody_2 1_23: -5682304278088445234
+      woody_2 1_21: 5414727116805925915
+      woody_2 1_17: 7288544874469455515
+      woody_2 1_45: -6684607607691033935
+      woody_2 1_2: 1077506778410068180
+      woody_2 1_14: 4191030646814761294
+      woody_2 1_26: 1747002857897847181
+      woody_2 1_6: 4049514873457501227
+      woody_2 1_13: -4537699655258068962
+      woody_2 1_37: 3071673657152416901
+      woody_2 1_11: 8425432576700689187
+      woody_2 1_3: -8204503230330449250
+      woody_2 1_49: 5145245225756658185
+      woody_2 1_44: 3981072884052125196
+      woody_2 1_1: -1353556487799840615
+      woody_2 1_38: 5836435141394008215
+      woody_2 1_7: -8236937482472941889
+      woody_2 1_35: 5352929845524857873
+      woody_2 1_19: 7287359900025841714
+      woody_2 1_43: -1853651173865795639
+      woody_2 1_0: 7212234366283444033
+      woody_2 1_46: -4057866165041295176
+      woody_2 1_33: 8401892265733071806
+      woody_2 1_32: -6724985092063978410
+      woody_2 1_41: -7257461161239232587
+      woody_2 1_47: 5654567536264897449
+      woody_2 1_18: 8551024894695302595
+      woody_2 1_27: -6483010382322647319
+      woody_2 1_39: -351767285221055195
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d00db604305c1a43889b127e0d11d53, type: 3}
+  m_Name: AvatarRegistry
+  m_EditorClassIdentifier: 
+  m_Avatars:
+  - {fileID: 11400000, guid: 404c4a0fd8567de4d8dabcee42368d9f, type: 2}
+  - {fileID: 11400000, guid: bb28687302d83d1449b27108ecf3b655, type: 2}
+  - {fileID: 11400000, guid: 22d4591159532d447bff34912680ff1f, type: 2}
+  - {fileID: 11400000, guid: 26028bc7a1aba7e49b307f2df7eb1aad, type: 2}
+  - {fileID: 11400000, guid: 1943d77437f48b646a95babc7ad3c8a3, type: 2}
+  - {fileID: 11400000, guid: 9fa0f2316db33c244b8f0ff8c0d1a575, type: 2}
+  - {fileID: 11400000, guid: 3f35fc9275ced3d46a244281299e3a89, type: 2}
+  - {fileID: 11400000, guid: 7b9636a50e8fc5044a25fcb3caba4cb9, type: 2}
+  - {fileID: 11400000, guid: 58160c547e93eec44aa8bcb357f9e278, type: 2}
+  - {fileID: 11400000, guid: 5adc9f24f613def4b9860f99fe5139ef, type: 2}
+  - {fileID: 11400000, guid: abeeed540f4419a418a1ccd68d5c6749, type: 2}

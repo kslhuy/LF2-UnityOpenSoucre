@@ -1,0 +1,15 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="True">
+    <uie:EnumField label="Character" value="Center" name="typeCharacter" binding-path="CharacterType" />
+    <ui:VisualElement name="attack" style="height: 38px; flex-grow: 1;">
+        <ui:Label text="Attack Logic" display-tooltip-when-elided="true" style="border-left-color: rgb(149, 137, 137); border-right-color: rgb(149, 137, 137); border-top-color: rgb(149, 137, 137); border-bottom-color: rgb(149, 137, 137); border-left-width: 3px; border-right-width: 3px; border-top-width: 3px; border-bottom-width: 3px; flex-direction: column; justify-content: flex-start; align-items: flex-end; white-space: nowrap; -unity-text-align: upper-center;" />
+    </ui:VisualElement>
+    <ui:VisualElement name="movemnt" style="height: 38px; flex-grow: 1;">
+        <ui:Label text="Movement Logic" display-tooltip-when-elided="true" style="border-left-color: rgb(149, 137, 137); border-right-color: rgb(149, 137, 137); border-top-color: rgb(149, 137, 137); border-bottom-color: rgb(149, 137, 137); border-left-width: 3px; border-right-width: 3px; border-top-width: 3px; border-bottom-width: 3px; flex-direction: column; justify-content: flex-start; align-items: flex-end; white-space: nowrap; -unity-text-align: upper-center;" />
+    </ui:VisualElement>
+    <ui:VisualElement name="hurt" style="height: 38px; flex-grow: 1;">
+        <ui:Label text="Hurt Logic" display-tooltip-when-elided="true" style="border-left-color: rgb(149, 137, 137); border-right-color: rgb(149, 137, 137); border-top-color: rgb(149, 137, 137); border-bottom-color: rgb(149, 137, 137); border-left-width: 3px; border-right-width: 3px; border-top-width: 3px; border-bottom-width: 3px; flex-direction: column; justify-content: flex-start; align-items: flex-end; white-space: nowrap; -unity-text-align: upper-center;" />
+    </ui:VisualElement>
+    <ui:VisualElement name="special" style="height: 38px; flex-grow: 1;">
+        <ui:Label text="Special Logic" display-tooltip-when-elided="true" style="border-left-color: rgb(149, 137, 137); border-right-color: rgb(149, 137, 137); border-top-color: rgb(149, 137, 137); border-bottom-color: rgb(149, 137, 137); border-left-width: 3px; border-right-width: 3px; border-top-width: 3px; border-bottom-width: 3px; flex-direction: column; justify-content: flex-start; align-items: flex-end; white-space: nowrap; -unity-text-align: upper-center;" />
+    </ui:VisualElement>
+</ui:UXML>

@@ -1,0 +1,21 @@
+{
+    "name": "LF2.Client",
+    "rootNamespace": "",
+    "references": [
+        "Unity.Netcode.Runtime",
+        "Cinemachine",
+        "Unity.TextMeshPro",
+        "LF2.Shared",
+        "Unity.InputSystem",
+        "LF2.Utils"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

@@ -1,0 +1,65 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - GameNetPortal
+  - HitBox
+  - HurtBox
+  - HeroActionBar
+  - RunSlotUI
+  - DefenseUI
+  - UpSlotUI
+  - PartyHUD
+  - AttackUI
+  - JumpUI
+  - Joystick
+  - DownSlotUI
+  - Wall
+  - Ground
+  - WallRight
+  - WallLeft
+  - Dummy
+  - Projectile
+  - ClientSelectState
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - HitBox
+  - Water
+  - UI
+  - PCs
+  - Ground
+  - NPCs
+  - Wall
+  - HurtBox
+  - Interaction
+  - Projectile
+  - Shadow
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: Top
+    uniqueID: 4170948059
+    locked: 0

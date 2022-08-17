@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: fedd3377cce8c634dbcb8e11b0c79bb8
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - RZ Musashi
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 9804d72af202fa34fb206dc7b2eb2b4c, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
