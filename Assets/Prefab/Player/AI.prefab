@@ -7,6 +7,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 168493202262108771, guid: 687160c7cfd6cd748877c28fe515d9c6, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 405412423302776698, guid: 687160c7cfd6cd748877c28fe515d9c6, type: 3}
       propertyPath: m_CharacterClass
       value: 
@@ -71,8 +75,7 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 0}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 687160c7cfd6cd748877c28fe515d9c6, type: 3}
 --- !u!114 &2672975597524765248 stripped
 MonoBehaviour:
@@ -116,7 +119,6 @@ MonoBehaviour:
   ScaleThreshold: 0.01
   InLocalSpace: 0
   Interpolate: 1
-  CanCommitToTransform: 0
 --- !u!114 &9117809403509319353
 MonoBehaviour:
   m_ObjectHideFlags: 0

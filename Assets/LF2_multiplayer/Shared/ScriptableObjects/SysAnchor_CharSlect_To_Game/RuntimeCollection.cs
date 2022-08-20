@@ -34,5 +34,10 @@ namespace LF2
                 ItemRemoved?.Invoke(item);
             }
         }
+
+        public void RemoveALL()
+        {
+            Items = new List<T>();
+        }
     }
 }

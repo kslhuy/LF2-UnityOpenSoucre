@@ -7,21 +7,41 @@ namespace LF2.Client
     {
         [Tooltip("All CharacterClass data should be slotted in here")]
         [SerializeField]
-        // [ExtendEditorSOs]
         private CharacterClass[] m_CharacterData;
 
         [SerializeField] 
-        // [ExtendEditorSOs]
-
         private CharacterStateSOs[] m_CharacterStateSOs; //All CharacterClass Skills 
 
+        [SerializeField] 
+        private StateActionAI_SO[] m_StateActionAI_SOs;
 
+        private Dictionary<CharacterTypeEnum, StateActionAI_SO> m_StateActionAIMap;
+
+        public Dictionary<CharacterTypeEnum, StateActionAI_SO> StateActionAIByType
+        {
+            get
+            {
+                if( m_StateActionAIMap == null )
+                {
+                    m_StateActionAIMap = new Dictionary<CharacterTypeEnum, StateActionAI_SO>();
+                    foreach (StateActionAI_SO data in m_StateActionAI_SOs)
+                    {
+                        if( m_StateActionAIMap.ContainsKey(data.CharacterType))
+                        {
+                            throw new System.Exception($"Duplicate AIState definition detected in : {data.CharacterType}");
+                        }
+                        m_StateActionAIMap[data.CharacterType] = data;
+                    }
+                }
+                return m_StateActionAIMap;
+            }
+        }
+
+        
         // Huy
         private Dictionary<CharacterTypeEnum, CharacterClass> m_CharacterDataMap;
 
         private Dictionary<CharacterTypeEnum, CharacterStateSOs> m_CharacterStateDataMap;
-
-
 
 
         /// <summary>
@@ -70,7 +90,6 @@ namespace LF2.Client
             }
     }
 
-        public int BackGround;
         public Transform pfDamagePopup;
 
 

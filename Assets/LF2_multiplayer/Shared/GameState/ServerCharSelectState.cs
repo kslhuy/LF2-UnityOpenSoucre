@@ -75,13 +75,13 @@ namespace LF2.Server
         {
             if (BackGroundSelectData.LobbyModeChange.Value == LobbyMode.ChooseAI){
                 // Now only Host can change (select) champ for BOT 
-                
                 if ( CharSelectData.IsLobbyClosed.Value == true){ return;}
 
 
 
                 int idxBOT = FindBotIdx();
-                Debug.Log(idxBOT);
+                Debug.Log( idxBOT + teamType);
+                // Debug.Log(idxBOT);
                 CharSelectData.LobbyBOTs[idxBOT] = new CharSelectData.LobbyPlayerState(clientId,
                 CharSelectData.LobbyBOTs[idxBOT].PlayerName,
                 CharSelectData.LobbyBOTs[idxBOT].PlayerNumber,
@@ -106,36 +106,10 @@ namespace LF2.Server
             }
 
 
-            // if (CharSelectData.IsLobbyClosed.Value)
-            // {
-            //     // The user tried to change their class after (all player was locked or in process Chose BackGround)... too late! Discard this choice
-            //     return;
-            // }
 
-            // if ( newSeatIdx ==-1)
-            // {
-            //     // we can't lock in with no seat
-            //     lockedIn = false;
-            // }
-            // else
-            // {
-            //     // see if someone has already locked-in that seat! If so, too late... discard this choice
-            //     foreach (CharSelectData.LobbyPlayerState playerInfo in CharSelectData.LobbyPlayers)
-            //     {
-            //         if (playerInfo.ClientId != clientId && playerInfo.SeatIdx == newSeatIdx && playerInfo.SeatState == CharSelectData.SeatState.LockedIn)
-            //         {
-            //             // somebody already locked this choice in. Stop!
-            //             // Instead of granting lock request, change this player to Inactive state.
-            //             CharSelectData.LobbyPlayers[idx] = new CharSelectData.LobbyPlayerState(clientId,
-            //                 CharSelectData.LobbyPlayers[idx].PlayerName,
-            //                 CharSelectData.LobbyPlayers[idx].PlayerNumber,
-            //                 CharSelectData.SeatState.Inactive);
 
-            //             // then early out
-            //             return;
-            //         }
-            //     }
-            // }
+            // if alredy lock the champ
+            if (CharSelectData.LobbyPlayers[idx].SeatState == CharSelectData.SeatState.LockedIn || CharSelectData.IsLobbyClosed.Value) return;
 
             // Logic normal : Update   LobbyPlayerState
             CharSelectData.LobbyPlayers[idx] = new CharSelectData.LobbyPlayerState(clientId,
@@ -146,29 +120,10 @@ namespace LF2.Server
                 newChampId
                 );
 
-            // if (lockedIn)
-            // {
-            //     // to help the clients visually keep track of who's in what seat, we'll "kick out" any other players
-            //     // who were also in that seat. (Those players didn't click "Ready!" fast enough, somebody else took their seat!)
-            //     for (int i = 0; i < CharSelectData.LobbyPlayers.Count; ++i)
-            //     {
-            //         if (CharSelectData.LobbyPlayers[i].SeatIdx == newSeatIdx && i != idx)
-            //         {
-            //             // change this player to Inactive state.
-            //             CharSelectData.LobbyPlayers[i] = new CharSelectData.LobbyPlayerState(
-            //                 CharSelectData.LobbyPlayers[i].ClientId,
-            //                 CharSelectData.LobbyPlayers[i].PlayerName,
-            //                 CharSelectData.LobbyPlayers[i].PlayerNumber,
-            //                 CharSelectData.SeatState.Inactive);
-            //         }
-            //     }
-            // }
 
             /// Check if , we lock in the whole lobby, begin to ChooseState
             GotoBackGroundChooseState();
-            // BackGroundSelectData.IsChooseBackGround.Value = true;
 
-            // CloseLobby();
         }
 
 
@@ -202,7 +157,7 @@ namespace LF2.Server
             if (nbBot > 0){
                 // Creat Data For BOT 
                 for (int i = 0 ; i <nbBot; ++i  ){
-                    CharSelectData.LobbyBOTs.Add(new CharSelectData.LobbyPlayerState(((ulong)i), "Com " + (i).ToString(), i, CharSelectData.SeatState.Inactive));
+                    CharSelectData.LobbyBOTs.Add(new CharSelectData.LobbyPlayerState(NetworkManager.ServerClientId, "Com " + (i).ToString(), i, CharSelectData.SeatState.Inactive));
                 }
                 for (int bot = 0; bot <nbBot; ++bot)
                 {
@@ -362,6 +317,26 @@ namespace LF2.Server
                         persistentPlayer.NetworkNameState.Team.Value = playerInfo.PlayerTeam;
                 }
             }
+
+            // foreach (CharSelectData.LobbyPlayerState botInfo in CharSelectData.LobbyBOTs)
+            // {
+            //     // Find Object in SpawnManager ( in scene StartUp clicked to GameObject NetworkManager look to see in Inspector)
+            //     var playerNetworkObject = NetworkManager.Singleton.SpawnManager.GetPlayerNetworkObject(NetworkManager.ServerClientId);
+
+            //     if (playerNetworkObject && playerNetworkObject.TryGetComponent(out PersistentPlayer persistentPlayer))
+            //     {
+            //         // pass avatar GUID to PersistentPlayer
+            //             // CharSelectData.AvatarByHero.TryGetValue(m_PlayerSeats[seatIdx].NameChampion,out avatar);
+            //             if (!CharSelectData.AvatarByHero.TryGetValue(botInfo.PlayerChamp , out Avatar avatar)){
+            //                 Debug.LogError("Dont Have BOT Avatar for " + botInfo.PlayerChamp);
+            //                 return ; 
+            //             }
+
+            //             persistentPlayer.NetworkAvatarGuidState.AvatarGuid.Value = avatar.Guid.ToNetworkGuid();
+            //             persistentPlayer.NetworkNameState.Name.Value = botInfo.PlayerName;
+            //             persistentPlayer.NetworkNameState.Team.Value = botInfo.PlayerTeam;
+            //     }
+            // }
   
         }
 
@@ -462,6 +437,8 @@ namespace LF2.Server
                 // Debug.Log("player Name " + playerData.PlayerName);
                 CharSelectData.LobbyPlayers.Add(new CharSelectData.LobbyPlayerState(clientId, playerData.PlayerName, playerData.PlayerNumber, CharSelectData.SeatState.Inactive));
                 // !!! TO remark IMPORTANCE :  Here we update and save the lastest  SessionPlayerData for the use later (to use in another scene (LF2 Scene))  
+                
+                // Not very true : but the ideal is ok 
                 SessionManager<SessionPlayerData>.Instance.SetPlayerData(clientId, playerData);
             }
         }

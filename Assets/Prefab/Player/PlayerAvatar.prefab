@@ -249,7 +249,8 @@ GameObject:
   - component: {fileID: 4344797016811615346}
   - component: {fileID: 4589008937821555167}
   - component: {fileID: 1035333018358682408}
-  - component: {fileID: 722575175157266149}
+  - component: {fileID: 1111743685124986254}
+  - component: {fileID: 5425611408127249896}
   m_Layer: 6
   m_Name: PlayerAvatar
   m_TagString: Player
@@ -481,7 +482,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 37.8, y: 69.86781, z: 18}
   m_Center: {x: 2.6000004, y: 35.581093, z: 0}
---- !u!114 &722575175157266149
+--- !u!114 &1111743685124986254
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -490,11 +491,24 @@ MonoBehaviour:
   m_GameObject: {fileID: 2808402712987922594}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 36ce127d5e0cd0f4dbcee736068ca583, type: 3}
+  m_Script: {fileID: 11500000, guid: f156150d8f0802e4eae4de97e12eca31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Team:
-    m_InternalValue: 0
+  m_AvatarRegistry: {fileID: 11400000, guid: cd92c35a99fc45748b8c2d6c8259f45e, type: 2}
+--- !u!114 &5425611408127249896
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2808402712987922594}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 010e3a58ccb6ff8488355d8c0dc12fac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_NetworkAvatarGuidState: {fileID: 1111743685124986254}
+  m_GraphicsAnimator: {fileID: 8994507685575570671}
 --- !u!1 &2940818776946575046
 GameObject:
   m_ObjectHideFlags: 0
@@ -959,8 +973,6 @@ MonoBehaviour:
   TriangleUI: {fileID: 7393748053180896842}
   StateChange_After_Timer: 1
   m_StateToPlay: 0
-  intensity: 10
-  duration: 0.2
 --- !u!1 &7901046818739658897
 GameObject:
   m_ObjectHideFlags: 0

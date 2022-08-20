@@ -33,7 +33,8 @@ namespace LF2
 
         public override void OnNetworkSpawn()
         {
-            gameObject.name = "PersistentPlayer" + OwnerClientId;
+            
+            gameObject.name = "PersistentPlayer " + OwnerClientId;
 
             // Note that this is done here on OnNetworkSpawn in case this NetworkBehaviour's properties are accessed
             // when this element is added to the runtime collection. If this was done in OnEnable() there is a chance

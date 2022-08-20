@@ -202,20 +202,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_NetworkCharacter: {fileID: 7919260112464046542}
   stateToPlay: 0
---- !u!114 &-6243877197108578202
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2573736595463811199}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 010e3a58ccb6ff8488355d8c0dc12fac, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_NetworkAvatarGuidState: {fileID: 347362513543914694}
-  m_GraphicsAnimator: {fileID: 8762920458361828402}
 --- !u!114 &-3736518892904485738
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -242,19 +228,6 @@ MonoBehaviour:
   ScaleThreshold: 0.1
   InLocalSpace: 0
   Interpolate: 1
---- !u!114 &347362513543914694
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2573736595463811199}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f156150d8f0802e4eae4de97e12eca31, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_AvatarRegistry: {fileID: 11400000, guid: cd92c35a99fc45748b8c2d6c8259f45e, type: 2}
 --- !u!114 &3283648269564326659
 MonoBehaviour:
   m_ObjectHideFlags: 0

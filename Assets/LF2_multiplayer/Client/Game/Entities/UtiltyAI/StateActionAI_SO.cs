@@ -12,6 +12,7 @@ namespace LF2.Client{
         // public StateAction[] A_AttackAvaillable;
         // public StateAction[] A_MoveAvaillable; 
         // StateType[] values = null;
+        public CharacterTypeEnum CharacterType;
         public StateActionDebug[] A_AttackAvaillable;
         public StateActionDebug[] A_MoveAvaillable;
 

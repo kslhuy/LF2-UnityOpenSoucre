@@ -10,27 +10,27 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4adb72a0c832cf743ba31d5204d6feb1, type: 3}
-  m_Name: DeepDummy
+  m_Name: Henry_AI
   m_EditorClassIdentifier: 
-  CharacterType: 0
-  BaseHP: {fileID: 11400000, guid: c6dae3af55c463a4683ed42ab223afd2, type: 2}
-  BaseMana: {fileID: 0}
+  CharacterType: 3
+  BaseHP: {fileID: 11400000, guid: 2baa6c439fd2f30458deff943a248fcb, type: 2}
+  BaseMP: {fileID: 11400000, guid: f75b082b4ce2c13479268a9db2635e25, type: 2}
   BaseAmor: 0
   BaseFall: 0
   BaseBdefense: 0
   NbJump: 0
-  walking_speed: 3
-  walking_speedz: 3
-  running_speed: 3
-  running_speed_z: 2
-  jump_distance: 3
-  jump_height_z: 5.5
-  doublejump_distance: 3.5
-  doublejump_height_z: 4
+  walking_speed: 100
+  walking_speedz: 100
+  running_speed: 250
+  running_speed_z: 10
+  jump_distance: 300
+  jump_height: 450
+  doublejump_distance: 450
+  doublejump_height: 220
   dash_height: 0
   dash_distance: 0
   dash_distance_z: 0
-  rolling_distance: 2
+  rolling_speed: 300
   IsNpc: 1
   DetectRange: 0
   DisplayedName: 

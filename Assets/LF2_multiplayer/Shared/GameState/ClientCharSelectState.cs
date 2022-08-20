@@ -83,11 +83,21 @@ namespace LF2.Client
 
 
 
-        private CharacterTypeEnum m_LastChampSelected = 0;
+        private List<CharacterTypeEnum> m_LastChampSelected = new List<CharacterTypeEnum>(4){
+            CharacterTypeEnum.Deep,
+            CharacterTypeEnum.Deep,
+            CharacterTypeEnum.Deep,
+            CharacterTypeEnum.Deep,
+        } ;
         private TeamType m_LastTeamSelected = 0;
 
         private int m_LastIndexBOTUpdateUI ;
         private CharacterTypeEnum m_LastTeamBOTSelected = 0;
+
+        private int _numberPlayerInLobby ; 
+
+        private int _localPlayerIdx ;
+
 
 
         private bool m_HasLocalPlayerLockedIn = false;
@@ -135,21 +145,23 @@ namespace LF2.Client
         protected override void Start()
         {
             base.Start();
-
-            for (int i = 0; i < CharSelectData.LobbyPlayers.Count; ++i)
+            _numberPlayerInLobby = CharSelectData.LobbyPlayers.Count; 
+            // Debug.Log("number player " + _numberPlayerInLobby);
+            for (int i = 0; i <_numberPlayerInLobby ; ++i)
             {
                 //  Avatar UI + ( name , team of the player ) (visual)
-                int localPlayerIdx = -1;
+                _localPlayerIdx = -1;
                 if (CharSelectData.LobbyPlayers[i].ClientId == NetworkManager.Singleton.LocalClientId)
                 {
-                    localPlayerIdx = i;
-                    m_UIAvatarInfoBox[localPlayerIdx].Initialize(CharSelectData.LobbyPlayers[localPlayerIdx].PlayerName , localPlayerIdx );
-                    
+                    _localPlayerIdx = i;
+                    Debug.Log("local player " + _localPlayerIdx);
+
                 }
+                m_UIAvatarInfoBox[i].Initialize(CharSelectData.LobbyPlayers[i].PlayerName , i );
+                m_LastChampSelected[i] = CharSelectData.LobbyPlayers[i].PlayerChamp;
             }
 
             ConfigureUIForLobbyMode(LobbyMode.ChooseChamp);
-            UpdateCharacterSelection(CharSelectData.SeatState.Inactive);
         }
         public override void OnNetworkSpawn()
 
@@ -213,13 +225,13 @@ namespace LF2.Client
         }
 
         // Update bao nhieu player trong lobby
-        private void UpdatePlayerCount(int numberPlayer)
+        private void UpdatePlayerCount()
         {
             int count = CharSelectData.LobbyPlayers.Count;
             var pstr = (count > 1) ? "players" : "player";
             m_NumPlayersText.text = "<b>" + count + "</b> " + pstr +" connected";
 
-            m_UIAvatarInfoBox[numberPlayer].Initialize(CharSelectData.LobbyPlayers[numberPlayer].PlayerName , numberPlayer );
+
 
 
         }
@@ -231,14 +243,15 @@ namespace LF2.Client
                 if (CharSelectData.LobbyBOTs[i].SeatState == CharSelectData.SeatState.LockedIn && m_LastIndexBOTUpdateUI <= i ){
                     // Last index is locked , but not update UI 
                     // So do it
-                    UpdateBOTSelection(CharSelectData.LobbyBOTs[i].SeatState, currentIdxBOT,CharSelectData.LobbyBOTs[i].PlayerChamp,CharSelectData.LobbyBOTs[i].PlayerTeam);
+                    UpdateCharacterSelection(CharSelectData.LobbyBOTs[i].SeatState, currentIdxBOT,CharSelectData.LobbyBOTs[i].PlayerChamp,CharSelectData.LobbyBOTs[i].PlayerTeam);
                     m_LastIndexBOTUpdateUI += 1;
                 }
-                else 
+                else if (CharSelectData.LobbyBOTs[i].SeatState != CharSelectData.SeatState.LockedIn)
                 {
                     currentIdxBOT = i;
                     break;
                 }
+                else currentIdxBOT = -1;
             }
 
 
@@ -246,7 +259,7 @@ namespace LF2.Client
             if (currentIdxBOT == -1) return;
             
             // we have a seat! Note that if our seat is LockedIn, this function will also switch the lobby mode
-            UpdateBOTSelection(CharSelectData.LobbyBOTs[currentIdxBOT].SeatState, currentIdxBOT,CharSelectData.LobbyBOTs[currentIdxBOT].PlayerChamp,CharSelectData.LobbyBOTs[currentIdxBOT].PlayerTeam);
+            UpdateCharacterSelection(CharSelectData.LobbyBOTs[currentIdxBOT].SeatState, currentIdxBOT,CharSelectData.LobbyBOTs[currentIdxBOT].PlayerChamp,CharSelectData.LobbyBOTs[currentIdxBOT].PlayerTeam);
             
 
         }
@@ -258,41 +271,33 @@ namespace LF2.Client
         /// </summary>
         private void OnLobbyPlayerStateChanged(NetworkListEvent<CharSelectData.LobbyPlayerState> changeEvent)
         {
-            // UpdateSeats();
-
+            
             // now let's find our local player in the list and update the character/info box appropriately
-            int localPlayerIdx = -1;
+            
             for (int i = 0; i < CharSelectData.LobbyPlayers.Count; ++i)
             {
                 if (CharSelectData.LobbyPlayers[i].ClientId == NetworkManager.Singleton.LocalClientId)
                 {
-                    localPlayerIdx = i;
-                    break;
+                    _localPlayerIdx = i;
+                    // Debug.Log(localPlayerIdx);
+                    UpdateCharacterSelection(CharSelectData.LobbyPlayers[i].SeatState, CharSelectData.LobbyPlayers[i].PlayerNumber,CharSelectData.LobbyPlayers[i].PlayerChamp,CharSelectData.LobbyPlayers[i].PlayerTeam);
+                    if (CharSelectData.LobbyPlayers[i].SeatState == CharSelectData.SeatState.LockedIn && !m_HasLocalPlayerLockedIn)
+                    {
+                        // the local player has locked in their seat choice! Rearrange the UI appropriately
+                        // the character should act excited
+                        ConfigureUIForLobbyMode(CharSelectData.IsLobbyClosed.Value ? LobbyMode.LobbyEnding : LobbyMode.ChampChosen);
+                        m_HasLocalPlayerLockedIn = true;
+                    }
+
+                }
+                else {
+                    UpdateCharacterSelection(CharSelectData.LobbyPlayers[i].SeatState, CharSelectData.LobbyPlayers[i].PlayerNumber,CharSelectData.LobbyPlayers[i].PlayerChamp,CharSelectData.LobbyPlayers[i].PlayerTeam);
                 }
             }
-            UpdatePlayerCount(localPlayerIdx);
-
-            // case ERROR (dont care much)
-            if (localPlayerIdx == -1)
-            {
-                // we aren't currently participating in the lobby!
-                // this can happen for various reasons, such as the lobby being full and us not getting a seat.
-                UpdateCharacterSelection(CharSelectData.SeatState.Inactive);
-            }
+            // Debug.Log("local Player IDX change " + localPlayerIdx);
+            UpdatePlayerCount();
             
-            // else if (CharSelectData.LobbyPlayers[localPlayerIdx].SeatState == CharSelectData.SeatState.Inactive)
-            // {
-            //     // we haven't chosen a seat yet (or were kicked out of our seat by someone else)
-            //     // Debug.Log("Inactive");
-            //     UpdateCharacterSelection(CharSelectData.SeatState.Inactive);
-            //     // make sure our player num is properly set in Lobby UI
-            //     OnAssignedPlayerNumber(CharSelectData.LobbyPlayers[localPlayerIdx].PlayerNumber);
-            // }
-            else
-            {
-                // we have a seat! Note that if our seat is LockedIn, this function will also switch the lobby mode
-                UpdateCharacterSelection(CharSelectData.LobbyPlayers[localPlayerIdx].SeatState, CharSelectData.LobbyPlayers[localPlayerIdx].PlayerNumber,CharSelectData.LobbyPlayers[localPlayerIdx].PlayerChamp,CharSelectData.LobbyPlayers[localPlayerIdx].PlayerTeam);
-            }
+
         }
 
         /// <summary>
@@ -303,135 +308,37 @@ namespace LF2.Client
         /// <param name="champ">Which champ we're choose in</param>
         private void UpdateCharacterSelection(CharSelectData.SeatState state, int playerNumber = -1,CharacterTypeEnum champ = 0 , TeamType teamType = 0)
         {
-            bool isNewChamp = m_LastChampSelected != champ;
-            bool isNewTeam = m_LastTeamSelected != teamType;
-
-            m_LastChampSelected = champ;
-            m_LastTeamSelected = teamType;
-
-            // Bat dau chon champion
-            // if (state == CharSelectData.SeatState.Inactive)
-            // {
-            //     // Debug.Log("Inactive");
-            //     if (m_CurrentCharacterGraphics)
-            //     {
-            //         m_CurrentCharacterGraphics.SetActive(false);
-            //     }
-
-            //     // m_UIAvatarInfoBox.ConfigureForNoSelection();
-            // }
-
-            // else
-            // {
-
-                // change character preview when selecting a new seat
-                if (isNewChamp)
-                {
-                    // Lay thong tin champion
-                    
-                    // CharSelectData.AvatarByHero.TryGetValue(m_PlayerSeats[seatIdx].NameChampion,out avatar);
-                    // Debug.Log(avatar.CharacterClass.CharacterType); 
-                    Avatar newChamp =  CharSelectData.AvatarByHero[champ];
-                    // var selectedCharacterGraphics = GetCharacterGraphics(newChamp, playerNumber);
-
-                    // if (m_CurrentCharacterGraphics)
-                    // {
-                    //     m_CurrentCharacterGraphics.SetActive(false);
-                    // }
-
-                    // selectedCharacterGraphics.SetActive(true);
-                    // m_CurrentCharacterGraphics = selectedCharacterGraphics;
-
-                    m_UIAvatarInfoBox[playerNumber].ShowCharacterGraphic(newChamp);
-
-                    // m_CurrentCharacterGraphicsAnimator = m_CurrentCharacterGraphics.GetComponent<Animator>();
-                    // Debug.Log("player number " + playerNumber);
-                    m_UIAvatarInfoBox[playerNumber].ConfigureForChampion(newChamp.Portrait,newChamp.CharacterClass);
-                }
-            
-                if (isNewTeam){
-                    m_UIAvatarInfoBox[playerNumber].ConfigureNewTeam(teamType);
-                }
-
-
-                if (state == CharSelectData.SeatState.LockedIn && !m_HasLocalPlayerLockedIn)
-                {
-                    // the local player has locked in their seat choice! Rearrange the UI appropriately
-                    // the character should act excited
-                    ConfigureUIForLobbyMode(CharSelectData.IsLobbyClosed.Value ? LobbyMode.LobbyEnding : LobbyMode.ChampChosen);
-                    m_HasLocalPlayerLockedIn = true;
-                }
-
-
-            // }
-        }
-
-
-        private void UpdateBOTSelection(CharSelectData.SeatState state, int playerNumber = -1,CharacterTypeEnum champ = 0 , TeamType teamType = 0)
-        {
-            Debug.Log(playerNumber);
-            bool isNewChamp = m_LastChampSelected != champ;
-            bool isNewTeam = m_LastTeamSelected != teamType;
-
-            m_LastChampSelected = champ;
-            m_LastTeamSelected = teamType;
-
-            // Bat dau chon champion
-            if (state == CharSelectData.SeatState.Inactive )
-            {
-                Debug.Log("Inactive");
-                m_UIAvatarInfoBox[playerNumber].NotShowCharacterGraphic();
-
-            }
-            
             if (playerNumber == -1) return;
-                // change character preview when selecting a new seat
-                if (isNewChamp)
-                {
-                    // Lay thong tin champion
-                    
-                    Avatar newChamp =  CharSelectData.AvatarByHero[champ];
-                    m_UIAvatarInfoBox[playerNumber].ShowCharacterGraphic(newChamp);
-                    m_UIAvatarInfoBox[playerNumber].ConfigureForChampion(newChamp.Portrait,newChamp.CharacterClass);
-                }
-            
-                if (isNewTeam){
-                    m_UIAvatarInfoBox[playerNumber].ConfigureNewTeam(teamType);
-                }
-                
+            bool isNewChamp = m_LastChampSelected[playerNumber] != champ;
+            bool isNewTeam = m_LastTeamSelected != teamType;
 
 
-            
+        
+
+            // change character preview when selecting a new seat
+            if (isNewChamp)
+            {
+                m_LastChampSelected[playerNumber] = champ;
+
+                // Lay thong tin champion
+
+                Avatar newChamp =  CharSelectData.AvatarByHero[champ];
+
+
+                m_UIAvatarInfoBox[playerNumber].ShowCharacterGraphic(newChamp);
+
+                // m_CurrentCharacterGraphicsAnimator = m_CurrentCharacterGraphics.GetComponent<Animator>();
+                // Debug.Log("player number " + playerNumber);
+                m_UIAvatarInfoBox[playerNumber].ConfigureForChampion(newChamp.Portrait,newChamp.CharacterClass);
+            }
+        
+            if (isNewTeam){
+                m_LastTeamSelected = teamType;
+                m_UIAvatarInfoBox[playerNumber].ConfigureNewTeam(teamType);
+            }
+        
         }
 
-        /// <summary>
-        /// Internal utility that sets the graphics for the eight lobby-seats (based on their current networked state)
-        /// </summary>
-        // private void UpdateSeats()
-        // {
-        //     // Players can hop between seats -- and can even SHARE seats -- while they're choosing a class.
-        //     // Once they have chosen their class (by "locking in" their seat), other players in that seat are kicked out.
-        //     // But until a seat is locked in, we need to display each seat as being used by the latest player to choose it.
-        //     // So we go through all players and figure out who should visually be shown as sitting in that seat.
-        //     CharSelectData.LobbyPlayerState[] curSeats = new CharSelectData.LobbyPlayerState[m_PlayerSeats.Count];
-        //     foreach (CharSelectData.LobbyPlayerState playerState in CharSelectData.LobbyPlayers)
-        //     {
-        //         if (playerState.SeatIdx == -1 || playerState.SeatState == CharSelectData.SeatState.Inactive)
-        //             continue; // this player isn't seated at all!
-        //         if (    curSeats[playerState.SeatIdx].SeatState == CharSelectData.SeatState.Inactive
-        //             || (curSeats[playerState.SeatIdx].SeatState == CharSelectData.SeatState.Active && curSeats[playerState.SeatIdx].LastChangeTime < playerState.LastChangeTime))
-        //         {
-        //             // this is the best candidate to be displayed in this seat (so far)
-        //             curSeats[playerState.SeatIdx] = playerState;
-        //         }
-        //     }
-
-        //     // now actually update the seats in the UI
-        //     for (int i = 0; i < m_PlayerSeats.Count; ++i)
-        //     {
-        //         m_PlayerSeats[i].SetState(curSeats[i].SeatState, curSeats[i].PlayerNumber, curSeats[i].PlayerName);
-        //     }
-        // }
 
         private void StateChoseBackGround(bool previousValue, bool newValue)
         {
@@ -487,15 +394,7 @@ namespace LF2.Client
             switch (mode)
             {
                 case LobbyMode.ChooseChamp:
-                    // if ( m_LastChampSelected == -1)
-                    // {
-                    //     if (m_CurrentCharacterGraphics)
-                    //     {
-                    //         m_CurrentCharacterGraphics.gameObject.SetActive(false);
-                    //     }
-                    //     // m_UIAvatarInfoBox.ConfigureForNoSelection();
-                    //     // m_BackGroundBox.ConfigureForNoSelection();
-                    // }
+
                     m_BackGroundBox.ConfigureForNoSelection();
                     m_ReadyButtonText.text = "Lock!";
                     break;
@@ -549,21 +448,13 @@ namespace LF2.Client
                     // m_UIAvatarInfoBox.ConfigureForNoSelection();
                     break;
             }
-            
-            // go through all our seats and enable or disable buttons
-            // LockUIPlayerSeats.Invoke(isSeatsDisabledInThisMode , Cha);
-            // foreach (var seat in m_PlayerSeats)
-            // {
-            //     // disable interaction if seat is already locked or all seats disabled
-            //     seat.SetDisableInteraction(seat.IsLocked() || isSeatsDisabledInThisMode);
-            // }
 
         }
 
         #region Call Back Function from event unity (Button UI) 
-        public void OnPlayerClickedTeamType(TeamType teamType)
+        public void OnPlayerClickedTeamType(TeamType teamType , int playerIndex)
         {
-            CharSelectData.ChangeSomeThingServerRpc(NetworkManager.Singleton.LocalClientId,m_LastChampSelected , teamType, false);
+            CharSelectData.ChangeSomeThingServerRpc(NetworkManager.Singleton.LocalClientId,m_LastChampSelected[playerIndex] , teamType, false);
         }
         /// <summary>
         /// Called directly by UI elements!
@@ -581,10 +472,10 @@ namespace LF2.Client
         {
             // request to lock in or unlock if already locked in
             if ( BackGroundSelectData.LobbyModeChange.Value == LobbyMode.ChooseAI) {
-                CharSelectData.ChangeSomeThingServerRpc(NetworkManager.Singleton.LocalClientId, m_LastChampSelected,m_LastTeamSelected, !m_HasLocalBOTLockedIn );
+                CharSelectData.ChangeSomeThingServerRpc(NetworkManager.Singleton.LocalClientId, m_LastChampSelected[_localPlayerIdx],m_LastTeamSelected, true );
                 return;
             }
-            CharSelectData.ChangeSomeThingServerRpc(NetworkManager.Singleton.LocalClientId, m_LastChampSelected,m_LastTeamSelected, !m_HasLocalPlayerLockedIn );
+            CharSelectData.ChangeSomeThingServerRpc(NetworkManager.Singleton.LocalClientId, m_LastChampSelected[_localPlayerIdx],m_LastTeamSelected, true );
         }
 
         
@@ -613,17 +504,6 @@ namespace LF2.Client
 
 
 
-        // /// <summary>
-        // /// Called directly by UI elements!
-        // /// </summary>
-        // public void OnPlayerExit()
-        // {
-        //     // Player is leaving the group
-        //     // first disconnect then return to menu
-        //     var gameNetPortal = GameObject.FindGameObjectWithTag("GameNetPortal").GetComponent<GameNetPortal>();
-        //     gameNetPortal.RequestDisconnect();
-        //     SceneManager.LoadScene("MainMenu");
-        // }
         #endregion
                       
                       
@@ -645,18 +525,6 @@ namespace LF2.Client
             return characterGraphics;
         }
 
-// #if UNITY_EDITOR
-//         private void OnValidate()
-//         {
-//             if (gameObject.scene.rootCount > 1) // Hacky way for checking if this is a scene object or a prefab instance and not a prefab definition.
-//             {
-//                 while (m_PlayerSeats.Count < CharSelectData.k_MaxLobbyPlayers)
-//                 {
-//                     m_PlayerSeats.Add(null);
-//                 }
-//             }
-//         }
-// #endif
 
     }
 }

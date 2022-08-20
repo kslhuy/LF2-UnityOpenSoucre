@@ -137,6 +137,11 @@ namespace LF2.Client
             m_TeamTMP.text = teamType.ToString();
         }
 
+        public void SetAvatarSetAvatarUI (Sprite portrait , TeamType teamType){
+            m_ActiveImage.sprite = portrait;
+            m_TeamTMP.text = teamType.ToString();
+        }
+
         
         public GameObject GetCharacterGraphics(Avatar avatar )
         {
@@ -201,7 +206,7 @@ namespace LF2.Client
 
         public void OnButtonTeamTypeChanged(){
             m_teamType = Next(m_teamType);
-            ClientCharSelectState.Instance.OnPlayerClickedTeamType(m_teamType);
+            ClientCharSelectState.Instance.OnPlayerClickedTeamType(m_teamType , m_playerNumber);
         }
 
         #endregion
