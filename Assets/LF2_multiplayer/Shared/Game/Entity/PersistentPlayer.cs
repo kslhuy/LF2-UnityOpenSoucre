@@ -13,11 +13,13 @@ namespace LF2
     {
         [SerializeField]
         PersistentPlayerRuntimeCollection m_PersistentPlayerRuntimeCollection;
+        [SerializeField]
+        private PersistentBOTRuntimeCollection m_PersistentBOTRuntimeCollection; 
 
+        public PersistentBOTRuntimeCollection PersistentBOT => m_PersistentBOTRuntimeCollection;
+        
         [SerializeField]
         NetworkNameState m_NetworkNameState;
-
-
 
         [SerializeField]
         NetworkAvatarGuidState m_NetworkAvatarGuidState;
@@ -25,6 +27,8 @@ namespace LF2
         public NetworkNameState NetworkNameState => m_NetworkNameState;
 
         public NetworkAvatarGuidState NetworkAvatarGuidState => m_NetworkAvatarGuidState;
+
+        public int BackGroundNumber;
 
         void Awake()
         {
@@ -54,6 +58,14 @@ namespace LF2
             }
         }
 
+        public void AddPersistentBotData(PersistentBOT dataBOT){
+            m_PersistentBOTRuntimeCollection.Add(dataBOT);
+        }
+
+        public int HowManyBOTData(){
+            return m_PersistentBOTRuntimeCollection.Items.Count  ;
+        }
+
         public override void OnDestroy()
         {
             base.OnDestroy();
@@ -68,6 +80,7 @@ namespace LF2
         void RemovePersistentPlayer()
         {
             m_PersistentPlayerRuntimeCollection.Remove(this);
+            m_PersistentBOTRuntimeCollection.RemoveALL();
             // Double Set Data for ensure we have this 
             if (IsServer)
             {

@@ -47,16 +47,17 @@ namespace LF2.Client{
         public override void PlayAnim( int nbanim = 1 , bool sequence = false)
         {
             base.PlayAnim();
-            stateMachineFX.m_ClientVisual.NormalAnimator.Play("Empty_anim");
-            stateMachineFX.m_ClientVisual.InjuryAnimator.Play(stateData.vizAnim[nbanim-1].AnimHashId);
+            stateMachineFX.m_ClientVisual.NormalAnimator.Play(stateMachineFX.m_ClientVisual.VizAnimation.a_Empty);
+            stateMachineFX.m_ClientVisual.InjuryAnimator.Play(stateMachineFX.m_ClientVisual.VizAnimation.a_Hurt_1);
         }
 
         public override void PlayPredictState(int nbAniamtion = 1, bool sequen = false)
         {
             // Client Send to Server  =>>>  Server know what state Client is =>>  Server propagate to all others players (except this client (who send))).
+            // This case can be unfairly for The Clients , Beacause this can only perform on HOST 
+             
             if (stateMachineFX.m_ClientVisual.CanCommit) {
-
-                stateMachineFX.m_ClientVisual.m_NetState.AddPredictState_and_SyncServerRpc(GetId());
+            stateMachineFX.m_ClientVisual.m_NetState.AddPredictState_and_SyncServerRpc(GetId());
             }
             PlayAnim();
         }

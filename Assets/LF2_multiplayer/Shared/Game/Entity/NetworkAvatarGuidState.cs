@@ -14,7 +14,8 @@ namespace LF2
         [HideInInspector]
         // Use full , for save GUID and Use in between scene 
         //  From that GUID , we can extrait data from SessionPlayerData 
-        public NetworkVariable<NetworkGuid> AvatarGuid = new NetworkVariable<NetworkGuid>();
+        public NetworkVariable<NetworkGuid> AvatarGuid = new NetworkVariable<NetworkGuid>();        
+            
 
         CharacterClassContainer m_CharacterClassContainer;
 
@@ -67,8 +68,8 @@ namespace LF2
             }
 
             m_Avatar = avatar;
-
-            m_CharacterClassContainer.SetCharacterClass(avatar.CharacterClass);
+            if (gameObject.layer == LayerMask.NameToLayer("PCs"))         m_CharacterClassContainer.SetCharacterClass(avatar.CharacterClass);
+            else m_CharacterClassContainer.SetCharacterClass(avatar.CharacterClassNPC);
         }
     }
 }

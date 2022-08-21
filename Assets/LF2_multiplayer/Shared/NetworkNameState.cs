@@ -13,6 +13,7 @@ namespace LF2
         public NetworkVariable<FixedPlayerName> Name = new NetworkVariable<FixedPlayerName>();
         [HideInInspector]
         public NetworkVariable<TeamType> Team = new NetworkVariable<TeamType>();
+
     }
 
     /// <summary>

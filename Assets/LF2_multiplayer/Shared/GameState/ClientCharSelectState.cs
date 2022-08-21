@@ -517,7 +517,6 @@ namespace LF2.Client
                 
 
                 characterGraphics = Instantiate(avatar.GraphicsCharacterSelect, m_UIAvatarInfoBox[playerNumber].TransformMiniSpawn);
-                // characterGraphics = Instantiate(avatar.Graphics, m_CharacterGraphicsParent);
 
                 m_SpawnedCharacterGraphics.Add(avatar.Guid, characterGraphics);
             }

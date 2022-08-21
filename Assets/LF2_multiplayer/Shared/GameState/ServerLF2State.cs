@@ -35,7 +35,7 @@ namespace LF2.Server
         private Transform[] m_PlayerSpawnPoints;
 
         private List<Transform> m_PlayerSpawnPointsList = null;
-        private List<Transform> m_BOTSpawnPointsList = null;
+        // private List<Transform> m_BOTSpawnPointsList = null;
 
 
         public override GameState ActiveState { get { return GameState.LF2_Net; } }
@@ -104,7 +104,7 @@ namespace LF2.Server
                 {
                     SpawnPlayer(kvp.Key, false);
                 }
-                // SpawnBOT(NetworkManager.ServerClientId , false);
+                SpawnBOT(NetworkManager.ServerClientId , false);
                 return true;
             }
             return false;
@@ -236,9 +236,9 @@ namespace LF2.Server
         {
             Transform spawnPoint = null;
 
-            if (m_BOTSpawnPointsList == null || m_BOTSpawnPointsList.Count == 0)
+            if (m_PlayerSpawnPointsList == null || m_PlayerSpawnPointsList.Count == 0)
             {
-                m_BOTSpawnPointsList = new List<Transform>(m_BOTSpawnPointsList);
+                m_PlayerSpawnPointsList = new List<Transform>(m_PlayerSpawnPoints);
             }
 
             Debug.Assert(m_PlayerSpawnPointsList.Count > 0,
@@ -249,52 +249,49 @@ namespace LF2.Server
             m_PlayerSpawnPointsList.RemoveAt(index);
 
             var botNetworkObject = NetworkManager.Singleton.SpawnManager.GetPlayerNetworkObject(clientId);
+            
 
-            var newBOT = Instantiate(m_BOTPrefab, Vector3.zero, Quaternion.identity);
 
-            var newBOTCharacter = newBOT.GetComponent<ServerCharacter>();
-
-            var physicsTransform = newBOTCharacter.physicsWrapper.Transform;
-
-            if (spawnPoint != null)
-            {
-                physicsTransform.SetPositionAndRotation(spawnPoint.position, spawnPoint.rotation);
-            }
 
             var persistentPlayerExists = botNetworkObject.TryGetComponent(out PersistentPlayer persistentPlayer);
             Assert.IsTrue(persistentPlayerExists,
                 $"Matching persistent PersistentPlayer for client {clientId} not found!");
 
-            // pass character type from persistent player to avatar
-            var networkAvatarGuidStateExists =
-                newBOT.TryGetComponent(out NetworkAvatarGuidState networkAvatarGuidState);
 
-            Assert.IsTrue(networkAvatarGuidStateExists,
-                $"NetworkCharacterGuidState not found on player avatar!");
+            if( persistentPlayer.HowManyBOTData() > 0 ){
+                for (int b = 0; b < persistentPlayer.HowManyBOTData(); b++ ){
+                    var newBOT = Instantiate(m_BOTPrefab, Vector3.zero, Quaternion.identity);
+                    var newBOTCharacter = newBOT.GetComponent<ServerCharacter>();
 
-            // if reconnecting, set the player's position and rotation to its previous state
-            if (lateJoin)
-            {
-                SessionPlayerData? sessionPlayerData = SessionManager<SessionPlayerData>.Instance.GetPlayerData(clientId);
-                if (sessionPlayerData is { HasCharacterSpawned: true })
-                {
-                    physicsTransform.SetPositionAndRotation(sessionPlayerData.Value.PlayerPosition, sessionPlayerData.Value.PlayerRotation);
+                    var physicsTransform = newBOTCharacter.physicsWrapper.Transform;
+                    if (spawnPoint != null)
+                    {
+                        physicsTransform.SetPositionAndRotation(spawnPoint.position, spawnPoint.rotation);
+                    }
+                    var networkAvatarGuidStateExists =
+                        newBOT.TryGetComponent(out NetworkAvatarGuidState networkAvatarGuidState);
+
+                    Assert.IsTrue(networkAvatarGuidStateExists,
+                        $"NetworkCharacterGuidState not found on player avatar!");
+                    networkAvatarGuidState.AvatarGuid.Value =
+                        persistentPlayer.PersistentBOT.Items[b].NetworkAvatarGuid;
+
+                    // pass name from persistent player to avatar
+                    if (newBOT.TryGetComponent(out NetworkNameState networkNameState))
+                    {
+                        networkNameState.Name.Value = persistentPlayer.PersistentBOT.Items[b].Name;
+                        Debug.Log("Network Team " + persistentPlayer.NetworkNameState.Team.Value);
+                        networkNameState.Team.Value = persistentPlayer.PersistentBOT.Items[b].TeamType;
+                    }
+
+                    // spawn players characters with destroyWithScene = true
+                    newBOT.SpawnWithOwnership(clientId, true);
                 }
             }
+            // pass character type from persistent player to avatar
 
-            networkAvatarGuidState.AvatarGuid.Value =
-                persistentPlayer.NetworkAvatarGuidState.AvatarGuid.Value;
 
-            // pass name from persistent player to avatar
-            if (newBOT.TryGetComponent(out NetworkNameState networkNameState))
-            {
-                networkNameState.Name.Value = persistentPlayer.NetworkNameState.Name.Value;
-                Debug.Log("Network Team " + persistentPlayer.NetworkNameState.Team.Value);
-                networkNameState.Team.Value = persistentPlayer.NetworkNameState.Team.Value;
-            }
 
-            // spawn players characters with destroyWithScene = true
-            newBOT.SpawnWithOwnership(clientId, true);
         }
 
 

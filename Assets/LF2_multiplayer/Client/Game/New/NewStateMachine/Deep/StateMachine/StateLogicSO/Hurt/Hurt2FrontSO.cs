@@ -46,8 +46,8 @@ namespace LF2.Client{
         public override void PlayAnim( int nbanim = 1 , bool sequence = false)
         {
             base.PlayAnim();
-            stateMachineFX.m_ClientVisual.NormalAnimator.Play("Empty_anim");
-            stateMachineFX.m_ClientVisual.InjuryAnimator.Play(stateData.vizAnim[nbanim-1].AnimHashId);
+            stateMachineFX.m_ClientVisual.NormalAnimator.Play(stateMachineFX.m_ClientVisual.VizAnimation.a_Empty);
+            stateMachineFX.m_ClientVisual.InjuryAnimator.Play(stateMachineFX.m_ClientVisual.VizAnimation.a_Hurt_2_Front);
         }
 
         public override void PlayPredictState(int nbAniamtion = 1, bool sequen = false)

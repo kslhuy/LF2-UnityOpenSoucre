@@ -29,7 +29,7 @@ namespace LF2.Client{
         void LateUpdate() {
             if (Ground == null){
                 Ground = Gounded();
-                Debug.Log(Ground.position);
+                // Debug.Log(Ground.position);
                 return;
             }
             transform.position  = new Vector3(physicsWrapper.Transform.position.x,Ground.position.y+PivotGround, physicsWrapper.Transform.position.z);

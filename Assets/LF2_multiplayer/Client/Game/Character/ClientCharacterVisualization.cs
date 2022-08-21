@@ -186,23 +186,11 @@ namespace LF2.Client
                     TriangleUI.color = Color.green;
                                         
                 }
-                // else {
-                //     // Only if not owner of input  
-                //     // m_NetState.InputSendBack += OnActionInput;
-                //     m_NetState.InputMoveSendBack += PerformInputMove;
-                //     m_NetState.StateDataSync += PerformSyncStateFX;
 
-
-                // }
             }
             // AI stuff
             else{
-                // if (m_NetState.IsOwnedByServer){
-                //     m_aiBrain = GetComponentInParent<AIBrain>();
-                //     m_aiBrain.ActionInputEvent += OnActionInput;
-                //     m_aiBrain.ActionMoveInputEvent += PerformInputMove;
 
-                // }
                 
                     m_aiBrain = GetComponentInParent<AIBrain>();
                     m_aiBrain.ActionInputEvent += OnActionInput;
@@ -214,7 +202,6 @@ namespace LF2.Client
 
             }
             if (!m_NetState.IsOwner){
-                m_NetState.InputMoveSendBack += PerformInputMove;
                 m_NetState.StateDataSync += PerformSyncStateFX;
                 TriangleUI.color = Color.red;
             }
@@ -394,13 +381,13 @@ namespace LF2.Client
 
         }
 
-        public bool IsDamageable()
-        {
-            return m_NetState.LifeState == LifeState.Alive;
-        }
         public int MPRemain()
         {
             return m_NetState.MPPoints;
+        }
+        public bool IsDamageable()
+        {
+            return m_NetState.LifeState == LifeState.Alive;
         }
 
         public StateType GetStateType()

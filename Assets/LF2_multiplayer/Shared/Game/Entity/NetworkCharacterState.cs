@@ -17,19 +17,19 @@ namespace LF2
     /// Contains all NetworkVariables and RPCs of a character. This component is present on both client and server objects.
     /// </summary>
     [RequireComponent(typeof(NetworkStaticsPoints), typeof(NetworkLifeState))]
-    public class NetworkCharacterState : NetworkBehaviour, ITargetable , INetMovement
+    public class NetworkCharacterState : NetworkBehaviour, ITargetable 
     {
 
 
-        public void InitNetworkPositionAndRotationY(Vector3 initPosition, float initRotationY)
-        {
-            NetworkPos_RotY.Value = new NetStatePackage {
-                Position = initPosition,
-                RotationY = (int) initRotationY,
-            };        
-        }
+        // public void InitNetworkPositionAndRotationY(Vector3 initPosition, float initRotationY)
+        // {
+        //     NetworkPos_RotY.Value = new NetStatePackage {
+        //         Position = initPosition,
+        //         RotationY = (int) initRotationY,
+        //     };        
+        // }
 
-        public NetworkVariable<NetStatePackage> NetworkPos_RotY{ get; } = new NetworkVariable<NetStatePackage>();
+        public NetworkVariable<short> NetworkRotY{ get; } = new NetworkVariable<short>();
 
 
 

@@ -96,7 +96,6 @@ namespace LF2.Client{
 
         private int k_WallLayerMask;
         [SerializeField] private float extraYCheckGround = 0f;
-        private const float m_LerpTime = 0.1f;
 
         private Vector3 _boundExtents =>  m_BoxCollider.bounds.extents;
         private Vector3 _boundCenter =>  m_BoxCollider.bounds.center;
@@ -133,13 +132,20 @@ namespace LF2.Client{
 
             CanCommitToTransform =  IsOwner ;
 
+            m_MovementSource.NetworkRotY.OnValueChanged += SyncRotationY;
+
         }
 
-        
+        private void SyncRotationY(short previousValue, short newValue)
+        {
+            transform.rotation = Quaternion.Euler(0,newValue,0);   
+        }
 
 
-#region Set function Logics  for MoveMent 
-            
+
+
+        #region Set function Logics  for MoveMent 
+
         public void SetXZ(float dirX , float dirZ){
   
             vector3.Set(dirX*m_walking_speed , 0 ,0.8f*dirZ * m_walking_speedz);
@@ -330,8 +336,8 @@ namespace LF2.Client{
 
 
 
-        public bool CheckIfShouldFlip(int xInput , bool wantflipp = true){
-            if (xInput != 0 && xInput != FacingDirection && wantflipp){
+        public bool CheckIfShouldFlip(int xInput , bool wantflip = false){
+            if (xInput != 0 && xInput != FacingDirection || wantflip){
                 Flip();
             }
             return xInput != 0 && xInput != FacingDirection;
@@ -342,6 +348,8 @@ namespace LF2.Client{
 
             FacingDirection *=-1;
             transform.Rotate(0,180,0) ;
+            m_MovementSource.NetworkRotY.Value = (short)transform.rotation.eulerAngles.y;
+
 
         }
 

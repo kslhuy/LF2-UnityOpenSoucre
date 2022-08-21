@@ -27,15 +27,15 @@ namespace LF2
             // serializer.SerializeValue(ref tickClient);
         }
     }
-    public interface INetMovement
-    {
-        /// <summary>
-        /// The current transform position _ rotation of this entity.
-        /// </summary>
-        public NetworkVariable<NetStatePackage> NetworkPos_RotY { get; }
+    // public interface INetMovement
+    // {
+    //     /// <summary>
+    //     /// The current transform position _ rotation of this entity.
+    //     /// </summary>
+    //     public NetworkVariable<NetStatePackage> NetworkPos_RotY { get; }
 
-        public void InitNetworkPositionAndRotationY(Vector3 initPosition, float initRotationY);
+    //     public void InitNetworkPositionAndRotationY(Vector3 initPosition, float initRotationY);
         
 
-    }
+    // }
 }

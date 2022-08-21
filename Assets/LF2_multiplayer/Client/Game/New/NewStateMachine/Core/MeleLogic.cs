@@ -10,6 +10,7 @@ namespace LF2.Client
     public class MeleLogic : StateActionLogic
     {
 
+        private AttackDataSend Atk_data ;
 
         public override StateType GetId()
         {
@@ -18,29 +19,37 @@ namespace LF2.Client
 
 
 
-        // public void SubMeleCollider(ref Collider collider , ref SkillsDescription skillsDescription , ref StateMachineNew stateMachine )
-        // {
+        public override void AddCollider(Collider collider){
+            IHurtBox damageables = collider.GetComponentInParent<IHurtBox>();
+            IRebound reboundable = collider.GetComponent<IRebound>();
 
-        //     IHurtBox damageables = collider.GetComponentInParent<IHurtBox>();
- 
-        //     if (damageables != null && damageables.IsDamageable() && damageables.NetworkObjectId != stateMachine.m_ClientVisual.NetworkObjectId)
-        //     {
-     
+            if (damageables != null && damageables.IsDamageable(stateMachineFX.team) && damageables.NetworkObjectId != stateMachineFX.m_ClientVisual.NetworkObjectId)
+            {
+                Atk_data = new AttackDataSend();
+                Atk_data.Amount_injury = stateData.DamageDetails[0].damageAmount;
+                Atk_data.Direction = stateData.DamageDetails[0].Dirxyz;
+                Atk_data.BDefense_p = stateData.DamageDetails[0].Bdefend;
+                Atk_data.Fall_p = stateData.DamageDetails[0].fall;
+                Atk_data.Facing = stateMachineFX.CoreMovement.FacingDirection;
 
-        //         damageables.ReceiveHP(Atk_data);
+                damageables.ReceiveHP(Atk_data);
 
+                if (stateData.SpawnsFX[0]._Object )
+                {
+                    GameObject.Instantiate(stateData.SpawnsFX[0]._Object, damageables.transform.position + stateMachineFX.CoreMovement.FacingDirection *stateData.SpawnsFX[0].pivot, Quaternion.identity);
+                }
+                
+                if (stateData.Sounds)      stateMachineFX.m_ClientVisual.PlayAudio(stateData.Sounds, damageables.transform.position);
+                
+                stateMachineFX.m_ClientVisual.ActiveHitLag(0.3f , 0.1f);
 
-        //         if (skillsDescription.SpawnsFX.Length > 0)
-        //         {
-        //             GameObject.Instantiate(skillsDescription.SpawnsFX[0]._Object, damageables.transform.position + stateMachine.CoreMovement.FacingDirection * skillsDescription.SpawnsFX[0].pivot, Quaternion.identity);
-        //         }
+            }
+            if (reboundable != null && reboundable.IsReboundable() ){
+                reboundable.Rebound();
+            }
+   
+        }
 
-        //         stateMachine.m_ClientVisual.PlayAudio(skillsDescription.Sounds, damageables.transform.position);
-        //         stateMachine.CurrentStateViz.TimeStarted_Animation += 0.1f;
-        //         stateMachine.nbHit += 1;
-        //     }
-
-        // }
 
 
 

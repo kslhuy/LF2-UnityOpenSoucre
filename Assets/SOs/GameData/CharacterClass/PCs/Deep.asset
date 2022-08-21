@@ -15,7 +15,7 @@ MonoBehaviour:
   CharacterType: 0
   BaseHP: {fileID: 11400000, guid: 8ac13485bd5901c418f0730b1cbee43a, type: 2}
   BaseMP: {fileID: 11400000, guid: cee1aa519b1cec54488bc4cd30823eb8, type: 2}
-  BaseAmor: 1
+  BaseAmor: 0
   BaseFall: 0
   BaseBdefense: 0
   NbJump: 0

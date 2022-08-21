@@ -13,6 +13,8 @@ namespace LF2.Client{
 
     public class MoveLogic : StateActionLogic
     {
+        private bool isPlayAnimation;
+
         //Component references
         // private IdleLogicSO _originSO => (IdleLogicSO)base.OriginSO; // The SO this StateAction spawned from
         public override void Awake(StateMachineNew stateMachine)
@@ -59,6 +61,7 @@ namespace LF2.Client{
         public override void PlayAnim( int nbanim = 1 , bool sequence = false)
         {
             stateMachineFX.m_ClientVisual.NormalAnimator.Play("Walk_anim");
+            
         }
 
 
@@ -82,7 +85,8 @@ namespace LF2.Client{
         }
 
         public override void LogicUpdate()
-        {            
+        {    
+            
             if (stateMachineFX.m_ClientVisual.CanCommit) {
                 // Debug.Log(stateMachineFX.InputX);
                 stateMachineFX.CoreMovement.SetXZ(stateMachineFX.InputX,stateMachineFX.InputZ);
@@ -91,6 +95,25 @@ namespace LF2.Client{
                 // Debug.Log(stateMachineFX.InputX);
                 stateMachineFX.CoreMovement.CheckIfShouldFlip((int)stateMachineFX.InputX);
             }
+
+            if (!isPlayAnimation){
+                isPlayAnimation = IsAnimating();
+            }
+        }
+
+        public bool IsAnimating()
+        {
+            if (stateMachineFX.m_ClientVisual.NormalAnimator.GetCurrentAnimatorStateInfo(0).shortNameHash == stateData.vizAnim[0].AnimHashId) {
+                return true;
+            }
+            stateMachineFX.m_ClientVisual.NormalAnimator.Play(stateData.vizAnim[0].AnimHashId);
+            return false;
+
+        }
+
+        public override void Exit()
+        {
+            isPlayAnimation = false;
         }
     }
 

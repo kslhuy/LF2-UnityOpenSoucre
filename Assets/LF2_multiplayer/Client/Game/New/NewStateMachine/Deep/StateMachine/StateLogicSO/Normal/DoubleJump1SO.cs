@@ -52,7 +52,7 @@ namespace LF2.Client{
         {
             base.PlayAnim();
             GameObject.Instantiate(stateData.SpawnsFX[0]._Object,stateMachineFX.m_ClientVisual.transform.position, Quaternion.identity);
-            stateMachineFX.m_ClientVisual.NormalAnimator.Play(stateData.vizAnim[0].AnimHashId);
+            stateMachineFX.m_ClientVisual.NormalAnimator.Play(stateMachineFX.m_ClientVisual.VizAnimation.a_DoubleJump_1);
         }
         // // The state inherited by Air State dont need to call base PlayPredictState
         // // Instead , call PlayAnimation direct

@@ -15,11 +15,21 @@ namespace LF2
         {
             get
             {
-                if (m_CharacterClass == null)
-                {
-                    // Debug.Log(m_State.RegisteredAvatar.CharacterClass);
-                    m_CharacterClass = m_State.RegisteredAvatar.CharacterClass;
-                    // Debug.Log(m_CharacterClass);
+                
+                if (m_CharacterClass == null ){
+                    if(gameObject.layer == LayerMask.NameToLayer("PCs") )
+                    {
+                        // Debug.Log("PCs");
+                        // Debug.Log(gameObject.layer +" = "+ LayerMask.NameToLayer("PCs")); 
+                        // Debug.Log(m_State.RegisteredAvatar.CharacterClass);
+                        m_CharacterClass = m_State.RegisteredAvatar.CharacterClass;
+                        // Debug.Log(m_CharacterClass);
+                    }else{
+                        // Debug.Log("NPCs");
+                        // Debug.Log(gameObject.layer +" != "+ LayerMask.NameToLayer("PCs"));
+
+                        m_CharacterClass = m_State.RegisteredAvatar.CharacterClassNPC;
+                    }
                 }
                 // Debug.Log(m_CharacterClass);
                 return m_CharacterClass;

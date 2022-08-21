@@ -50,14 +50,6 @@ namespace LF2.Client
         private bool CommitToState ; 
 
 
-        // [SerializeField]
-        // CharacterClassContainer m_CharacterClassContainer;
-
-        // /// <summary>
-        // /// Convenience getter that returns our CharacterData
-        // /// </summary>
-        // CharacterClass CharacterData => m_CharacterClassContainer.CharacterClass;
-
         private bool AttackPressed ;
         private float AttackPressedStartTime; 
         private const float m_InputHoldTime = 0.2f;
@@ -126,23 +118,19 @@ namespace LF2.Client
             // If we are host (= server) dont neeed to send to the server again 
             // else , client send to server
 
-            // if (CommitToState){
-            //     m_NetworkCharacter.ActionInputEventClientRPC(action);
-            // }else   m_NetworkCharacter.ActionInputEventServerRPC(action);
 
-            // Debug.Log("SendStateInput");
             if (CommitToState){
                StartCoroutine(DelayActionOnHostEvent(action));
             }else   ActionInputEvent(action);
 
-            // StartCoroutine(DelayActionOnHostEvent(action));
         }
 
         private void SendMoveInput(float inputX , float inputZ )
         {
             if (CommitToState){
                 m_NetworkCharacter.MoveInputEventClientRPC(inputX,inputZ);
-            }else   m_NetworkCharacter.MoveInputEventServerRPC(inputX,inputZ);
+            }
+            // else   m_NetworkCharacter.MoveInputEventServerRPC(inputX,inputZ);
             
             ActionMoveInputEvent?.Invoke(inputX,inputZ);
 
@@ -151,14 +139,6 @@ namespace LF2.Client
 
         public void OnMoveInputUI(Vector2 inputUI){
             
-            // StateType stateType ;
-            // if (inputUI.x != 0 || inputUI.y != 0){
-            //     stateType = StateType.Move; 
-            // } 
-            // else{
-            //     stateType = StateType.Idle; 
-            // }
-            // Debug.Log(stateType);
 
             SendMoveInput(inputUI.x ,inputUI.y );
 
@@ -171,15 +151,6 @@ namespace LF2.Client
         public void OnMouvement(InputAction.CallbackContext context)
         {
             RawMovementInput = context.ReadValue<Vector2>();
-            // StateType stateType ;
-            // float timeSample = Time.time;
-
-            // if (RawMovementInput.x != 0 || RawMovementInput.y != 0){
-            //     stateType = StateType.Move; 
-            // } 
-            // else{
-            //     stateType = StateType.Idle; 
-            // }
 
             if (context.started){
                 SendMoveInput(RawMovementInput.x ,RawMovementInput.y );

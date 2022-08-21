@@ -50,6 +50,12 @@ namespace LF2
     [SerializeField] string Laying_Back = "LayingBack";
 
     [SerializeField] string Laying_Front = "LayingFront";
+    [SerializeField] string DOP = "DOP";
+
+
+    [SerializeField] string Ice = "Ice";
+
+    [SerializeField] string Fire = "Fire";
     
     [Header("------------ DDA -------------")]
     [SerializeField] string DDA_1 = "DDA_1_anim";
@@ -115,6 +121,11 @@ namespace LF2
 
     [SerializeField] [HideInInspector] public int a_Laying_Back;
     [SerializeField] [HideInInspector] public int a_Laying_Front;
+    [SerializeField] [HideInInspector] public int a_DOP;
+
+
+    [SerializeField] [HideInInspector] public int a_Fire;
+    [SerializeField] [HideInInspector] public int a_Ice;
     //-----------------------------
 
     [SerializeField] [HideInInspector] public int a_DDA_1;
@@ -175,6 +186,12 @@ namespace LF2
 
         a_Laying_Back= Animator.StringToHash(Laying_Back);
         a_Laying_Front= Animator.StringToHash(Laying_Front);
+
+        
+        a_Fire= Animator.StringToHash(Fire);
+        a_Ice= Animator.StringToHash(Ice);
+
+        a_DOP = Animator.StringToHash(DOP);
     //-----------------------------
 
         a_DDA_1= Animator.StringToHash(DDA_1);

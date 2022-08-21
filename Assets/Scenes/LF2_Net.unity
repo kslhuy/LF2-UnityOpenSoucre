@@ -7221,7 +7221,7 @@ MonoBehaviour:
   m_GameObjectsThatWillBeInjectedAutomatically: []
   m_NetworkGameStateTransform: {fileID: 11400000, guid: 2898f414d2dfc824d94cfddc2d153e97, type: 2}
   m_PlayerPrefab: {fileID: 2602704286395041820, guid: 69ecbeb8d8ebeb64c997455951a87bc2, type: 3}
-  m_BOTPrefab: {fileID: 0}
+  m_BOTPrefab: {fileID: 6930547048514179167, guid: 291667ebdc9681440b478639d69455eb, type: 3}
   m_PlayerSpawnPoints:
   - {fileID: 514240314}
   - {fileID: 18476126}

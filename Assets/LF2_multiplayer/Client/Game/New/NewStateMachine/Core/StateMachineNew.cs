@@ -119,7 +119,6 @@ namespace LF2.Client
 
             InputPackage data =  new InputPackage{
                 StateTypeEnum = state ,
-                NbAnimation = 0,
                 }; 
 
             DoAnticipate(ref data);

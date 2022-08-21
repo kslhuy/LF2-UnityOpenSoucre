@@ -1,8 +1,8 @@
 using UnityEngine;
 namespace LF2.Client{
 
-    [CreateAssetMenu(fileName = "Ice", menuName = "StateLogic/Common/Hurt/Ice")]
-    public class IceSO : StateLogicSO<IceLogic>
+    [CreateAssetMenu(fileName = "Fire", menuName = "StateLogic/Common/Hurt/Fire")]
+    public class FireSO : StateLogicSO<FireLogic>
     {
 
         protected override StateActionLogic CreateAction()
@@ -11,7 +11,7 @@ namespace LF2.Client{
         }
     }
 
-    public class IceLogic : StateActionLogic
+    public class FireLogic : StateActionLogic
     {
         //Component references
         // private IdleLogicSO _originSO => (IdleLogicSO)base.OriginSO; // The SO this StateAction spawned from
@@ -33,7 +33,7 @@ namespace LF2.Client{
         public override void PlayAnim( int nbanim = 1 , bool sequence = false)
         {
             stateMachineFX.m_ClientVisual.NormalAnimator.Play(stateMachineFX.m_ClientVisual.VizAnimation.a_Empty);
-            stateMachineFX.m_ClientVisual.InjuryAnimator.Play(stateMachineFX.m_ClientVisual.VizAnimation.a_Ice);
+            stateMachineFX.m_ClientVisual.InjuryAnimator.Play(stateMachineFX.m_ClientVisual.VizAnimation.a_Fire);
         }
 
 
@@ -48,7 +48,7 @@ namespace LF2.Client{
 
         public override StateType GetId()
         {
-            return StateType.Ice;
+            return StateType.Fire;
         }
 
 

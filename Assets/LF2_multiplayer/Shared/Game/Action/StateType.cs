@@ -139,6 +139,8 @@ namespace LF2{
 
         NONE,
         AmorAbsord,
+        Ice,
+        Fire,
     }
 
 }

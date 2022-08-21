@@ -4,7 +4,6 @@ namespace LF2.Client
 {
     public class Attack1Logic : MeleLogic
     {
-        private AttackDataSend Atk_data ;
         // private IdleLogicSO _originSO => (IdleLogicSO)base.OriginSO; // The SO this StateAction spawned from
 
         public override void Awake(StateMachineNew stateMachineFX)
@@ -63,37 +62,8 @@ namespace LF2.Client
 
         public override void AddCollider(Collider collider)
         {
+            base.AddCollider(collider);
 
-            IHurtBox damageables = collider.GetComponentInParent<IHurtBox>();
-            IRebound reboundable = collider.GetComponent<IRebound>();
-
-            if (damageables != null && damageables.IsDamageable(stateMachineFX.team) && damageables.NetworkObjectId != stateMachineFX.m_ClientVisual.NetworkObjectId)
-            {
-                // Debug.Log($"Sendata mele ");
-
-                Atk_data = new AttackDataSend();
-                Atk_data.Amount_injury = stateData.DamageDetails[0].damageAmount;
-                Atk_data.Direction = stateData.DamageDetails[0].Dirxyz;
-                Atk_data.BDefense_p = stateData.DamageDetails[0].Bdefend;
-                Atk_data.Fall_p = stateData.DamageDetails[0].fall;
-                Atk_data.Facing = stateMachineFX.CoreMovement.FacingDirection;
-
-                damageables.ReceiveHP(Atk_data);
-
-                if (stateData.SpawnsFX.Length > 0)
-                {
-                    GameObject.Instantiate(stateData.SpawnsFX[0]._Object, damageables.transform.position + stateMachineFX.CoreMovement.FacingDirection *stateData.SpawnsFX[0].pivot, Quaternion.identity);
-                }
-
-                stateMachineFX.m_ClientVisual.PlayAudio(stateData.Sounds, damageables.transform.position);
-                stateMachineFX.m_ClientVisual.ActiveHitLag(0.3f , 0.1f);
-
-                // stateMachineFX.nbHit += 1;
-            }
-            if (reboundable != null && reboundable.IsReboundable() ){
-                reboundable.Rebound();
-            }
-   
             
         }
 

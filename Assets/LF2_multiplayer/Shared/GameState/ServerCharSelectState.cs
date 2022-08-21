@@ -315,53 +315,33 @@ namespace LF2.Server
                         }
                         persistentPlayer.NetworkAvatarGuidState.AvatarGuid.Value = avatar.Guid.ToNetworkGuid();
                         persistentPlayer.NetworkNameState.Team.Value = playerInfo.PlayerTeam;
+                        persistentPlayer.BackGroundNumber = BackGroundSelectData.BackGroundNumber.Value;
                 }
             }
 
-            // foreach (CharSelectData.LobbyPlayerState botInfo in CharSelectData.LobbyBOTs)
-            // {
-            //     // Find Object in SpawnManager ( in scene StartUp clicked to GameObject NetworkManager look to see in Inspector)
-            //     var playerNetworkObject = NetworkManager.Singleton.SpawnManager.GetPlayerNetworkObject(NetworkManager.ServerClientId);
-
-            //     if (playerNetworkObject && playerNetworkObject.TryGetComponent(out PersistentPlayer persistentPlayer))
-            //     {
-            //         // pass avatar GUID to PersistentPlayer
-            //             // CharSelectData.AvatarByHero.TryGetValue(m_PlayerSeats[seatIdx].NameChampion,out avatar);
-            //             if (!CharSelectData.AvatarByHero.TryGetValue(botInfo.PlayerChamp , out Avatar avatar)){
-            //                 Debug.LogError("Dont Have BOT Avatar for " + botInfo.PlayerChamp);
-            //                 return ; 
-            //             }
-
-            //             persistentPlayer.NetworkAvatarGuidState.AvatarGuid.Value = avatar.Guid.ToNetworkGuid();
-            //             persistentPlayer.NetworkNameState.Name.Value = botInfo.PlayerName;
-            //             persistentPlayer.NetworkNameState.Team.Value = botInfo.PlayerTeam;
-            //     }
-            // }
+            var playerNetworkObjectServer = NetworkManager.Singleton.SpawnManager.GetPlayerNetworkObject(NetworkManager.ServerClientId );
+            if (playerNetworkObjectServer.TryGetComponent(out PersistentPlayer persistentPlayer1)){
+                foreach (CharSelectData.LobbyPlayerState botInfo in CharSelectData.LobbyBOTs)
+                {
+                    // pass avatar GUID to PersistentPlayer
+                        // CharSelectData.AvatarByHero.TryGetValue(m_PlayerSeats[seatIdx].NameChampion,out avatar);
+                        if (!CharSelectData.AvatarByHero.TryGetValue(botInfo.PlayerChamp , out Avatar avatar)){
+                            Debug.LogError("Dont Have BOT Avatar for " + botInfo.PlayerChamp);
+                            return ; 
+                        }
+                        
+                        persistentPlayer1.AddPersistentBotData(new PersistentBOT (
+                            botInfo.PlayerName,
+                            botInfo.PlayerTeam,
+                            avatar.Guid.ToNetworkGuid()
+                        ));
+                }
+            }
   
         }
 
         // TO DO : Save result background here 
-        private void SaveLobbyBOTResults()
-        {
-            foreach (CharSelectData.LobbyPlayerState playerInfo in CharSelectData.LobbyBOTs)
-            {
-                // Find Object in SpawnManager ( in scene StartUp clicked to GameObject NetworkManager look to see in Inspector)
-                var playerNetworkObject = NetworkManager.Singleton.SpawnManager.GetPlayerNetworkObject(playerInfo.ClientId);
 
-                if (playerNetworkObject && playerNetworkObject.TryGetComponent(out PersistentPlayer persistentPlayer))
-                {
-                    // pass avatar GUID to PersistentPlayer
-                        // CharSelectData.AvatarByHero.TryGetValue(m_PlayerSeats[seatIdx].NameChampion,out avatar);
-                        if (!CharSelectData.AvatarByHero.TryGetValue(playerInfo.PlayerChamp , out Avatar avatar)){
-                            Debug.LogError("Dont Have Avatar for " + playerInfo.PlayerChamp);
-                            return ; 
-                        }
-                        persistentPlayer.NetworkAvatarGuidState.AvatarGuid.Value = avatar.Guid.ToNetworkGuid();
-                        persistentPlayer.NetworkNameState.Team.Value = playerInfo.PlayerTeam;
-                }
-            }
-  
-        }
 
         private IEnumerator WaitToEndLobby()
         {

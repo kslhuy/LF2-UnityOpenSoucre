@@ -6,10 +6,6 @@ namespace LF2.Client{
     public class Attack2SO : StateLogicSO<Attack2Logic>
     {
 
-        protected override StateActionLogic CreateAction()
-        {
-            return base.CreateAction();
-        }
     }
 
 

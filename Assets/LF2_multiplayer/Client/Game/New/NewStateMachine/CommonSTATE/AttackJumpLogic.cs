@@ -74,8 +74,9 @@ namespace LF2.Client{
 
                 damageables.ReceiveHP(Atk_data);
 
-
-                GameObject.Instantiate(stateData.SpawnsFX[0]._Object, damageables.transform.position + stateMachineFX.CoreMovement.FacingDirection *stateData.SpawnsFX[0].pivot, Quaternion.identity);
+                if (stateData.SpawnsFX[0]._Object){
+                    GameObject.Instantiate(stateData.SpawnsFX[0]._Object, damageables.transform.position + stateMachineFX.CoreMovement.FacingDirection *stateData.SpawnsFX[0].pivot, Quaternion.identity);
+                }
                 
 
                 if (stateData.Sounds != null)

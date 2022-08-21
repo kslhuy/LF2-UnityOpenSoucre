@@ -4,15 +4,11 @@ namespace LF2.Client{
 
     public class Attack3Logic : StateActionLogic
     {
-        private AttackDataSend Atk_data = new AttackDataSend();
 
         public override void Awake(StateMachineNew stateMachine)
         {
             stateMachineFX = stateMachine;
-            // Atk_data = new AttackDataSend();
-            Atk_data.Direction = stateData.DamageDetails[0].Dirxyz;
-            Atk_data.BDefense_p = stateData.DamageDetails[0].Bdefend;
-            Atk_data.Fall_p = stateData.DamageDetails[0].fall;
+
         }
 
         
@@ -68,26 +64,7 @@ namespace LF2.Client{
 
         public override void AddCollider(Collider collider)
         {
-            IHurtBox damageables = collider.GetComponentInParent<IHurtBox>();
- 
-            if (damageables != null && damageables.IsDamageable(stateMachineFX.team) && damageables.NetworkObjectId != stateMachineFX.m_ClientVisual.NetworkObjectId)
-            {
-                Atk_data.Amount_injury = stateData.DamageDetails[0].damageAmount;
-                Atk_data.Direction = stateData.DamageDetails[0].Dirxyz;
-                Atk_data.BDefense_p = stateData.DamageDetails[0].Bdefend;
-                Atk_data.Fall_p = stateData.DamageDetails[0].fall;
-                Atk_data.Facing = stateMachineFX.CoreMovement.FacingDirection;
-                damageables.ReceiveHP(Atk_data);
-
-                if (stateData.SpawnsFX.Length > 0)
-                {
-                    GameObject.Instantiate(stateData.SpawnsFX[0]._Object, damageables.transform.position + stateMachineFX.CoreMovement.FacingDirection *stateData.SpawnsFX[0].pivot, Quaternion.identity);
-                }
-
-                // stateMachineFX.m_ClientVisual.PlayAudio(stateData.Sounds, damageables.transform.position);
-                stateMachineFX.m_ClientVisual.ActiveHitLag(0.3f , 0.1f);
-                // stateMachineFX.nbHit += 1;
-            }  
+            base.AddCollider(collider);
         }
     }
 }
