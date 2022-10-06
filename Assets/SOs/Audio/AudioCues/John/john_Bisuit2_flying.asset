@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08e854ccd8588da4694c3ae040c10c5e, type: 3}
   m_Name: john_Bisuit2_flying
   m_EditorClassIdentifier: 
-  looping: 0
+  loopingAll: 0
   _audioClipGroups:
   - sequenceMode: 0
     audioClips:
-    - {fileID: 8300000, guid: a94b75c22a1650546b79bf37aeceee39, type: 3}
+    - {fileID: 8300000, guid: 472628d1d4f564341a05e3c4548519c8, type: 3}
     Looping: 0
     delayForLooping: 0

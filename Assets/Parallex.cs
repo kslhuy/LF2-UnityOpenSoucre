@@ -15,16 +15,16 @@ public class Parallex : MonoBehaviour
 
 
     // Start is called before the first frame update
-    void Start()
-    {
-        lastCameraPosition = cameraTransform.position; 
-    }
+    // void Start()
+    // {
+    //     lastCameraPosition = cameraTransform.position; 
+    // }
 
-    // Update is called once per frame
-    void LateUpdate()
-    {
-        DeltaTravel =  cameraTransform.position - lastCameraPosition;
-        transform.position += new Vector3(DeltaTravel.x * ParallexFactor.x , DeltaTravel.y * ParallexFactor.y ,DeltaTravel.z * ParallexFactor.z ) ;
-        lastCameraPosition = cameraTransform.position;
-    }
+    // // Update is called once per frame
+    // void LateUpdate()
+    // {
+    //     DeltaTravel =  cameraTransform.position - lastCameraPosition;
+    //     transform.position += new Vector3(DeltaTravel.x * ParallexFactor.x , DeltaTravel.y * ParallexFactor.y ,DeltaTravel.z * ParallexFactor.z ) ;
+    //     lastCameraPosition = cameraTransform.position;
+    // }
 }

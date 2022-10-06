@@ -16,25 +16,30 @@ MonoBehaviour:
   Walk: Walk_anim
   Run: Run_anim
   Jump: Jump_anim
-  DoubleJump: DoubleJump_anim
+  DoubleJump: DoubleJump1_anim
   DoubleJump2: DoubleJump2_anim
-  Land: StandUp
-  Defense: StandUp
   Sliding: Sliding_anim
   Rolling: Rolling_anim
   Air: Air_anim
+  Land: Land_anim
   Attack1: Attack1_anim
   Attack2: Attack2_anim
   Attack3: Attack3_anim
   RunAttack: Run_Attack_anim
   JumpAttack: Jump_Attack_anim
+  Defense: Defense_anim
+  DefenseHit: DefenseHit_anim
+  BrokenDefense: BrokenDefense_anim
   Hurt_1: Hurt1
   Hurt_2_Back: Hurt2Back
-  Hurt_2_Front: Hurt2Front
+  Hurt_2_Front: Hurt2Font
   Fall_Back: Fall_Back
   Fall_Front: Fall_Front
   Laying_Back: LayingBack
   Laying_Front: LayingFront
+  DOP: DOP
+  Ice: Ice
+  Fire: Fire
   DDA_1: DDA_1_anim
   DDA_2: DDA_2_anim
   DDA_3: DDA_3_anim
@@ -47,37 +52,45 @@ MonoBehaviour:
   DUJ_1: DUJ_1_anim
   DUJ_2: DUJ_2_anim
   DUJ_3: DUJ_3_anim
-  a_Idle: 0
-  a_Walk: 0
-  a_Run: 0
-  a_Land: 0
-  a_Sliding: 0
-  a_Rolling: 0
-  a_Jump: 0
-  a_DoubleJump_1: 0
-  a_DoubleJump_2: 0
+  Empty: Empty_anim
+  a_Idle: 672814230
+  a_Walk: 1056088673
+  a_Run: 35871017
+  a_Land: 1991171377
+  a_Sliding: -1141643799
+  a_Rolling: -465197349
+  a_Jump: 1424671098
+  a_DoubleJump_1: -1420124801
+  a_DoubleJump_2: 768536529
   a_Air: 0
-  a_Attack_1: 0
-  a_Attack_2: 0
-  a_Attack_3: 0
-  a_Jump_Attack: 0
-  a_Run_Attack: 0
-  a_Hurt_1: 0
-  a_Hurt_2_Front: 0
-  a_Hurt_2_Back: 0
-  a_Fall_Back: 0
-  a_Fall_Front: 0
-  a_Laying_Back: 0
-  a_Laying_Front: 0
-  a_DDA_1: 0
-  a_DDA_2: 0
-  a_DDA_3: 0
-  a_DDJ_1: 0
-  a_DDJ_2: 0
-  a_DDJ_3: 0
-  a_DUA_1: 0
-  a_DUA_2: 0
-  a_DUA_3: 0
-  a_DUJ_1: 0
-  a_DUJ_2: 0
-  a_DUJ_3: 0
+  a_Defend: 524993997
+  a_DefendHit: 11327884
+  a_BrokenDefend: -614484046
+  a_Attack_1: -837999466
+  a_Attack_2: 1218008632
+  a_Attack_3: -2084207203
+  a_Jump_Attack: -1321550174
+  a_Run_Attack: 1481704306
+  a_Hurt_1: -1078414131
+  a_Hurt_2_Front: 112473990
+  a_Hurt_2_Back: -1141965213
+  a_Fall_Back: 840683193
+  a_Fall_Front: -190572066
+  a_Laying_Back: 1953623376
+  a_Laying_Front: 758393121
+  a_DOP: -1806107088
+  a_Fire: -118708495
+  a_Ice: -217922834
+  a_DDA_1: -192548385
+  a_DDA_2: 1913750385
+  a_DDA_3: -1186115372
+  a_DDJ_1: -1443893879
+  a_DDJ_2: 796630823
+  a_DDJ_3: -467186558
+  a_DUA_1: 1329506285
+  a_DUA_2: -911551165
+  a_DUA_3: 49678054
+  a_DUJ_1: 307542971
+  a_DUJ_2: -1799304939
+  a_DUJ_3: 1604065968
+  a_Empty: 1388517533

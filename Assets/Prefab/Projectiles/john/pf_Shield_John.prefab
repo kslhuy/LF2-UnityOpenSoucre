@@ -12,12 +12,20 @@ PrefabInstance:
       value: 951099334
       objectReference: {fileID: 0}
     - target: {fileID: 2075974051578360440, guid: e1e6fa40b644751498970cb113c8b0a1, type: 3}
+      propertyPath: m_FlipX
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2075974051578360440, guid: e1e6fa40b644751498970cb113c8b0a1, type: 3}
+      propertyPath: m_FlipY
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2075974051578360440, guid: e1e6fa40b644751498970cb113c8b0a1, type: 3}
       propertyPath: m_Size.x
-      value: 0.81
+      value: 82
       objectReference: {fileID: 0}
     - target: {fileID: 2075974051578360440, guid: e1e6fa40b644751498970cb113c8b0a1, type: 3}
       propertyPath: m_Size.y
-      value: 0.5901778
+      value: 83
       objectReference: {fileID: 0}
     - target: {fileID: 2075974051578360440, guid: e1e6fa40b644751498970cb113c8b0a1, type: 3}
       propertyPath: m_Sprite
@@ -87,6 +95,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: pf_Shield_John
       objectReference: {fileID: 0}
+    - target: {fileID: 3165636493918647440, guid: e1e6fa40b644751498970cb113c8b0a1, type: 3}
+      propertyPath: m_TagString
+      value: BlockToRebound
+      objectReference: {fileID: 0}
     - target: {fileID: 3672223636655927781, guid: e1e6fa40b644751498970cb113c8b0a1, type: 3}
       propertyPath: m_Controller
       value: 
@@ -154,9 +166,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_NetState: {fileID: 4100799406809116488}
   m_OurCollider: {fileID: 7058080987340510452}
-  _rigidbody: {fileID: 6891968443062646232}
+  m_Rigidbody: {fileID: 6891968443062646232}
+  k_GroundLayerMask: 0
+  ProjectileDamage:
+  - {fileID: 11400000, guid: b4976f368245fce40907ffa09a6934a5, type: 2}
+  Speed_m_s: 0
+  Range: 0
+  MaxVictims: 1
   _sfxEventChannel: {fileID: 11400000, guid: 1981ab6cbad46e54ca529e09ba189c16, type: 2}
   _audioConfig: {fileID: 11400000, guid: e8a6884befaa7e544b61747452adc267, type: 2}
+  Sounds:
+  - {fileID: 11400000, guid: 01ef35ec1d35bc541b808c1fbe9b54f6, type: 2}
+  - {fileID: 11400000, guid: b763a3a8ee74d83458b7d8e4e3762dbc, type: 2}
+  EndAnimation: Shiled3_John_anim
+  DestroyAfterSec: 5
+  DestroyAfterHit: 0.4
   _spriteRenderer: {fileID: 651476940700171912}
   _animator: {fileID: 2824757819236973845}
 --- !u!114 &8160468732181547402
@@ -172,8 +196,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Animator: {fileID: 2824757819236973845}
-  m_ParameterSendBits: 0
-  m_SendRate: 0.1
 --- !u!54 &6891968443062646232 stripped
 Rigidbody:
   m_CorrespondingSourceObject: {fileID: 5359535883441174824, guid: e1e6fa40b644751498970cb113c8b0a1, type: 3}

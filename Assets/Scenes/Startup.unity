@@ -932,6 +932,36 @@ MonoBehaviour:
       SourcePrefabToOverride: {fileID: 0}
       SourceHashToOverride: 0
       OverridingTargetPrefab: {fileID: 0}
+    - Override: 0
+      Prefab: {fileID: 4477627029082403580, guid: d2c2b131f78655f45a0a014787ad8905, type: 3}
+      SourcePrefabToOverride: {fileID: 0}
+      SourceHashToOverride: 0
+      OverridingTargetPrefab: {fileID: 0}
+    - Override: 0
+      Prefab: {fileID: 4479758005046589536, guid: 67d6dd26810dbc143ba53b7385904330, type: 3}
+      SourcePrefabToOverride: {fileID: 0}
+      SourceHashToOverride: 0
+      OverridingTargetPrefab: {fileID: 0}
+    - Override: 0
+      Prefab: {fileID: 4479758005046589536, guid: ff2c30a74c16c184db768932726caacc, type: 3}
+      SourcePrefabToOverride: {fileID: 0}
+      SourceHashToOverride: 0
+      OverridingTargetPrefab: {fileID: 0}
+    - Override: 0
+      Prefab: {fileID: 4477627029082403580, guid: 272adf7066160184a983b3c644f0e6cd, type: 3}
+      SourcePrefabToOverride: {fileID: 0}
+      SourceHashToOverride: 0
+      OverridingTargetPrefab: {fileID: 0}
+    - Override: 0
+      Prefab: {fileID: 4477627029082403580, guid: 668b025d150055543a0e8a39233054ac, type: 3}
+      SourcePrefabToOverride: {fileID: 0}
+      SourceHashToOverride: 0
+      OverridingTargetPrefab: {fileID: 0}
+    - Override: 0
+      Prefab: {fileID: 4479758005046589536, guid: 5b2074763529b4449ba680af260d96af, type: 3}
+      SourcePrefabToOverride: {fileID: 0}
+      SourceHashToOverride: 0
+      OverridingTargetPrefab: {fileID: 0}
     TickRate: 30
     ClientConnectionBufferTimeout: 1
     ConnectionApproval: 1
@@ -997,6 +1027,9 @@ MonoBehaviour:
   m_ThemeMusic: {fileID: 8300000, guid: d6b6901bf53f09547900600da36f7e64, type: 3}
   m_BossMusic: {fileID: 8300000, guid: 05c3ac46ca48bd045b11d7fabb462011, type: 3}
   m_VictoryMusic: {fileID: 8300000, guid: b0355d56b3080ee44800c1de43bf429c, type: 3}
+  _sfxEventChannel: {fileID: 11400000, guid: 1981ab6cbad46e54ca529e09ba189c16, type: 2}
+  _TapSound: {fileID: 11400000, guid: 14e5d46a8bc05fd47839958fde6787e6, type: 2}
+  _OkSound: {fileID: 11400000, guid: a72ba43ca20c1674589290b283010ced, type: 2}
   m_source: {fileID: 1085024769}
 --- !u!82 &1085024769
 AudioSource:
@@ -1123,7 +1156,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _factory: {fileID: 11400000, guid: a8e1ed9e2143ee84896cc2b8be99707c, type: 2}
   _pool: {fileID: 11400000, guid: 162ceab41e4759e4fb9c756c78229720, type: 2}
-  _initialSize: 5
+  _initialSize: 10
   _SFXEventChannel: {fileID: 11400000, guid: 1981ab6cbad46e54ca529e09ba189c16, type: 2}
   _musicEventChannel: {fileID: 11400000, guid: b56c304478646394ebb3c4cbe2952a06, type: 2}
   audioMixer: {fileID: 24100000, guid: bf11a10621b2de84f814da67ed5d476b, type: 2}
@@ -1446,7 +1479,7 @@ PrefabInstance:
       objectReference: {fileID: 7612598150217833208, guid: 1aab75dc72df062499d5cc332405af25, type: 3}
     - target: {fileID: 7481482793067872686, guid: 1c48a030e68b6154dab0f5aae564ea41, type: 3}
       propertyPath: m_CharacterData.Array.size
-      value: 5
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 7481482793067872686, guid: 1c48a030e68b6154dab0f5aae564ea41, type: 3}
       propertyPath: m_CharacterData.Array.data[0]
@@ -1471,22 +1504,26 @@ PrefabInstance:
     - target: {fileID: 7481482793067872686, guid: 1c48a030e68b6154dab0f5aae564ea41, type: 3}
       propertyPath: m_CharacterData.Array.data[5]
       value: 
-      objectReference: {fileID: 11400000, guid: 019e72ee15f24e940919910a042f263e, type: 2}
+      objectReference: {fileID: 11400000, guid: eb939585d7fe15a48927b32737e415f9, type: 2}
     - target: {fileID: 7481482793067872686, guid: 1c48a030e68b6154dab0f5aae564ea41, type: 3}
       propertyPath: m_CharacterData.Array.data[6]
       value: 
-      objectReference: {fileID: 11400000, guid: 2d80b94515cad4b45a2b693fcaffe211, type: 2}
+      objectReference: {fileID: 11400000, guid: 19ca6cef4d2990e4d9e63ec47b717279, type: 2}
     - target: {fileID: 7481482793067872686, guid: 1c48a030e68b6154dab0f5aae564ea41, type: 3}
       propertyPath: m_CharacterData.Array.data[7]
       value: 
-      objectReference: {fileID: 11400000, guid: 56dbb45f36a3aba4787aab26dd2917d7, type: 2}
+      objectReference: {fileID: 11400000, guid: 01133d60cbd904945b75ecb173ca30bf, type: 2}
     - target: {fileID: 7481482793067872686, guid: 1c48a030e68b6154dab0f5aae564ea41, type: 3}
       propertyPath: m_CharacterData.Array.data[8]
       value: 
-      objectReference: {fileID: 11400000, guid: 5ab6efeb33c872247a1bec14cf6aca11, type: 2}
+      objectReference: {fileID: 11400000, guid: fdb64e20d0f0d9549ac3b3e37296effa, type: 2}
     - target: {fileID: 7481482793067872686, guid: 1c48a030e68b6154dab0f5aae564ea41, type: 3}
       propertyPath: m_CharacterStateSOs.Array.size
-      value: 5
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 7481482793067872686, guid: 1c48a030e68b6154dab0f5aae564ea41, type: 3}
+      propertyPath: m_StateActionAI_SOs.Array.size
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7481482793067872686, guid: 1c48a030e68b6154dab0f5aae564ea41, type: 3}
       propertyPath: m_CharacterStateSOs.Array.data[0]
@@ -1508,5 +1545,33 @@ PrefabInstance:
       propertyPath: m_CharacterStateSOs.Array.data[4]
       value: 
       objectReference: {fileID: 11400000, guid: 56e0c411a382ea647910b8390fe3d3aa, type: 2}
+    - target: {fileID: 7481482793067872686, guid: 1c48a030e68b6154dab0f5aae564ea41, type: 3}
+      propertyPath: m_CharacterStateSOs.Array.data[5]
+      value: 
+      objectReference: {fileID: 11400000, guid: 05d0297af476f25419c6478e4c3ab145, type: 2}
+    - target: {fileID: 7481482793067872686, guid: 1c48a030e68b6154dab0f5aae564ea41, type: 3}
+      propertyPath: m_CharacterStateSOs.Array.data[6]
+      value: 
+      objectReference: {fileID: 11400000, guid: fc62ff3742fe61f4aaf5f994b4826587, type: 2}
+    - target: {fileID: 7481482793067872686, guid: 1c48a030e68b6154dab0f5aae564ea41, type: 3}
+      propertyPath: m_CharacterStateSOs.Array.data[7]
+      value: 
+      objectReference: {fileID: 11400000, guid: 4e09bc9fcb23dcb449b2b4fa15716f7e, type: 2}
+    - target: {fileID: 7481482793067872686, guid: 1c48a030e68b6154dab0f5aae564ea41, type: 3}
+      propertyPath: m_CharacterStateSOs.Array.data[8]
+      value: 
+      objectReference: {fileID: 11400000, guid: 7a817d98fafd6a547bc3dc10085e1fba, type: 2}
+    - target: {fileID: 7481482793067872686, guid: 1c48a030e68b6154dab0f5aae564ea41, type: 3}
+      propertyPath: m_StateActionAI_SOs.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: e5ca0a43bde3e154c83038a41d7eaaf2, type: 2}
+    - target: {fileID: 7481482793067872686, guid: 1c48a030e68b6154dab0f5aae564ea41, type: 3}
+      propertyPath: m_StateActionAI_SOs.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: 16c42b06beb90234bac638955331da10, type: 2}
+    - target: {fileID: 7481482793067872686, guid: 1c48a030e68b6154dab0f5aae564ea41, type: 3}
+      propertyPath: m_StateActionAI_SOs.Array.data[2]
+      value: 
+      objectReference: {fileID: 11400000, guid: e7c89872036505b48a50cbc51a638cd5, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1c48a030e68b6154dab0f5aae564ea41, type: 3}

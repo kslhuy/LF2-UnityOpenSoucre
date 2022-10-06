@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Guid: eeab67d1cc638c41ae4fa52de9417ce5
   CharacterClass: {fileID: 11400000, guid: 168868c9e32f94f41b4142261c5f75bd, type: 2}
+  CharacterClassNPC: {fileID: 11400000, guid: fd3a30e531cdc30408e14946d99e7823, type: 2}
   Graphics: {fileID: 1128737043197552253, guid: 354662316dd79054bb7fc077531514b2, type: 3}
   GraphicsCharacterSelect: {fileID: 5307423579264072845, guid: 69d6569f039fd804fb21c1fdc006b1f2, type: 3}
   Portrait: {fileID: 21300000, guid: da05f27075d5f7d419815a6a6c845b17, type: 3}

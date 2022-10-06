@@ -251,7 +251,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 1
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -306,6 +306,30 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -1759,9 +1783,9 @@ TextureImporter:
     secondaryTextures: []
     nameFileIdTable:
       freeze_1_2: -1772874180785248662
-      freeze_1_27: 2724750159896302117
-      freeze_1_19: -5938314757559519078
       freeze_1_46: -6815845742242993560
+      freeze_1_19: -5938314757559519078
+      freeze_1_27: 2724750159896302117
       freeze_1_6: -2049856499895205044
       freeze_1_25: 3195086900535971045
       freeze_1_17: 1205873424585311951
@@ -1788,9 +1812,9 @@ TextureImporter:
       freeze_1_51: -6067982473788268822
       freeze_1_53: -2672202381472411754
       freeze_1_11: 1932276890254127224
-      freeze_1_1: -6499709021570330910
-      freeze_1_33: -4419377152233308199
       freeze_1_47: 8676467500312223431
+      freeze_1_33: -4419377152233308199
+      freeze_1_1: -6499709021570330910
       freeze_1_62: -2401127421781568171
       freeze_1_67: 1891697710561418298
       freeze_1_20: -6537265365254651432

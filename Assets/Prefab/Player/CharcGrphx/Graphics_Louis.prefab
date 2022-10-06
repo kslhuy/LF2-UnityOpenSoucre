@@ -54,10 +54,10 @@ PrefabInstance:
     - target: {fileID: -6817095382603332305, guid: 044bb5afde6bc784b8fa4a16b0a1e4d7, type: 3}
       propertyPath: m_CharacterModel.Normal_animatorOverrides
       value: 
-      objectReference: {fileID: 22100000, guid: b7aebb1c13effd5419a69686b84e441f, type: 2}
+      objectReference: {fileID: 22100000, guid: cc425bb2cb4bfe449a798e3888e047a6, type: 2}
     - target: {fileID: 5307423579264072845, guid: 044bb5afde6bc784b8fa4a16b0a1e4d7, type: 3}
       propertyPath: m_Name
-      value: Graphics_John
+      value: Graphics_Louis
       objectReference: {fileID: 0}
     - target: {fileID: 5723303857766099899, guid: 044bb5afde6bc784b8fa4a16b0a1e4d7, type: 3}
       propertyPath: m_EventsOnNodeEntry.Array.data[0].m_Prefab

@@ -45,7 +45,7 @@ public class ClientCharacterVizEditor : Editor
 
   //   // Return the finished inspector UI
   // }
-  
+#if UNITY_EDITOR
     public override void OnInspectorGUI()
     {
       DrawDefaultInspector();
@@ -56,5 +56,5 @@ public class ClientCharacterVizEditor : Editor
           myScript.TestState();
       }
     }
-
+#endif 
 }

@@ -290,12 +290,12 @@ TextureImporter:
       name: deep_3_3
       rect:
         serializedVersion: 2
-        x: 330
+        x: 327
         y: 321
-        width: 93
+        width: 84
         height: 70
       alignment: 9
-      pivot: {x: 0.3, y: 0}
+      pivot: {x: 0.2, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -311,12 +311,12 @@ TextureImporter:
       name: deep_3_4
       rect:
         serializedVersion: 2
-        x: 439
+        x: 434
         y: 321
-        width: 97
-        height: 56
+        width: 102
+        height: 69
       alignment: 9
-      pivot: {x: 0.3, y: 0}
+      pivot: {x: 0.2, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -332,12 +332,12 @@ TextureImporter:
       name: deep_3_5
       rect:
         serializedVersion: 2
-        x: 550
+        x: 548
         y: 321
-        width: 93
-        height: 56
+        width: 84
+        height: 69
       alignment: 9
-      pivot: {x: 0.3, y: 0}
+      pivot: {x: 0.2, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -353,10 +353,10 @@ TextureImporter:
       name: deep_3_6
       rect:
         serializedVersion: 2
-        x: 663
-        y: 321
-        width: 49
-        height: 66
+        x: 658
+        y: 320
+        width: 58
+        height: 73
       alignment: 9
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -990,13 +990,13 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      deep_3_27: 7165156469007188074
       deep_3_32: -9003202888190420227
       deep_3_1: -2476686162393057836
       deep_3_6: -5182789871872355045
       deep_3_18: 2207490816053779073
       deep_3_19: 4013822383230817894
       deep_3_35: -9102789140874584551
+      deep_3_27: 7165156469007188074
       deep_3_17: 6575648852316355462
       deep_3_21: -5097523228496386902
       deep_3_22: -6916265390449063437

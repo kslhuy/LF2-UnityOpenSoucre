@@ -170,13 +170,38 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_NetState: {fileID: 4098277249547642324}
   m_OurCollider: {fileID: 7060414307774357096}
-  _rigidbody: {fileID: 6894385322031071044}
+  m_Rigidbody: {fileID: 6894385322031071044}
   k_GroundLayerMask: 0
+  ProjectileDamage:
+  - {fileID: 11400000, guid: 4b7c142dd8f2497458edc50ec7144f98, type: 2}
+  Speed_m_s: 0
+  Range: 0
+  MaxVictims: 0
   _sfxEventChannel: {fileID: 11400000, guid: 1981ab6cbad46e54ca529e09ba189c16, type: 2}
   _audioConfig: {fileID: 11400000, guid: e8a6884befaa7e544b61747452adc267, type: 2}
+  Sounds: []
+  EndAnimation: 
+  DestroyAfterSec: 0
+  DestroyAfterHit: 0
   animator: {fileID: 2826985552258480009}
   delayFire1: 1
   delayFire2: 0.3
+--- !u!114 &512527722672111583
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4477627029082403580}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 951099334
+  AlwaysReplicateAsRoot: 0
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 1
 --- !u!54 &6894385322031071044 stripped
 Rigidbody:
   m_CorrespondingSourceObject: {fileID: 5359535883441174824, guid: e1e6fa40b644751498970cb113c8b0a1, type: 3}

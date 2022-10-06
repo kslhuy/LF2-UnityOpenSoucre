@@ -87,6 +87,26 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 6d49c028208bb55429cbe802cc242b1d, type: 2}
+    - target: {fileID: 8374024554256111620, guid: e1e6fa40b644751498970cb113c8b0a1, type: 3}
+      propertyPath: m_Size.x
+      value: 52.130623
+      objectReference: {fileID: 0}
+    - target: {fileID: 8374024554256111620, guid: e1e6fa40b644751498970cb113c8b0a1, type: 3}
+      propertyPath: m_Size.y
+      value: 14.943825
+      objectReference: {fileID: 0}
+    - target: {fileID: 8374024554256111620, guid: e1e6fa40b644751498970cb113c8b0a1, type: 3}
+      propertyPath: m_Size.z
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 8374024554256111620, guid: e1e6fa40b644751498970cb113c8b0a1, type: 3}
+      propertyPath: m_Center.x
+      value: 0.70622635
+      objectReference: {fileID: 0}
+    - target: {fileID: 8374024554256111620, guid: e1e6fa40b644751498970cb113c8b0a1, type: 3}
+      propertyPath: m_Center.y
+      value: -1.008894
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e1e6fa40b644751498970cb113c8b0a1, type: 3}
 --- !u!114 &4098277249547642324 stripped
@@ -119,9 +139,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_NetState: {fileID: 4098277249547642324}
   m_OurCollider: {fileID: 7060414307774357096}
-  _rigidbody: {fileID: 6894385322031071044}
+  m_Rigidbody: {fileID: 6894385322031071044}
+  k_GroundLayerMask: 0
+  ProjectileDamage:
+  - {fileID: 11400000, guid: ed256d8f033d3894899d9c058d919b5c, type: 2}
+  Speed_m_s: 500
+  Range: 0
+  MaxVictims: 0
   _sfxEventChannel: {fileID: 11400000, guid: 1981ab6cbad46e54ca529e09ba189c16, type: 2}
   _audioConfig: {fileID: 11400000, guid: e8a6884befaa7e544b61747452adc267, type: 2}
+  Sounds: []
+  EndAnimation: 
+  DestroyAfterSec: 5
+  DestroyAfterHit: 0.2
 --- !u!54 &6894385322031071044 stripped
 Rigidbody:
   m_CorrespondingSourceObject: {fileID: 5359535883441174824, guid: e1e6fa40b644751498970cb113c8b0a1, type: 3}

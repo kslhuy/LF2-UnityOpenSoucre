@@ -10,7 +10,7 @@ PrefabInstance:
     - target: {fileID: -6817095382603332305, guid: 044bb5afde6bc784b8fa4a16b0a1e4d7, type: 3}
       propertyPath: m_CharacterModel._sprite
       value: 
-      objectReference: {fileID: -8507426173327283993, guid: 2e61782dff6ce924583b276e5c2914d1, type: 3}
+      objectReference: {fileID: 21300000, guid: d66c606413ca2174ea3ceed011ee1760, type: 3}
     - target: {fileID: -6817095382603332305, guid: 044bb5afde6bc784b8fa4a16b0a1e4d7, type: 3}
       propertyPath: m_CharacterModel.specialFx
       value: 
@@ -54,10 +54,16 @@ PrefabInstance:
     - target: {fileID: -6817095382603332305, guid: 044bb5afde6bc784b8fa4a16b0a1e4d7, type: 3}
       propertyPath: m_CharacterModel.Normal_animatorOverrides
       value: 
-      objectReference: {fileID: 22100000, guid: b7aebb1c13effd5419a69686b84e441f, type: 2}
+      objectReference: {fileID: 22100000, guid: 9aee396e586c13f48b42c1deecb3fdfc, type: 2}
     - target: {fileID: 5307423579264072845, guid: 044bb5afde6bc784b8fa4a16b0a1e4d7, type: 3}
       propertyPath: m_Name
-      value: Graphics_John
+      value: Graphics_Bandit
+      objectReference: {fileID: 0}
+    - target: {fileID: 5723303857766099899, guid: 044bb5afde6bc784b8fa4a16b0a1e4d7, type: 3}
+      propertyPath: DevNotes
+      value: 'This is for the BANDIT
+
+'
       objectReference: {fileID: 0}
     - target: {fileID: 5723303857766099899, guid: 044bb5afde6bc784b8fa4a16b0a1e4d7, type: 3}
       propertyPath: m_EventsOnNodeEntry.Array.data[0].m_Prefab

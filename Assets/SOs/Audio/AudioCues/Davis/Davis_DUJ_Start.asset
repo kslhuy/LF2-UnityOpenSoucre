@@ -12,11 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08e854ccd8588da4694c3ae040c10c5e, type: 3}
   m_Name: Davis_DUJ_Start
   m_EditorClassIdentifier: 
-  looping: 0
+  loopingAll: 0
   _audioClipGroups:
   - sequenceMode: 2
     audioClips:
     - {fileID: 8300000, guid: e09bfa0dca32a9c4f977cdbc2cd7f692, type: 3}
+    Looping: 0
+    delayForLooping: 0
   - sequenceMode: 2
     audioClips:
     - {fileID: 8300000, guid: 59066fa4f33d48c4aa7b92ec0af04649, type: 3}
+    Looping: 0
+    delayForLooping: 0

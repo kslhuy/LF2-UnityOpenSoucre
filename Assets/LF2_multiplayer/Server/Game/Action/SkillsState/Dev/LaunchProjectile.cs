@@ -15,8 +15,6 @@ namespace LF2.Server
         public override void Enter()
         {      
             base.Enter();
-            
-;
             SpwanProjectile();
   
         }

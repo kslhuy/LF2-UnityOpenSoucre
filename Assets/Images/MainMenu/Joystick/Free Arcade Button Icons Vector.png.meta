@@ -66,7 +66,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 1024
+    maxTextureSize: 512
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -155,10 +155,10 @@ TextureImporter:
       name: Button_J
       rect:
         serializedVersion: 2
-        x: 29
-        y: 753
+        x: 26
+        y: 1236
         width: 331
-        height: 324
+        height: 333
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -176,10 +176,10 @@ TextureImporter:
       name: Button_D
       rect:
         serializedVersion: 2
-        x: 375
-        y: 767
+        x: 377
+        y: 1244
         width: 334
-        height: 321
+        height: 325
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -198,9 +198,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 711
-        y: 763
+        y: 1239
         width: 340
-        height: 323
+        height: 334
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -218,8 +218,8 @@ TextureImporter:
       name: Button_Down
       rect:
         serializedVersion: 2
-        x: 1046
-        y: 758
+        x: 1052
+        y: 1237
         width: 339
         height: 330
       alignment: 0
@@ -239,8 +239,8 @@ TextureImporter:
       name: Button_A
       rect:
         serializedVersion: 2
-        x: 17
-        y: 388
+        x: 19
+        y: 870
         width: 336
         height: 325
       alignment: 0
@@ -260,10 +260,10 @@ TextureImporter:
       name: Joysitck
       rect:
         serializedVersion: 2
-        x: 368
-        y: 310
-        width: 438
-        height: 420
+        x: 407
+        y: 816
+        width: 379
+        height: 361
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -282,9 +282,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 860
-        y: 287
-        width: 536
-        height: 422
+        y: 3
+        width: 699
+        height: 706
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -302,12 +302,12 @@ TextureImporter:
       name: Button_Run
       rect:
         serializedVersion: 2
-        x: 6
-        y: 9
+        x: 15
+        y: 488
         width: 356
         height: 350
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []

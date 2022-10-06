@@ -17,3 +17,4 @@ MonoBehaviour:
     sounds that make the AudioCue requested in the event.
 
 '
+  _defautAudioConfig: {fileID: 11400000, guid: e8a6884befaa7e544b61747452adc267, type: 2}

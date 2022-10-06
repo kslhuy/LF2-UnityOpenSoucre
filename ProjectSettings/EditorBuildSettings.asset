@@ -17,5 +17,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/LF2_Net.unity
     guid: f8b34536da2ca974f96d7480add36fe8
+  - enabled: 1
+    path: Assets/Scenes/PostGame.unity
+    guid: 5b5e206d8a419e148b76015dd7726925
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 2d596753b97b927499170a2f7500e773, type: 2}

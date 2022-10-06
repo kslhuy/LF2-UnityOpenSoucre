@@ -87,8 +87,17 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 2a47e3fb6f5edc7428ade993eb5cccac, type: 2}
+    - target: {fileID: 5359535883441174824, guid: e1e6fa40b644751498970cb113c8b0a1, type: 3}
+      propertyPath: m_Mass
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e1e6fa40b644751498970cb113c8b0a1, type: 3}
+--- !u!95 &2826985552258480009 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 3672223636655927781, guid: e1e6fa40b644751498970cb113c8b0a1, type: 3}
+  m_PrefabInstance: {fileID: 1570950951994148460}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &4098277249547642324 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3255296454070526904, guid: e1e6fa40b644751498970cb113c8b0a1, type: 3}
@@ -119,9 +128,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_NetState: {fileID: 4098277249547642324}
   m_OurCollider: {fileID: 7060414307774357096}
-  _rigidbody: {fileID: 6894385322031071044}
+  m_Rigidbody: {fileID: 6894385322031071044}
+  k_GroundLayerMask: 0
+  ProjectileDamage:
+  - {fileID: 11400000, guid: 060dabe58cc597449933920479fd1b93, type: 2}
+  Speed_m_s: 400
+  Range: 0
+  MaxVictims: 1
   _sfxEventChannel: {fileID: 11400000, guid: 1981ab6cbad46e54ca529e09ba189c16, type: 2}
   _audioConfig: {fileID: 11400000, guid: e8a6884befaa7e544b61747452adc267, type: 2}
+  Sounds: []
+  animator: {fileID: 2826985552258480009}
+  EndAnimation: Davis_Ball_DDA_Hit
+  DestroyAfterSec: 5
+  DestroyAfterHit: 0.3
 --- !u!54 &6894385322031071044 stripped
 Rigidbody:
   m_CorrespondingSourceObject: {fileID: 5359535883441174824, guid: e1e6fa40b644751498970cb113c8b0a1, type: 3}

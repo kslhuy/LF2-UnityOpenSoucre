@@ -48,10 +48,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_ParticleSystemsToTurnOffOnShutdown:
-  - {fileID: 0}
   - {fileID: 6914252191809903576}
   - {fileID: 8483298569585609845}
-  m_AutoShutdownTime: -1
+  m_AutoShutdownTime: 0
   m_PostShutdownSelfDestructTime: -1
 --- !u!1 &1483956406739743068
 GameObject:

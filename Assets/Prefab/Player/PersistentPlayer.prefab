@@ -92,6 +92,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_PersistentPlayerRuntimeCollection: {fileID: 11400000, guid: 3d452f205bfe6f1458ac48ae9c9481d8, type: 2}
   m_PersistentBOTRuntimeCollection: {fileID: 11400000, guid: 7fbb79751fb7c834eb6ca7b335f0ab61, type: 2}
+  PersistentBackGround: {fileID: 11400000, guid: a4f0fae3c5dfb5a498ce0a9172bddcde, type: 2}
   m_NetworkNameState: {fileID: 3231833055606599433}
   m_NetworkAvatarGuidState: {fileID: 3348652876444193386}
-  BackGroundNumber: 0

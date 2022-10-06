@@ -12,8 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08e854ccd8588da4694c3ae040c10c5e, type: 3}
   m_Name: Inferno_Firen_AudioCue_071
   m_EditorClassIdentifier: 
-  looping: 0
+  loopingAll: 0
   _audioClipGroups:
   - sequenceMode: 2
     audioClips:
-    - {fileID: 8300000, guid: 86c36f43239250d42afbc9bbe91bd7cf, type: 3}
+    - {fileID: 8300000, guid: e50cce7cb4a564f41badd61df2a91d24, type: 3}
+    Looping: 0
+    delayForLooping: 0

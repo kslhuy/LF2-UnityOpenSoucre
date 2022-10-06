@@ -23,10 +23,10 @@ MonoBehaviour:
   walking_speedz: 100
   running_speed: 250
   running_speed_z: 10
-  jump_distance: 300
-  jump_height: 450
+  jump_distance: 250
+  jump_height: 500
   doublejump_distance: 450
-  doublejump_height: 220
+  doublejump_height: 250
   dash_height: 0
   dash_distance: 0
   dash_distance_z: 0
@@ -35,3 +35,4 @@ MonoBehaviour:
   DetectRange: 0
   DisplayedName: 
   InfoChampion: Bla bla
+  objectPollingRegistry: {fileID: 11400000, guid: 398e86e19e6351941bcb0fb519779759, type: 2}

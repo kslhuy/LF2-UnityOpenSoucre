@@ -89,6 +89,11 @@ namespace LF2.Client
             }
         }
 
+        public void ShutDownSlow(){
+            StartCoroutine(CoroWaitForParticlesToEnd());
+        }
+
+
         private IEnumerator CoroWaitForParticlesToEnd()
         {
             bool foundAliveParticles;

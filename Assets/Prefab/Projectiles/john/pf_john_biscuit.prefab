@@ -118,11 +118,6 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 7304612132625600388, guid: e1e6fa40b644751498970cb113c8b0a1, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: e1e6fa40b644751498970cb113c8b0a1, type: 3}
---- !u!212 &651476940700171912 stripped
-SpriteRenderer:
-  m_CorrespondingSourceObject: {fileID: 2075974051578360440, guid: e1e6fa40b644751498970cb113c8b0a1, type: 3}
-  m_PrefabInstance: {fileID: 1568895022039502064}
-  m_PrefabAsset: {fileID: 0}
 --- !u!95 &2824757819236973845 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 3672223636655927781, guid: e1e6fa40b644751498970cb113c8b0a1, type: 3}
@@ -158,13 +153,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_NetState: {fileID: 4100799406809116488}
   m_OurCollider: {fileID: 7058080987340510452}
-  _rigidbody: {fileID: 6891968443062646232}
+  m_Rigidbody: {fileID: 6891968443062646232}
+  k_GroundLayerMask: 0
+  ProjectileDamage:
+  - {fileID: 11400000, guid: 4c7d02b80baede346a9bf712668c0e93, type: 2}
+  Speed_m_s: 300
+  Range: 0
+  MaxVictims: 5
   _sfxEventChannel: {fileID: 11400000, guid: 1981ab6cbad46e54ca529e09ba189c16, type: 2}
   _audioConfig: {fileID: 11400000, guid: e8a6884befaa7e544b61747452adc267, type: 2}
-  _spriteRenderer: {fileID: 651476940700171912}
+  Sounds: []
+  EndAnimation: john_biscuit3
+  DestroyAfterSec: 10
+  DestroyAfterHit: 0.2
   _animator: {fileID: 2824757819236973845}
   distanceXPositionWhenAppear: 150
-  DelayApp: 0.1
   DelayChase: 0.2
   PeriodeTimeToDissAndAppearAgain: 5
   _NoiseCurveChase:
@@ -210,12 +213,13 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   bisCuitState: 0
-  timerToFinishAppearAnimation: 0.6
-  timerToFinishDissapearAnimation: 0.5
+  timerBorning: 0.5
+  timerTeleport: 0.5
+  timerFlying: 0
   MinNoise: 3
   MaxNoise: 4
   yOffset: 30
-  SpeedChase: 2
+  SpeedChase: 1
   SpeedFly: 1
   NbLimiteToStopChase: 3
 --- !u!114 &8160468732181547402
@@ -231,8 +235,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Animator: {fileID: 2824757819236973845}
-  m_ParameterSendBits: 0
-  m_SendRate: 0.1
 --- !u!54 &6891968443062646232 stripped
 Rigidbody:
   m_CorrespondingSourceObject: {fileID: 5359535883441174824, guid: e1e6fa40b644751498970cb113c8b0a1, type: 3}

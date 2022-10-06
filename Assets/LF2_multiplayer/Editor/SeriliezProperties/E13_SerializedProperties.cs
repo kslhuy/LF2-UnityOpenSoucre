@@ -3,10 +3,11 @@ using UnityEditor.UIElements;
 using UnityEngine.UIElements;
 using UnityEngine;
 using System.Collections.Generic;
+using LF2;
 using LF2.Client;
 
-// [CustomEditor(typeof(StateLogicSO))]
- [CustomEditor(typeof(ScriptableObject), true)]
+// [CustomEditor(typeof(StateLogicSO)) ]
+[CustomEditor(typeof(ScriptableObject), true)]
 
 public class E13_SerializedProperties : Editor
 {

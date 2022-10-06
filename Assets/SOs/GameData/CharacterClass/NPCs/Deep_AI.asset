@@ -23,7 +23,7 @@ MonoBehaviour:
   walking_speedz: 100
   running_speed: 250
   running_speed_z: 10
-  jump_distance: 300
+  jump_distance: 200
   jump_height: 450
   doublejump_distance: 450
   doublejump_height: 220
@@ -35,3 +35,5 @@ MonoBehaviour:
   DetectRange: 0
   DisplayedName: 
   InfoChampion: Bla bla
+  StateAI: {fileID: 11400000, guid: 26f4d75eb3124c844a74fb562de5e4c7, type: 2}
+  objectPollingRegistry: {fileID: 11400000, guid: 3edc63065b551e844ac347475ddd5c15, type: 2}

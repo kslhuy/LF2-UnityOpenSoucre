@@ -200,57 +200,15 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: dennis_ball_0
-      rect:
-        serializedVersion: 2
-        x: 29
-        y: 152
-        width: 43
-        height: 27
-      alignment: 9
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 6142ee13efd8cc290800000000000000
-      internalID: -7868758326024199146
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: dennis_ball_1
       rect:
         serializedVersion: 2
-        x: 112
-        y: 153
-        width: 41
-        height: 26
-      alignment: 9
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ceb378680768545a0800000000000000
-      internalID: -6537671466206938132
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: dennis_ball_2
-      rect:
-        serializedVersion: 2
-        x: 185
-        y: 97
-        width: 58
-        height: 44
-      alignment: 9
-      pivot: {x: 0.5, y: 0}
+        x: 111
+        y: 152
+        width: 44
+        height: 29
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -263,36 +221,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: dennis_ball_3
+      name: dennis_ball_7
       rect:
         serializedVersion: 2
-        x: 195
-        y: 153
-        width: 39
-        height: 27
-      alignment: 9
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c3c6a9695345d4450800000000000000
-      internalID: 6074604061529369660
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: dennis_ball_5
-      rect:
-        serializedVersion: 2
-        x: 272
-        y: 150
-        width: 44
-        height: 33
-      alignment: 9
-      pivot: {x: 0.5, y: 0}
+        x: 261
+        y: 93
+        width: 59
+        height: 51
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -305,99 +242,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: dennis_ball_6
+      name: dennis_ball_0
       rect:
         serializedVersion: 2
-        x: 263
-        y: 97
-        width: 59
-        height: 44
-      alignment: 9
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4571b56694559c3f0800000000000000
-      internalID: -880078478436001964
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: dennis_ball_7
-      rect:
-        serializedVersion: 2
-        x: 27
-        y: 58
-        width: 43
-        height: 26
-      alignment: 9
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 6b929483eec2ff610800000000000000
-      internalID: 1657092589553789366
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: dennis_ball_8
-      rect:
-        serializedVersion: 2
-        x: 24
-        y: 97
-        width: 56
-        height: 44
-      alignment: 9
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4bd729e98364c8800800000000000000
-      internalID: 615944458035428788
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: dennis_ball_11
-      rect:
-        serializedVersion: 2
-        x: 99
-        y: 96
-        width: 61
-        height: 46
-      alignment: 9
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 36e5f29e0eb77cea0800000000000000
-      internalID: -5852572984829583773
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: dennis_ball_13
-      rect:
-        serializedVersion: 2
-        x: 30
-        y: 11
-        width: 43
-        height: 27
-      alignment: 9
-      pivot: {x: 0.5, y: 0}
+        x: 29
+        y: 153
+        width: 42
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -410,15 +263,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: dennis_ball_19
+      name: dennis_ball_5
       rect:
         serializedVersion: 2
-        x: 111
-        y: 59
-        width: 44
-        height: 28
-      alignment: 9
-      pivot: {x: 0.5, y: 0}
+        x: 112
+        y: 96
+        width: 51
+        height: 44
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -431,36 +284,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: dennis_ball_20
+      name: dennis_ball_6
       rect:
         serializedVersion: 2
-        x: 193
-        y: 57
-        width: 43
-        height: 30
-      alignment: 9
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b5986b3ec45a7e920800000000000000
-      internalID: 3019563824831695195
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: dennis_ball_21
-      rect:
-        serializedVersion: 2
-        x: 272
-        y: 57
+        x: 192
+        y: 97
         width: 45
-        height: 32
-      alignment: 9
-      pivot: {x: 0.5, y: 0}
+        height: 44
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -473,36 +305,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: dennis_ball_22
+      name: dennis_ball_8
       rect:
         serializedVersion: 2
-        x: 109
-        y: 10
-        width: 45
-        height: 32
-      alignment: 9
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0b98f0a4f6c6f7070800000000000000
-      internalID: 8106317079529884080
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: dennis_ball_23
-      rect:
-        serializedVersion: 2
-        x: 192
-        y: 12
-        width: 44
-        height: 30
-      alignment: 9
-      pivot: {x: 0.5, y: 0}
+        x: 30
+        y: 58
+        width: 41
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -515,15 +326,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: dennis_ball_24
+      name: dennis_ball_9
       rect:
         serializedVersion: 2
-        x: 272
-        y: 10
-        width: 45
-        height: 32
-      alignment: 9
-      pivot: {x: 0.5, y: 0}
+        x: 112
+        y: 58
+        width: 43
+        height: 27
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -531,6 +342,195 @@ TextureImporter:
       bones: []
       spriteID: 1264236d255620200800000000000000
       internalID: 144789544484619809
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dennis_ball_2
+      rect:
+        serializedVersion: 2
+        x: 194
+        y: 152
+        width: 41
+        height: 29
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f057ee4edcc670f44baf8ae26b04e310
+      internalID: -857342938
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dennis_ball_3
+      rect:
+        serializedVersion: 2
+        x: 271
+        y: 150
+        width: 47
+        height: 33
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c052456281c0292469fc3527c7166dc9
+      internalID: 1364852091
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dennis_ball_4
+      rect:
+        serializedVersion: 2
+        x: 26
+        y: 97
+        width: 50
+        height: 44
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: df6cadb28af4e8a4bbe15f29d6d2c11c
+      internalID: 432020006
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dennis_ball_10
+      rect:
+        serializedVersion: 2
+        x: 193
+        y: 57
+        width: 43
+        height: 30
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a9ce328d0c905cc43bc9971a8d02bc67
+      internalID: -1204350755
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dennis_ball_11
+      rect:
+        serializedVersion: 2
+        x: 273
+        y: 56
+        width: 43
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6230d554a7188044384ecf648620cee0
+      internalID: 1976120755
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dennis_ball_12
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 11
+        width: 41
+        height: 27
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d124ee47df28b244b2af7def84eb73e
+      internalID: -363769103
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dennis_ball_13
+      rect:
+        serializedVersion: 2
+        x: 110
+        y: 11
+        width: 45
+        height: 30
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e8d52af8336dd2b45b3d4c6d3b13d039
+      internalID: 894500183
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dennis_ball_14
+      rect:
+        serializedVersion: 2
+        x: 194
+        y: 11
+        width: 42
+        height: 31
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5224335518e096f45be3f6aa8d1a051f
+      internalID: 1120374153
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dennis_ball_15
+      rect:
+        serializedVersion: 2
+        x: 274
+        y: 10
+        width: 42
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 29978624da9329a458d221f4e846ac5c
+      internalID: 1394629896
       vertices: []
       indices: 
       edges: []
@@ -546,22 +546,22 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      dennis_ball_8: 615944458035428788
-      dennis_ball_13: -4844026185787039870
-      dennis_ball_1: -6537671466206938132
-      dennis_ball_19: 5868083425214718951
-      dennis_ball_22: 8106317079529884080
-      dennis_ball_5: 6309002233318871991
-      dennis_ball_23: -1688738170380256132
-      dennis_ball_7: 1657092589553789366
-      dennis_ball_20: 3019563824831695195
-      dennis_ball_21: -8610944018433971995
-      dennis_ball_3: 6074604061529369660
-      dennis_ball_24: 144789544484619809
-      dennis_ball_6: -880078478436001964
-      dennis_ball_0: -7868758326024199146
-      dennis_ball_11: -5852572984829583773
-      dennis_ball_2: 8871183528389717881
+      dennis_ball_8: -1688738170380256132
+      dennis_ball_13: 894500183
+      dennis_ball_9: 144789544484619809
+      dennis_ball_1: 8871183528389717881
+      dennis_ball_12: -363769103
+      dennis_ball_14: 1120374153
+      dennis_ball_10: -1204350755
+      dennis_ball_5: 5868083425214718951
+      dennis_ball_4: 432020006
+      dennis_ball_7: 6309002233318871991
+      dennis_ball_15: 1394629896
+      dennis_ball_3: 1364852091
+      dennis_ball_6: -8610944018433971995
+      dennis_ball_0: -4844026185787039870
+      dennis_ball_11: 1976120755
+      dennis_ball_2: -857342938
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

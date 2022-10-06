@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Henry
   m_EditorClassIdentifier: 
   CharacterType: 6
-  BaseHP: {fileID: 11400000, guid: f8c70f47face7f340abaa19058972ccb, type: 2}
+  BaseHP: {fileID: 11400000, guid: 8ac13485bd5901c418f0730b1cbee43a, type: 2}
   BaseMP: {fileID: 11400000, guid: 1cf172c42dd9a9b4e8b0014a8f7c23d8, type: 2}
   BaseAmor: 0
   BaseFall: 0
@@ -24,7 +24,7 @@ MonoBehaviour:
   running_speed: 250
   running_speed_z: 10
   jump_distance: 300
-  jump_height: 450
+  jump_height: 470
   doublejump_distance: 450
   doublejump_height: 220
   dash_height: 0
@@ -35,3 +35,4 @@ MonoBehaviour:
   DetectRange: 0
   DisplayedName: 
   InfoChampion: Bla bla
+  objectPollingRegistry: {fileID: 11400000, guid: 93f531ac10dc49044aa7a704b2badb91, type: 2}

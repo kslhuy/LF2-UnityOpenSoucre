@@ -11,6 +11,10 @@ PrefabInstance:
       propertyPath: GlobalObjectIdHash
       value: 951099334
       objectReference: {fileID: 0}
+    - target: {fileID: 472367527745874283, guid: e1e6fa40b644751498970cb113c8b0a1, type: 3}
+      propertyPath: SyncPositionY
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2075974051578360440, guid: e1e6fa40b644751498970cb113c8b0a1, type: 3}
       propertyPath: m_Size.x
       value: 58
@@ -73,7 +77,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3165636493918647440, guid: e1e6fa40b644751498970cb113c8b0a1, type: 3}
       propertyPath: m_Name
-      value: DeepDDA Variant
+      value: DeepDDA
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e1e6fa40b644751498970cb113c8b0a1, type: 3}
@@ -107,9 +111,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_NetState: {fileID: 4098277249547642324}
   m_OurCollider: {fileID: 7060414307774357096}
-  _rigidbody: {fileID: 6894385322031071044}
+  m_Rigidbody: {fileID: 6894385322031071044}
+  k_GroundLayerMask: 0
+  ProjectileDamage:
+  - {fileID: 11400000, guid: 4e2d5f76eb0c7984990d544252fa0fc1, type: 2}
+  Speed_m_s: 400
+  Range: 0
+  MaxVictims: 1
   _sfxEventChannel: {fileID: 11400000, guid: 1981ab6cbad46e54ca529e09ba189c16, type: 2}
   _audioConfig: {fileID: 11400000, guid: e8a6884befaa7e544b61747452adc267, type: 2}
+  Sounds: []
+  EndAnimation: DDAprojectile_Despawn
+  DestroyAfterSec: 5
+  DestroyAfterHit: 0.2
 --- !u!54 &6894385322031071044 stripped
 Rigidbody:
   m_CorrespondingSourceObject: {fileID: 5359535883441174824, guid: e1e6fa40b644751498970cb113c8b0a1, type: 3}

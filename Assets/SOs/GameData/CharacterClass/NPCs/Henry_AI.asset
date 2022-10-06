@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4adb72a0c832cf743ba31d5204d6feb1, type: 3}
   m_Name: Henry_AI
   m_EditorClassIdentifier: 
-  CharacterType: 3
+  CharacterType: 6
   BaseHP: {fileID: 11400000, guid: 2baa6c439fd2f30458deff943a248fcb, type: 2}
   BaseMP: {fileID: 11400000, guid: f75b082b4ce2c13479268a9db2635e25, type: 2}
   BaseAmor: 0
@@ -35,3 +35,5 @@ MonoBehaviour:
   DetectRange: 0
   DisplayedName: 
   InfoChampion: Bla bla
+  StateAI: {fileID: 0}
+  objectPollingRegistry: {fileID: 11400000, guid: 93f531ac10dc49044aa7a704b2badb91, type: 2}

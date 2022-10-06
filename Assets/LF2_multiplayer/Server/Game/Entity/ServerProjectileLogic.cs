@@ -43,7 +43,7 @@ namespace LF2.Server
 
         private bool canHitCreator;
 
-        private List<GameObject> m_HitTargets = new List<GameObject>();
+        // private List<GameObject> m_HitTargets = new List<GameObject>();
 
         /// <summary>
         /// Are we done moving?
@@ -73,7 +73,7 @@ namespace LF2.Server
             }
             m_Started = true;
 
-            m_HitTargets = new List<GameObject>();
+            // m_HitTargets = new List<GameObject>();
             m_IsDead = false;
 
             m_DestroyAtSec = Time.fixedTime + 3f;
@@ -117,7 +117,7 @@ namespace LF2.Server
         //             m_NetState.RecvHitEnemyClientRPC(targetNetObj.NetworkObjectId);
         //             InputPackage stateRequestData = new InputPackage();
         //             stateRequestData.StateTypeEnum = StateType.Hurt;
-        //             targetNetObj.ReceiveHP(stateRequestData, -m_ProjectileInfo.Damage);                  
+        //             targetNetObj.ReceiveHP(stateRequestData, -Damage);                  
         //         }
         //     }
 
@@ -143,7 +143,7 @@ namespace LF2.Server
         //         {
         //             m_HitTargets.Add(m_CollisionCache[i].gameObject);
 
-        //             if (m_HitTargets.Count >= m_ProjectileInfo.MaxVictims)
+        //             if (m_HitTargets.Count >= MaxVictims)
         //             {
         //                 // we've hit all the enemies we're allowed to! So we're done
         //                 m_DestroyAtSec = Time.fixedTime + k_EnemyLingerSec;
@@ -158,7 +158,7 @@ namespace LF2.Server
         //                 m_NetState.RecvHitEnemyClientRPC(targetNetObj.NetworkObjectId);
         //                 InputPackage stateRequestData = new InputPackage();
         //                 stateRequestData.StateTypeEnum = StateType.Hurt1;
-        //                 targetNetObj.ReceiveHP(stateRequestData, -m_ProjectileInfo.Damage);                  
+        //                 targetNetObj.ReceiveHP(stateRequestData, -Damage);                  
         //             }
 
         //             if (m_IsDead)

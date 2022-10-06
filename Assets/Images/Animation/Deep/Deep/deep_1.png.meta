@@ -1070,10 +1070,10 @@ TextureImporter:
       name: deep_1_35
       rect:
         serializedVersion: 2
-        x: 485
-        y: 249
-        width: 66
-        height: 69
+        x: 482
+        y: 248
+        width: 71
+        height: 71
       alignment: 9
       pivot: {x: 0.59, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1091,12 +1091,12 @@ TextureImporter:
       name: deep_1_36
       rect:
         serializedVersion: 2
-        x: 561
-        y: 249
-        width: 78
-        height: 67
+        x: 559
+        y: 248
+        width: 85
+        height: 71
       alignment: 9
-      pivot: {x: 0.5, y: 0}
+      pivot: {x: 0.1, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1112,12 +1112,12 @@ TextureImporter:
       name: deep_1_37
       rect:
         serializedVersion: 2
-        x: 652
+        x: 651
         y: 244
-        width: 47
-        height: 72
+        width: 56
+        height: 75
       alignment: 9
-      pivot: {x: 0.5, y: 0}
+      pivot: {x: 0.2, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []

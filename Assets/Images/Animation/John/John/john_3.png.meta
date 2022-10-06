@@ -54,7 +54,7 @@ TextureImporter:
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
-  alphaIsTransparency: 1
+  alphaIsTransparency: 0
   spriteTessellationDetail: -1
   textureType: 8
   textureShape: 1
@@ -671,10 +671,10 @@ TextureImporter:
       name: john_3_25
       rect:
         serializedVersion: 2
-        x: 397
-        y: 259
+        x: 396
+        y: 258
         width: 82
-        height: 75
+        height: 76
       alignment: 9
       pivot: {x: 0.3, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -692,9 +692,9 @@ TextureImporter:
       name: john_3_26
       rect:
         serializedVersion: 2
-        x: 480
+        x: 479
         y: 259
-        width: 79
+        width: 81
         height: 75
       alignment: 9
       pivot: {x: 0.3, y: 0}
@@ -713,10 +713,10 @@ TextureImporter:
       name: john_3_27
       rect:
         serializedVersion: 2
-        x: 560
+        x: 564
         y: 259
-        width: 78
-        height: 75
+        width: 80
+        height: 76
       alignment: 9
       pivot: {x: 0.3, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -734,9 +734,9 @@ TextureImporter:
       name: john_3_28
       rect:
         serializedVersion: 2
-        x: 640
+        x: 649
         y: 259
-        width: 80
+        width: 78
         height: 75
       alignment: 9
       pivot: {x: 0.3, y: 0}
@@ -755,9 +755,9 @@ TextureImporter:
       name: john_3_29
       rect:
         serializedVersion: 2
-        x: 720
+        x: 728
         y: 259
-        width: 76
+        width: 72
         height: 75
       alignment: 9
       pivot: {x: 0.3, y: 0}
@@ -857,34 +857,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: john_3_34
-      rect:
-        serializedVersion: 2
-        x: 320
-        y: 167.66666
-        width: 80
-        height: 83.333336
-      alignment: 9
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: aedd959846e12da4e8ca65871986401c
-      internalID: 1813004241
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: john_3_35
       rect:
         serializedVersion: 2
-        x: 400
-        y: 180
-        width: 80
-        height: 71
+        x: 397
+        y: 179
+        width: 77
+        height: 72
       alignment: 9
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
