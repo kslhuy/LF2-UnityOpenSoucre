@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f425c6147d64f2f4c881cd012e58f33e, type: 3}
+  m_Name: DavisDDJ
+  m_EditorClassIdentifier: 
+  StateType: 33
+  Logic: 3
+  UseMana: 0
+  ManaCost: 0
+  DamageDetails:
+  - {fileID: 11400000, guid: 7ab6bcd018829a3449d6db60ecde8d1e, type: 2}
+  Dx: 100
+  Dy: 0
+  Dz: 0
+  Projectiles: []
+  DurationSeconds: 1
+  expirable: 1
+  ReuseTimeSeconds: 0
+  ActionInterruptible: 0
+  Sounds: {fileID: 11400000, guid: 884d9198b76b9cc4585c7a4f75831e16, type: 2}
+  delayLoopSound: 0
+  Start_Sounds: []
+  vizAnim: []
+  SpawnsFX:
+  - _Object: {fileID: 1089611201767676, guid: dc8e5d9b6b2688843ae86b46280ee93f, type: 3}
+    pivot: {x: 0, y: 0, z: 0}

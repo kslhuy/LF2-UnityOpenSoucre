@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 962a1e7e6a810ec4cbdd9819f3e14ce1, type: 3}
+  m_Name: Audio Manager Hits
+  m_EditorClassIdentifier: 
+  AudioByEffectHits:
+  - Sound_Hit: {fileID: 11400000, guid: da9d5ddca15b8b54ea83e3fa15e86a92, type: 2}
+    damageEffect: 0
+  - Sound_Hit: {fileID: 11400000, guid: 30d6888948fa0a54491f5897a9b26550, type: 2}
+    damageEffect: 1
+  - Sound_Hit: {fileID: 11400000, guid: 7656c6c14d6026446a7921ed8d70febd, type: 2}
+    damageEffect: 2
+  - Sound_Hit: {fileID: 11400000, guid: 2122747d9c09dcd44adc9b32ffd0bc03, type: 2}
+    damageEffect: 3
+  - Sound_Hit: {fileID: 11400000, guid: 303fb59042ccf314c808abd1db4b4144, type: 2}
+    damageEffect: 4
+  - Sound_Hit: {fileID: 11400000, guid: 921d8321011d69346ad9a8f3663fdf26, type: 2}
+    damageEffect: 5
+  - Sound_Hit: {fileID: 11400000, guid: ab62fe486beb099479558bc8d97d177e, type: 2}
+    damageEffect: 6
+  - Sound_Hit: {fileID: 0}
+    damageEffect: 7

@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fccb84201c782ab4c91e0e0b17dbdcb9, type: 3}
+  m_Name: JohnDDJ
+  m_EditorClassIdentifier: 
+  StateType: 33
+  Logic: 3
+  UseMana: 1
+  ManaCost: -80
+  DamageDetails:
+  - {fileID: 0}
+  Dx: 0
+  Dy: 0
+  Dz: 0
+  Projectiles:
+  - ProjectilePrefab: {fileID: 4479758005046589536, guid: 5b2074763529b4449ba680af260d96af, type: 3}
+    pivot: {x: 70, y: 40, z: 0}
+  DurationSeconds: 1
+  expirable: 1
+  ReuseTimeSeconds: 0
+  ActionInterruptible: 0
+  Sounds: {fileID: 11400000, guid: df2ed7dcbf1844842a0b3313ef66494b, type: 2}
+  delayLoopSound: 0
+  Start_Sounds: []
+  vizAnim:
+  - AnimNames: DDJ_1_anim
+    AnimHashId: -1443893879
+  SpawnsFX: []

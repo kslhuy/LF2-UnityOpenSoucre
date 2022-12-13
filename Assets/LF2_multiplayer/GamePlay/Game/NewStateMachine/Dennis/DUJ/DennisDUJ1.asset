@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0170c8aaca4dff4a86db4d28b8bb30c, type: 3}
+  m_Name: DennisDUJ1
+  m_EditorClassIdentifier: 
+  StateType: 36
+  Logic: 3
+  UseMana: 0
+  ManaCost: 0
+  DamageDetails:
+  - {fileID: 11400000, guid: 8f234dcbde21f1a41b6e542faaa90083, type: 2}
+  Dx: 150
+  Dy: 0
+  Dz: 30
+  Projectiles: []
+  DurationSeconds: 5
+  expirable: 1
+  ReuseTimeSeconds: 0
+  ActionInterruptible: 0
+  Sounds: {fileID: 11400000, guid: 30d6888948fa0a54491f5897a9b26550, type: 2}
+  delayLoopSound: 0
+  Start_Sounds: []
+  SpawnsFX: []
+  frameChecker:
+    hitFrameStart: 0
+    hitFrameEnd: 0
+    returnFrame:
+      FrameToReturn: 10
+      ReturnToFrame: 2
+    totalFrames: 10
+    layerNumber: 0

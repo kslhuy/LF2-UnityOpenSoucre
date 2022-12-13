@@ -1264,69 +1264,6 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
-    - serializedVersion: 2
-      name: deep_2new_47
-      rect:
-        serializedVersion: 2
-        x: 560
-        y: 30
-        width: 80
-        height: 80
-      alignment: 9
-      pivot: {x: 0.3, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1dc9b91ff2c5a8b70800000000000000
-      internalID: 8902028974437932241
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: deep_2new_48
-      rect:
-        serializedVersion: 2
-        x: 640
-        y: 30
-        width: 80
-        height: 80
-      alignment: 9
-      pivot: {x: 0.3, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4887b0626927ff6b0800000000000000
-      internalID: -5260359850536503164
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: deep_2new_49
-      rect:
-        serializedVersion: 2
-        x: 747
-        y: 30
-        width: 53
-        height: 58
-      alignment: 9
-      pivot: {x: 0.3, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 6218b5c0b9184f650800000000000000
-      internalID: 6265775484506439974
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
     outline: []
     physicsShape: []
     bones: []

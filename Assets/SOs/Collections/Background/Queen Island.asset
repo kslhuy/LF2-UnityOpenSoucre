@@ -14,5 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Guid: 9e81c449ffe4c14eb9b8f6a708163758
   NameBackGround: Queen Island
-  BackGroundPreFab: {fileID: 6731362302118793186, guid: 620165ac93204cf42a20477a6e594a51, type: 3}
+  BackGroundPreFab:
+    m_AssetGUID: 620165ac93204cf42a20477a6e594a51
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_EditorAssetChanged: 0
   BackGroundImage: {fileID: 21300000, guid: 7700c3de3bde1744e90db552a86c7040, type: 3}
+  musicTrack: {fileID: 0}

@@ -1,0 +1,48 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a68b2af6a87831d408c08ccdb066fb09, type: 3}
+  m_Name: WoodyDUJ1
+  m_EditorClassIdentifier: 
+  StateType: 36
+  Logic: 3
+  UseMana: 1
+  ManaCost: -200
+  DamageDetails:
+  - {fileID: 11400000, guid: ef0d5cb8e0090a9449faaa68a4a53714, type: 2}
+  Dx: 250
+  Dy: 200
+  Dz: 0
+  curve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  Projectiles: []
+  DurationSeconds: 5
+  expirable: 1
+  ReuseTimeSeconds: 0
+  ActionInterruptible: 0
+  Sounds: {fileID: 0}
+  delayLoopSound: 0
+  Start_Sounds:
+  - {fileID: 11400000, guid: 8c15930165dbbef4d9dfab8b6deaef23, type: 2}
+  - {fileID: 11400000, guid: 7546bec5eaba6fa458ea60294f3a65cc, type: 2}
+  SpawnsFX: []
+  frameChecker:
+    hitFrameStart: 0
+    hitFrameEnd: 0
+    returnFrame:
+      FrameToReturn: 0
+      ReturnToFrame: 0
+    totalFrames: 0
+    layerNumber: 0

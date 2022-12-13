@@ -76,7 +76,6 @@ MonoBehaviour:
   ScaleThreshold: 0
   InLocalSpace: 0
   Interpolate: 1
-  CanCommitToTransform: 0
 --- !u!114 &-2751153693144913985
 MonoBehaviour:
   m_ObjectHideFlags: 0

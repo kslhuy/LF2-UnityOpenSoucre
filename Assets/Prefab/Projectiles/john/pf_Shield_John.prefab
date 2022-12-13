@@ -5,6 +5,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 2
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: -2751153693144913985, guid: e1e6fa40b644751498970cb113c8b0a1, type: 3}
@@ -105,19 +106,19 @@ PrefabInstance:
       objectReference: {fileID: 9100000, guid: fb055ff8f0f5709418715bc4a5673cec, type: 2}
     - target: {fileID: 8374024554256111620, guid: e1e6fa40b644751498970cb113c8b0a1, type: 3}
       propertyPath: m_Size.x
-      value: 26.194244
+      value: 27.812164
       objectReference: {fileID: 0}
     - target: {fileID: 8374024554256111620, guid: e1e6fa40b644751498970cb113c8b0a1, type: 3}
       propertyPath: m_Size.y
-      value: 44.900856
+      value: 45.22444
       objectReference: {fileID: 0}
     - target: {fileID: 8374024554256111620, guid: e1e6fa40b644751498970cb113c8b0a1, type: 3}
       propertyPath: m_Center.x
-      value: 4.917738
+      value: -0.42140245
       objectReference: {fileID: 0}
     - target: {fileID: 8374024554256111620, guid: e1e6fa40b644751498970cb113c8b0a1, type: 3}
       propertyPath: m_Center.y
-      value: -2.6169128
+      value: 0.13355255
       objectReference: {fileID: 0}
     - target: {fileID: 8374024554256111620, guid: e1e6fa40b644751498970cb113c8b0a1, type: 3}
       propertyPath: m_IsTrigger
@@ -125,6 +126,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 7304612132625600388, guid: e1e6fa40b644751498970cb113c8b0a1, type: 3}
+    m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: e1e6fa40b644751498970cb113c8b0a1, type: 3}
 --- !u!212 &651476940700171912 stripped
 SpriteRenderer:
@@ -181,6 +183,7 @@ MonoBehaviour:
   EndAnimation: Shiled3_John_anim
   DestroyAfterSec: 5
   DestroyAfterHit: 0.4
+  m_BoxType: 0
   _spriteRenderer: {fileID: 651476940700171912}
   _animator: {fileID: 2824757819236973845}
 --- !u!114 &8160468732181547402
@@ -195,6 +198,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8d0727d5ae3244e3b569694d3912374, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  TransitionStateInfoList: []
   m_Animator: {fileID: 2824757819236973845}
 --- !u!54 &6891968443062646232 stripped
 Rigidbody:

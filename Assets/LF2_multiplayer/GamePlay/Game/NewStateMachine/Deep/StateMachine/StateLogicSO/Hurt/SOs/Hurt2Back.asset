@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2abc01960d65efb4598935f6aa0bf2d8, type: 3}
+  m_Name: Hurt2Back
+  m_EditorClassIdentifier: 
+  StateType: 24
+  Logic: 2
+  ManaCost: 0
+  DamageDetails: []
+  Dx: 0
+  Dy: 0
+  Dz: 0
+  DurationSeconds: 0.7
+  expirable: 1
+  ReuseTimeSeconds: 0
+  Range_x: 0
+  Range_y: 0
+  Range_z: 0
+  ActionInterruptible: 0
+  vizAnim:
+  - AnimNames: Hurt2Back
+    AnimHashId: -1141965213
+  Projectiles: []
+  SpawnsFX: []
+  Sounds: {fileID: 0}

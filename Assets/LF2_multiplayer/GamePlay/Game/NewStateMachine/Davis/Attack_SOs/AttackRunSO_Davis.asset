@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b28b222d13392994e8d56d852b0cbc9d, type: 3}
+  m_Name: AttackRunSO_Davis
+  m_EditorClassIdentifier: 
+  StateType: 16
+  Logic: 1
+  UseMana: 0
+  ManaCost: 0
+  DamageDetails:
+  - {fileID: 11400000, guid: 5a64a5b64a2e0b8489f0580c0a000c34, type: 2}
+  Dx: 180
+  Dy: 0
+  Dz: 0
+  Projectiles: []
+  DurationSeconds: 1
+  expirable: 1
+  ReuseTimeSeconds: 0
+  ActionInterruptible: 0
+  Sounds: {fileID: 11400000, guid: 884d9198b76b9cc4585c7a4f75831e16, type: 2}
+  delayLoopSound: 0
+  Start_Sounds: []
+  vizAnim: []
+  SpawnsFX: []

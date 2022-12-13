@@ -5,6 +5,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 2
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: -2751153693144913985, guid: e1e6fa40b644751498970cb113c8b0a1, type: 3}
@@ -79,8 +80,32 @@ PrefabInstance:
       propertyPath: m_Name
       value: DeepDDA
       objectReference: {fileID: 0}
+    - target: {fileID: 8374024554256111620, guid: e1e6fa40b644751498970cb113c8b0a1, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: e1e6fa40b644751498970cb113c8b0a1, type: 3}
+--- !u!1 &576441538054985159 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1311335940599337899, guid: e1e6fa40b644751498970cb113c8b0a1, type: 3}
+  m_PrefabInstance: {fileID: 1570950951994148460}
+  m_PrefabAsset: {fileID: 0}
+--- !u!136 &2948447876896470706
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 576441538054985159}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 24.37
+  m_Height: 90.6
+  m_Direction: 0
+  m_Center: {x: 9, y: 0, z: 0}
 --- !u!114 &4098277249547642324 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3255296454070526904, guid: e1e6fa40b644751498970cb113c8b0a1, type: 3}
@@ -124,6 +149,7 @@ MonoBehaviour:
   EndAnimation: DDAprojectile_Despawn
   DestroyAfterSec: 5
   DestroyAfterHit: 0.2
+  m_BoxType: 0
 --- !u!54 &6894385322031071044 stripped
 Rigidbody:
   m_CorrespondingSourceObject: {fileID: 5359535883441174824, guid: e1e6fa40b644751498970cb113c8b0a1, type: 3}

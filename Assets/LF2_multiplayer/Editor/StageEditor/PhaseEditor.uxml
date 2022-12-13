@@ -1,0 +1,16 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="True">
+    <Style src="project://database/Assets/margin.uss?fileID=7433441132597879392&amp;guid=f428da7cc83e4f242b0ff60b0e74cce8&amp;type=3#margin" />
+    <ui:VisualElement class="margin">
+        <ui:Vector3Field label="BoundLimit" binding-path="BoundLimit" />
+    </ui:VisualElement>
+    <ui:Label tabindex="-1" text="TIMER" display-tooltip-when-elided="true" style="-unity-text-align: upper-center;" />
+    <ui:VisualElement name="timer" class="margin" style="flex-direction: row;">
+        <ui:FloatField label="Between Phases" value="42.2" binding-path="m_TimeBetweenPhases" style="flex-direction: column; align-items: center; justify-content: space-between; height: 39px; width: 20%; -unity-text-align: upper-center;" />
+        <ui:FloatField label="Between Waves" value="42.2" binding-path="m_TimeBetweenWaves" style="flex-direction: column; justify-content: flex-end; align-items: center; width: 25%; -unity-text-align: upper-center;" />
+        <ui:FloatField label="Between Spawns" value="42.2" binding-path="m_TimeBetweenSpawns" style="flex-direction: column; justify-content: flex-end; align-items: center; width: 25%; -unity-text-align: upper-center;" />
+        <ui:FloatField label="Delay Waves" value="42.2" binding-path="m_RestartDelay" style="flex-direction: column; justify-content: space-around; align-items: center; width: 25%; -unity-text-align: upper-center;" />
+    </ui:VisualElement>
+    <ui:VisualElement>
+        <uie:PropertyField binding-path="spwanWaves" />
+    </ui:VisualElement>
+</ui:UXML>

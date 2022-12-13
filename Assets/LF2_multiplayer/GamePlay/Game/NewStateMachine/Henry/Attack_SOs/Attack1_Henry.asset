@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a621f6807fd014a4da8d8c60bc0e1d51, type: 3}
+  m_Name: Attack1_Henry
+  m_EditorClassIdentifier: 
+  StateType: 8
+  Logic: 1
+  UseMana: 1
+  ManaCost: -12
+  DamageDetails: []
+  Dx: 0
+  Dy: 0
+  Dz: 0
+  Projectiles:
+  - ProjectilePrefab: {fileID: 4477627029082403580, guid: 272adf7066160184a983b3c644f0e6cd, type: 3}
+    pivot: {x: 48, y: 50, z: 0}
+  DurationSeconds: 0.4
+  expirable: 1
+  ReuseTimeSeconds: 0
+  ActionInterruptible: 0
+  Sounds: {fileID: 11400000, guid: 6526dae477648f549b73c00e20eda240, type: 2}
+  delayLoopSound: 0
+  Start_Sounds:
+  - {fileID: 11400000, guid: 662024a57477849428abf4d317d8cdb5, type: 2}
+  vizAnim: []
+  SpawnsFX: []

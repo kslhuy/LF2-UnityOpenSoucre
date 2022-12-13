@@ -1,0 +1,16 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ebc54ee6450cf1c4097c0bb3a4a69ee1, type: 3}
+  m_Name: Henry_Arrow_OP
+  m_EditorClassIdentifier: 
+  Prefab: {fileID: 4477627029082403580, guid: 272adf7066160184a983b3c644f0e6cd, type: 3}
+  PrewarmCount: 10

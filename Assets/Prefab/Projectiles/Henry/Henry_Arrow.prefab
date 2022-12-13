@@ -5,6 +5,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 2
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: -2751153693144913985, guid: e1e6fa40b644751498970cb113c8b0a1, type: 3}
@@ -119,7 +120,9 @@ PrefabInstance:
       propertyPath: m_IsTrigger
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 472367527745874283, guid: e1e6fa40b644751498970cb113c8b0a1, type: 3}
+    m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: e1e6fa40b644751498970cb113c8b0a1, type: 3}
 --- !u!95 &2826985552258480009 stripped
 Animator:
@@ -169,8 +172,10 @@ MonoBehaviour:
   EndAnimation: Henry_Arrow_Normal_2
   DestroyAfterSec: 5
   DestroyAfterHit: 0.5
+  m_BoxType: 0
   animator: {fileID: 2826985552258480009}
   _fallMultiplier: 4.5
+  arrowCacked: {fileID: 0}
 --- !u!54 &6894385322031071044 stripped
 Rigidbody:
   m_CorrespondingSourceObject: {fileID: 5359535883441174824, guid: e1e6fa40b644751498970cb113c8b0a1, type: 3}

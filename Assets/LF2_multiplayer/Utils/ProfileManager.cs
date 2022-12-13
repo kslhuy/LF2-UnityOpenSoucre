@@ -18,17 +18,6 @@ namespace LF2.Shared
 
         string m_Profile ;
 
-        // public string CurrentProfileName    ;         
-        // get
-        //     {
-        //         return AvailableProfiles[0];
-        //     }
-        //     set
-        //     {
-        //         m_Profile = value;
-        //         onProfileChanged?.Invoke();
-        //     }
-        
 
         public string Profile
         {

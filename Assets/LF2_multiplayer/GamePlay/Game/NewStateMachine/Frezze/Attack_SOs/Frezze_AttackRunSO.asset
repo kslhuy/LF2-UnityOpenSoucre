@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b28b222d13392994e8d56d852b0cbc9d, type: 3}
+  m_Name: Frezze_AttackRunSO
+  m_EditorClassIdentifier: 
+  StateType: 16
+  Logic: 1
+  UseMana: 0
+  ManaCost: 0
+  DamageDetails:
+  - {fileID: 11400000, guid: 868028ad4ca42d54293ce5191757329f, type: 2}
+  Dx: 0
+  Dy: 0
+  Dz: 0
+  Projectiles: []
+  DurationSeconds: 0.3
+  expirable: 1
+  ReuseTimeSeconds: 0
+  ActionInterruptible: 0
+  Sounds: {fileID: 11400000, guid: 158f835497fddfb43820c2e21726426c, type: 2}
+  delayLoopSound: 0
+  Start_Sounds: []
+  vizAnim: []
+  SpawnsFX: []

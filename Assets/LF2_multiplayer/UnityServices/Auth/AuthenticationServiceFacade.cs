@@ -18,16 +18,15 @@ namespace BossRoom.Scripts.Shared.Net.UnityServices.Auth
             m_UnityServiceErrorMessagePublisher = unityServiceErrorMessagePublisher;
         }
 
-        public async Task InitializeAndSignInAsync(InitializationOptions initializationOptions)
+
+
+        public async Task InitializeUGS_Async(InitializationOptions initializationOptions)
         {
             try
             {
+                // Initialize Unity Services
                 await Unity.Services.Core.UnityServices.InitializeAsync(initializationOptions);
 
-                if (!AuthenticationService.Instance.IsSignedIn)
-                {
-                    await AuthenticationService.Instance.SignInAnonymouslyAsync();
-                }
             }
             catch (Exception e)
             {
@@ -37,6 +36,45 @@ namespace BossRoom.Scripts.Shared.Net.UnityServices.Auth
             }
         }
 
+        public async Task SignInAnonymous_Async()
+        {
+            if (!AuthenticationService.Instance.IsSignedIn)
+            {
+                // Debug.Log("SignInAnonymous_Async");
+                await AuthenticationService.Instance.SignInAnonymouslyAsync();
+            }
+        
+            
+        }
+        
+        public async Task LinkWithGoogleAsync(string idToken)
+        {
+            try
+            {
+                await AuthenticationService.Instance.LinkWithGoogleAsync(idToken);
+                Debug.Log("Link is successful.");
+            }
+            catch (AuthenticationException ex) when (ex.ErrorCode == AuthenticationErrorCodes.AccountAlreadyLinked)
+            {
+                // Prompt the player with an error message.
+                Debug.LogError("This user is already linked with another account. Log in instead.");
+            }
+
+            catch (AuthenticationException ex)
+            {
+                // Compare error code to AuthenticationErrorCodes
+                // Notify the player with the proper error message
+                Debug.LogException(ex);
+            }
+            catch (RequestFailedException ex)
+            {
+                // Compare error code to CommonErrorCodes
+                // Notify the player with the proper error message
+                Debug.LogException(ex);
+            }
+        }
+
+
         public async Task SwitchProfileAndReSignInAsync(string profile)
         {
             if (AuthenticationService.Instance.IsSignedIn)
@@ -44,6 +82,7 @@ namespace BossRoom.Scripts.Shared.Net.UnityServices.Auth
                 AuthenticationService.Instance.SignOut();
             }
             AuthenticationService.Instance.SwitchProfile(profile);
+
 
             try
             {

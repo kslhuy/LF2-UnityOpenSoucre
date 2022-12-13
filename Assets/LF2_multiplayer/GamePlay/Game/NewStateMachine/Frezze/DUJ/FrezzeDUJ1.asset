@@ -1,0 +1,48 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52998a4a5f58b7c4cacf3f4ee7a1d3d0, type: 3}
+  m_Name: FrezzeDUJ1
+  m_EditorClassIdentifier: 
+  StateType: 36
+  Logic: 3
+  UseMana: 0
+  ManaCost: 0
+  DamageDetails:
+  - {fileID: 11400000, guid: 697a9edb84a0bb54aa7f1af621650e08, type: 2}
+  Dx: 0
+  Dy: 0
+  Dz: 0
+  curve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  Projectiles:
+  - ProjectilePrefab: {fileID: 4479758005046589536, guid: f2bd5c7010166894c9269ecc2796b02a, type: 3}
+    pivot: {x: 0, y: 0, z: 0}
+  DurationSeconds: 0.75
+  expirable: 1
+  ReuseTimeSeconds: 0
+  ActionInterruptible: 0
+  Sounds: {fileID: 11400000, guid: 8797b2b9d7eb289498ab9cdb0914e7d2, type: 2}
+  delayLoopSound: 0
+  Start_Sounds: []
+  SpawnsFX: []
+  frameChecker:
+    hitFrameStart: 0
+    hitFrameEnd: 0
+    returnFrame:
+      FrameToReturn: 0
+      ReturnToFrame: 0
+    totalFrames: 0
+    layerNumber: 0

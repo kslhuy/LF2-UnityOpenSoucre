@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc0a13b1cba7d0d44856b2fbf641d7fe, type: 3}
+  m_Name: Sliding
+  m_EditorClassIdentifier: 
+  StateType: 12
+  Logic: 0
+  UseMana: 0
+  ManaCost: 0
+  DamageDetails: []
+  Dx: 150
+  Dy: 0
+  Dz: 0
+  Projectiles: []
+  DurationSeconds: 0.5
+  expirable: 1
+  ReuseTimeSeconds: 0
+  ActionInterruptible: 0
+  Sounds: {fileID: 11400000, guid: 193e68aabe89f084cbb03cdc429523bd, type: 2}
+  delayLoopSound: 0
+  Start_Sounds: []
+  vizAnim:
+  - AnimNames: Sliding_anim
+    AnimHashId: -1141643799
+  SpawnsFX: []

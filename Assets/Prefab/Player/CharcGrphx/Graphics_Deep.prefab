@@ -18,7 +18,7 @@ PrefabInstance:
     - target: {fileID: -6817095382603332305, guid: 044bb5afde6bc784b8fa4a16b0a1e4d7, type: 3}
       propertyPath: m_CharacterModel.Normal_animatorOverrides
       value: 
-      objectReference: {fileID: 22100000, guid: 195dadabfa736364f8aeca8668b39e17, type: 2}
+      objectReference: {fileID: 22100000, guid: 3e76740409ccbc44ba95e68d82aef226, type: 2}
     - target: {fileID: 5307423579264072845, guid: 044bb5afde6bc784b8fa4a16b0a1e4d7, type: 3}
       propertyPath: m_Name
       value: Graphics_Deep

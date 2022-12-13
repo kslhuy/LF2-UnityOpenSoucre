@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4adb72a0c832cf743ba31d5204d6feb1, type: 3}
+  m_Name: Hunter_AI
+  m_EditorClassIdentifier: 
+  CharacterType: 10
+  BaseHP: {fileID: 11400000, guid: c6dae3af55c463a4683ed42ab223afd2, type: 2}
+  BaseMP: {fileID: 11400000, guid: e1ee0a8320b7c2743a54045082908a8d, type: 2}
+  BaseAmor: 0
+  BaseFall: 0
+  BaseBdefense: 0
+  NbJump: 0
+  walking_speed: 100
+  walking_speedz: 100
+  running_speed: 250
+  running_speed_z: 10
+  jump_distance: 300
+  jump_height: 450
+  doublejump_distance: 450
+  doublejump_height: 220
+  dash_height: 0
+  dash_distance: 0
+  dash_distance_z: 0
+  rolling_speed: 300
+  IsNpc: 1
+  DetectRange: 0
+  DisplayedName: 
+  InfoChampion: Bla bla
+  StateAI: {fileID: 11400000, guid: 0a5b125c55547034494f713068c4703d, type: 2}
+  objectPollingRegistry: {fileID: 0}

@@ -2,59 +2,45 @@ using UnityEngine;
 using System.Collections;
 using UnityEditor;
 using LF2.Client;
+using UnityEngine.UIElements;
+using UnityEditor.UIElements;
+using System;
 
 [CustomEditor(typeof(ClientCharacterVisualization))]
 public class ClientCharacterVizEditor : Editor
 {
-  // public VisualTreeAsset m_InspectorXML;
-  // private ClientCharacterVisualization clientCharacterVisualization;
+  private ClientCharacterVisualization clientCharacterVisualization;
 
-  // private void OnEnable() {
-  //   clientCharacterVisualization = (ClientCharacterVisualization)target;
-  //   // DrawDefaultInspector();
-  // }
+  private bool clickedOne = false;
 
-  // public override VisualElement CreateInspectorGUI()
-  // {
-  //   // Create a new VisualElement to be the root of our inspector UI
-  //   VisualElement myInspector = new VisualElement();
+  private void OnEnable() {
+    clientCharacterVisualization = (ClientCharacterVisualization)target;
+    // DrawDefaultInspector();
+  }
 
-  //   // Load from default reference
-  //   m_InspectorXML.CloneTree(myInspector);
+  public override VisualElement CreateInspectorGUI(){
+    // Create a new VisualElement to be the root of our inspector UI
+    VisualElement myInspector = new VisualElement();
+
+    // Attach a default inspector to the foldout
+    InspectorElement.FillDefaultInspector(myInspector, serializedObject, this);
+
+    // Create a new Button with an action and give it a style class.
+    var button = new Button() { text = "Play State" };
+    myInspector.Add(button);
+    button.RegisterCallback<ClickEvent>(evt  =>{
+      clientCharacterVisualization.TestState();});
+
+    // Create a new Button with an action and give it a style class.
+    var button2 = new Button() { text = "Play State Periodic" };
+    myInspector.Add(button2);
+    button2.RegisterCallback<ClickEvent>(evt  =>{
+      clickedOne = !clickedOne;  
+      clientCharacterVisualization.TestStatePeriodic(clickedOne);});
     
-  //   // Get a reference to the default inspector foldout control
-  //   VisualElement inspectorFoldout = myInspector.Q("Default_Inspector");
-
-  //   // Attach a default inspector to the foldout
-  //   InspectorElement.FillDefaultInspector(inspectorFoldout, serializedObject, this);
-
-  //   Button button = myInspector.Q<Button>("TestButton");
-  //   button.RegisterCallback<ClickEvent>(evt  =>{
-  //     clientCharacterVisualization.TestState();});
+    // Return the finished inspector UI
+    return myInspector;
     
-  //   // Return the finished inspector UI
-  //   return myInspector;
-    
+  }
 
-
-  //   // // Get a reference to the default inspector foldout control
-  //   // VisualElement inspectorFoldout = myInspector.Q("Default_Inspector");
-
-  //   // // Attach a default inspector to the foldout
-  //   // InspectorElement.FillDefaultInspector(inspectorFoldout, serializedObject, this);
-
-  //   // Return the finished inspector UI
-  // }
-#if UNITY_EDITOR
-    public override void OnInspectorGUI()
-    {
-      DrawDefaultInspector();
-
-      ClientCharacterVisualization myScript = (ClientCharacterVisualization)target;
-      if(GUILayout.Button("Play State"))
-      {
-          myScript.TestState();
-      }
-    }
-#endif 
 }

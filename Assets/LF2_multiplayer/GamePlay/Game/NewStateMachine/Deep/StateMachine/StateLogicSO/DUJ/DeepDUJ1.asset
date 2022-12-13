@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 892246ae699338e46a64136a3b53c760, type: 3}
+  m_Name: DeepDUJ1
+  m_EditorClassIdentifier: 
+  StateType: 36
+  Logic: 3
+  UseMana: 0
+  ManaCost: 0
+  DamageDetails:
+  - {fileID: 11400000, guid: a4c1f8af89efd8a4fb8539efca0bb0be, type: 2}
+  Dx: 100
+  Dy: 550
+  Dz: 0
+  Projectiles: []
+  DurationSeconds: 2
+  expirable: 1
+  ReuseTimeSeconds: 2
+  ActionInterruptible: 0
+  Sounds: {fileID: 11400000, guid: 0672f2e383016fe44bda20feb2e33f22, type: 2}
+  delayLoopSound: 0
+  Start_Sounds: []
+  vizAnim:
+  - AnimNames: DUJ_1_anim
+    AnimHashId: 307542971
+  SpawnsFX:
+  - _Object: {fileID: 3526290567721581141, guid: 4db002a752d0d224a8c1bdd5e34cd63f, type: 3}
+    pivot: {x: 0, y: 50, z: 0}

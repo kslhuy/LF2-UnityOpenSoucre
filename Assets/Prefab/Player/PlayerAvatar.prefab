@@ -447,6 +447,7 @@ MonoBehaviour:
   m_NetworkCharacterState: {fileID: 7541297034058180883}
   m_PhysicsWrapper: {fileID: 4344797016811615346}
   textMesh: {fileID: 2580333590150333618}
+  m_KilledDestroyDelaySeconds: 3
 --- !u!114 &4344797016811615346
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -527,6 +528,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_NetworkLifeState: {fileID: 758663530373189659}
+  lifeStateEventChannelSO: {fileID: 11400000, guid: 7959b6e781a04fd4b816463502e9d45b, type: 2}
 --- !u!1 &2940818776946575046
 GameObject:
   m_ObjectHideFlags: 0
@@ -907,6 +909,7 @@ MonoBehaviour:
   _damagePopUpChannel: {fileID: 11400000, guid: 74dabfeb73cf1c14fb30bc1aca1aeab2, type: 2}
   StateChange_After_Timer: 1
   m_StateToPlay: 0
+  debugUseMana: 0
 --- !u!1 &7901046818739658897
 GameObject:
   m_ObjectHideFlags: 0

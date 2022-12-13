@@ -1,0 +1,53 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 519f466b5673f0c48a849e2fed6d3652, type: 3}
+  m_Name: FrezzeDDJ
+  m_EditorClassIdentifier: 
+  StateType: 33
+  Logic: 0
+  UseMana: 0
+  ManaCost: 0
+  DamageDetails:
+  - {fileID: 11400000, guid: 70d5e18483e2d554888ac1f8058428d5, type: 2}
+  Dx: 0
+  Dy: 0
+  Dz: 0
+  curve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  Projectiles: []
+  DurationSeconds: 0.5
+  expirable: 1
+  ReuseTimeSeconds: 0
+  ActionInterruptible: 0
+  Sounds: {fileID: 0}
+  delayLoopSound: 0
+  Start_Sounds:
+  - {fileID: 11400000, guid: 508252992539a5642a7d838c9a4693d9, type: 2}
+  SpawnsFX:
+  - _Object: {fileID: 4479758005046589536, guid: 8a0303e88e2f3fc45b141d7a23dfb616, type: 3}
+    pivot: {x: 70, y: 0, z: 0}
+  - _Object: {fileID: 4479758005046589536, guid: ab11f12e7efad3b42b43ee4ba1c79196, type: 3}
+    pivot: {x: 115, y: 0, z: 0}
+  - _Object: {fileID: 4479758005046589536, guid: 011a8f33a33e61e40bc60d9270c98b92, type: 3}
+    pivot: {x: 165, y: 0, z: 0}
+  frameChecker:
+    hitFrameStart: 0
+    hitFrameEnd: 0
+    returnFrame:
+      FrameToReturn: 0
+      ReturnToFrame: 0
+    totalFrames: 0
+    layerNumber: 0

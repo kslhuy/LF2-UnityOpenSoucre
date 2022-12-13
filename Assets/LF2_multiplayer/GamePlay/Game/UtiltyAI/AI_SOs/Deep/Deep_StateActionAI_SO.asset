@@ -1,0 +1,44 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5da57d5c92610174a8ea60d5342ab4c1, type: 3}
+  m_Name: Deep_StateActionAI_SO
+  m_EditorClassIdentifier: 
+  CharacterType: 0
+  A_AttackAvaillable:
+  - A_Availlable: {fileID: 11400000, guid: 724634a52ab534247bae6438f5fff115, type: 2}
+    Disable: 0
+    ShowScore: 0
+  - A_Availlable: {fileID: 11400000, guid: f3779df36bf2bf3478f89e50bf70a32a, type: 2}
+    Disable: 0
+    ShowScore: 0
+  - A_Availlable: {fileID: 11400000, guid: 60a1813ec615a124ba0265cf7194ef41, type: 2}
+    Disable: 0
+    ShowScore: 0
+  - A_Availlable: {fileID: 11400000, guid: 5d8724cb064511b48993c55f18c5ba1a, type: 2}
+    Disable: 0
+    ShowScore: 0
+  A_MoveAvaillable:
+  - A_Availlable: {fileID: 11400000, guid: 10eeb6c65170f684686a2d5efbeef3ba, type: 2}
+    Disable: 0
+    ShowScore: 0
+  - A_Availlable: {fileID: 11400000, guid: 71073c22668f78a49aaf6626fa71dc73, type: 2}
+    Disable: 0
+    ShowScore: 0
+  - A_Availlable: {fileID: 11400000, guid: 8d907814b5db09a42b95394efa049756, type: 2}
+    Disable: 0
+    ShowScore: 0
+  - A_Availlable: {fileID: 11400000, guid: e99cdd6240988c74c88c80e6fbcf30ae, type: 2}
+    Disable: 0
+    ShowScore: 0
+  - A_Availlable: {fileID: 11400000, guid: 08885fcd5c693e045a3499ab382e50eb, type: 2}
+    Disable: 0
+    ShowScore: 0

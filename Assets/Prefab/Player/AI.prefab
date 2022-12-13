@@ -5,6 +5,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 2
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 168493202262108771, guid: 687160c7cfd6cd748877c28fe515d9c6, type: 3}
@@ -109,6 +110,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 2534825432546787825, guid: 687160c7cfd6cd748877c28fe515d9c6, type: 3}
+    m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 687160c7cfd6cd748877c28fe515d9c6, type: 3}
 --- !u!114 &637354969628926026 stripped
 MonoBehaviour:
@@ -215,9 +217,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c0d678128de2914cbe62c5fc971782a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stateActionAI_SO: {fileID: 11400000, guid: e5ca0a43bde3e154c83038a41d7eaaf2, type: 2}
   Self: {fileID: 2672975597524765248}
   m_BrainEnabled: 0
+  Event_ToggleAIBrain: {fileID: 11400000, guid: 4cd01d303e04a7745925426656509c30, type: 2}
   AIDebugMode: 0
   ShowScoreAll: 0
   LowHP_Threshold: 250
+  _MethodeChoseFoe: 1

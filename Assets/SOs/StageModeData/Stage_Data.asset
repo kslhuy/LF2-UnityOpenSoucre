@@ -1,0 +1,49 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 607b128ee4f42664b95ed97d5434ff82, type: 3}
+  m_Name: Stage_Data
+  m_EditorClassIdentifier: 
+  description: 
+  m_MinSpawnCap: 2
+  m_MaxSpawnCap: 10
+  m_SpawnCapIncreasePerPlayer: 1
+  Phases:
+  - BoundLimit: {x: 600, y: 0, z: 0}
+    spwanWaves:
+    - waveInfo:
+        Bot: 0
+        NumberSpawn: 3
+      m_SpawnLeft: 0
+    - waveInfo:
+        Bot: 0
+        NumberSpawn: 2
+      m_SpawnLeft: 0
+    m_TimeBetweenWaves: 0.5
+    m_TimeBetweenPhases: 5
+    m_TimeBetweenSpawns: 0.2
+    m_RestartDelay: 10
+    m_ProximityDistance: 30
+  - BoundLimit: {x: 600, y: 0, z: 0}
+    spwanWaves:
+    - waveInfo:
+        Bot: 0
+        NumberSpawn: 1
+      m_SpawnLeft: 0
+    - waveInfo:
+        Bot: 0
+        NumberSpawn: 1
+      m_SpawnLeft: 0
+    m_TimeBetweenWaves: 0.5
+    m_TimeBetweenPhases: 5
+    m_TimeBetweenSpawns: 0.2
+    m_RestartDelay: 10
+    m_ProximityDistance: 30
