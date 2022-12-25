@@ -65,7 +65,7 @@ namespace LF2.Client{
         public override void PlayPredictState( int nbanim = 1 , bool sequence = false)
         {
             stateMachineFX.CoreMovement.SetDoubleJump(stateMachineFX.InputX , stateMachineFX.InputZ);
-            if (stateMachineFX.m_ClientVisual.CanCommit) {
+            if (stateMachineFX.m_ClientVisual.Owner) {
                 stateMachineFX.m_ClientVisual.m_NetState.AddPredictState_and_SyncServerRpc(GetId());
             }
             PlayAnim(nbanim , sequence);
@@ -74,7 +74,7 @@ namespace LF2.Client{
 
 
         public override void LogicUpdate() {
-            if (stateMachineFX.m_ClientVisual.CanCommit) {
+            if (stateMachineFX.m_ClientVisual.Owner) {
                 if (Time.time - TimeStarted_Animation > 0.1f) base.LogicUpdate();
             }else {
                 if (Time.time - TimeStarted_Animation > 0.15f) {

@@ -21,6 +21,12 @@ MonoBehaviour:
   Dx: 0
   Dy: 0
   Dz: 0
+  curve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   Projectiles: []
   DurationSeconds: 0.8
   expirable: 1
@@ -31,7 +37,12 @@ MonoBehaviour:
   Start_Sounds:
   - {fileID: 11400000, guid: 6472ca703508392448945b51f4fc9d62, type: 2}
   - {fileID: 11400000, guid: 50d910dd5359aa544be66dadec7d2be4, type: 2}
-  vizAnim: []
   SpawnsFX:
   - _Object: {fileID: 3526290567721581141, guid: 030c73d6387d362478aa1b46cf456b5c, type: 3}
     pivot: {x: 100, y: 10, z: 0}
+  frameChecker:
+    clip: {fileID: 0}
+    totalFrames: 0
+    length: 0
+    _frameStruct: []
+    layerNumber: 0

@@ -21,20 +21,104 @@ MonoBehaviour:
   Dx: 150
   Dy: 0
   Dz: 30
+  curve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   Projectiles: []
   DurationSeconds: 5
   expirable: 1
   ReuseTimeSeconds: 0
   ActionInterruptible: 0
-  Sounds: {fileID: 11400000, guid: 30d6888948fa0a54491f5897a9b26550, type: 2}
+  Sounds: {fileID: 11400000, guid: 469d7230b06a56f46bafae5b183372ef, type: 2}
   delayLoopSound: 0
   Start_Sounds: []
   SpawnsFX: []
   frameChecker:
-    hitFrameStart: 0
-    hitFrameEnd: 0
-    returnFrame:
-      FrameToReturn: 10
-      ReturnToFrame: 2
+    clip: {fileID: 7400000, guid: 54d25f9e0e683e04b93f09f5c8ba4ac2, type: 2}
     totalFrames: 10
+    length: 0.6666667
+    _frameStruct:
+    - UseThisFrame: 0
+      dvx: 0
+      dvy: 0
+      dvz: 0
+      damageDetails: {fileID: 0}
+      SpwanObject: {fileID: 0}
+      Sound: {fileID: 0}
+      ReturnToFrame: 0
+    - UseThisFrame: 0
+      dvx: 0
+      dvy: 0
+      dvz: 0
+      damageDetails: {fileID: 0}
+      SpwanObject: {fileID: 0}
+      Sound: {fileID: 0}
+      ReturnToFrame: 0
+    - UseThisFrame: 0
+      dvx: 0
+      dvy: 0
+      dvz: 0
+      damageDetails: {fileID: 0}
+      SpwanObject: {fileID: 0}
+      Sound: {fileID: 0}
+      ReturnToFrame: 0
+    - UseThisFrame: 0
+      dvx: 0
+      dvy: 0
+      dvz: 0
+      damageDetails: {fileID: 0}
+      SpwanObject: {fileID: 0}
+      Sound: {fileID: 0}
+      ReturnToFrame: 0
+    - UseThisFrame: 0
+      dvx: 0
+      dvy: 0
+      dvz: 0
+      damageDetails: {fileID: 0}
+      SpwanObject: {fileID: 0}
+      Sound: {fileID: 0}
+      ReturnToFrame: 0
+    - UseThisFrame: 0
+      dvx: 0
+      dvy: 0
+      dvz: 0
+      damageDetails: {fileID: 0}
+      SpwanObject: {fileID: 0}
+      Sound: {fileID: 0}
+      ReturnToFrame: 0
+    - UseThisFrame: 0
+      dvx: 0
+      dvy: 0
+      dvz: 0
+      damageDetails: {fileID: 0}
+      SpwanObject: {fileID: 0}
+      Sound: {fileID: 0}
+      ReturnToFrame: 0
+    - UseThisFrame: 0
+      dvx: 0
+      dvy: 0
+      dvz: 0
+      damageDetails: {fileID: 0}
+      SpwanObject: {fileID: 0}
+      Sound: {fileID: 0}
+      ReturnToFrame: 0
+    - UseThisFrame: 0
+      dvx: 0
+      dvy: 0
+      dvz: 0
+      damageDetails: {fileID: 0}
+      SpwanObject: {fileID: 0}
+      Sound: {fileID: 0}
+      ReturnToFrame: 0
+    - UseThisFrame: 0
+      dvx: 0
+      dvy: 0
+      dvz: 0
+      damageDetails: {fileID: 0}
+      SpwanObject: {fileID: 0}
+      Sound: {fileID: 0}
+      ReturnToFrame: 0
     layerNumber: 0

@@ -81,7 +81,7 @@ namespace LF2.Client
             async Task SignInAndLoadDataFromServices(){
                 await m_AuthServiceFacade.SignInAnonymous_Async();
                 if (this == null) return;
-                Debug.Log($"Anonymous Player id: {AuthenticationService.Instance.PlayerId}");
+                Debug.Log($" Player id: {AuthenticationService.Instance.PlayerId}");
 
                 // Economy configuration should be refreshed every time the app initializes.
                 // Doing so updates the cached configuration data and initializes for this player any items or
@@ -119,12 +119,12 @@ namespace LF2.Client
                 {
                     Debug.Log("InjectDependenciesAndInitialize");
 
-                    m_ProfileManager.onProfileChanged += OnProfileChanged;
+                    // m_ProfileManager.onProfileChanged += OnProfileChanged;
                     // If have already profile in the game 
                     var unityAuthenticationInitOptions = new InitializationOptions();
                     if (ProfileAvailable()) {
                         var profile = m_ProfileManager.Profile;
-                        Debug.Log("SetProfile" + profile);
+                        Debug.Log("SetProfile : " + profile);
                         if (profile.Length > 0)
                         {
                             unityAuthenticationInitOptions.SetProfile(profile);
@@ -137,6 +137,7 @@ namespace LF2.Client
                     // First Time play game
                     else {
                         await m_AuthServiceFacade.InitializeUGS_Async(unityAuthenticationInitOptions);
+                        Debug.Log("First Time Sign In.");
                         await SignInAndLoadDataFromServices();
                         m_UIProfileSelector.ShowFirstTime();
                     }
@@ -179,9 +180,7 @@ namespace LF2.Client
         }
 
         async void OnProfileChanged(){
-            // if (!ProfileAvailable()){
-            //     return;
-            // }
+
             Debug.Log("Change Profile");
             await OnProfileChanged_Asyn();
         }
@@ -229,6 +228,7 @@ namespace LF2.Client
         public void OnStartLobbyClicked()
         {
             m_LobbyUIMediator.ToggleJoinLobbyUI();
+            m_IPUIMediator.Hide();
             m_LobbyUIMediator.Show();
         }
         // IP

@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8014959445766633566}
   - component: {fileID: 402437061545038742}
   - component: {fileID: 295566198200723713}
+  - component: {fileID: 2575197348058606090}
   m_Layer: 0
   m_Name: NetworkGameState
   m_TagString: Untagged
@@ -30,6 +31,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -64,6 +66,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_GameStateTransformVariable: {fileID: 11400000, guid: 2898f414d2dfc824d94cfddc2d153e97, type: 2}
   m_NetworkWinState: {fileID: 402437061545038742}
+  NetworkGameMode: {fileID: 2575197348058606090}
 --- !u!114 &402437061545038742
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -91,3 +94,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_TransformVariable: {fileID: 11400000, guid: 2898f414d2dfc824d94cfddc2d153e97, type: 2}
+--- !u!114 &2575197348058606090
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7220787923388136116}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87778389de0575848b6c8e8b9c10c05d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameMode:
+    m_InternalValue: 0

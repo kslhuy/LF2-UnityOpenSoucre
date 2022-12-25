@@ -21,23 +21,28 @@ MonoBehaviour:
   Dx: 0
   Dy: 0
   Dz: 0
+  curve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   Projectiles:
   - ProjectilePrefab: {fileID: 4477627029082403580, guid: 668b025d150055543a0e8a39233054ac, type: 3}
-    pivot: {x: 43, y: 40, z: 0}
-    ProjectileDamage:
-    - {fileID: 11400000, guid: 060dabe58cc597449933920479fd1b93, type: 2}
-    Speed_m_s: 300
-    Range: 0
-    MaxVictims: 1
-    DestroyAfterSec: 0
-    Sounds:
-    - {fileID: 0}
+    pivot: {x: 50, y: 40, z: 0}
   DurationSeconds: 0.5
   expirable: 1
   ReuseTimeSeconds: 0
   ActionInterruptible: 0
-  Sounds: {fileID: 11400000, guid: 15cb2d62e7b1d204891af00b325b6dc3, type: 2}
+  Sounds: {fileID: 11400000, guid: 70b8caee3d88fef46b3b7af1ce698c4e, type: 2}
   delayLoopSound: 0
   Start_Sounds: []
-  vizAnim: []
   SpawnsFX: []
+  frameChecker:
+    hitFrameStart: 0
+    hitFrameEnd: 0
+    returnFrame:
+      FrameToReturn: 0
+      ReturnToFrame: 0
+    totalFrames: 0
+    layerNumber: 0

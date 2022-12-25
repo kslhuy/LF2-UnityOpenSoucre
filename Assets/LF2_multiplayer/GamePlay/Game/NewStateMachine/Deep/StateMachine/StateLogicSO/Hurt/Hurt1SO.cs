@@ -57,7 +57,7 @@ namespace LF2.Client{
             // Client Send to Server  =>>>  Server know what state Client is =>>  Server propagate to all others players (except this client (who send))).
             // This case can be unfairly for The Clients , Beacause this can only perform on HOST 
              
-            if (stateMachineFX.m_ClientVisual.CanCommit) {
+            if (stateMachineFX.m_ClientVisual.Owner) {
                 stateMachineFX.m_ClientVisual.m_NetState.AddPredictState_and_SyncServerRpc(GetId());
             }
             PlayAnim();

@@ -20,9 +20,15 @@ MonoBehaviour:
   Dx: 30
   Dy: 0
   Dz: 0
+  curve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   Projectiles:
   - ProjectilePrefab: {fileID: 4479758005046589536, guid: 67d6dd26810dbc143ba53b7385904330, type: 3}
-    pivot: {x: 50, y: 40, z: 0}
+    pivot: {x: 90, y: 40, z: 0}
   DurationSeconds: 0.7
   expirable: 1
   ReuseTimeSeconds: 0
@@ -30,7 +36,12 @@ MonoBehaviour:
   Sounds: {fileID: 11400000, guid: 0ff2bf4763ff0034599300285a866935, type: 2}
   delayLoopSound: 0
   Start_Sounds: []
-  vizAnim:
-  - AnimNames: 
-    AnimHashId: 0
   SpawnsFX: []
+  frameChecker:
+    hitFrameStart: 0
+    hitFrameEnd: 0
+    returnFrame:
+      FrameToReturn: 0
+      ReturnToFrame: 0
+    totalFrames: 0
+    layerNumber: 0

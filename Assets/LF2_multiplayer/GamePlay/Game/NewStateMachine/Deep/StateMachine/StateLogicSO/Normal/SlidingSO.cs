@@ -13,9 +13,6 @@ namespace LF2.Client{
 
     public class SlidingLogic : StateActionLogic
     {
-        // private float _runSpeed_Var;
-        // private float _runSpeed_Fix; // cache value
-        // private float _gainDecreaseRunSpeed;
         public override void Awake(StateMachineNew stateMachine)
         {
             stateMachineFX = stateMachine;
@@ -32,14 +29,14 @@ namespace LF2.Client{
 
         public override void PlayAnim(int nbAniamtion = 1 , bool sequence = false)
         {
-            base.PlayAnim( nbAniamtion);
+            base.PlayAnim();
             stateMachineFX.m_ClientVisual.NormalAnimator.Play(stateMachineFX.m_ClientVisual.VizAnimation.a_Sliding);  
             stateMachineFX.m_ClientVisual.PlayAudio(stateData.Sounds);
         }
 
         public override void PlayPredictState( int nbanim = 1 , bool sequence = false)
         {
-            if (stateMachineFX.m_ClientVisual.CanCommit) {
+            if (stateMachineFX.m_ClientVisual.Owner) {
                 stateMachineFX.m_ClientVisual.m_NetState.AddPredictState_and_SyncServerRpc(GetId());
             }
             PlayAnim(nbanim , sequence);
@@ -48,13 +45,9 @@ namespace LF2.Client{
 
         public override void LogicUpdate()
         {
-            // _runSpeed_Var -= _gainDecreaseRunSpeed*Time.deltaTime;
-            if (stateMachineFX.m_ClientVisual.CanCommit) stateMachineFX.m_ClientVisual.coreMovement.SetSliding(stateData.Dx);
-
-            // stateMachineFX.AnticipateState(StateType.Idle);
-            // if (_runSpeed_Var < 0){
-            // }
+            if (stateMachineFX.m_ClientVisual.Owner) stateMachineFX.m_ClientVisual.coreMovement.SetSliding(stateData.Dx);
         }
+
 
         
 

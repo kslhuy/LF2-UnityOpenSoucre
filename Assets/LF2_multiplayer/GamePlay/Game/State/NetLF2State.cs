@@ -18,7 +18,7 @@ namespace LF2
         public Action GameEnd;
         
         [ServerRpc]
-        public void StopClientServerRPC(){
+        public void EndGameServerRPC(){
             GameEnd?.Invoke();
         }
 

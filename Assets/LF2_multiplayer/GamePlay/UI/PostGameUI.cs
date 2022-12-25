@@ -61,7 +61,7 @@ namespace LF2.Visual
             if (m_NetworkGameStateTransform && m_NetworkGameStateTransform.Value &&
                 m_NetworkGameStateTransform.Value.TryGetComponent(out NetworkGameState networkGameState))
             {
-                SetPostGameUI(networkGameState.NetworkWinState);
+                // SetPostGameUI(networkGameState.NetworkWinState);
             }
         }
 

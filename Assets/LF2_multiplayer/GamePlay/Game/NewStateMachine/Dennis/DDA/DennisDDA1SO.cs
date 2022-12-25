@@ -1,5 +1,6 @@
 using UnityEngine;
-namespace LF2.Client{
+namespace LF2.Client
+{
 
     [CreateAssetMenu(fileName = "DennisDDA1", menuName = "StateLogic/Dennis/Special/DDA1")]
     public class DennisDDA1SO : StateLogicSO<DennisDDA1Logic>
@@ -10,15 +11,14 @@ namespace LF2.Client{
             return base.CreateAction();
         }
     }
-// Projectle normal 
+    // Projectle normal 
     public class DennisDDA1Logic : LaunchProjectileLogic
     {
         private bool cantransition_ToNextAnimation; // Or mean Next State
         private bool m_Launched;
-        private bool inputEnable;
-        
+
         private bool frameTransitionAnim;
-        
+
 
         public override void Awake(StateMachineNew stateMachine)
         {
@@ -27,25 +27,23 @@ namespace LF2.Client{
 
         public override bool ShouldAnticipate(ref InputPackage requestData)
         {
-            if ((requestData.StateTypeEnum == StateType.Attack || requestData.StateTypeEnum == StateType.DDA1)){
+            if (requestData.StateTypeEnum == StateType.Attack)
+            {
                 cantransition_ToNextAnimation = true;
                 return true;
             }
-
-            
-
             // For Debug Only
-            if (requestData.StateTypeEnum == StateType.Defense){
+            if (requestData.StateTypeEnum == StateType.Defense)
+            {
                 stateMachineFX.idle();
             }
             return false;
         }
 
 
-
         public override void Enter()
         {
-            if(!Anticipated)
+            if (!Anticipated)
             {
                 PlayAnim();
             }
@@ -60,55 +58,71 @@ namespace LF2.Client{
 
 
 
-        public override void OnAnimEvent(int id)
-        {
-            if (id == 1 )   stateMachineFX.m_ClientVisual.PlayAudio(stateData.Sounds);
-            else if (id == 2 ) frameTransitionAnim = true;
-            else {
-                m_Launched = true;
-                if (stateMachineFX.m_ClientVisual._IsServer) {
-                    SpwanProjectile(stateData.Projectiles[0], new Vector3(stateMachineFX.CoreMovement.GetFacingDirection() ,0,stateMachineFX.InputZ));
-                }
-            }
-        }
-
         public override void LogicUpdate()
-        {   
-            if (cantransition_ToNextAnimation && frameTransitionAnim){
+        {
+            if (cantransition_ToNextAnimation && frameTransitionAnim)
+            {
+                m_Launched = true;
                 frameTransitionAnim = false;
                 cantransition_ToNextAnimation = false;
-
                 stateMachineFX.AnticipateState(StateType.DDA2);
             }
         }
+        public override void OnAnimEvent(int id)
+        {
+            if (id == 2) frameTransitionAnim = true;
+            else if (id == 0)
+            {
+                if (stateMachineFX.m_ClientVisual._IsServer)
+                {
+                    SpwanProjectile(stateData.Projectiles[0], new Vector3(stateMachineFX.CoreMovement.GetFacingDirection(), 0, stateMachineFX.InputZ));
+                    m_Launched = true;
+                }
+            }
+            else if (id == 100)
+            {
+                stateMachineFX.m_ClientVisual.PlayAudio(stateData.Sounds);
+            }
+            else if (id == 101)
+            {
+                stateMachineFX.m_ClientVisual.PlayAudio(stateData.Start_Sounds[0]);
+            }
+
+        }
 
 
-        public override void End(){
-            if (!m_Launched){
-                if (stateMachineFX.m_ClientVisual._IsServer) {
-                    SpwanProjectile(stateData.Projectiles[0], new Vector3(stateMachineFX.CoreMovement.GetFacingDirection() ,0,stateMachineFX.InputZ));
+        public override void End()
+        {
+            if (!m_Launched)
+            {
+                if (stateMachineFX.m_ClientVisual._IsServer)
+                {
+                    SpwanProjectile(stateData.Projectiles[0], new Vector3(stateMachineFX.CoreMovement.GetFacingDirection(), 0, stateMachineFX.InputZ));
                 }
                 stateMachineFX.m_ClientVisual.PlayAudio(stateData.Sounds);
-            }  
-            m_Launched = false;   
+            }
+            m_Launched = true;
+            frameTransitionAnim = false;
+            cantransition_ToNextAnimation = false;
             stateMachineFX.idle();
         }
 
 
-        public override void PlayAnim(int nbAniamtion = 1 , bool sequence = false)
+        public override void PlayAnim(int nbAniamtion = 1, bool sequence = false)
         {
             base.PlayAnim();
             stateMachineFX.m_ClientVisual.NormalAnimator.Play(stateMachineFX.m_ClientVisual.VizAnimation.a_DDA_1);
         }
 
-        public override void PlayPredictState( int nbanim = 1 , bool sequence = false)
+        public override void PlayPredictState(int nbanim = 1, bool sequence = false)
         {
-            if (stateMachineFX.m_ClientVisual.CanCommit) {
+            if (stateMachineFX.m_ClientVisual.Owner)
+            {
                 stateMachineFX.m_ClientVisual.m_NetState.AddPredictState_and_SyncServerRpc(GetId());
             }
-            PlayAnim(nbanim , sequence);
+            PlayAnim(nbanim, sequence);
         }
-        
+
 
 
 

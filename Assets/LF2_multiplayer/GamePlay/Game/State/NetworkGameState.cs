@@ -10,10 +10,12 @@ namespace LF2
         TransformVariable m_GameStateTransformVariable;
 
         [SerializeField]
-        WinState m_NetworkWinState;
+        NetworkWinState m_NetworkWinState;
 
-        public WinState NetworkWinState => m_NetworkWinState;
+        public NetworkWinState NetworkWinState => m_NetworkWinState;
 
+        public NetworkGameMode NetworkGameMode;
+        
         void Awake()
         {
             DontDestroyOnLoad(this);

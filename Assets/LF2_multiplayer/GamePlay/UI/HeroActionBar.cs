@@ -195,7 +195,7 @@ namespace LF2.Client
 
             // send position to begin the move 
             // Debug.Log("Vector"+  x+  ","+  z);
-            m_InputSender.OnMoveInputUI(x , z);
+            m_InputSender.SendMoveInput(x , z);
         }
 
         // Run Event 

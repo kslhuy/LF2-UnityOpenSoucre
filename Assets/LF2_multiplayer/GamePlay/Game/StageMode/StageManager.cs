@@ -26,6 +26,8 @@ public class StageManager : NetworkBehaviour
 
     [SerializeField] List<BotObject> m_NetworkedPrefabs;
 
+    public Action StageFinishEvent;
+
 
 
     // keep reference to our wave spawning coroutine
@@ -99,8 +101,12 @@ public class StageManager : NetworkBehaviour
         m_ActiveSpawnsPhase.RemoveAll(spawnedNetworkObject => { return spawnedNetworkObject == null; });
         if ((m_ActiveSpawnsPhase.Count == 0))
         {
-            m_PhaseIndex++;
-            SpawnPhases();
+            if (m_PhaseIndex < stageModeData.Phases.Count){
+                m_PhaseIndex++;
+                SpawnPhases();
+            }else{
+                StageFinishEvent?.Invoke();
+            }
         }
     }
 
@@ -119,7 +125,7 @@ public class StageManager : NetworkBehaviour
             if (Debug_SpawnWave_Active)
             {
                 SpawnPhases();
-                m_PhaseIndex++;
+                
             }
             yield return new WaitForSeconds(delayBetweenPhases);
             if (Debug_SpawnWave_Active) 
@@ -148,6 +154,7 @@ public class StageManager : NetworkBehaviour
             {
                 m_WaveSpawning = StartCoroutine(SpawnWaves(m_PhaseIndex));
             }
+            m_PhaseIndex++;
         }
     }
 

@@ -27,27 +27,25 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  Projectiles: []
+  Projectiles:
+  - ProjectilePrefab: {fileID: 4479758005046589536, guid: 8a0303e88e2f3fc45b141d7a23dfb616, type: 3}
+    pivot: {x: 70, y: 0, z: 0}
+  - ProjectilePrefab: {fileID: 4479758005046589536, guid: ab11f12e7efad3b42b43ee4ba1c79196, type: 3}
+    pivot: {x: 115, y: 0, z: 0}
+  - ProjectilePrefab: {fileID: 4479758005046589536, guid: 011a8f33a33e61e40bc60d9270c98b92, type: 3}
+    pivot: {x: 165, y: 0, z: 0}
   DurationSeconds: 0.5
   expirable: 1
-  ReuseTimeSeconds: 0
+  ReuseTimeSeconds: 0.5
   ActionInterruptible: 0
   Sounds: {fileID: 0}
   delayLoopSound: 0
   Start_Sounds:
   - {fileID: 11400000, guid: 508252992539a5642a7d838c9a4693d9, type: 2}
-  SpawnsFX:
-  - _Object: {fileID: 4479758005046589536, guid: 8a0303e88e2f3fc45b141d7a23dfb616, type: 3}
-    pivot: {x: 70, y: 0, z: 0}
-  - _Object: {fileID: 4479758005046589536, guid: ab11f12e7efad3b42b43ee4ba1c79196, type: 3}
-    pivot: {x: 115, y: 0, z: 0}
-  - _Object: {fileID: 4479758005046589536, guid: 011a8f33a33e61e40bc60d9270c98b92, type: 3}
-    pivot: {x: 165, y: 0, z: 0}
+  SpawnsFX: []
   frameChecker:
-    hitFrameStart: 0
-    hitFrameEnd: 0
-    returnFrame:
-      FrameToReturn: 0
-      ReturnToFrame: 0
+    clip: {fileID: 0}
     totalFrames: 0
+    length: 0
+    _frameStruct: []
     layerNumber: 0

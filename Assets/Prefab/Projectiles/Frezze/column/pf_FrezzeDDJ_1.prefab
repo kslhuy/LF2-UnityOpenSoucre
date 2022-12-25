@@ -150,7 +150,7 @@ MonoBehaviour:
   m_Rigidbody: {fileID: 0}
   k_GroundLayerMask: 0
   ProjectileDamage:
-  - {fileID: 11400000, guid: b4976f368245fce40907ffa09a6934a5, type: 2}
+  - {fileID: 11400000, guid: 70d5e18483e2d554888ac1f8058428d5, type: 2}
   Speed_m_s: 0
   Range: 0
   MaxVictims: 0

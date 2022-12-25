@@ -41,13 +41,13 @@ namespace LF2.Client{
             // Debug.Log("End");
             if (stateMachineFX.m_ClientVisual.HPRemain() <= 0 ) return;
             stateMachineFX.m_ClientVisual.FlashCharacter(5);
-            stateMachineFX.idle();
+            stateMachineFX.ChangeState(StateType.Crouch);
         }
 
         public override void PlayAnim( int nbanim = 1 , bool sequence = false)
         {
 
-            if (stateMachineFX.m_ClientVisual.CanCommit) stateMachineFX.m_ClientVisual.m_NetState.LifeStateChangeServerRpc(LifeState.Fainted);
+            if (stateMachineFX.m_ClientVisual.Owner) stateMachineFX.m_ClientVisual.m_NetState.LifeStateChangeServerRpc(LifeState.Fainted);
             base.PlayAnim();
 
             stateMachineFX.m_ClientVisual.NormalAnimator.Play(stateMachineFX.m_ClientVisual.VizAnimation.a_Laying_Back);
@@ -59,7 +59,7 @@ namespace LF2.Client{
         public override void PlayPredictState(int nbAniamtion = 1, bool sequen = false)
         {
             // Client Send to Server  =>>>  Server know what state Client is =>>  Server propagate to all others players (except this client (who send))).
-            if (stateMachineFX.m_ClientVisual.CanCommit) {
+            if (stateMachineFX.m_ClientVisual.Owner) {
 
                 stateMachineFX.m_ClientVisual.m_NetState.AddPredictState_and_SyncServerRpc(GetId());
             }

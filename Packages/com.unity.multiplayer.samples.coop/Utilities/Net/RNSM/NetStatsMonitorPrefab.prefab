@@ -48,14 +48,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Visible: 1
-  <MaxRefreshRate>k__BackingField: 30
+  m_MaxRefreshRate: 30
   <CustomStyleSheet>k__BackingField: {fileID: 0}
   <PanelSettingsOverride>k__BackingField: {fileID: 0}
   <Position>k__BackingField:
     <OverridePosition>k__BackingField: 1
-    <PositionLeftToRight>k__BackingField: 0
-    <PositionTopToBottom>k__BackingField: 0
-  <Configuration>k__BackingField: {fileID: 11400000, guid: 8f1b4e3792d8446399527749cfb591a2, type: 2}
+    m_PositionLeftToRight: 0
+    m_PositionTopToBottom: 0
+  <Configuration>k__BackingField: {fileID: 11400000, guid: 29dbc761fe3927f429ea39b4eb997ebf, type: 2}
 --- !u!114 &2974514019541307266
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -275,6 +275,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
+  m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0

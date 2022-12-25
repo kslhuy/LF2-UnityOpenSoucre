@@ -61,7 +61,7 @@ namespace LF2.Visual
 
         void OnConnectStatus(ConnectStatus status)
         {
-            if (status == ConnectStatus.GenericDisconnect)
+            if (status is ConnectStatus.GenericDisconnect or  ConnectStatus.StartClientFailed)
             {
                 UnblockUIAfterLoadingIsComplete();
             }
@@ -209,7 +209,7 @@ namespace LF2.Visual
         async void OnJoinedLobby(Lobby remoteLobby)
         {
             m_LobbyServiceFacade.SetRemoteLobby(remoteLobby);
-            m_GameNetPortal.PlayerName = m_GameNetPortal.ProfileManager.Profile;
+            // m_GameNetPortal.PlayerName = m_GameNetPortal.ProfileManager.Profile;
 
             Debug.Log($"Joined lobby with code: {m_LocalLobby.LobbyCode}, Internal Relay Join Code{m_LocalLobby.RelayJoinCode}");
             await m_ClientNetPortal.StartClientUnityRelayModeAsync(OnRelayJoinFailed);

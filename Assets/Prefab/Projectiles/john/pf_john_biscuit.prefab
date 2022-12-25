@@ -5,6 +5,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 2
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: -2751153693144913985, guid: e1e6fa40b644751498970cb113c8b0a1, type: 3}
@@ -117,6 +118,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 7304612132625600388, guid: e1e6fa40b644751498970cb113c8b0a1, type: 3}
+    - {fileID: 5359535883441174824, guid: e1e6fa40b644751498970cb113c8b0a1, type: 3}
+    m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: e1e6fa40b644751498970cb113c8b0a1, type: 3}
 --- !u!95 &2824757819236973845 stripped
 Animator:
@@ -153,52 +156,50 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_NetState: {fileID: 4100799406809116488}
   m_OurCollider: {fileID: 7058080987340510452}
-  m_Rigidbody: {fileID: 6891968443062646232}
+  m_Rigidbody: {fileID: 0}
   k_GroundLayerMask: 0
   ProjectileDamage:
   - {fileID: 11400000, guid: 4c7d02b80baede346a9bf712668c0e93, type: 2}
   Speed_m_s: 300
   Range: 0
   MaxVictims: 5
+  SpawnFX: {fileID: 0}
   _sfxEventChannel: {fileID: 11400000, guid: 1981ab6cbad46e54ca529e09ba189c16, type: 2}
   _audioConfig: {fileID: 11400000, guid: e8a6884befaa7e544b61747452adc267, type: 2}
   Sounds: []
   EndAnimation: john_biscuit3
   DestroyAfterSec: 10
-  DestroyAfterHit: 0.2
+  DestroyAfterHit: 0
+  m_BoxType: 0
   _animator: {fileID: 2824757819236973845}
-  distanceXPositionWhenAppear: 150
-  DelayChase: 0.2
-  PeriodeTimeToDissAndAppearAgain: 5
+  NumberTeleport: 3
+  timerWaitToCuvre: 1
+  timerBorning: 0.5
+  m_timerTeleport_dessappear: 0.3
+  m_timerTeleport_appear: 0.2
+  timeToFlying: 3
+  timeToFinish: 10
+  bisCuitState: 0
   _NoiseCurveChase:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
       time: 0
       value: 0
-      inSlope: 13.441904
-      outSlope: 13.441904
+      inSlope: 7.7791476
+      outSlope: 7.7791476
       tangentMode: 34
       weightedMode: 0
       inWeight: 0
       outWeight: 0.33333334
     - serializedVersion: 3
-      time: 0.07458186
-      value: 1.0025222
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 136
+      time: 0.12277899
+      value: 0.95511585
+      inSlope: 0.76052
+      outSlope: 0.76052
+      tangentMode: 0
       weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 0.1517834
-      value: 0.9997716
-      inSlope: -0.011901825
-      outSlope: -0.011901825
-      tangentMode: 136
-      weightedMode: 0
-      inWeight: 0.33333334
+      inWeight: 0.19041263
       outWeight: 0.33333334
     - serializedVersion: 3
       time: 0.99902344
@@ -212,16 +213,27 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  bisCuitState: 0
-  timerBorning: 0.5
-  timerTeleport: 0.5
-  timerFlying: 0
   MinNoise: 3
   MaxNoise: 4
+  xOffset: 150
   yOffset: 30
-  SpeedChase: 1
-  SpeedFly: 1
+  SpeedChase: 1.5
+  SpeedFly: 2
   NbLimiteToStopChase: 3
+--- !u!114 &3784640124946960441
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4479758005046589536}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 014ccee2242bd3841b537469ad9e6d4a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _shadowPrefab: {fileID: 1064790220466893712, guid: 4be219a5eb526744ea033501ebe49921, type: 3}
+  Offset: {x: 0, y: -40, z: 0}
 --- !u!114 &8160468732181547402
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -234,12 +246,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8d0727d5ae3244e3b569694d3912374, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  TransitionStateInfoList: []
   m_Animator: {fileID: 2824757819236973845}
---- !u!54 &6891968443062646232 stripped
-Rigidbody:
-  m_CorrespondingSourceObject: {fileID: 5359535883441174824, guid: e1e6fa40b644751498970cb113c8b0a1, type: 3}
-  m_PrefabInstance: {fileID: 1568895022039502064}
-  m_PrefabAsset: {fileID: 0}
 --- !u!65 &7058080987340510452 stripped
 BoxCollider:
   m_CorrespondingSourceObject: {fileID: 8374024554256111620, guid: e1e6fa40b644751498970cb113c8b0a1, type: 3}

@@ -45,28 +45,14 @@ namespace LF2{
 
         public float ReuseTimeSeconds;
 
-
-        // public float maxRange;
-
         public bool ActionInterruptible = true;
+
+
         public AudioCueSO Sounds;
         public float delayLoopSound;
 
 
         public AudioCueSO[] Start_Sounds;
-
-
-
-
-
-        // [Serializable]
-        // public class VizAnimConfig {
-        //     [Tooltip("The primary Animation trigger that gets raised when visualizing this Action")]
-        //     public string AnimNames ;
-        //     [HideInInspector]
-        //     public int AnimHashId ;
-
-        // }
 
 
         [Serializable]
@@ -85,19 +71,18 @@ namespace LF2{
         } 
         public SpawnsObject[] SpawnsFX;
 
-        // [SerializeField] int ComboPriorty = 0; //the more complicated the move the higher the Priorty
-
         [Header("----- Animation ------")]
 
         public FrameChecker frameChecker;
 
+        private bool refeshFramCheckerOnce ;
 
 
 
-        private  void OnValidate() {
 
-            if (Logic == StateLogic.Attack )
-            {
+        private void OnValidate() {
+            
+            if (Logic == StateLogic.Attack ){
                 for( int i = 0; i < DamageDetails.Length; i++ ){
                     if (DamageDetails[i] == null ) {
                         Debug.LogWarning($"You may forgot SO_DamageDetails in  {StateType} SOs ");
@@ -113,15 +98,13 @@ namespace LF2{
             if (Logic != StateLogic.Movement && DurationSeconds == 0){
                 Debug.LogWarning($"You may forgot setting DurationSeconds in  {StateType} SOs ");
             }
-            // if (vizAnim != null){
-            //     for( int i = 0; i < vizAnim.Length; i++ ){
-            //         if (vizAnim[i] == null )                         
-            //             throw new System.Exception($"Missing Animation in state {StateType}"); 
-            //         // Debug.Log(i);
-            //         vizAnim[i].AnimHashId = Animator.StringToHash(vizAnim[i].AnimNames);
-            //     }
 
-            // }
+            
+
+            if (!refeshFramCheckerOnce && frameChecker.clip != null ){
+                refeshFramCheckerOnce = !refeshFramCheckerOnce;
+                frameChecker.initialize();
+            }
 
         }
 

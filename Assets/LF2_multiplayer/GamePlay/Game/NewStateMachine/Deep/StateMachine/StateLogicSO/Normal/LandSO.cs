@@ -55,7 +55,7 @@ namespace LF2.Client{
         {
             Debug.Log("  Should not call predict State Land ");
 
-            // if (stateMachineFX.m_ClientVisual.CanCommit) {
+            // if (stateMachineFX.m_ClientVisual.Owner) {
             //     stateMachineFX.m_ClientVisual.m_NetState.AddPredictState_and_SyncServerRpc(GetId());
             // }
             PlayAnim(nbanim , sequence);

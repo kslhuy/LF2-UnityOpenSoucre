@@ -25,15 +25,12 @@ namespace LF2.Client{
             stateMachineFX = stateMachine;
         }
 
-        public override bool ShouldAnticipate(ref InputPackage requestData)
+         public override bool ShouldAnticipate(ref InputPackage requestData)
         {
-            if ((requestData.StateTypeEnum == StateType.Attack || requestData.StateTypeEnum == StateType.DDA2)){
+            if ( requestData.StateTypeEnum == StateType.Attack){
                 cantransition_ToNextAnimation = true;
                 return true;
             }
-
-            
-
             // For Debug Only
             if (requestData.StateTypeEnum == StateType.Defense){
                 stateMachineFX.idle();
@@ -60,28 +57,33 @@ namespace LF2.Client{
 
 
 
-        public override void OnAnimEvent(int id)
-        {
-            if (id == 1 )   stateMachineFX.m_ClientVisual.PlayAudio(stateData.Sounds);
-            else if (id == 2 ) frameTransitionAnim = true;
-            else {
-                m_Launched = true;
-                if (stateMachineFX.m_ClientVisual._IsServer) {
-                    SpwanProjectileObjectPooling(stateData.Projectiles[0], new Vector3(stateMachineFX.CoreMovement.GetFacingDirection() ,0,stateMachineFX.InputZ));
-                }
-            }
-        }
-
         public override void LogicUpdate()
         {   
             if (cantransition_ToNextAnimation && frameTransitionAnim){
+                m_Launched = true;
                 frameTransitionAnim = false;
                 cantransition_ToNextAnimation = false;
-
-                stateMachineFX.AnticipateState(StateType.DDA2);
+                stateMachineFX.AnticipateState(StateType.DDA3);
             }
         }
+        public override void OnAnimEvent(int id)
+        {
+            if (id == 2 ) frameTransitionAnim = true;
+            else if (id == 0 ){
+                if (stateMachineFX.m_ClientVisual._IsServer) {
+                    SpwanProjectile(stateData.Projectiles[0], new Vector3 (stateMachineFX.CoreMovement.GetFacingDirection(),0,stateMachineFX.InputZ));
+                    m_Launched = true;
+                }
+            }
+            else if(id == 100) {
+                stateMachineFX.m_ClientVisual.PlayAudio(stateData.Sounds);
+            }
+            else if (id == 101)
+            {
+                stateMachineFX.m_ClientVisual.PlayAudio(stateData.Start_Sounds[0]);
+            }
 
+        }
 
         public override void End(){
             if (!m_Launched){
@@ -90,7 +92,10 @@ namespace LF2.Client{
                 }
                 stateMachineFX.m_ClientVisual.PlayAudio(stateData.Sounds);
             }  
-            m_Launched = false;   
+            m_Launched = true;
+            frameTransitionAnim = false;
+            cantransition_ToNextAnimation = false;
+
             stateMachineFX.idle();
         }
 
@@ -98,12 +103,12 @@ namespace LF2.Client{
         public override void PlayAnim(int nbAniamtion = 1 , bool sequence = false)
         {
             base.PlayAnim();
-            stateMachineFX.m_ClientVisual.NormalAnimator.Play(stateMachineFX.m_ClientVisual.VizAnimation.a_DDA_1);
+            stateMachineFX.m_ClientVisual.NormalAnimator.Play(stateMachineFX.m_ClientVisual.VizAnimation.a_DDA_2);
         }
 
         public override void PlayPredictState( int nbanim = 1 , bool sequence = false)
         {
-            if (stateMachineFX.m_ClientVisual.CanCommit) {
+            if (stateMachineFX.m_ClientVisual.Owner) {
                 stateMachineFX.m_ClientVisual.m_NetState.AddPredictState_and_SyncServerRpc(GetId());
             }
             PlayAnim(nbanim , sequence);

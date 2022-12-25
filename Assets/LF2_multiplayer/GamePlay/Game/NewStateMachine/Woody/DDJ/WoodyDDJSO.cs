@@ -58,6 +58,7 @@ namespace LF2.Client{
 
         public override void PlayPredictState( int nbanim = 1 , bool sequence = false)
         {
+            nbCharacterViz = new List<ClientCharacterVisualization>();
             // Look throught all active PCs or NPCs 
             foreach (ClientCharacterVisualization viz in NbPlayer.GetPlayer()){
                 if (viz.NetworkObjectId != stateMachineFX.m_ClientVisual.NetworkObjectId && viz.IsDamageable(stateMachineFX.m_ClientVisual.teamType)){
@@ -88,7 +89,7 @@ namespace LF2.Client{
             }
 
 
-            if (stateMachineFX.m_ClientVisual.CanCommit) {
+            if (stateMachineFX.m_ClientVisual.Owner) {
                 stateMachineFX.m_ClientVisual.m_NetState.AddPredictState_and_SyncServerRpc(GetId());
             }
             PlayAnim(nbanim , sequence);

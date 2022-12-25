@@ -18,8 +18,8 @@ MonoBehaviour:
   ManaCost: -200
   DamageDetails:
   - {fileID: 11400000, guid: ef0d5cb8e0090a9449faaa68a4a53714, type: 2}
-  Dx: 250
-  Dy: 200
+  Dx: 500
+  Dy: 400
   Dz: 0
   curve:
     serializedVersion: 2

@@ -19,7 +19,7 @@ MonoBehaviour:
   Bdefend: 30
   arest: 0
   vrest: 0
-  Dirxyz: {x: 100, y: 140, z: 0}
+  Dirxyz: {x: 150, y: 200, z: 0}
   durration: 0
   SoundHit: []
   AnimationNameHash: 0

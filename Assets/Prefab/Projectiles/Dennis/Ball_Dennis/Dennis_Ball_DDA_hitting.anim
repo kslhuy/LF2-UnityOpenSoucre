@@ -7,7 +7,7 @@ AnimationClip:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Dennis_Ball_DDA_hitting
-  serializedVersion: 6
+  serializedVersion: 7
   m_Legacy: 0
   m_Compressed: 0
   m_UseHighQualityCurve: 1
@@ -20,13 +20,13 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: 833936510, guid: 1ae23c3873900914f9573ff83fc7adb1, type: 3}
+      value: {fileID: 432020006, guid: 53b761098e388ae459ac4f6238139cd4, type: 3}
     - time: 0.06666667
-      value: {fileID: 855489249, guid: 1ae23c3873900914f9573ff83fc7adb1, type: 3}
+      value: {fileID: 5868083425214718951, guid: 53b761098e388ae459ac4f6238139cd4, type: 3}
     - time: 0.13333334
-      value: {fileID: 1625701006, guid: 1ae23c3873900914f9573ff83fc7adb1, type: 3}
+      value: {fileID: -8610944018433971995, guid: 53b761098e388ae459ac4f6238139cd4, type: 3}
     - time: 0.2
-      value: {fileID: 707313558, guid: 1ae23c3873900914f9573ff83fc7adb1, type: 3}
+      value: {fileID: 6309002233318871991, guid: 53b761098e388ae459ac4f6238139cd4, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -45,11 +45,12 @@ AnimationClip:
       typeID: 212
       customType: 23
       isPPtrCurve: 1
+      isIntCurve: 0
     pptrCurveMapping:
-    - {fileID: 833936510, guid: 1ae23c3873900914f9573ff83fc7adb1, type: 3}
-    - {fileID: 855489249, guid: 1ae23c3873900914f9573ff83fc7adb1, type: 3}
-    - {fileID: 1625701006, guid: 1ae23c3873900914f9573ff83fc7adb1, type: 3}
-    - {fileID: 707313558, guid: 1ae23c3873900914f9573ff83fc7adb1, type: 3}
+    - {fileID: 432020006, guid: 53b761098e388ae459ac4f6238139cd4, type: 3}
+    - {fileID: 5868083425214718951, guid: 53b761098e388ae459ac4f6238139cd4, type: 3}
+    - {fileID: -8610944018433971995, guid: 53b761098e388ae459ac4f6238139cd4, type: 3}
+    - {fileID: 6309002233318871991, guid: 53b761098e388ae459ac4f6238139cd4, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}

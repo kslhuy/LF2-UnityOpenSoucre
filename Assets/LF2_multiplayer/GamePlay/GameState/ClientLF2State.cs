@@ -22,17 +22,21 @@ namespace LF2.Client
         [SerializeField]
         private BackGroundGameRegistry m_BackGroundResigtry ;
 
-        [SerializeField] public TextMeshProUGUI Text_GameEnd;
+        [SerializeField] TextMeshProUGUI Text_GameEnd;
+        [SerializeField] GameObject SummaryTable;
+
 
 
         protected override void Awake() {
-            _NetLF2State.BackGroundGUID.OnValueChanged += InstantiateBackGround;
+            if (!IsClient)
+                _NetLF2State.BackGroundGUID.OnValueChanged += InstantiateBackGround;
             _NetLF2State.GameEnd += GameStateEnd;
         }
 
         private void GameStateEnd()
         {
             Text_GameEnd.gameObject.SetActive(true);
+            SummaryTable.SetActive(true);
         }
 
         public override void OnNetworkSpawn()
@@ -42,17 +46,21 @@ namespace LF2.Client
 
         public override void OnNetworkDespawn()
         {
-            if( !IsClient ) { 
+            if (!IsClient)
                 _NetLF2State.BackGroundGUID.OnValueChanged -= InstantiateBackGround;
-                _NetLF2State.GameEnd -= GameStateEnd; 
-            }
+            _NetLF2State.GameEnd -= GameStateEnd; 
         }
 
         private void InstantiateBackGround(NetworkGuid previousValue, NetworkGuid newValue)
         {
-            m_BackGroundResigtry.TryGetBackGround(newValue.ToGuid() , out BackGroundGame backGroundGame); 
+            if(IsClient){
+                Debug.Log("InstantiateBackGround");
+                m_BackGroundResigtry.TryGetBackGround(newValue.ToGuid() , out BackGroundGame backGroundGame); 
 
-            backGroundGame.BackGroundPreFab.InstantiateAsync(BackGroundSpwanPoint);
+                backGroundGame.BackGroundPreFab.InstantiateAsync(BackGroundSpwanPoint);
+            }
+
+            
             
         }
     }

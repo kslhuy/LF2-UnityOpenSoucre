@@ -43,7 +43,7 @@ namespace LF2.Client
                 }
 
                 
-                stateMachineFX.m_ClientVisual.ActiveHitLag(0.3f , 0.1f);
+                // stateMachineFX.m_ClientVisual.ActiveHitLag(0.3f , 0.1f);
                 // CameraShake.Instance.ShakeCamera(stateData.Dx,0.1f);
             }
 

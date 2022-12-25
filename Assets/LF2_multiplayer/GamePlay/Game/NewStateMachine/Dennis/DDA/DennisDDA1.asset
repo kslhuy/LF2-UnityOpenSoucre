@@ -30,13 +30,14 @@ MonoBehaviour:
   Projectiles:
   - ProjectilePrefab: {fileID: 4479758005046589536, guid: d9406af647297b645aeda487366175ee, type: 3}
     pivot: {x: 50, y: 40, z: 0}
-  DurationSeconds: 0.8
+  DurationSeconds: 0.5
   expirable: 1
-  ReuseTimeSeconds: 0.8
+  ReuseTimeSeconds: 0.5
   ActionInterruptible: 0
-  Sounds: {fileID: 0}
+  Sounds: {fileID: 11400000, guid: 469d7230b06a56f46bafae5b183372ef, type: 2}
   delayLoopSound: 0
-  Start_Sounds: []
+  Start_Sounds:
+  - {fileID: 11400000, guid: 0b435695c488133489598b79abe7a0d2, type: 2}
   SpawnsFX: []
   frameChecker:
     hitFrameStart: 0

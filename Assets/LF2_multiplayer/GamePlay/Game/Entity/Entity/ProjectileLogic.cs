@@ -68,6 +68,7 @@ namespace LF2.Client
         [Tooltip("Max number of enemies this projectile can hit before disappearing")]
         public int MaxVictims;
 
+        // Effect affter hit , or rebouding 
         public GameObject SpawnFX;
 
 
@@ -209,8 +210,8 @@ namespace LF2.Client
                 if (targetNetObj != null ){
                     if( ( targetNetObj.NetworkObjectId != m_SpawnerId) &&  targetNetObj.IsDamageable(teamAttacker) )
                     {
-                        Debug.Log("Hit ID " + targetNetObj.NetworkObjectId);
-                        Debug.Log("spawner ID " + m_SpawnerId);
+                        // Debug.Log("Hit ID " + targetNetObj.NetworkObjectId);
+                        // Debug.Log("spawner ID " + m_SpawnerId);
                         m_NetState.RecvHitEnemyClientRPC(targetNetObj.NetworkObjectId);
                         AttackDataSend Atk_data = new AttackDataSend();
                         // Debug.Log("Projecile Dirxyz" + ProjectileDamage[0].Dirxyz);

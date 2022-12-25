@@ -15,7 +15,6 @@ namespace LF2.Client{
     {
         private bool cantransition_ToNextAnimation; // Or mean Next State
         private bool m_Launched;
-        private bool inputEnable;
         private bool frameTransitionAnim;
 
         private int countDDA = 1;
@@ -28,12 +27,10 @@ namespace LF2.Client{
 
          public override bool ShouldAnticipate(ref InputPackage requestData)
         {
-            if (inputEnable && requestData.StateTypeEnum == StateType.Attack){
+            if ( requestData.StateTypeEnum == StateType.Attack){
                 cantransition_ToNextAnimation = true;
                 return true;
             }
-
-
             // For Debug Only
             if (requestData.StateTypeEnum == StateType.Defense){
                 stateMachineFX.idle();
@@ -59,26 +56,23 @@ namespace LF2.Client{
         {   
             if (cantransition_ToNextAnimation && frameTransitionAnim){
                 m_Launched = true;
-                inputEnable = false;
                 frameTransitionAnim = false;
                 cantransition_ToNextAnimation = false;
-                countDDA = countDDA % 2; 
-                if (countDDA == 1 )  stateMachineFX.AnticipateState(StateType.DDA2);
-                else stateMachineFX.AnticipateState(StateType.DDA3);
+                stateMachineFX.AnticipateState(StateType.DDA2);
             }
         }
         public override void OnAnimEvent(int id)
         {
-            if (id == 1 ){
-                inputEnable = true;
+            if (id == 2 ) frameTransitionAnim = true;
+            else if (id == 0 ){
                 if (stateMachineFX.m_ClientVisual._IsServer) {
                     SpwanProjectileObjectPooling(stateData.Projectiles[0], new Vector3 (stateMachineFX.CoreMovement.GetFacingDirection(),0,stateMachineFX.InputZ));
-                    } 
-                stateMachineFX.m_ClientVisual.PlayAudio(stateData.Sounds);
-                m_Launched = true;
+                    m_Launched = true;
+                }
             }
-            else if (id == 2 ) frameTransitionAnim = true;
-
+            else if(id == 100) {
+                stateMachineFX.m_ClientVisual.PlayAudio(stateData.Sounds);
+            }
         }
 
 
@@ -90,6 +84,8 @@ namespace LF2.Client{
                 }
             }
             m_Launched = false;   
+            frameTransitionAnim = false;
+            cantransition_ToNextAnimation = false;
             stateMachineFX.idle();
         }
 
@@ -102,7 +98,7 @@ namespace LF2.Client{
 
         public override void PlayPredictState( int nbanim = 1 , bool sequence = false)
         {
-            if (stateMachineFX.m_ClientVisual.CanCommit) {
+            if (stateMachineFX.m_ClientVisual.Owner) {
                 stateMachineFX.m_ClientVisual.m_NetState.AddPredictState_and_SyncServerRpc(GetId());
             }
             PlayAnim(nbanim , sequence);

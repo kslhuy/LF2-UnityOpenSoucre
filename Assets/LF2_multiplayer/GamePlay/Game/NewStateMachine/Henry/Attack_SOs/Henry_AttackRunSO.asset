@@ -14,17 +14,30 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   StateType: 16
   Logic: 1
+  UseMana: 0
   ManaCost: 0
   DamageDetails: []
-  Dx: 0
+  Dx: 30
   Dy: 0
   Dz: 0
+  curve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   Projectiles: []
   DurationSeconds: 0.3
   expirable: 1
   ReuseTimeSeconds: 0
   ActionInterruptible: 0
-  Sounds: {fileID: 0}
+  Sounds: {fileID: 11400000, guid: 469d7230b06a56f46bafae5b183372ef, type: 2}
+  delayLoopSound: 0
   Start_Sounds: []
-  vizAnim: []
   SpawnsFX: []
+  frameChecker:
+    clip: {fileID: 0}
+    totalFrames: 0
+    length: 0
+    _frameStruct: []
+    layerNumber: 0

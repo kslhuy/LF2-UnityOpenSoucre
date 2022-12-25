@@ -13,13 +13,13 @@ MonoBehaviour:
   m_Name: Sub_DUA_Davis
   m_EditorClassIdentifier: 
   m_AnimationName: 
-  damageAmount: 20
+  damageAmount: -60
   Effect: 0
-  fall: 0
-  Bdefend: 0
+  fall: 70
+  Bdefend: 30
   arest: 0
   vrest: 0
-  Dirxyz: {x: 0, y: 0, z: 0}
+  Dirxyz: {x: 50, y: -200, z: 0}
   durration: 0
   SoundHit:
   - {fileID: 11400000, guid: 52ac116a0cb38e945b6f205598973b6c, type: 2}

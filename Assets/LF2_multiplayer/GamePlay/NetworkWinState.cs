@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace LF2
 {
-    public enum WinState
+    public enum WinState : byte
     {
         Invalid,
         Win,

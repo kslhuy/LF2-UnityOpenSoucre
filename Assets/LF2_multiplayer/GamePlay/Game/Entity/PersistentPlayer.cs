@@ -30,6 +30,7 @@ namespace LF2
         // [SerializeField]
         // NetworkBackGroundGuidState m_NetworkBackGroundGuidState;
 
+
         public NetworkNameState NetworkNameState => m_NetworkNameState;
 
         public NetworkAvatarGuidState NetworkAvatarGuidState => m_NetworkAvatarGuidState;

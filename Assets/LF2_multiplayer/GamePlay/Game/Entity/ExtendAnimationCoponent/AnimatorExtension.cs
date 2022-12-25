@@ -6,9 +6,9 @@ public static class AnimatorExtension {
         public static bool isPlayingOnLayer(this Animator animator, int fullPathHash, int layer) {
                 return animator.GetCurrentAnimatorStateInfo(layer).fullPathHash == fullPathHash;
         }
-        public static float normalizedTime(this Animator animator, System.Int32 layer) {
+        public static float normalizedTime(this Animator animator, int layer = 0) {
                 float time = animator.GetCurrentAnimatorStateInfo(layer).normalizedTime;
-                return time > 1 ? 1 : time;
+                return time >= 1 ? 1 : time;
         }
 
 }

@@ -13,13 +13,13 @@ MonoBehaviour:
   m_Name: Sub_Dennis_DDJ
   m_EditorClassIdentifier: 
   m_AnimationName: 
-  damageAmount: -60
+  damageAmount: -20
   Effect: 0
-  fall: 70
-  Bdefend: 60
+  fall: 10
+  Bdefend: 10
   arest: 0
-  vrest: 0
-  Dirxyz: {x: 400, y: 250, z: 0}
+  vrest: 0.2
+  Dirxyz: {x: 50, y: 100, z: 0}
   durration: 0
   SoundHit: []
   AnimationNameHash: 0

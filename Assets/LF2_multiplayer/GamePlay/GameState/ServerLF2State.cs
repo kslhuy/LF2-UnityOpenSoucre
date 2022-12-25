@@ -24,6 +24,10 @@ namespace LF2.Server
         [SerializeField]
         TransformVariable m_NetworkGameStateTransform;
 
+        private NetworkGameState m_NetworkGameState;
+
+        private StageManager stageManager;
+
         [SerializeField]
         [Tooltip("Make sure this is included in the NetworkManager's list of prefabs!")]
         private NetworkObject m_PlayerPrefab;
@@ -66,13 +70,15 @@ namespace LF2.Server
 
 
         [SerializeField]
-        private BackGroundGameRegistry m_BackGroundResigtry ;
+        private BackGroundGameRegistry m_BackGroundResigtry;
 
         [SerializeField]
         private Transform BackGroundSpwanPoint;
-                // private List<ServerCharacter> _ListTeamInTheGame;
+        // private List<ServerCharacter> _ListTeamInTheGame;
 
         private Dictionary<TeamType, List<ServerCharacter>> _allPlayerByTeam = new Dictionary<TeamType, List<ServerCharacter>>();
+
+        private Coroutine Coro_GameEnd;
 
         [Inject]
         void InjectDependencies(ISubscriber<LifeStateChangedEventMessage> subscriber)
@@ -101,7 +107,13 @@ namespace LF2.Server
 
                 SessionManager<SessionPlayerData>.Instance.OnSessionStarted();
                 m_Subscription = m_LifeStateChangedEventMessageSubscriber.Subscribe(OnLifeStateChangedEventMessage);
+
+                if (m_NetworkGameStateTransform && m_NetworkGameStateTransform.Value)
+                {
+                    m_NetworkGameState = m_NetworkGameStateTransform.Value.GetComponent<NetworkGameState>();
+                }
             }
+
         }
 
         public override void OnDestroy()
@@ -118,7 +130,7 @@ namespace LF2.Server
                 {
                     SpawnPlayer(kvp.Key, false);
                 }
-                SpawnBOTandBackGround(NetworkManager.ServerClientId , true);
+                SpawnBOTandBackGround(NetworkManager.ServerClientId, true);
                 return true;
             }
             return false;
@@ -129,7 +141,9 @@ namespace LF2.Server
             if (clientId != NetworkManager.LocalClientId)
             {
                 // If a client disconnects, check for game over in case all other players are already down
-                StartCoroutine(WaitToCheckForGameOver());
+                if (m_NetworkGameState.NetworkGameMode.gameMode.Value == GameMode.VS){
+                    StartCoroutine(WaitToCheckForGameOver());
+                }
             }
         }
 
@@ -137,7 +151,7 @@ namespace LF2.Server
         {
             // Wait until next frame so that the client's player character has despawned
             yield return null;
-            CheckForGameOver();
+            CheckForGameOverVsMode();
         }
 
 
@@ -176,7 +190,12 @@ namespace LF2.Server
                 NetworkManager.OnClientDisconnectCallback -= OnClientDisconnect;
                 NetworkManager.SceneManager.OnSceneEvent -= OnClientSceneChanged;
             }
+            if (stageManager != null){
+                stageManager.StageFinishEvent -= OnStageEndEventMessage;
+            }
+
             m_Subscription?.Dispose();
+
         }
 
 
@@ -243,7 +262,8 @@ namespace LF2.Server
                 networkNameState.Team.Value = persistentPlayer.NetworkNameState.Team.Value;
 
                 List<ServerCharacter> existing;
-                if (!_allPlayerByTeam.TryGetValue(networkNameState.Team.Value, out existing)) {
+                if (!_allPlayerByTeam.TryGetValue(networkNameState.Team.Value, out existing))
+                {
                     existing = new List<ServerCharacter>();
                     _allPlayerByTeam[networkNameState.Team.Value] = existing;
                 }
@@ -251,7 +271,7 @@ namespace LF2.Server
                 // dictionary, one way or another.
                 existing.Add(newPlayerCharacter);
 
-                }
+            }
 
             // spawn players characters with destroyWithScene = true
             newPlayer.SpawnWithOwnership(clientId, true);
@@ -281,7 +301,8 @@ namespace LF2.Server
                 $"Matching persistent PersistentPlayer for Bot not found!");
 
 
-            for (int b = 0; b < persistentPlayer.HowManyBOTData(); b++ ){
+            for (int b = 0; b < persistentPlayer.HowManyBOTData(); b++)
+            {
                 // Find a spawn point 
                 int index = Random.Range(0, m_PlayerSpawnPointsList.Count);
                 spawnPoint = m_PlayerSpawnPointsList[index];
@@ -315,7 +336,8 @@ namespace LF2.Server
                     networkNameState.Team.Value = persistentPlayer.PersistentBOT.Items[b].TeamType;
 
                     List<ServerCharacter> existing;
-                    if (!_allPlayerByTeam.TryGetValue(networkNameState.Team.Value, out existing)) {
+                    if (!_allPlayerByTeam.TryGetValue(networkNameState.Team.Value, out existing))
+                    {
                         existing = new List<ServerCharacter>();
                         _allPlayerByTeam[networkNameState.Team.Value] = existing;
                     }
@@ -331,23 +353,28 @@ namespace LF2.Server
                     //     var exitingList = _allPlayerByTeam[networkNameState.Team.Value];
                     //     exitingList.Add(newBOTCharacter);
                     // }
-                    
+
                 }
 
                 // spawn players characters with destroyWithScene = true
                 newBOT.Spawn(true);
             }
-            
-            if (spawnBackGround){
-                // _NetLF2State.BackGroundGUID.Value = persistentPlayer.PersistentBackGround.NetworkBackGroundGuid; 
-                m_BackGroundResigtry.TryGetBackGround(persistentPlayer.PersistentBackGround.NetworkBackGroundGuid.ToGuid() , out BackGroundGame backGroundGame); 
 
-                backGroundGame.BackGroundPreFab.InstantiateAsync(BackGroundSpwanPoint).Completed += (handle) => {
+            if (spawnBackGround)
+            {
+                _NetLF2State.BackGroundGUID.Value = persistentPlayer.PersistentBackGround.NetworkBackGroundGuid; 
+                m_BackGroundResigtry.TryGetBackGround(persistentPlayer.PersistentBackGround.NetworkBackGroundGuid.ToGuid(), out BackGroundGame backGroundGame);
+
+                backGroundGame.BackGroundPreFab.InstantiateAsync(BackGroundSpwanPoint).Completed += (handle) =>
+                {
                     var backgroundOBject = handle.Result;
                     Debug.Log(backgroundOBject);
                     backgroundOBject.GetComponent<NetworkObject>().Spawn(true);
-
-                } ;
+                    if (m_NetworkGameState.NetworkGameMode.gameMode.Value == GameMode.Stage){
+                        stageManager = backgroundOBject.GetComponent<StageManager>();
+                        stageManager.StageFinishEvent += OnStageEndEventMessage;
+                    }
+                };
             }
 
         }
@@ -363,21 +390,27 @@ namespace LF2.Server
         void OnLifeStateChangedEventMessage(LifeStateChangedEventMessage message)
         {
 
-            // Debug.Log("Call on Life State Changed ");
-            
-            // TODO : Add logic for Stage Mode 
-            
+
+
             // Logic below for versus mode only
-            // if (message.NewLifeState == LifeState.Dead)
-            // {
-            //     CheckForGameOver();
-            // }
+            if (message.NewLifeState == LifeState.Dead)
+            {
+                CheckForGameOverVsMode();
+            }
+
+
         }
 
-        void CheckForGameOver()
+
+
+        void CheckForGameOverVsMode()
         {
             // Logic end game 
-            
+
+            //  Logic if dont have any COM so we win.
+
+            // If we already Call End Game so return 
+            if (Coro_GameEnd != null ) return;
             List<TeamType> listTeamNow = new List<TeamType>();
             int i = 0;
             // Check the life state of all players in the scene
@@ -386,41 +419,72 @@ namespace LF2.Server
                 // if any player is alive just return
                 if (serverCharacter.NetState && serverCharacter.NetState.LifeState == LifeState.Alive)
                 {
-                    i++;   
+                    i++;
                     if (listTeamNow.Contains(serverCharacter.NetState.TryGetTeamType())) return;
                     listTeamNow.Add(serverCharacter.NetState.TryGetTeamType());
-                    if (listTeamNow.Count > 1) return;   // Only one team can be left
-                    
+                    if (listTeamNow.Count > 1) return;   // more than 1 mean 2 , 3 team left so can not End 
+
 
                 }
             }
 
-            if (listTeamNow[0] == TeamType.INDEPENDANT && i == 1) {
-                StartCoroutine(CoroGameOver(k_LoseDelay, false));
-            }
-            else StartCoroutine(CoroGameOver(k_LoseDelay, false));
+
 
             // If we made it this far, all players are down! switch to post game
+
+            Coro_GameEnd = StartCoroutine(CoroGameOver(k_LoseDelay, true));
         }
 
 
-        // void SetWinState(WinState winState)
-        // {
-        //     if (m_NetworkGameStateTransform && m_NetworkGameStateTransform.Value &&
-        //         m_NetworkGameStateTransform.Value.TryGetComponent(out NetworkGameState networkGameState))
-        //     {
-        //         networkGameState.NetworkWinState = winState;
-        //     }
-        // }
-        
+        // Call When A Stage Finish
+        void OnStageEndEventMessage()
+        {
+            // CheckForGameOverStageMode();
+            if (Coro_GameEnd != null ) return;
+
+
+            // Check Again to ensure the game correctly Finish
+            List<TeamType> listTeamNow = new List<TeamType>();
+            int i = 0;
+            // Check the life state of all players in the scene
+            foreach (var serverCharacter in PlayerServerCharacter.GetPlayerServerCharacters())
+            {
+                // if any player is alive just return
+                if (serverCharacter.NetState && serverCharacter.NetState.LifeState == LifeState.Alive)
+                {
+                    i++;
+                    if (listTeamNow.Contains(serverCharacter.NetState.TryGetTeamType())) return;
+                    listTeamNow.Add(serverCharacter.NetState.TryGetTeamType());
+                    if (listTeamNow.Count > 1) return;   // more than 1 mean 2 , 3 team left so can not End 
+
+
+                }
+            }
+
+            Coro_GameEnd = StartCoroutine(CoroGameOver(k_LoseDelay, true));
+
+        }
+
+
+
+        void SetWinState(WinState winState)
+        {
+            if (m_NetworkGameStateTransform && m_NetworkGameStateTransform.Value &&
+                m_NetworkGameStateTransform.Value.TryGetComponent(out NetworkGameState networkGameState))
+            {
+                // networkGameState.NetworkWinState = winState;
+            }
+        }
+
 
         private IEnumerator CoroGameOver(float wait, bool gameWon)
         {
             // wait 5 seconds for game animations to finish
-            
+            _NetLF2State.EndGameServerRPC();
+
             yield return new WaitForSeconds(wait);
 
-            // SetWinState(gameWon ? WinState.Win : WinState.Loss);
+            SetWinState(gameWon ? WinState.Win : WinState.Loss);
 
             SceneLoaderWrapper.Instance.LoadScene("PostGame", useNetworkSceneManager: true);
         }

@@ -15,11 +15,11 @@ MonoBehaviour:
   m_AnimationName: 
   damageAmount: -10
   Effect: 0
-  fall: 40
+  fall: 70
   Bdefend: 20
   arest: 0
   vrest: 0
-  Dirxyz: {x: 100, y: 450, z: 0}
+  Dirxyz: {x: 100, y: 500, z: 0}
   durration: 0
   SoundHit: []
   AnimationNameHash: 0

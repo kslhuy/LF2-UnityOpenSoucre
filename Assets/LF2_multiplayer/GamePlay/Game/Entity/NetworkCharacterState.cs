@@ -73,8 +73,6 @@ namespace LF2
         /// </summary>
         public bool IsNpc { get { return CharacterClass.IsNpc; } }
 
-        [HideInInspector]
-        public bool IsHOST ;
 
         public bool IsValidTarget => LifeState != LifeState.Dead;
 
@@ -96,22 +94,13 @@ namespace LF2
         /// </summary>
         public CharacterTypeEnum CharacterType => m_CharacterClassContainer.CharacterClass.CharacterType;
 
-        // [SerializeField]
-        // private NetworkNameState m_NameState ; 
-        public TeamType TeamType ;
 
-
-        // /// <summary>
-        // /// Gets invoked when inputs are received from the client which own this networked character.
-        // /// </summary>
-        // public event Action<Vector2,float> ReceivedClientInput;
 
         public override void OnNetworkSpawn()
         {
             if (!IsServer) return;
             HPPoints = CharacterClass.BaseHP.Value;
             MPPoints = CharacterClass.BaseMP.Value;
-            IsHOST = IsHost;
         }
 
         public TeamType TryGetTeamType(){
@@ -162,24 +151,6 @@ namespace LF2
 
 
 
-
-        [ClientRpc]
-        public void MoveInputEventClientRPC(int inputX , int inputZ)
-        {
-
-            // DoActionEventServer?.Invoke(data);
-            InputMoveSendBack?.Invoke(inputX,inputZ);
-        }
-
-        /// <summary>
-        /// Client->Server RPC that sends a request to play an action.
-        /// </summary>
-        /// <param name="data">Data about which action to play and its associated details. </param>
-        // [ServerRpc(RequireOwnership = false)]
-        // public void DoPassiveActionServerRPC(InputPackage data) {
-        //     SendPassiveActionServerRPC?.Invoke(data);
-        // } 
-            
 
         // UTILITY AND SPECIAL-PURPOSE RPCs
 

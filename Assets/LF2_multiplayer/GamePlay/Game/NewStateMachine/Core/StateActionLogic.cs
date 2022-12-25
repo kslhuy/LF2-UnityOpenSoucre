@@ -94,10 +94,16 @@ namespace LF2.Client{
             
         }
 
-
+        // This method is called to determine whether the state should anticipate transitioning to another
+        // state or performing some other action. The requestData parameter contains information about the
+        // current state of the state machine and the input that it is receiving. The method returns a bool
+        // value indicating whether the state should anticipate the transition or action.
 
         public virtual bool ShouldAnticipate(ref InputPackage requestData){
             return false;
+        }
+
+        public virtual void HurtResponder(Vector3 dirToRespond){
         }
 
         /// <summary>

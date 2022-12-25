@@ -70,7 +70,6 @@ namespace LF2{
 
                   if (opositeDir) {
                       if (inMid_Air){
-                        // Current_Fall = ;
                         return StateType.FallingFront; //7*
                       }
                       Current_Fall = 40;
@@ -89,12 +88,15 @@ namespace LF2{
                         if (opositeDir) {
                             return StateType.FallingFront; //7*
                         }
-                        else return StateType.FallingBack;//5*
-                        }
+                        else 
+                            return StateType.FallingBack;//5*
+                    }
                     else return StateType.DOP; //6*
                 else{
-                    if (opositeDir) return StateType.FallingFront; //7*
-                    else return StateType.FallingBack;//7* 
+                    if (opositeDir) 
+                        return StateType.FallingFront; //7*
+                    else 
+                        return StateType.FallingBack;//7* 
                 } 
                 
             }

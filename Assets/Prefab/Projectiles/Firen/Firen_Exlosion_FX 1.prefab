@@ -603,6 +603,7 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     randomizeRotationDirection: 0
+    gravitySource: 0
     maxNumParticles: 1000
     customEmitterVelocity: {x: 0, y: 0, z: 0}
     size3D: 0
@@ -4067,6 +4068,7 @@ ParticleSystem:
         m_RotationOrder: 4
     minVertexDistance: 0.2
     textureMode: 0
+    textureScale: {x: 1, y: 1}
     ribbonCount: 1
     shadowBias: 0.5
     worldSpace: 0
@@ -4915,6 +4917,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 2
     m_TransformParent: {fileID: 7601395266354509612}
     m_Modifications:
     - target: {fileID: 597002929163656114, guid: 402fe3d2b3583594ebb5af4090febd87, type: 3}
@@ -4923,7 +4926,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 597002929163656114, guid: 402fe3d2b3583594ebb5af4090febd87, type: 3}
       propertyPath: startDelay.scalar
-      value: 0.2
+      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 597002929163656114, guid: 402fe3d2b3583594ebb5af4090febd87, type: 3}
       propertyPath: NoiseModule.frequency
@@ -5041,7 +5044,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 8683630326479844616, guid: 402fe3d2b3583594ebb5af4090febd87, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 3d49f2180e685974e81cf1d90db0ef4b, type: 2}
+    m_RemovedComponents:
+    - {fileID: 6675635325675099429, guid: 402fe3d2b3583594ebb5af4090febd87, type: 3}
+    m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 402fe3d2b3583594ebb5af4090febd87, type: 3}
 --- !u!4 &1538470538399899919 stripped
 Transform:

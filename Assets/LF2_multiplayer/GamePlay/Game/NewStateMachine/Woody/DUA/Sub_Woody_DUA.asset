@@ -13,12 +13,13 @@ MonoBehaviour:
   m_Name: Sub_Woody_DUA
   m_EditorClassIdentifier: 
   m_AnimationName: 
-  damageAmount: 20
+  damageAmount: -20
   Effect: 0
-  fall: 0
-  Bdefend: 0
+  fall: 20
+  Bdefend: 16
   arest: 0
-  vrest: 0
+  vrest: 0.28
   Dirxyz: {x: 0, y: 0, z: 0}
   durration: 0
+  SoundHit: []
   AnimationNameHash: 0

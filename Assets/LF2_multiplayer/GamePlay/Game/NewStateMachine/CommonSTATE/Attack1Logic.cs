@@ -51,7 +51,7 @@ namespace LF2.Client
         public override void PlayPredictState(int nbAniamtion = 1, bool sequen = false)
         {
             // Owner Send to Server   =>>  Server propagate to all others players (except this client , the owner (who send))).
-            if (stateMachineFX.m_ClientVisual.CanCommit){
+            if (stateMachineFX.m_ClientVisual.Owner){
                 // Debug.Log("Attack Send to server");
                 stateMachineFX.m_ClientVisual.m_NetState.AddPredictState_and_SyncServerRpc(GetId());
             }

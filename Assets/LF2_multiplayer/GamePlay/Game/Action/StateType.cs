@@ -146,7 +146,8 @@ namespace LF2{
         RecoverMana,
 
         JumpBack1,
-        JumpBack2
+        JumpBack2,
+        DDA4,
 
     }
 

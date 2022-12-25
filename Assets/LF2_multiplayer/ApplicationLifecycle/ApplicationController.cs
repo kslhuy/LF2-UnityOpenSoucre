@@ -95,7 +95,7 @@ namespace LF2.Shared
             subHandles.Add(quitApplicationSub.Subscribe(QuitGame));
             m_Subscriptions = subHandles;
 
-            Application.targetFrameRate = 60;
+            Application.targetFrameRate = 120;
         }
 
         private void Start()

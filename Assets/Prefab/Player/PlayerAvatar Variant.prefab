@@ -234,7 +234,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1299923952269749981, guid: 687160c7cfd6cd748877c28fe515d9c6, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1557173061463671463, guid: 687160c7cfd6cd748877c28fe515d9c6, type: 3}
       propertyPath: m_FlipX
@@ -251,7 +251,7 @@ PrefabInstance:
     - target: {fileID: 1557173061463671463, guid: 687160c7cfd6cd748877c28fe515d9c6, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: -8507426173327283993, guid: 2e61782dff6ce924583b276e5c2914d1, type: 3}
+      objectReference: {fileID: 2618951568200134628, guid: 96738240f9825ef40ab6c760fec76c03, type: 3}
     - target: {fileID: 1557173061463671463, guid: 687160c7cfd6cd748877c28fe515d9c6, type: 3}
       propertyPath: m_WasSpriteAssigned
       value: 1
@@ -492,6 +492,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8919223884673575034, guid: 687160c7cfd6cd748877c28fe515d9c6, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 69.9
+      objectReference: {fileID: 0}
     - target: {fileID: 8994507685575570671, guid: 687160c7cfd6cd748877c28fe515d9c6, type: 3}
       propertyPath: m_Controller
       value: 
@@ -537,6 +541,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_NetworkCharacter: {fileID: 7919260112464046542}
+--- !u!114 &1064626412387933776
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2573736595463811199}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06d771e568d41fb44b5d5352b0192b0b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clientCharaterMovement: {fileID: 4494805274153799825}
+  distanceY: 10
+  SyncPositionX: 1
+  SyncPositionY: 1
+  SyncPositionZ: 1
+  SyncRotAngleY: 1
+  PositionThreshold: 0.5
+  RotAngleThreshold: 20
+  Interpolate: 1
 --- !u!114 &3283648269564326659
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -572,6 +597,18 @@ MonoBehaviour:
   m_TransformToTrack: {fileID: 2573736595463811192}
   m_YOffset: 52
   m_XOffset: 0
+--- !u!114 &5624706800147786317
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2573736595463811199}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94f730ece2f3be4488eb76645f614d6f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &6909277162457177152
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -1,4 +1,5 @@
 using System;
+using UnityEngine;
 using Unity.Netcode;
 
 namespace LF2
@@ -9,8 +10,11 @@ namespace LF2
     public class BackGroundSelectData : NetworkBehaviour
     {
 
+
         public BackGroundGameRegistry backGroundGameRegistry;
 
+
+        [HideInInspector]
         public NetworkVariable<int> BackGroundNumber = new NetworkVariable<int>(0);
         public NetworkVariable<bool> IsStateChooseBackGround { get; } = new NetworkVariable<bool>(false);
 
@@ -21,7 +25,7 @@ namespace LF2
         public NetworkVariable<LobbyMode> LobbyModeChange { get; } = new NetworkVariable<LobbyMode>(LobbyMode.ChooseBackGround);
         public NetworkVariable<int> NumberBot { get; } = new NetworkVariable<int>();
 
-
+        
         public event Action< bool> OnHostChangedBackGround;
         public event Action<int> OnHostClickedReady;
 

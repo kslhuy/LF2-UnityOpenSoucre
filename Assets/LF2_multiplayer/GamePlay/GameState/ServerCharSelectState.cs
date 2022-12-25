@@ -21,7 +21,6 @@ namespace LF2.Server
         // New 
         public BackGroundSelectData BackGroundSelectData { get; private set; }
 
-
         Coroutine m_WaitToEndLobbyCoroutine;
 
 
@@ -80,7 +79,7 @@ namespace LF2.Server
 
 
                 int idxBOT = FindBotIdx();
-                Debug.Log( idxBOT + teamType);
+                // Debug.Log( idxBOT + teamType);
                 // Debug.Log(idxBOT);
                 CharSelectData.LobbyBOTs[idxBOT] = new CharSelectData.LobbyPlayerState(clientId,
                 CharSelectData.LobbyBOTs[idxBOT].PlayerName,
@@ -278,7 +277,6 @@ namespace LF2.Server
             CharSelectData.IsLobbyClosed.Value = false;
         }
 
-        // TO DO : Save result background here 
         private void SaveLobbyResults()
         {
             foreach (CharSelectData.LobbyPlayerState playerInfo in CharSelectData.LobbyPlayers)

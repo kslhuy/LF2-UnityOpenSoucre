@@ -16,12 +16,7 @@ namespace LF2.Client
     /// </remarks>
 
 
-    enum GamePlayMode
-    {
-        VS,
-        Stage,
 
-    }
 
     public class UIBackGroundSelectBox : MonoBehaviour
     {
@@ -34,7 +29,7 @@ namespace LF2.Client
 
         [Header("--------- Select Back Ground ---------")]
 
-        [SerializeField] GamePlayMode m_GamePlayMode = GamePlayMode.VS;
+        [SerializeField] GameMode m_GamePlayMode = GameMode.VS;
         [SerializeField]
         private GameObject m_SelectBackGroundClassSelected;
         [SerializeField]
@@ -63,6 +58,9 @@ namespace LF2.Client
 
         [SerializeField] Image[] ImageNumberBOT;
         private int _nbBOTcurrent = 0;
+        
+        [SerializeField] TransformVariable m_NetworkGameStateTransform;
+
 
 
 
@@ -106,12 +104,12 @@ namespace LF2.Client
 
             m_SelectBackGroundClassSelected.SetActive(true);
             ImageNumberBOT[_nbBOTcurrent].color = color_selectBot;
-            if (GamePlayMode.Stage == m_GamePlayMode){
-                m_HowManyCom.SetActive(false);
-            }
-            else if (GamePlayMode.VS == m_GamePlayMode){
-                m_HowManyCom.SetActive(true);
-            }
+            // if (GameMode.Stage == m_GamePlayMode){
+            //     m_HowManyCom.SetActive(false);
+            // }
+            // else if (GameMode.VS == m_GamePlayMode){
+            //     m_HowManyCom.SetActive(true);
+            // }
         }
 
         public void NextBackGroundButton(bool enable)
@@ -168,14 +166,27 @@ namespace LF2.Client
 
         public void OnClickedVSMode()
         {
-            m_GamePlayMode = GamePlayMode.VS;
-            ConfigureForSelectionBackGround();
+            // m_GamePlayMode = ;
+            // ConfigureForSelectionBackGround();
+            SetGameMode(GameMode.VS);
+
         }
 
         public void OnClickedStageMode()
         {
-            m_GamePlayMode = GamePlayMode.Stage;
-            ConfigureForSelectionBackGround();
+            // m_GamePlayMode = GameMode.Stage;
+            SetGameMode(GameMode.Stage);
+
+            // ConfigureForSelectionBackGround();
+        }
+
+        void SetGameMode(GameMode gameMode)
+        {
+            if (m_NetworkGameStateTransform && m_NetworkGameStateTransform.Value &&
+                m_NetworkGameStateTransform.Value.TryGetComponent(out NetworkGameState networkGameState))
+            {
+                networkGameState.NetworkGameMode.gameMode.Value = gameMode;
+            }
         }
     }
 }

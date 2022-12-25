@@ -52,16 +52,24 @@ namespace LF2.Client{
         {
 
             base.PlayAnim();
-            stateMachineFX.m_ClientVisual.NormalAnimator.Play(stateMachineFX.m_ClientVisual.VizAnimation.a_Fall_Front);
+            // Debug.Log("play");
+            stateMachineFX.m_ClientVisual.NormalAnimator.Play(stateMachineFX.m_ClientVisual.VizAnimation.a_Fall_Front , 0 , 0);
+
         }
         public override void PlayPredictState(int nbAniamtion = 1, bool sequen = false)
         {
             // Client Send to Server  =>>>  Server know what state Client is =>>  Server propagate to all others players (except this client (who send))).
-            if (stateMachineFX.m_ClientVisual.CanCommit) {
+            if (stateMachineFX.m_ClientVisual.Owner) {
 
                 stateMachineFX.m_ClientVisual.m_NetState.AddPredictState_and_SyncServerRpc(GetId());
             }
             base.PlayPredictState();
+        }
+
+        public override void HurtResponder(Vector3 dirToRespond)
+        {
+            stateMachineFX.CoreMovement.ResetVelocity();
+            stateMachineFX.CoreMovement.SetHurtMovement(dirToRespond);
         }
 
 

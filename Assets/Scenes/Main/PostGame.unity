@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
+  m_IndirectSpecularColor: {r: 0.3708985, g: 0.3783704, b: 0.35722548, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -863,6 +863,7 @@ MonoBehaviour:
   m_TrackedDeviceOrientationAction: {fileID: 1025543830046995696, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
   m_DeselectOnBackgroundClick: 1
   m_PointerBehavior: 0
+  m_CursorLockBehavior: 0
 --- !u!114 &719974294
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1455,6 +1456,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
+  m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
@@ -1547,6 +1549,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 2
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1799700157941449693, guid: a454df2610b95c243bb7985f1d147726, type: 3}
@@ -1645,6 +1648,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1799700158547450079, guid: a454df2610b95c243bb7985f1d147726, type: 3}
+      propertyPath: m_QuitPanelRoot
+      value: 
+      objectReference: {fileID: 1736679402}
+    - target: {fileID: 1799700158547450079, guid: a454df2610b95c243bb7985f1d147726, type: 3}
+      propertyPath: m_SettingsPanelRoot
+      value: 
+      objectReference: {fileID: 1736679403}
+    - target: {fileID: 1799700158547450079, guid: a454df2610b95c243bb7985f1d147726, type: 3}
+      propertyPath: m_NetworkGameStateTransform
+      value: 
+      objectReference: {fileID: 11400000, guid: 2898f414d2dfc824d94cfddc2d153e97, type: 2}
     - target: {fileID: 1799700158624217757, guid: a454df2610b95c243bb7985f1d147726, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -1658,6 +1673,7 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1736679401}
     m_RemovedComponents: []
+    m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: a454df2610b95c243bb7985f1d147726, type: 3}
 --- !u!1 &1736679400 stripped
 GameObject:
@@ -1675,6 +1691,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1736679402 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1799700157859457746, guid: a454df2610b95c243bb7985f1d147726, type: 3}
+  m_PrefabInstance: {fileID: 1736679399}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1736679403 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1799700159037572977, guid: a454df2610b95c243bb7985f1d147726, type: 3}
+  m_PrefabInstance: {fileID: 1736679399}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1924636031
 GameObject:
   m_ObjectHideFlags: 0
@@ -2038,6 +2064,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
+  m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: -35587771
   m_SortingOrder: 1
   m_TargetDisplay: 0

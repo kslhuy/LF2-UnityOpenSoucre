@@ -19,7 +19,7 @@ MonoBehaviour:
   Bdefend: 20
   arest: 0
   vrest: 0
-  Dirxyz: {x: 150, y: 280, z: 0}
+  Dirxyz: {x: 200, y: 250, z: 0}
   durration: 0
   SoundHit:
   - {fileID: 11400000, guid: 0672f2e383016fe44bda20feb2e33f22, type: 2}

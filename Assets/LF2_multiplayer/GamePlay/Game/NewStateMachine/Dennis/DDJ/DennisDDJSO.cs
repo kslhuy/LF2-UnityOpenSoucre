@@ -16,7 +16,6 @@ namespace LF2.Client{
     ///// many kick 
     public class DennisDDJLogic : StateActionLogic 
     {
-        private bool m_Launched;
         private List<IHurtBox> _Listdamagable = new List<IHurtBox>();
         private float timeNow ;
         AttackDataSend Atk_data ;
@@ -44,17 +43,19 @@ namespace LF2.Client{
         }
 
         public override void End(){
+            _Listdamagable = new List<IHurtBox>();
             stateMachineFX.idle();
-            m_Launched = false;
+
         }
         public override void LogicUpdate() {
-            if (Time.time - timeNow >  stateData.DamageDetails[0].vrest)
+            if (Time.time - timeNow >  stateData.DamageDetails[0].vrest){
                 foreach (IHurtBox damagable in _Listdamagable){
                     if (damagable != null && damagable.IsDamageable(stateMachineFX.m_ClientVisual.teamType)) {
                         damagable.ReceiveHP(Atk_data);
                     }
                 }
-            timeNow = Time.time;
+                timeNow = Time.time;
+            }
             stateMachineFX.CoreMovement.CustomMove_InputX(stateData.Dx);
 
         }
@@ -64,12 +65,13 @@ namespace LF2.Client{
         {
             stateData.frameChecker.initCheck();
             base.PlayAnim();
+            timeNow = TimeStarted_Animation;
             stateMachineFX.m_ClientVisual.NormalAnimator.Play(stateMachineFX.m_ClientVisual.VizAnimation.a_DDJ_1);
         }
 
         public override void PlayPredictState( int nbanim = 1 , bool sequence = false)
         {
-            if (stateMachineFX.m_ClientVisual.CanCommit) {
+            if (stateMachineFX.m_ClientVisual.Owner) {
                 stateMachineFX.m_ClientVisual.m_NetState.AddPredictState_and_SyncServerRpc(GetId());
             }
             PlayAnim(nbanim , sequence);
@@ -93,6 +95,10 @@ namespace LF2.Client{
             if (damagable != null){
                 _Listdamagable.Remove(damagable);
             }        
+        }
+
+        public override void OnAnimEvent(int id){
+            stateMachineFX.m_ClientVisual.PlayAudio(stateData.Sounds);
         }
         
 

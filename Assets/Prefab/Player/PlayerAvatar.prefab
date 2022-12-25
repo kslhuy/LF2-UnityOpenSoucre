@@ -241,7 +241,6 @@ GameObject:
   - component: {fileID: 405412423302776698}
   - component: {fileID: 4264360441126654028}
   - component: {fileID: 5306942716750395604}
-  - component: {fileID: 1480621980762124376}
   - component: {fileID: 2344242058887112502}
   - component: {fileID: 8110582300940577404}
   - component: {fileID: 5736416597727434635}
@@ -361,6 +360,7 @@ MonoBehaviour:
   _distanceFromGround: 50
   UseFallMultiplierNormal: 1
   extraYCheckGround: 1
+  m_ExtendCheckBord: 10
 --- !u!114 &5306942716750395604
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -378,18 +378,6 @@ MonoBehaviour:
   MPPoints:
     m_InternalValue: 0
   timerMPrecover: 0.5
---- !u!114 &1480621980762124376
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2808402712987922594}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 94f730ece2f3be4488eb76645f614d6f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!54 &2344242058887112502
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -910,6 +898,7 @@ MonoBehaviour:
   StateChange_After_Timer: 1
   m_StateToPlay: 0
   debugUseMana: 0
+  debug_timedelay: 2
 --- !u!1 &7901046818739658897
 GameObject:
   m_ObjectHideFlags: 0

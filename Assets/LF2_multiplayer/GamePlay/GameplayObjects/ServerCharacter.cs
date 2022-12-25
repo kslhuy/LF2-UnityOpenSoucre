@@ -148,6 +148,7 @@ namespace LF2.Server
                 }
 
                 NetState.LifeState = LifeState.Dead;
+                
             }
             
         }

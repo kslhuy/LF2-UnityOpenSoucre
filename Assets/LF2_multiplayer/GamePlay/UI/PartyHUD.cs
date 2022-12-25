@@ -113,7 +113,7 @@ namespace LF2.Client
 
 
             // plus we track their target
-            m_OwnedCharacterState.TargetId.OnValueChanged += OnHeroSelectionChanged;
+            // m_OwnedCharacterState.TargetId.OnValueChanged += OnHeroSelectionChanged;
 
             m_ClientSender = m_OwnedCharacterState.GetComponent<ClientInputSender>();
         }
@@ -199,32 +199,32 @@ namespace LF2.Client
         }
 
 
-        private void OnHeroSelectionChanged(ulong prevTarget, ulong newTarget)
-        {
-            SetHeroSelectFX(m_CurrentTarget, false);
-            SetHeroSelectFX(newTarget, true);
-        }
+        // private void OnHeroSelectionChanged(ulong prevTarget, ulong newTarget)
+        // {
+        //     SetHeroSelectFX(m_CurrentTarget, false);
+        //     SetHeroSelectFX(newTarget, true);
+        // }
 
         // Helper to change name appearance for selected or unselected party members
         // also updates m_CurrentTarget
-        private void SetHeroSelectFX(ulong target, bool selected)
-        {
-            // check id against all party slots
-            int slot = FindOrAddAlly(target, true);
-            // Debug.Log(slot);
-            if (slot >= 0)
-            {
-                m_PartyNames[slot].color = selected ? Color.green : Color.white;
-                if (selected)
-                {
-                    m_CurrentTarget = target;
-                }
-                else
-                {
-                    m_CurrentTarget = 0;
-                }
-            }
-        }
+        // private void SetHeroSelectFX(ulong target, bool selected)
+        // {
+        //     // check id against all party slots
+        //     int slot = FindOrAddAlly(target, true);
+        //     // Debug.Log(slot);
+        //     if (slot >= 0)
+        //     {
+        //         m_PartyNames[slot].color = selected ? Color.green : Color.white;
+        //         if (selected)
+        //         {
+        //             m_CurrentTarget = target;
+        //         }
+        //         else
+        //         {
+        //             m_CurrentTarget = 0;
+        //         }
+        //     }
+        // }
 
         // public void SelectPartyMember(int slot)
         // {

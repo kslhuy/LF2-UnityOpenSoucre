@@ -69,6 +69,8 @@ namespace LF2
     [SerializeField] string DDA_1 = "DDA_1_anim";
     [SerializeField] string DDA_2 = "DDA_2_anim";
     [SerializeField] string DDA_3 = "DDA_3_anim";
+    [SerializeField] string DDA_4 = "DDA_4_anim";
+
     [Header("------------ DDJ -------------")]
     [SerializeField] string DDJ_1 = "DDJ_1_anim";
     [SerializeField] string DDJ_2 = "DDJ_2_anim";
@@ -124,7 +126,7 @@ namespace LF2
 
     
     [SerializeField] [HideInInspector] public int a_Jump_Attack;
-    [SerializeField] [HideInInspector] public int a_Run_Jump_Attack;
+    [SerializeField] [HideInInspector] public int a_Run_Jump_Attack; // Dash Attack
 
     [SerializeField] [HideInInspector] public int a_Run_Attack;
 
@@ -151,6 +153,8 @@ namespace LF2
     [SerializeField] [HideInInspector] public int a_DDA_1;
     [SerializeField] [HideInInspector] public int a_DDA_2;
     [SerializeField] [HideInInspector] public int a_DDA_3;
+    [SerializeField] [HideInInspector] public int a_DDA_4;
+
     //-----------------------------
     [SerializeField] [HideInInspector] public int a_DDJ_1;
     [SerializeField] [HideInInspector] public int a_DDJ_2;
@@ -230,6 +234,8 @@ namespace LF2
         a_DDA_1= Animator.StringToHash(DDA_1);
         a_DDA_2= Animator.StringToHash(DDA_2);
         a_DDA_3= Animator.StringToHash(DDA_3);
+        a_DDA_4= Animator.StringToHash(DDA_4);
+
     //-----------------------------
         a_DDJ_1= Animator.StringToHash(DDJ_1);
         a_DDJ_2= Animator.StringToHash(DDJ_2);

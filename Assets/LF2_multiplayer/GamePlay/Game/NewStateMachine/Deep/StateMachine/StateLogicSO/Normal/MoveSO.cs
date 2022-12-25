@@ -64,7 +64,7 @@ namespace LF2.Client{
         public override void PlayPredictState( int nbanim = 1 , bool sequence = false)
         {
 
-            if (stateMachineFX.m_ClientVisual.CanCommit) {
+            if (stateMachineFX.m_ClientVisual.Owner) {
                 stateMachineFX.m_ClientVisual.m_NetState.AddPredictState_and_SyncServerRpc(GetId());
             }
             PlayAnim();
@@ -83,7 +83,7 @@ namespace LF2.Client{
         public override void LogicUpdate()
         {    
             
-            if (stateMachineFX.m_ClientVisual.CanCommit) {
+            if (stateMachineFX.m_ClientVisual.Owner) {
                 // Debug.Log(stateMachineFX.InputX);
                 stateMachineFX.CoreMovement.SetXZ(stateMachineFX.InputX,stateMachineFX.InputZ);
             }
@@ -106,6 +106,7 @@ namespace LF2.Client{
         public override void Exit()
         {
             isPlayAnimation = false;
+            stateMachineFX.CoreMovement.ResetVelocity();
         }
     }
 

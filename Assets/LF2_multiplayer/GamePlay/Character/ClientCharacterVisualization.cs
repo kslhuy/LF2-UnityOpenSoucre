@@ -109,7 +109,7 @@ namespace LF2.Client
         public bool IsNPC => m_NetState.IsNpc;
 
         //// --- NPC ---
-        public bool CanCommit{ get; private set; } 
+        public bool Owner{ get; private set; } 
 
         private bool HostCommit;
 
@@ -158,8 +158,8 @@ namespace LF2.Client
             MStateMachinePlayerViz = new StateMachineNew( this,characterStateSOs );
             // For Debug
             LastStateViz = StateType.Idle;
-            textMesh.text = LastStateViz.ToString();
-
+            textMesh.text = coreMovement.GetFacingDirection().ToString()  ;
+            // LastStateViz.ToString()
 
 
             _InitSizeHurtBox = _hurtBox.size;
@@ -170,9 +170,9 @@ namespace LF2.Client
             transform.SetPositionAndRotation(m_PhysicsWrapper.Transform.position, m_PhysicsWrapper.Transform.rotation);
             
             //Use For trigger  some Event 
-            // CanCommit = m_NetState.IsHOST;
-            CanCommit = m_NetState.IsOwner;
-            HostCommit = m_NetState.IsHOST;
+            // Owner = m_NetState.IsHOST;
+            Owner = m_NetState.IsOwner;
+            HostCommit = IsHost;
             _IsServer = IsServer;
 
             
@@ -358,7 +358,8 @@ namespace LF2.Client
             MStateMachinePlayerViz.OnUpdate();
             if (LastStateViz !=  MStateMachinePlayerViz.CurrentStateViz.GetId()){
                 LastStateViz = MStateMachinePlayerViz.CurrentStateViz.GetId();
-                textMesh.text = LastStateViz.ToString();
+                // textMesh.text = LastStateViz.ToString();
+                textMesh.text = coreMovement.GetFacingDirection().ToString();
             }
             // }
             // UpdateSizeHurtBox();
@@ -408,13 +409,13 @@ namespace LF2.Client
             if (m_NetState.LifeState != LifeState.Alive ) return;
             
             // Owner call this function 
-            MStateMachinePlayerViz.OnGameplayActivityVisual(ref attackData);
+            MStateMachinePlayerViz.OnHurtReponder(ref attackData);
         
         }
 
         public void MPChange(int mana)
         {
-            if (CanCommit) m_NetState.MPChangeServerRpc(mana);
+            if (Owner) m_NetState.MPChangeServerRpc(mana);
 
         }
 
@@ -520,7 +521,7 @@ namespace LF2.Client
             }
             // Debug.Log("huy");
 
-            if (CanCommit) m_NetState.LifeStateChangeServerRpc(LifeState.Alive);
+            if (Owner) m_NetState.LifeStateChangeServerRpc(LifeState.Alive);
 
         }
         public void VibrationHitLag(int direction){

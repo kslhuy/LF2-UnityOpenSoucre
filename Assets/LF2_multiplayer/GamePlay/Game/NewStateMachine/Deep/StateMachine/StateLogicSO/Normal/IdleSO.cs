@@ -27,6 +27,9 @@ namespace LF2.Client{
 
         public override bool ShouldAnticipate(ref InputPackage data)
         {
+            if (data.StateTypeEnum == StateType.Idle){
+                return false;
+            }
             if (data.StateTypeEnum == StateType.Jump){
                 stateMachineFX.AnticipateState(StateType.Jump);
             }
@@ -57,8 +60,9 @@ namespace LF2.Client{
 
         public override void PlayPredictState(int nbAniamtion = 1, bool sequen = false)
         {
+            Debug.Log("IDle play predict");
             // Client Send to Server  =>>>  Server know what state Client is =>>  Server propagate to all others players (except this client (who send))).
-            if (stateMachineFX.m_ClientVisual.CanCommit) 
+            if (stateMachineFX.m_ClientVisual.Owner) 
                 stateMachineFX.m_ClientVisual.m_NetState.AddPredictState_and_SyncServerRpc(GetId());
             
             base.PlayPredictState(nbAniamtion, sequen);
@@ -85,7 +89,7 @@ namespace LF2.Client{
         {
             
             //
-            if (stateMachineFX.m_ClientVisual.CanCommit){
+            if (stateMachineFX.m_ClientVisual.Owner){
                 if(!stateMachineFX.CoreMovement.IsGounded()){
                     // Debug.Log("Air Owner");
                     stateMachineFX.ChangeState(StateType.Air);

@@ -5,6 +5,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 2
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: -2751153693144913985, guid: e1e6fa40b644751498970cb113c8b0a1, type: 3}
@@ -75,6 +76,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: pf_Dennis_Ball
       objectReference: {fileID: 0}
+    - target: {fileID: 3361775951114032659, guid: e1e6fa40b644751498970cb113c8b0a1, type: 3}
+      propertyPath: Offset.y
+      value: -40
+      objectReference: {fileID: 0}
     - target: {fileID: 3672223636655927781, guid: e1e6fa40b644751498970cb113c8b0a1, type: 3}
       propertyPath: m_Controller
       value: 
@@ -104,6 +109,7 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: e1e6fa40b644751498970cb113c8b0a1, type: 3}
 --- !u!95 &2824757819236973845 stripped
 Animator:
@@ -144,15 +150,17 @@ MonoBehaviour:
   k_GroundLayerMask: 0
   ProjectileDamage:
   - {fileID: 11400000, guid: 6a69a589152cda04696b850a3b5ceb2c, type: 2}
-  Speed_m_s: 200
+  Speed_m_s: 300
   Range: 0
   MaxVictims: 1
+  SpawnFX: {fileID: 0}
   _sfxEventChannel: {fileID: 11400000, guid: 1981ab6cbad46e54ca529e09ba189c16, type: 2}
   _audioConfig: {fileID: 11400000, guid: e8a6884befaa7e544b61747452adc267, type: 2}
   Sounds: []
   EndAnimation: DDA_Hit_Jonh_anim
   DestroyAfterSec: 3
-  DestroyAfterHit: 0.2
+  DestroyAfterHit: 0.1
+  m_BoxType: 0
   animator: {fileID: 2824757819236973845}
 --- !u!54 &6891968443062646232 stripped
 Rigidbody:

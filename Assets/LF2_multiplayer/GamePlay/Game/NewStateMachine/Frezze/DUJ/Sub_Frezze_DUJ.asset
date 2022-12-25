@@ -14,12 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_AnimationName: 
   damageAmount: -50
-  Effect: 1
+  Effect: 3
   fall: 70
   Bdefend: 60
   arest: 0
   vrest: 0.2
-  Dirxyz: {x: 100, y: 300, z: 0}
+  Dirxyz: {x: 100, y: 350, z: 0}
   durration: 0
   SoundHit: []
   AnimationNameHash: 0

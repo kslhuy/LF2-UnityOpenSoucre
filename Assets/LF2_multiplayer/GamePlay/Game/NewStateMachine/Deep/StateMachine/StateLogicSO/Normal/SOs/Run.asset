@@ -20,17 +20,30 @@ MonoBehaviour:
   Dx: 0
   Dy: 0
   Dz: 0
+  curve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   Projectiles: []
   DurationSeconds: 0
   expirable: 0
   ReuseTimeSeconds: 0
   ActionInterruptible: 0
-  Sounds: {fileID: 11400000, guid: 5670ae518cbf55b41b2a335cc4e3a529, type: 2}
+  Sounds: {fileID: 0}
   delayLoopSound: 0
-  Start_Sounds: []
-  vizAnim:
-  - AnimNames: Run_anim
-    AnimHashId: 35871017
+  Start_Sounds:
+  - {fileID: 11400000, guid: 5670ae518cbf55b41b2a335cc4e3a529, type: 2}
+  - {fileID: 11400000, guid: ad505484cee0b2e40ab1e615a79063b2, type: 2}
   SpawnsFX:
   - _Object: {fileID: 3526290567721581141, guid: d1b8fe299e2b1eb4e848448792a17a56, type: 3}
     pivot: {x: -0.22, y: 0, z: 0}
+  frameChecker:
+    hitFrameStart: 0
+    hitFrameEnd: 0
+    returnFrame:
+      FrameToReturn: 0
+      ReturnToFrame: 0
+    totalFrames: 0
+    layerNumber: 0

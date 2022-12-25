@@ -49,7 +49,7 @@ namespace LF2.Client{
 
         private async void SpawnObject (){
             for (int i = 0 ; i < stateData.SpawnsFX.Length; i++ ){
-                SpwanFX(stateData.SpawnsFX[i], Vector3.right*stateMachineFX.CoreMovement.GetFacingDirection());
+                SpwanProjectile(stateData.Projectiles[i], Vector3.right*stateMachineFX.CoreMovement.GetFacingDirection());
                 stateMachineFX.m_ClientVisual.PlayAudio(stateData.Start_Sounds[0]);
                 await SpwanSequence();
             }
@@ -63,7 +63,7 @@ namespace LF2.Client{
 
         public override void PlayPredictState( int nbanim = 1 , bool sequence = false)
         {
-            if (stateMachineFX.m_ClientVisual.CanCommit) {
+            if (stateMachineFX.m_ClientVisual.Owner) {
                 stateMachineFX.m_ClientVisual.m_NetState.AddPredictState_and_SyncServerRpc(GetId());
             }
             PlayAnim(nbanim , sequence);

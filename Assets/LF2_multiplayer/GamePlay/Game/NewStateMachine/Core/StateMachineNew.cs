@@ -37,7 +37,7 @@ namespace LF2.Client
         public TeamType team {get ;private set;}
 
         public CalculStatics calculStatics;
-        private float TU = 0.035f;
+        private float TU = 0.033f;
         private float currentTimerTU = 0f;
 
         private Dictionary<StateType, StateActionLogic> m_StateLogicaMap ;
@@ -115,8 +115,10 @@ namespace LF2.Client
             InputX = inputX;
             InputZ = inputZ;
             StateType state ;
-            if (inputX  != 0 || inputZ  != 0  ) state = StateType.Move;
-            else state = StateType.Idle;
+            if (inputX  != 0 || inputZ  != 0 ) 
+                state = StateType.Move;
+            else 
+                state = StateType.Idle;
 
             InputPackage data =  new InputPackage{
                 StateTypeEnum = state ,
@@ -150,14 +152,15 @@ namespace LF2.Client
         // If recevie request form Server can active  OnUpdate() of this State
 
         public void OnUpdate() {
+            // // Update Status of player
+            // if (Time.time > currentTimerTU + TU){
+            //     currentTimerTU = Time.time;
+
+            // }
+
+            calculStatics.FixedUpdate();
+
             // Check ALL State that have actual Action correspond ( See in Game Data Soucre Objet )
-            if (Time.time > currentTimerTU + TU){
-                currentTimerTU = Time.time;
-                calculStatics.FixedUpdate();
-
-            }
-
-
             // Debug.Log(CurrentStateViz);
             if (CurrentStateViz.GetId() == StateType.Idle) {
 
@@ -201,7 +204,7 @@ namespace LF2.Client
                     // Debug.Log($"Sub_TimeAnimation = {Time.time -  CurrentStateViz.TimeStarted_Animation} "); 
                     bool timeExpired = Time.time -  CurrentStateViz.TimeStarted_Animation >= CurrentStateViz.stateData.DurationSeconds;
                     // Check if this State Can End Naturally (== time Expired )
-                    if ( timeExpired   ){
+                    if ( timeExpired ){
                         if (CurrentStateViz.GetId() == StateType.Land){
                             CurrentStateViz?.End();
                             return;
@@ -276,7 +279,9 @@ namespace LF2.Client
                     if (stateAction.stateData.ManaCost < m_ClientVisual.MPRemain())
                     {
                         m_ClientVisual.MPChange(stateAction.stateData.ManaCost);
+                        // Exit current state
                         CurrentStateViz.Exit();
+                        // assigne new stat to CurrentState
                         CurrentStateViz = combo? QueueStateFX[0]: GetState(state);
                         CurrentStateViz.PlayPredictState(nbAniamtion);
                         // Debug.Log($"You have {m_ClientVisual.MPRemain()} remain");
@@ -299,7 +304,7 @@ namespace LF2.Client
         /// getting healed, dying, etc. Actions can change their behavior as a result.
         /// </summary>
         /// <param name="activityThatOccurred">The type of event that has occurred</param>
-        public void OnGameplayActivityVisual(ref AttackDataSend attkdata)
+        public void OnHurtReponder(ref AttackDataSend attkdata)
         {
             
             if (attkdata.Amount_injury > 0) return;
@@ -322,11 +327,10 @@ namespace LF2.Client
             else {
                 m_ClientVisual.PlayAudioHit(attkdata.Effect);
                 // Debug.Log(attkdata.Amount_injury);
-                // DamagePopup.Create(m_ClientVisual.PhysicsWrapper.Transform.position ,Math.Abs(attkdata.Amount_injury));
                 m_ClientVisual.DamgePopUp(m_ClientVisual.PhysicsWrapper.Transform.position ,attkdata.Amount_injury);                
                 
                 /*  ---------------  Calcul HP ------------------- */ 
-                if (m_ClientVisual.CanCommit && attkdata.Amount_injury != 0 ){
+                if (m_ClientVisual.Owner && attkdata.Amount_injury != 0 ){
                     m_ClientVisual.m_NetState.HPChangeServerRpc(attkdata.Amount_injury);
                 } 
 
@@ -334,17 +338,22 @@ namespace LF2.Client
 
 
 
-            // Or may be not !!! .
-            // Debug.Log("Cancommit "+ m_ClientVisual.CanCommit);
-
-            if (m_ClientVisual.CanCommit)  {
+            AnticipateState(nextState);
+            // owner apply direct
+            if (m_ClientVisual.Owner)  {
                 if (attkdata.Direction != Vector3.zero) 
                 // Debug.Log(attkdata.Direction);
-                CoreMovement.SetHurtMovement(attkdata.Direction );
+                    CurrentStateViz.HurtResponder(attkdata.Direction);
             }
-            AnticipateState(nextState);
+
+            // if (m_ClientVisual.Owner){
+            //     Debug.Log("owner be hurted recveied direction" + attkdata.Direction); 
+            // }
 
 
+            // if (!m_ClientVisual.Owner){
+            //     Debug.Log("not owner be hurted recveied direction" + attkdata.Direction); 
+            // }
         }
 
         private StateType GetActionReact(AttackDataSend attkdata )

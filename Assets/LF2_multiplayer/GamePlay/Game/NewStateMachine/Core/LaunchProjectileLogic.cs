@@ -62,25 +62,21 @@ namespace LF2.Client
             projectile.GetComponent<NetworkObject>().Spawn();
         
         }
-        protected void SpwanFX(LF2.SkillsDescription.SpawnsObject spawner , Vector3 dirToMove , Vector3 rotaion = default)
+        protected void SpwanFX(LF2.SkillsDescription.SpawnsObject spawner ,int facing = 0)
         {
-
             var playerPOS = stateMachineFX.CoreMovement.transform;
-            // Debug.Log(projectileInfo.pivot);
-            // Debug.Log(playerPOS.eulerAngles);
 
-            var projectile = GameObject.Instantiate(spawner._Object, playerPOS.position + new Vector3(spawner.pivot.x * stateMachineFX.CoreMovement.GetFacingDirection() ,spawner.pivot.y,spawner.pivot.z)  , rotaion != default ? Quaternion.Euler(rotaion) : playerPOS.rotation  );
-            // Debug.Log(playerPOS);
-            // point the projectile the same way we're facing
-            // projectile.transform.right = playerPOS.right;
+            var projectile = GameObject.Instantiate(spawner._Object);
 
-            //this way, you just need to "place" the arrow by moving it in the prefab, and that will control
-            //where it appears next to the stateMachine.
+            projectile.transform.position = playerPOS.position + new Vector3(spawner.pivot.x*facing ,spawner.pivot.y,spawner.pivot.z) ;
+            // Debug.Log(go.transform.position);
+            projectile.transform.localRotation =  playerPOS.rotation;
+            
 
-            // projectile.transform.position =  + playerPOS.localToWorldMatrix.MultiplyPoint(projectile.transform.position);
-            projectile.GetComponent<ProjectileLogic>().Initialize(stateMachineFX.m_ClientVisual.NetworkObjectId,stateMachineFX.team, dirToMove);
+            // // projectile.transform.position =  + playerPOS.localToWorldMatrix.MultiplyPoint(projectile.transform.position);
+            // projectile.GetComponent<ProjectileLogic>().Initialize(stateMachineFX.m_ClientVisual.NetworkObjectId,stateMachineFX.team, dirToMove);
 
-            projectile.GetComponent<NetworkObject>().Spawn();
+            // projectile.GetComponent<NetworkObject>().Spawn();
         
         }
         protected void SpwanProjectileObjectPooling(SkillsDescription.ProjectileInfo projectileInfo, Vector3 dirToMove , Vector3 rotaion = default)

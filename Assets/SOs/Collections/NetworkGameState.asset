@@ -12,4 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cc808b326ebcdf41ad2954b5683afee, type: 3}
   m_Name: NetworkGameState
   m_EditorClassIdentifier: 
+  description: 'Act like Anchor : Want to get the component NetworkGameState
+
+    We
+    have ref of transform of the Object , so we cann use Methode Getcomponent<> To
+    get the Component of the object'
   Value: {fileID: 0}

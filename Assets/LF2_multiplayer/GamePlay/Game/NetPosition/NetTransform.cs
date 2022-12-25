@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using LF2.Client;
 using Unity.Netcode;
 using UnityEngine;
 
@@ -19,20 +20,17 @@ namespace LF2
         public OnClientRequestChangeDelegate OnClientRequestChange;
 
         //  
-        private byte lastRotaion ; 
+        private byte lastRotaion;
 
-        [SerializeField] private BoxCollider m_BoxCollider;
-        RaycastHit[] GroundHit  = new RaycastHit[1];
-        private int k_GroundLayerMask;
 
-        [SerializeField]
-        Rigidbody m_Rigidbody;  
+        [SerializeField] ClientCharacterMovement clientCharaterMovement;
+
 
         [SerializeField] private int distanceY;
         //
         internal struct NetTransformState : INetworkSerializable
         {
-            
+
             private const int k_PositionXBit = 0;
             private const int k_PositionYBit = 1;
             private const int k_PositionZBit = 2;
@@ -40,7 +38,7 @@ namespace LF2
             private const int k_TeleportingBit = 4;
 
             // 11-15: <unused>
-            private ushort m_Bitset;
+            private byte m_Bitset;
 
 
             // Position
@@ -49,8 +47,8 @@ namespace LF2
                 get => (m_Bitset & (1 << k_PositionXBit)) != 0;
                 set
                 {
-                    if (value) { m_Bitset = (ushort)(m_Bitset | (1 << k_PositionXBit)); }
-                    else { m_Bitset = (ushort)(m_Bitset & ~(1 << k_PositionXBit)); }
+                    if (value) { m_Bitset = (byte)(m_Bitset | (1 << k_PositionXBit)); }
+                    else { m_Bitset = (byte)(m_Bitset & ~(1 << k_PositionXBit)); }
                 }
             }
 
@@ -59,8 +57,8 @@ namespace LF2
                 get => (m_Bitset & (1 << k_PositionYBit)) != 0;
                 set
                 {
-                    if (value) { m_Bitset = (ushort)(m_Bitset | (1 << k_PositionYBit)); }
-                    else { m_Bitset = (ushort)(m_Bitset & ~(1 << k_PositionYBit)); }
+                    if (value) { m_Bitset = (byte)(m_Bitset | (1 << k_PositionYBit)); }
+                    else { m_Bitset = (byte)(m_Bitset & ~(1 << k_PositionYBit)); }
                 }
             }
 
@@ -69,8 +67,8 @@ namespace LF2
                 get => (m_Bitset & (1 << k_PositionZBit)) != 0;
                 set
                 {
-                    if (value) { m_Bitset = (ushort)(m_Bitset | (1 << k_PositionZBit)); }
-                    else { m_Bitset = (ushort)(m_Bitset & ~(1 << k_PositionZBit)); }
+                    if (value) { m_Bitset = (byte)(m_Bitset | (1 << k_PositionZBit)); }
+                    else { m_Bitset = (byte)(m_Bitset & ~(1 << k_PositionZBit)); }
                 }
             }
 
@@ -90,8 +88,8 @@ namespace LF2
                 get => (m_Bitset & (1 << k_RotAngleYBit)) != 0;
                 set
                 {
-                    if (value) { m_Bitset = (ushort)(m_Bitset | (1 << k_RotAngleYBit)); }
-                    else { m_Bitset = (ushort)(m_Bitset & ~(1 << k_RotAngleYBit)); }
+                    if (value) { m_Bitset = (byte)(m_Bitset | (1 << k_RotAngleYBit)); }
+                    else { m_Bitset = (byte)(m_Bitset & ~(1 << k_RotAngleYBit)); }
                 }
             }
 
@@ -102,13 +100,13 @@ namespace LF2
                 get => (m_Bitset & (1 << k_TeleportingBit)) != 0;
                 set
                 {
-                    if (value) { m_Bitset = (ushort)(m_Bitset | (1 << k_TeleportingBit)); }
-                    else { m_Bitset = (ushort)(m_Bitset & ~(1 << k_TeleportingBit)); }
+                    if (value) { m_Bitset = (byte)(m_Bitset | (1 << k_TeleportingBit)); }
+                    else { m_Bitset = (byte)(m_Bitset & ~(1 << k_TeleportingBit)); }
                 }
             }
 
             internal float PositionX, PositionY, PositionZ;
-            internal byte  RotAngleY;
+            internal byte RotAngleY; // can use sbyte Here
             internal double SentTime;
 
             // Authoritative and non-authoritative sides use this to determine if a NetworkTransformState is
@@ -123,13 +121,9 @@ namespace LF2
             /// </summary>
             internal void ClearBitSetForNextTick()
             {
-                // We need to preserve the local space settings for the current state
-                m_Bitset &= (ushort)(m_Bitset );
+                m_Bitset &= 0;  // Clear all the bits in m_Bitset
                 IsDirty = false;
             }
-
-
-
 
             public void NetworkSerialize<T>(BufferSerializer<T> serializer) where T : IReaderWriter
             {
@@ -164,7 +158,7 @@ namespace LF2
                 {
                     // Go ahead and mark the local state dirty or not dirty as well
                     /// <see cref="TryCommitTransformToServer"/>
-                    if (HasPositionChange || HasRotAngleY )
+                    if (HasPositionChange || HasRotAngleY)
                     {
                         IsDirty = true;
                     }
@@ -175,23 +169,15 @@ namespace LF2
                 }
             }
         }
-
+        /// Whether or not x , y ,z component of position will be replicated
         public bool SyncPositionX = true, SyncPositionY = true, SyncPositionZ = true;
-        public bool  SyncRotAngleY = true;
+        public bool SyncRotAngleY = true;
 
         public float PositionThreshold = PositionThresholdDefault;
 
         [Range(0.001f, 360.0f)]
         public float RotAngleThreshold = RotAngleThresholdDefault;
 
-        /// <summary>
-        /// Sets whether this transform should sync in local space or in world space.
-        /// This is important to set since reparenting this transform could have issues,
-        /// if using world position (depending on who gets synced first: the parent or the child)
-        /// Having a child always at position 0,0,0 for example will have less possibilities of desync than when using world positions
-        /// </summary>
-        [Tooltip("Sets whether this transform should sync in local space or in world space")]
-        private bool m_LastInterpolateLocal = false; // was the last frame local
 
         public bool Interpolate = true;
         private bool m_LastInterpolate = true; // was the last frame interpolated
@@ -206,8 +192,6 @@ namespace LF2
         public bool CanCommitToTransform { get; protected set; }
         protected bool m_CachedIsServer;
         protected NetworkManager m_CachedNetworkManager;
-
-        // private readonly NetworkVariable<NetTransformState> m_ReplicatedNetworkState = new NetworkVariable<NetTransformState>(new NetTransformState());
 
 
         /// <summary>
@@ -230,6 +214,8 @@ namespace LF2
             }
         }
 
+        // Used by both authoritative and non-authoritative instances.
+        // This represents the most recent local authoritative state.
         private NetTransformState m_LocalAuthoritativeNetworkState;
 
         private ClientRpcParams m_ClientRpcParams = new ClientRpcParams() { Send = new ClientRpcSendParams() };
@@ -240,10 +226,9 @@ namespace LF2
 
 
 
-        private BufferedLinearInterpo<float> m_PositionXInterpolator; // = new BufferedLinearInterpolatorFloat();
-        private BufferedLinearInterpo<float> m_PositionYInterpolator; // = new BufferedLinearInterpolatorFloat();
-        private BufferedLinearInterpo<float> m_PositionZInterpolator; // = new BufferedLinearInterpolatorFloat();
-        // private BufferedLinearInterpo<Quaternion> m_RotationInterpolator; // = new BufferedLinearInterpolatorQuaternion(); // rotation is a single Quaternion since each euler axis will affect the quaternion's final value
+        private BufferedLinearInterpo<float> m_PositionXInterpolator; 
+        private BufferedLinearInterpo<float> m_PositionYInterpolator; 
+        private BufferedLinearInterpo<float> m_PositionZInterpolator; 
 
         private readonly List<BufferedLinearInterpo<float>> m_AllFloatInterpolators = new List<BufferedLinearInterpo<float>>(3);
 
@@ -254,7 +239,7 @@ namespace LF2
         internal NetTransformState GetLastSentState()
         {
             return m_LastSentState;
-        }        
+        }
         private const int k_DebugDrawLineTime = 10;
 
         private bool m_HasSentLastValue = false; // used to send one last value, so clients can make the difference between lost replication data (clients extrapolate) and no more data to send.
@@ -274,6 +259,104 @@ namespace LF2
         private double m_TickFrequency;
 
 
+
+
+
+
+        private void Awake()
+        {
+            // we only want to create our interpolators during Awake so that, when pooled, we do not create tons
+            //  of gc thrash each time objects wink out and are re-used
+            m_PositionXInterpolator = new BufferedLinearInterFloat();
+            m_PositionYInterpolator = new BufferedLinearInterFloat();
+            m_PositionZInterpolator = new BufferedLinearInterFloat();
+
+
+            if (m_AllFloatInterpolators.Count == 0)
+            {
+                m_AllFloatInterpolators.Add(m_PositionXInterpolator);
+                m_AllFloatInterpolators.Add(m_PositionYInterpolator);
+                m_AllFloatInterpolators.Add(m_PositionZInterpolator);
+
+            }
+        }
+
+        public override void OnNetworkSpawn()
+        {
+            m_CachedIsServer = IsServer;
+            m_CachedNetworkManager = NetworkManager;
+            m_TickFrequency = 1.0 / NetworkManager.NetworkConfig.TickRate;
+            // CanCommitToTransform = IsServer;
+            Initialize();
+            // This assures the initial spawning of the object synchronizes all connected clients
+            // with the current transform values. This should not be placed within Initialize since
+            // that can be invoked when ownership changes.
+            if (CanCommitToTransform)
+            {
+                var currentPosition = transform.position;
+                var currentRotation = transform.rotation;
+                
+                // Teleport to current position
+                SetStateInternal(currentPosition, (byte)currentRotation.y, true);
+
+                // Force the state update to be sent
+                TryCommitTransform(transform, m_CachedNetworkManager.LocalTime.Time);
+            }
+            lastRotaion = (byte)transform.rotation.eulerAngles.y;
+            m_LocalAuthoritativeNetworkState.IsTeleportingNextFrame = false;
+
+        }
+
+
+        /// <inheritdoc/>
+        public override void OnNetworkDespawn()
+        {
+            ReplicatedNetworkState.OnValueChanged -= OnNetworkStateChanged;
+        }
+
+        /// <inheritdoc/>
+        public override void OnDestroy()
+        {
+            base.OnDestroy();
+            m_ReplicatedNetworkStateServer.Dispose();
+            m_ReplicatedNetworkStateOwner.Dispose();
+        }
+
+        /// <inheritdoc/>
+        public override void OnGainedOwnership()
+        {
+            Initialize();
+        }
+
+        /// <inheritdoc/>
+        public override void OnLostOwnership()
+        {
+            Initialize();
+        }
+
+        private void Initialize()
+        {
+            if (!IsSpawned)
+            {
+                return;
+            }
+
+            CanCommitToTransform = IsServerAuthoritative() ? IsServer : IsOwner;
+            var replicatedState = ReplicatedNetworkState;
+            m_LocalAuthoritativeNetworkState = replicatedState.Value;
+
+            if (CanCommitToTransform)
+            {
+                replicatedState.OnValueChanged -= OnNetworkStateChanged;
+            }
+            else
+            {
+                replicatedState.OnValueChanged += OnNetworkStateChanged;
+
+                // In case we are late joining
+                ResetInterpolatedStateToCurrentAuthoritativeState();
+            }
+        }
 
         /// <summary>
         /// This will try to send/commit the current transform delta states (if any)
@@ -306,7 +389,7 @@ namespace LF2
                 }
                 else // Server is always authoritative (including owner authoritative)
                 {
-                    SetStateClientRpc(transformToCommit.position,(byte)transformToCommit.rotation.y,  false);
+                    SetStateClientRpc(transformToCommit.position, (byte)transformToCommit.rotation.y, false);
                 }
             }
         }
@@ -366,7 +449,7 @@ namespace LF2
             return m_LocalAuthoritativeNetworkState;
         }
 
-        
+
         /// <summary>
         /// Used for integration testing
         /// </summary>
@@ -416,15 +499,18 @@ namespace LF2
             }
 
 
-            if (SyncRotAngleY &&
-                Mathf.Abs(Mathf.DeltaAngle(networkState.RotAngleY, rotAnglesY)) >= RotAngleThreshold || networkState.IsTeleportingNextFrame)
+            if (SyncRotAngleY && networkState.RotAngleY != rotAnglesY || networkState.IsTeleportingNextFrame)
             {
+                // Debug.Log(Mathf.Abs((networkState.RotAngleY - rotAnglesY))); 
+                // Debug.Log((" isTeleporNextFrame " + networkState.IsTeleportingNextFrame));
+                
+                Debug.Log((" networkState.RotAngleY " + networkState.RotAngleY  + "  vs  "+ " rotAnglesY " +  rotAnglesY)); 
                 networkState.RotAngleY = rotAnglesY;
                 networkState.HasRotAngleY = true;
                 isRotationDirty = true;
             }
 
-            isDirty |= isPositionDirty || isRotationDirty ;
+            isDirty |= isPositionDirty || isRotationDirty;
 
 
             if (isDirty)
@@ -441,7 +527,7 @@ namespace LF2
         private void ApplyAuthoritativeState()
         {
             var networkState = ReplicatedNetworkState.Value;
-            var adjustedPosition =  transform.position;
+            var adjustedPosition = transform.position;
 
 
             // todo: we should store network state w/ quats vs. euler angles
@@ -451,46 +537,73 @@ namespace LF2
             // Position Read
 
             var useInterpolatedValue = !networkState.IsTeleportingNextFrame && Interpolate;
-            if (useInterpolatedValue){
+            if (useInterpolatedValue)
+            {
                 if (SyncPositionX) { adjustedPosition.x = m_PositionXInterpolator.GetInterpolatedValue(); }
-                if (SyncPositionZ) { adjustedPosition.z = m_PositionZInterpolator.GetInterpolatedValue(); }            
-            }else{
+                if (SyncPositionZ) { adjustedPosition.z = m_PositionZInterpolator.GetInterpolatedValue(); }
+            }
+            else
+            {
                 if (networkState.HasPositionX) { adjustedPosition.x = networkState.PositionX; }
                 if (networkState.HasPositionZ) { adjustedPosition.z = networkState.PositionZ; }
             }
 
 
-            // adjustedPosition.x = networkState.IsTeleportingNextFrame || !Interpolate ? networkState.Position.x : m_PositionXInterpolator.GetInterpolatedValue();
-            
-            if (((CheckGoundedClose(distanceY) || networkState.IsTeleportingNextFrame) && (networkState.PositionY - adjustedPosition.y < 0.2) )  ){
-                adjustedPosition.y = networkState.PositionY;     
+            if (((clientCharaterMovement.CheckGoundedClose(distanceY) || networkState.IsTeleportingNextFrame) && (networkState.PositionY - adjustedPosition.y < 0.2)))
+            {
+                adjustedPosition.y = networkState.PositionY;
             }
-            else{
+            else
+            {
                 adjustedPosition.y = m_PositionYInterpolator.GetInterpolatedValue();
             }
-            
-            // adjustedPosition.y = networkState.IsTeleportingNextFrame || !Interpolate ? networkState.Position.y : m_PositionYInterpolator.GetInterpolatedValue();
-        
-
-            // adjustedPosition.z = networkState.IsTeleportingNextFrame || !Interpolate ? networkState.Position.z : m_PositionZInterpolator.GetInterpolatedValue();
 
             // Position Apply
-            
+
             transform.position = adjustedPosition;
             // RotAngles Apply
 
-            if ( lastRotaion != networkState.RotAngleY ){
-                transform.Rotate(new Vector3 (0,180,0));
+            // Dont Need This code below but i keep that 
+            if (lastRotaion != networkState.RotAngleY)
+            {
+                Debug.Log("last" +  lastRotaion + " vs " + " networkState.RotAngleY " + networkState.RotAngleY  );
+                // Debug.Log(networkState.RotAngleY);
+
+                transform.Rotate(new Vector3(0, 180, 0));
                 // if (networkState.Rotation <= 0 )  transformToUpdate.rotation = new Quaternion(0,0,0,1);
                 // else if (networkState.Rotation >= 170 ) transformToUpdate.rotation = new Quaternion(0,1,0,0);
                 lastRotaion = networkState.RotAngleY;
-            }    
-            
-            
+            }
+
+
         }
 
 
 
+
+
+
+        private void OnNetworkStateChanged(NetTransformState oldState, NetTransformState newState)
+        {
+            if (!NetworkObject.IsSpawned)
+            {
+                return;
+            }
+
+            if (CanCommitToTransform)
+            {
+                // we're the authority, we ignore incoming changes
+                return;
+            }
+
+            if (Interpolate)
+            {
+                // Add measurements for the new state's deltas
+                AddInterpolatedState(newState);
+            }
+        }
+
+        
         private void AddInterpolatedState(NetTransformState newState)
         {
             var sentTime = newState.SentTime;
@@ -533,8 +646,12 @@ namespace LF2
 
                 transform.position = currentPosition;
 
-                if (newState.HasRotAngleY)   transform.Rotate(0,180,0);
+                if (newState.HasRotAngleY) {
+                    transform.Rotate(0, 180, 0);
+                    lastRotaion = (byte)transform.eulerAngles.y;
+                    clientCharaterMovement.ChangeValueFacingDirection(lastRotaion);
 
+                }
                 return;
             }
 
@@ -553,40 +670,18 @@ namespace LF2
             {
                 m_PositionZInterpolator.AddMeasurement(newState.PositionZ, sentTime);
             }
-        }
-
-        public bool CheckGoundedClose(float distance){
-            int number = Physics.RaycastNonAlloc(m_BoxCollider.bounds.center,Vector3.down ,GroundHit,m_BoxCollider.bounds.extents.y+distance,k_GroundLayerMask);
             
-            // Color rayColor;
-            // if (number == 0){
-            //     rayColor = Color.green;
-            // }else {
-            //     rayColor = Color.red;
-            // }
-            // Debug.DrawRay(m_BoxCollider.bounds.center , (m_BoxCollider.bounds.extents.y+distance)*Vector3.down,rayColor);
-            if (number == 0 ) return false;
-            return true;
-        }  
-
-        private void OnNetworkStateChanged(NetTransformState oldState, NetTransformState newState)
-        {
-            if (!NetworkObject.IsSpawned)
-            {
-                return;
+            
+            if (newState.HasRotAngleY) {
+                transform.Rotate(0, 180, 0);
+                lastRotaion = (byte)transform.eulerAngles.y;
+                clientCharaterMovement.ChangeValueFacingDirection(lastRotaion);
             }
 
-            if (CanCommitToTransform)
-            {
-                // we're the authority, we ignore incoming changes
-                return;
-            }
+            Debug.Log( " Has Position X" + newState.HasPositionX);
+            Debug.Log( " Has Rotation Y" + newState.HasRotAngleY); 
+            Debug.Log( " Has Rotation Z" + newState.HasRotAngleY); 
 
-            if (Interpolate)
-            {
-                // Add measurements for the new state's deltas
-                AddInterpolatedState(newState);
-            }
         }
 
         public void SetMaxInterpolationBound(float maxInterpolationBound)
@@ -596,97 +691,7 @@ namespace LF2
             m_PositionZInterpolator.MaxInterpolationBound = maxInterpolationBound;
         }
 
-        private void Awake()
-        {
-            // we only want to create our interpolators during Awake so that, when pooled, we do not create tons
-            //  of gc thrash each time objects wink out and are re-used
-            m_PositionXInterpolator = new BufferedLinearInterFloat();
-            m_PositionYInterpolator = new BufferedLinearInterFloat();
-            m_PositionZInterpolator = new BufferedLinearInterFloat();
 
-
-            if (m_AllFloatInterpolators.Count == 0)
-            {
-                m_AllFloatInterpolators.Add(m_PositionXInterpolator);
-                m_AllFloatInterpolators.Add(m_PositionYInterpolator);
-                m_AllFloatInterpolators.Add(m_PositionZInterpolator);
-
-            }
-        }
-
-        public override void OnNetworkSpawn()
-        {
-            m_CachedIsServer = IsServer;
-            m_CachedNetworkManager = NetworkManager;
-            m_TickFrequency = 1.0 / NetworkManager.NetworkConfig.TickRate;
-            // CanCommitToTransform = IsServer;
-            Initialize();
-            // This assures the initial spawning of the object synchronizes all connected clients
-            // with the current transform values. This should not be placed within Initialize since
-            // that can be invoked when ownership changes.
-            if (CanCommitToTransform)
-            {
-                var currentPosition =  transform.position;
-                var currentRotation =  transform.rotation;
-                // Teleport to current position
-                SetStateInternal(currentPosition, (byte)currentRotation.y, true);
-
-                // Force the state update to be sent
-                TryCommitTransform(transform, m_CachedNetworkManager.LocalTime.Time);
-            }
-
-        }
-
-
-        /// <inheritdoc/>
-        public override void OnNetworkDespawn()
-        {
-            ReplicatedNetworkState.OnValueChanged -= OnNetworkStateChanged;
-        }
-
-        /// <inheritdoc/>
-        public override void OnDestroy()
-        {
-            base.OnDestroy();
-            m_ReplicatedNetworkStateServer.Dispose();
-            m_ReplicatedNetworkStateOwner.Dispose();
-        }
-
-        /// <inheritdoc/>
-        public override void OnGainedOwnership()
-        {
-            Initialize();
-        }
-
-        /// <inheritdoc/>
-        public override void OnLostOwnership()
-        {
-            Initialize();
-        }
-
-        private void Initialize()
-        {
-            if (!IsSpawned)
-            {
-                return;
-            }
-
-            CanCommitToTransform = IsServerAuthoritative() ? IsServer : IsOwner;
-            var replicatedState = ReplicatedNetworkState;
-            m_LocalAuthoritativeNetworkState = replicatedState.Value;
-
-            if (CanCommitToTransform)
-            {
-                replicatedState.OnValueChanged -= OnNetworkStateChanged;
-            }
-            else
-            {
-                replicatedState.OnValueChanged += OnNetworkStateChanged;
-
-                // In case we are late joining
-                ResetInterpolatedStateToCurrentAuthoritativeState();
-            }
-        }
 
         /// <summary>
         /// Directly sets a state on the authoritative transform.
@@ -714,8 +719,8 @@ namespace LF2
                 throw new Exception("Non-owner client instance cannot set the state of the NetworkTransform!");
             }
 
-            Vector3 pos = posIn == null  ?  transform.position : posIn.Value;
-            Quaternion rot = rotIn == null  ?  transform.rotation : rotIn.Value;
+            Vector3 pos = posIn == null ? transform.position : posIn.Value;
+            Quaternion rot = rotIn == null ? transform.rotation : rotIn.Value;
             var rotY = (byte)rot.eulerAngles.y;
 
             if (!CanCommitToTransform)
@@ -743,11 +748,11 @@ namespace LF2
         /// Sets the internal state (teleporting or just set state) of the authoritative
         /// transform directly.
         /// </summary>
-        private void SetStateInternal(Vector3 pos,  byte rotY, bool shouldTeleport)
+        private void SetStateInternal(Vector3 pos, byte rotY, bool shouldTeleport)
         {
             transform.position = pos;
-            transform.rotation = Quaternion.Euler(0,rotY,0) ;
-        
+            transform.rotation = Quaternion.Euler(0, rotY, 0);
+
             m_LocalAuthoritativeNetworkState.IsTeleportingNextFrame = shouldTeleport;
 
             TryCommitTransform(transform, m_CachedNetworkManager.LocalTime.Time);
@@ -763,7 +768,7 @@ namespace LF2
                 (pos, rotY) = OnClientRequestChange(pos, rotY);
             }
             m_Transform.position = pos;
-            m_Transform.rotation = Quaternion.Euler(0,rotY,0) ;
+            m_Transform.rotation = Quaternion.Euler(0, rotY, 0);
             m_LocalAuthoritativeNetworkState.IsTeleportingNextFrame = shouldTeleport;
         }
 
@@ -778,7 +783,7 @@ namespace LF2
         {
             // Server dictated state is always applied
             transform.position = pos;
-            transform.rotation = Quaternion.Euler(0,rotY,0) ;
+            transform.rotation = Quaternion.Euler(0, rotY, 0);
             m_LocalAuthoritativeNetworkState.IsTeleportingNextFrame = shouldTeleport;
             TryCommitTransform(transform, m_CachedNetworkManager.LocalTime.Time);
         }

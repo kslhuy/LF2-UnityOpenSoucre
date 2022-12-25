@@ -8,7 +8,7 @@ namespace LF2
     /// </summary>
 
     [CreateAssetMenu(menuName = "Variable/Transform", order = 2)]    
-    public class TransformVariable : ScriptableObject
+    public class TransformVariable : DescriptionBaseSO
     {
         public Transform Value;
     }

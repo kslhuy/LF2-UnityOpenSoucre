@@ -56,17 +56,22 @@ namespace LF2.Client
             // else , client send to server
 
 
-            if (CommitToState){
-               StartCoroutine(DelayActionOnHostEvent(action));
-            }else   ActionInputEvent(action);
+            // if (CommitToState){
+            //    StartCoroutine(DelayActionOnHostEvent(action));
+            //     ActionInputEvent?.Invoke(action);
+            // }else   {
+            //     ActionInputEvent(action);
+
+            // }
+            ActionInputEvent?.Invoke(action);
 
         }
 
-        private void SendMoveInput(int inputX , int inputZ )
+        public void SendMoveInput(int inputX , int inputZ )
         {
-            if (CommitToState){
-                m_NetworkCharacter.MoveInputEventClientRPC(inputX,inputZ);
-            }
+            // if (CommitToState){
+            //     m_NetworkCharacter.MoveInputEventClientRPC(inputX,inputZ);
+            // }
             // else   m_NetworkCharacter.MoveInputEventServerRPC(inputX,inputZ);
             
             ActionMoveInputEvent?.Invoke(inputX,inputZ);
@@ -75,20 +80,15 @@ namespace LF2.Client
 
         public void SendMoveInput(Vector2 input )
         {
-            if (CommitToState){
-                m_NetworkCharacter.MoveInputEventClientRPC((int)input.x,(int)input.y);
-            }
+            // if (CommitToState){
+            //     m_NetworkCharacter.MoveInputEventClientRPC((int)input.x,(int)input.y);
+            // }
             // else   m_NetworkCharacter.MoveInputEventServerRPC(inputX,inputZ);
             
             ActionMoveInputEvent?.Invoke(input.x,input.y);
 
         }
 
-
-        public void OnMoveInputUI(int x , int z){
-            // Debug.Log("TT" + x + "" + z);
-            SendMoveInput(x ,z );          
-        }
 
 
 
@@ -117,11 +117,6 @@ namespace LF2.Client
         }
 
 
-        IEnumerator DelayActionOnHostEvent (InputPackage input){
-            yield return new WaitForSeconds(.02f);
-            ActionInputEvent?.Invoke(input);
-
-        }
 
         // void OnGUI()
         // {

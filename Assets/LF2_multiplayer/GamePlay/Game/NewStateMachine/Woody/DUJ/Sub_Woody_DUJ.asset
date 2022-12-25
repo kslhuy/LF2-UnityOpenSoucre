@@ -13,13 +13,13 @@ MonoBehaviour:
   m_Name: Sub_Woody_DUJ
   m_EditorClassIdentifier: 
   m_AnimationName: 
-  damageAmount: -200
+  damageAmount: -30
   Effect: 1
   fall: 70
   Bdefend: 60
   arest: 0
   vrest: 10
-  Dirxyz: {x: 150, y: 250, z: 0}
+  Dirxyz: {x: 150, y: 300, z: 0}
   durration: 0
   SoundHit: []
   AnimationNameHash: 0

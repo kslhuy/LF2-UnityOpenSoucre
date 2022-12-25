@@ -41,7 +41,7 @@ namespace LF2.Client{
                 stateMachineFX.ChangeState(StateType.Crouch);
             }
             stateMachineFX.CoreMovement.SetFallingDown();
-            // if (stateMachineFX.m_ClientVisual.CanCommit) {
+            // if (stateMachineFX.m_ClientVisual.Owner) {
             //     // Debug.Log(stateMachineFX.InputX);
             //     stateMachineFX.CoreMovement.SetXZ(0.1f*stateMachineFX.InputX,0.1f*stateMachineFX.InputZ);
             // }        
@@ -61,7 +61,7 @@ namespace LF2.Client{
             // // HUY : MAybe This Air State Dont need to be sync , just let client do by instinct
             
             // Client Send to Server  =>>>  Server know what state Client is =>>  Server propagate to all others players (except this client (who send))).
-            // if (stateMachineFX.m_ClientVisual.CanCommit) 
+            // if (stateMachineFX.m_ClientVisual.Owner) 
             //     stateMachineFX.m_ClientVisual.m_NetState.AddPredictState_and_SyncServerRpc(GetId());
             
 

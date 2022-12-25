@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Sub_Frezze_DDA1
   m_EditorClassIdentifier: 
   m_AnimationName: 
-  damageAmount: 0
+  damageAmount: -20
   Effect: 3
   fall: 20
   Bdefend: 20

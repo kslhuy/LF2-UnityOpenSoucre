@@ -70,7 +70,9 @@ namespace LF2.Client{
 
         public override void OnAnimEvent(int id)
         {
-            base.OnAnimEvent(id);
+            if (id == 1) stateMachineFX.m_ClientVisual.PlayAudio(stateData.Start_Sounds[0]);
+            else stateMachineFX.m_ClientVisual.PlayAudio(stateData.Start_Sounds[1]);
+            
         }
 
         public override void PlayAnim(int nbAniamtion = 1, bool sequen = false)
@@ -87,7 +89,7 @@ namespace LF2.Client{
 
         public override void PlayPredictState( int nbanim = 1 , bool sequence = false)
         {
-            if (stateMachineFX.m_ClientVisual.CanCommit) {
+            if (stateMachineFX.m_ClientVisual.Owner) {
                 stateMachineFX.m_ClientVisual.m_NetState.AddPredictState_and_SyncServerRpc(GetId());
             }
             PlayAnim(nbanim , sequence);
@@ -96,7 +98,7 @@ namespace LF2.Client{
 
         public override void LogicUpdate()
         {
-            if (stateMachineFX.m_ClientVisual.CanCommit) stateMachineFX.m_ClientVisual.coreMovement.SetRun(stateMachineFX.InputZ);
+            if (stateMachineFX.m_ClientVisual.Owner) stateMachineFX.m_ClientVisual.coreMovement.SetRun(stateMachineFX.InputZ);
             if ( stateMachineFX.InputX == 1 && stateMachineFX.m_ClientVisual.coreMovement.GetFacingDirection() == -1 ){
                 stateMachineFX.ChangeState(StateType.Sliding);
             }else if ( stateMachineFX.InputX == -1 && stateMachineFX.m_ClientVisual.coreMovement.GetFacingDirection() == 1 ){
