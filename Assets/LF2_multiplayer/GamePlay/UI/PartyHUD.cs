@@ -5,8 +5,9 @@ using UnityEngine.UI;
 using TMPro;
 using LF2.Client;
 using UnityEngine.Assertions;
+using LF2.Utils;
 
-namespace LF2.Client
+namespace LF2.Gameplay.UI
 {
     /// <summary>
     /// Provides logic for the Party HUD with information on the player and allies

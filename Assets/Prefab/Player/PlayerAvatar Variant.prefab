@@ -472,6 +472,10 @@ PrefabInstance:
       propertyPath: m_VisualsNormalAnimator
       value: 
       objectReference: {fileID: 8762920458361828402}
+    - target: {fileID: 7234482614249149150, guid: 687160c7cfd6cd748877c28fe515d9c6, type: 3}
+      propertyPath: <spriteRenderer>k__BackingField
+      value: 
+      objectReference: {fileID: 1212308367409791610}
     - target: {fileID: 7901046818739658897, guid: 687160c7cfd6cd748877c28fe515d9c6, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -499,7 +503,7 @@ PrefabInstance:
     - target: {fileID: 8994507685575570671, guid: 687160c7cfd6cd748877c28fe515d9c6, type: 3}
       propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 22100000, guid: 3e76740409ccbc44ba95e68d82aef226, type: 2}
+      objectReference: {fileID: 22100000, guid: 87d405ab7c9396c4fb50ea980f73426c, type: 2}
     m_RemovedComponents:
     - {fileID: 0}
     - {fileID: 2534825432546787825, guid: 687160c7cfd6cd748877c28fe515d9c6, type: 3}
@@ -516,6 +520,11 @@ BoxCollider:
 --- !u!65 &797402435724825589 stripped
 BoxCollider:
   m_CorrespondingSourceObject: {fileID: 1035333018358682408, guid: 687160c7cfd6cd748877c28fe515d9c6, type: 3}
+  m_PrefabInstance: {fileID: 382468071772143837}
+  m_PrefabAsset: {fileID: 0}
+--- !u!212 &1212308367409791610 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 1557173061463671463, guid: 687160c7cfd6cd748877c28fe515d9c6, type: 3}
   m_PrefabInstance: {fileID: 382468071772143837}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &2573736595463811192 stripped

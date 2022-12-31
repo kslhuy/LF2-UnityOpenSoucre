@@ -1,7 +1,10 @@
 using System;
+using LF2.Gameplay.GameState;
 using TMPro;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
+using VContainer;
+
 namespace LF2.Client
 {
 
@@ -27,42 +30,42 @@ namespace LF2.Client
 
 
 
-        protected override void Awake() {
-            if (!IsClient)
-                _NetLF2State.BackGroundGUID.OnValueChanged += InstantiateBackGround;
-            _NetLF2State.GameEnd += GameStateEnd;
-        }
+        // protected override void Awake() {
+        //     if (!IsClient)
+        //         _NetLF2State.BackGroundGUID.OnValueChanged += InstantiateBackGround;
+        //     _NetLF2State.GameEnd += GameStateEnd;
+        // }
 
-        private void GameStateEnd()
-        {
-            Text_GameEnd.gameObject.SetActive(true);
-            SummaryTable.SetActive(true);
-        }
+        // private void GameStateEnd()
+        // {
+        //     Text_GameEnd.gameObject.SetActive(true);
+        //     SummaryTable.SetActive(true);
+        // }
 
-        public override void OnNetworkSpawn()
-        {
-            if( !IsClient ) { this.enabled = false; }
-        }
+        // public override void OnNetworkSpawn()
+        // {
+        //     if( !IsClient ) { this.enabled = false; }
+        // }
 
-        public override void OnNetworkDespawn()
-        {
-            if (!IsClient)
-                _NetLF2State.BackGroundGUID.OnValueChanged -= InstantiateBackGround;
-            _NetLF2State.GameEnd -= GameStateEnd; 
-        }
+        // public override void OnNetworkDespawn()
+        // {
+        //     if (!IsClient)
+        //         _NetLF2State.BackGroundGUID.OnValueChanged -= InstantiateBackGround;
+        //     _NetLF2State.GameEnd -= GameStateEnd; 
+        // }
 
-        private void InstantiateBackGround(NetworkGuid previousValue, NetworkGuid newValue)
-        {
-            if(IsClient){
-                Debug.Log("InstantiateBackGround");
-                m_BackGroundResigtry.TryGetBackGround(newValue.ToGuid() , out BackGroundGame backGroundGame); 
+        // private void InstantiateBackGround(NetworkGuid previousValue, NetworkGuid newValue)
+        // {
+        //     if(IsClient){
+        //         Debug.Log("InstantiateBackGround");
+        //         m_BackGroundResigtry.TryGetBackGround(newValue.ToGuid() , out BackGroundGame backGroundGame); 
 
-                backGroundGame.BackGroundPreFab.InstantiateAsync(BackGroundSpwanPoint);
-            }
+        //         backGroundGame.BackGroundPreFab.InstantiateAsync(BackGroundSpwanPoint);
+        //     }
 
             
             
-        }
+        // }
     }
 
 }

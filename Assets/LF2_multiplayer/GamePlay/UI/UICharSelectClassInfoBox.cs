@@ -4,6 +4,7 @@ using TMPro;
 using System;
 using System.Collections.Generic;
 using System.Collections;
+using LF2.Utils;
 
 namespace LF2.Client
 {

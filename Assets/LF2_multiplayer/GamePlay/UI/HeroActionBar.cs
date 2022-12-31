@@ -8,7 +8,7 @@ using UnityEngine.InputSystem.OnScreen;
 using System.Collections;
 using System;
 
-namespace LF2.Client
+namespace LF2.Gameplay.UI
 {
     /// <summary>
     /// Provides logic for a Hero Action Bar with attack, skill buttons and a button to open emotes panel

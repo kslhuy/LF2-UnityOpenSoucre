@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-namespace LF2.Visual
+namespace LF2.Gameplay.UI
 {
     public class UIMessageSlot : MonoBehaviour
     {

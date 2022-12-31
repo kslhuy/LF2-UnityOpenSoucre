@@ -6,7 +6,7 @@ using UnityEngine;
 using UnityEditor;
 #endif
 
-namespace LF2.Client
+namespace LF2.Utils
 {
     /// <summary>
     /// Utility script attached to special-effects prefabs. These prefabs are

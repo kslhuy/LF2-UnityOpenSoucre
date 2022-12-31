@@ -43,7 +43,7 @@ namespace LF2.Client{
         {
             base.PlayAnim();
             GameObject.Instantiate(stateData.SpawnsFX[0]._Object,stateMachineFX.m_ClientVisual.transform.position, Quaternion.identity);
-            stateMachineFX.m_ClientVisual.DisableHitBox();
+            stateMachineFX.m_ClientVisual.SetHitBox(false);
             stateMachineFX.m_ClientVisual.NormalAnimator.Play("Jump_anim");
             stateMachineFX.m_ClientVisual.PlayAudio(stateData.Sounds);
         }

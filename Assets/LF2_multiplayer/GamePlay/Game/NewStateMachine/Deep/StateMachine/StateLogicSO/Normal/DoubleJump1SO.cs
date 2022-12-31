@@ -54,7 +54,7 @@ namespace LF2.Client{
             _AttackOnce = false;
             base.PlayAnim();
             // GameObject.Instantiate(stateData.SpawnsFX[0]._Object,stateMachineFX.m_ClientVisual.transform.position, Quaternion.identity);
-            stateMachineFX.m_ClientVisual.DisableHitBox();
+            stateMachineFX.m_ClientVisual.SetHitBox(false);
 
             stateMachineFX.m_ClientVisual.NormalAnimator.Play(stateMachineFX.m_ClientVisual.VizAnimation.a_DoubleJump_1);
             stateMachineFX.m_ClientVisual.PlayAudio(stateData.Sounds);

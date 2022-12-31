@@ -67,10 +67,9 @@ namespace LF2.Client{
         {
             ///// Shiled  : only spawn
             if (stateMachineFX.m_ClientVisual._IsServer) {
-                stateMachineFX.m_ClientVisual.m_NetState.AddPredictState_and_SyncServerRpc(GetId());
+                SpwanProjectile(stateData.Projectiles[0], Vector3.right*stateMachineFX.CoreMovement.GetFacingDirection());
                 m_Launched = true;
             }            
-            SpwanProjectile(stateData.Projectiles[0], Vector3.right*stateMachineFX.CoreMovement.GetFacingDirection());
         }
 
         

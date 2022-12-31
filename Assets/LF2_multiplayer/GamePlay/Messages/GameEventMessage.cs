@@ -1,4 +1,5 @@
 using System;
+using LF2.Utils;
 using Unity.Collections;
 using Unity.Netcode;
 
@@ -16,11 +17,7 @@ namespace LF2
         public bool IsDoorOpen;
     }
 
-    public struct ConnectionEventMessage : INetworkSerializeByMemcpy
-    {
-        public ConnectStatus ConnectStatus;
-        public FixedPlayerName PlayerName;
-    }
+
 
 
 #if UNITY_EDITOR || DEVELOPMENT_BUILD

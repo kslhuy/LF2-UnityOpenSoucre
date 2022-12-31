@@ -1,6 +1,6 @@
 using System;
 
-namespace Unity.Multiplayer.Samples.BossRoom.Shared.Net.UnityServices.Infrastructure
+namespace Unity.Multiplayer.LF2.Infrastructure
 {
     public struct UnityServiceErrorMessage
     {

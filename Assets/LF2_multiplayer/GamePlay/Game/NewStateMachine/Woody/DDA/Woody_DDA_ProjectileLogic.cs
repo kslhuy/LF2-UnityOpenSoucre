@@ -50,7 +50,6 @@ namespace LF2.Client
                     {
                         Debug.Log(targetNetObj);
 
-                        m_NetState.RecvHitEnemyClientRPC(targetNetObj.NetworkObjectId);
                         AttackDataSend Atk_data = new AttackDataSend();
                         Atk_data.Direction = new Vector3(ProjectileDamage[0].Dirxyz.x * transform.right.x , ProjectileDamage[0].Dirxyz.y,ProjectileDamage[0].Dirxyz.z) ;
                         Atk_data.BDefense_p = ProjectileDamage[0].Bdefend;

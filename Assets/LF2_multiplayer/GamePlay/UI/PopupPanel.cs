@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 using TMPro;
 
-namespace LF2.Visual
+namespace LF2.Gameplay.UI
 {
     /// <summary>
     /// Simple popup panel to display information to players.

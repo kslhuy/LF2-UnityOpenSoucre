@@ -3,6 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using Unity.Netcode;
+using LF2.Gameplay.GameState;
+using VContainer;
+using LF2.Utils;
+using Unity.Multiplayer.Samples.Utilities;
 
 namespace LF2.Client
 {
@@ -17,10 +21,12 @@ namespace LF2.Client
         /// </summary>
         public static ClientCharSelectState Instance { get; private set; }
 
-        public override GameState ActiveState { get { return GameState.CharSelect; } }
-        public CharSelectData CharSelectData { get; private set; }
+        [SerializeField]
+        NetcodeHooks m_NetcodeHooks;
 
-        public BackGroundSelectData BackGroundSelectData { get; private set; }
+        public override GameState ActiveState { get { return GameState.CharSelect; } }
+        [SerializeField]  CharSelectData CharSelectData ;
+        [SerializeField]  BackGroundSelectData BackGroundSelectData ;
 
         // [Header("----- Lobby Seats ------")]
         // [SerializeField]
@@ -121,8 +127,10 @@ namespace LF2.Client
             base.Awake();
 
             Instance = this;
-            CharSelectData = GetComponent<CharSelectData>();
-            BackGroundSelectData = GetComponent<BackGroundSelectData>();
+
+            m_NetcodeHooks.OnNetworkSpawnHook += OnNetworkSpawn;
+            m_NetcodeHooks.OnNetworkDespawnHook += OnNetworkDespawn;
+
 
             m_LobbyUIElementsByMode = new Dictionary<LobbyMode, List<GameObject>>()
             {
@@ -135,7 +143,7 @@ namespace LF2.Client
             };
         }
 
-        public override void OnDestroy()
+        protected override void OnDestroy()
         {
             if (Instance == this)
             {
@@ -173,10 +181,8 @@ namespace LF2.Client
 
             ConfigureUIForLobbyMode(LobbyMode.ChooseChamp);
         }
-        public override void OnNetworkSpawn()
-
-        {
-            if (!IsClient)
+        void OnNetworkSpawn(){
+            if (!NetworkManager.Singleton.IsClient)
             {
                 enabled = false;
             }
@@ -197,7 +203,7 @@ namespace LF2.Client
 
 
 
-        public override void OnNetworkDespawn()
+        public void OnNetworkDespawn()
         {
             if (CharSelectData)
             {
@@ -432,7 +438,7 @@ namespace LF2.Client
                     isSeatsDisabledInThisMode = true;
                     // m_UIAvatarInfoBox.SetLockedIn(true);
                     // m_ReadyButtonText.text = "UNREADY";
-                    if (!IsHost){
+                    if (!NetworkManager.Singleton.IsHost){
                         m_BackGroundBox.LockChampButton(false);
                     }
                     m_BackGroundBox.SetLockedIn(true);
@@ -447,7 +453,7 @@ namespace LF2.Client
 
                     LockUIPlayerSeats.Invoke(isSeatsDisabledInThisMode );
 
-                    if (!IsHost){
+                    if (!NetworkManager.Singleton.IsHost){
                         m_BackGroundBox.LockChampButton(false);
                         m_BackGroundBox.NextBackGroundButton(false);
                     }
@@ -464,14 +470,14 @@ namespace LF2.Client
                         ShowCharacterGraphic(i,newChamp);     
                         m_UIAvatarInfoBox[i].SetAvatarData(CharSelectData.LobbyBOTs[i].PlayerName , i );
                         m_UIAvatarInfoBox[i].DisableChangeTeamInClient(true);
-                        if (IsHost){
+                        if (NetworkManager.Singleton.IsHost){
                             // TODO : need Improve here HUY
                             m_UIAvatarInfoBox[i].DisableChangeTeamInClient(false);
                         }
                     }
                     m_BackGroundBox.ConfigureForNoSelection();
                     LockUIPlayerSeats.Invoke(true);
-                    if (IsHost){
+                    if (NetworkManager.Singleton.IsHost){
                         LockUIPlayerSeats.Invoke(isSeatsDisabledInThisMode );
                     }
 
@@ -521,14 +527,14 @@ namespace LF2.Client
         
 
         public void OnHostChangedBackGround(bool left){
-            if (NetworkManager.IsHost){
+            if (NetworkManager.Singleton.IsHost){
                 ClientMusicPlayer.Instance.PlaySoundTap();
                 BackGroundSelectData.ChangeBackGroundServerRpc(left);
             }
         }
 
         public void OnHostChangedNumberBot(int nbBot){
-            if (NetworkManager.IsHost){
+            if (NetworkManager.Singleton.IsHost){
                 ClientMusicPlayer.Instance.PlaySoundTap();
                 BackGroundSelectData.HostChangeNumberBOTServerRpc(nbBot);
             }
@@ -537,7 +543,7 @@ namespace LF2.Client
 
         public void OnHostClickedReadyOrStartGame(int nbBot)
         {
-            if (NetworkManager.IsHost){
+            if (NetworkManager.Singleton.IsHost){
                 ClientMusicPlayer.Instance.PlaySoundOK();
                 BackGroundSelectData.HostGameReadyServerRpc(nbBot);
             }

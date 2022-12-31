@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace LF2.Visual
+namespace LF2.Gameplay.UI
 {
     [RequireComponent(typeof(Image))]
     public class UITinter : MonoBehaviour

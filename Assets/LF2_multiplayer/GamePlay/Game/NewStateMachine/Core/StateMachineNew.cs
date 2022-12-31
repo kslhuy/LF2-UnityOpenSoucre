@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using LF2.Utils;
 using UnityEngine;
 
 
@@ -37,7 +38,7 @@ namespace LF2.Client
         public TeamType team {get ;private set;}
 
         public CalculStatics calculStatics;
-        private float TU = 0.033f;
+        private float TU = 0.04f;
         private float currentTimerTU = 0f;
 
         private Dictionary<StateType, StateActionLogic> m_StateLogicaMap ;
@@ -153,12 +154,13 @@ namespace LF2.Client
 
         public void OnUpdate() {
             // // Update Status of player
-            // if (Time.time > currentTimerTU + TU){
-            //     currentTimerTU = Time.time;
+            if (Time.time > currentTimerTU + TU){
+                currentTimerTU = Time.time;
+                calculStatics.FixedUpdate();
 
-            // }
+            }
 
-            calculStatics.FixedUpdate();
+            m_ClientVisual.textMesh.text = calculStatics.Current_Fall.ToString();
 
             // Check ALL State that have actual Action correspond ( See in Game Data Soucre Objet )
             // Debug.Log(CurrentStateViz);

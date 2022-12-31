@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 using Unity.Netcode;
+using Unity.Multiplayer.Infrastructure;
 
 namespace LF2
 {

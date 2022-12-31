@@ -48,7 +48,7 @@ namespace LF2.Client{
         }
 
         private async void SpawnObject (){
-            for (int i = 0 ; i < stateData.SpawnsFX.Length; i++ ){
+            for (int i = 0 ; i < stateData.Projectiles.Length; i++ ){
                 SpwanProjectile(stateData.Projectiles[i], Vector3.right*stateMachineFX.CoreMovement.GetFacingDirection());
                 stateMachineFX.m_ClientVisual.PlayAudio(stateData.Start_Sounds[0]);
                 await SpwanSequence();
@@ -71,13 +71,12 @@ namespace LF2.Client{
 
  
         public override void OnAnimEvent(int id)
-        {
-            ///// Shiled  : only spawn
+        {       
             if (stateMachineFX.m_ClientVisual._IsServer) {
-                stateMachineFX.m_ClientVisual.m_NetState.AddPredictState_and_SyncServerRpc(GetId());
-            }            
+                SpawnObject();
+            }
             m_Launched = true;
-            SpawnObject();
+
         }
 
         

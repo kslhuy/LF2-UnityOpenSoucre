@@ -1,11 +1,9 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using TMPro;
 using System;
-using LF2;
-using System.Linq;
+
+using LF2.Utils;
 
 public class DropDownTeamType : MonoBehaviour
 {

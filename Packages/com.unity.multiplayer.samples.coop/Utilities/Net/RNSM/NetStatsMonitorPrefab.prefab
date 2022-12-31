@@ -55,7 +55,7 @@ MonoBehaviour:
     <OverridePosition>k__BackingField: 1
     m_PositionLeftToRight: 0
     m_PositionTopToBottom: 0
-  <Configuration>k__BackingField: {fileID: 11400000, guid: 29dbc761fe3927f429ea39b4eb997ebf, type: 2}
+  <Configuration>k__BackingField: {fileID: 11400000, guid: e778574068db1456fa54fbbade3bd995, type: 2}
 --- !u!114 &2974514019541307266
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -174,7 +174,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 70.5
+  m_fontSize: 32.05
   m_fontSizeBase: 21
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -275,7 +275,6 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
-  m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0

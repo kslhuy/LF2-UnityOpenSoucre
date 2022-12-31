@@ -14,52 +14,42 @@ namespace LF2.Client
 
         [SerializeField] private Animator animator;
 
-        [SerializeField] private float _fallMultiplier;
+        [SerializeField] private float _gravity = 9.8f;
         [SerializeField] GameObject arrowCacked;
 
         public override void FixedUpdate() {
-            if (IsServer){
-                if (m_Started){
-                    // Debug.Log("transform right " + transform.right.x); 
+            if (!m_cachedIsServer || !m_Started) return;
 
-                    base.FixedUpdate();
-                    SetFallingDown();
-                }
-                if (!IsGounded()){
-                    SetFallingDown();
-                }else {
-                    m_Rigidbody.velocity = Vector3.zero;
-                    NetworkObject networkObject = gameObject.GetComponent<NetworkObject>();
-                    networkObject.Despawn();
-                }
+            if (DestroyAfterSec + timerDestroy < Time.time)
+            {
+                // Time to return to the pool from whence it came.
+                var networkObject = gameObject.GetComponent<NetworkObject>();
+                networkObject.Despawn();
+                return;
             }
+            
+            if (CanMove){
+                
+                Vector3 displacement = Speed_m_s*Time.deltaTime*(transform.right + new Vector3(0,0,0.5f*_DirToMove.z)) + Time.deltaTime*new Vector3(0,-_gravity,0);
+
+                transform.position += displacement;
+            }
+                
+            
         }
 
-        public void SetFallingDown(){
-            m_Rigidbody.velocity += _fallMultiplier * Physics.gravity.y * Time.deltaTime * Vector3.up ;  
-        }
 
-        public bool IsGounded(){
-            // var _isGround = Physics.OverlapSphereNonAlloc(transform.position + new Vector3(0, _grounderOffset), _grounderRadius, _ground, k_GroundLayerMask) > 0;
-            bool _isGround = Physics.Raycast(m_OurCollider.bounds.center,Vector3.down ,m_OurCollider.bounds.extents.y+0.1f,k_GroundLayerMask);
-            if (_isGround )   m_Rigidbody.velocity = Vector3.zero;
-            SetFallingDown();
-            return  _isGround;
-        }    
-    
         public override void Rebound()
         {
             // arrowCacked.SetActive(true);
             animator.Play(EndAnimation);
             m_Started = false;
-            m_Rigidbody.velocity = Vector3.zero ;
             
         }
 
         protected override void OnTriggerEnter(Collider collider) {
             if (collider.CompareTag("Ground")){
                 animator.Play(EndAnimation);
-                m_Rigidbody.velocity = Vector3.zero;
                 NetworkObject networkObject = gameObject.GetComponent<NetworkObject>();
                 networkObject.Despawn();
                 return;
@@ -68,14 +58,12 @@ namespace LF2.Client
                 // var targetNetObj = collider.GetComponentInParent<IHurtBox>();
                 m_SpawnerId = collider.GetComponent<ProjectileLogic>().NetworkObjectId;
                 Rebound();
-                m_Rigidbody.AddForce(new Vector3(-10*transform.right.x,10,0) , ForceMode.VelocityChange);
                 return;
             }
 
             if (collider.CompareTag("BlockToRebound")){
                 m_SpawnerId = collider.GetComponent<ProjectileLogic>().NetworkObjectId;
                 Rebound();
-                m_Rigidbody.velocity = (new Vector3(-100*transform.right.x,20,0));
                 return;
             }
         
@@ -88,7 +76,6 @@ namespace LF2.Client
                     {
                         Debug.Log(targetNetObj);
 
-                        m_NetState.RecvHitEnemyClientRPC(targetNetObj.NetworkObjectId);
                         AttackDataSend Atk_data = new AttackDataSend();
                         Atk_data.Direction = new Vector3(ProjectileDamage[0].Dirxyz.x * transform.right.x , ProjectileDamage[0].Dirxyz.y,ProjectileDamage[0].Dirxyz.z) ;
                         Atk_data.Amount_injury = ProjectileDamage[0].damageAmount;

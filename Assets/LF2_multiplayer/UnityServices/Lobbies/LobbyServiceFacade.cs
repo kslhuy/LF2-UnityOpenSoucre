@@ -3,32 +3,35 @@ using System.Collections.Generic;
 using System.Net.Http;
 using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
-using Unity.Multiplayer.Samples.BossRoom.Shared.Infrastructure;
-using Unity.Multiplayer.Samples.BossRoom.Shared.Net.UnityServices.Infrastructure;
+using Unity.Multiplayer.Infrastructure;
+using Unity.Multiplayer.LF2.Infrastructure;
 using Unity.Services.Authentication;
 using Unity.Services.Lobbies;
 using Unity.Services.Lobbies.Models;
 using UnityEngine;
+using VContainer;
+using VContainer.Unity;
 
-namespace Unity.Multiplayer.Samples.BossRoom.Shared.Net.UnityServices.Lobbies
+namespace Unity.Multiplayer.Lobbies
 {
     /// <summary>
     /// An abstraction layer between the direct calls into the Lobby API and the outcomes you actually want.
     /// </summary>
-    public class LobbyServiceFacade : IDisposable
+    public class LobbyServiceFacade : IDisposable, IStartable
     {
-        readonly LobbyAPIInterface m_LobbyApiInterface;
-        readonly UpdateRunner m_UpdateRunner;
-        readonly LocalLobby m_LocalLobby;
-        readonly LocalLobbyUser m_LocalUser;
-        readonly JoinedLobbyContentHeartbeat m_JoinedLobbyContentHeartbeat;
-        readonly IPublisher<UnityServiceErrorMessage> m_UnityServiceErrorMessagePub;
-        readonly IPublisher<LobbyListFetchedMessage> m_LobbyListFetchedPub;
+        [Inject] LifetimeScope m_ParentScope;
+        [Inject] UpdateRunner m_UpdateRunner;
+        [Inject] LocalLobby m_LocalLobby;
+        [Inject] LocalLobbyUser m_LocalUser;
+        [Inject] IPublisher<UnityServiceErrorMessage> m_UnityServiceErrorMessagePub;
+        [Inject] IPublisher<LobbyListFetchedMessage> m_LobbyListFetchedPub;
 
         const float k_HeartbeatPeriod = 8; // The heartbeat must be rate-limited to 5 calls per 30 seconds. We'll aim for longer in case periods don't align.
         float m_HeartbeatTime = 0;
 
-        DIScope m_ServiceScope;
+        LifetimeScope m_ServiceScope;
+        LobbyAPIInterface m_LobbyApiInterface;
+        JoinedLobbyContentHeartbeat m_JoinedLobbyContentHeartbeat;
 
         RateLimitCooldown m_RateLimitQuery;
         RateLimitCooldown m_RateLimitJoin;
@@ -39,28 +42,16 @@ namespace Unity.Multiplayer.Samples.BossRoom.Shared.Net.UnityServices.Lobbies
 
         bool m_IsTracking = false;
 
-        [Inject]
-        public LobbyServiceFacade(
-            UpdateRunner updateRunner,
-            LocalLobby localLobby,
-            LocalLobbyUser localUser,
-            IPublisher<UnityServiceErrorMessage> serviceErrorMessagePub,
-            IPublisher<LobbyListFetchedMessage> lobbyListFetchedPub)
+        public void Start()
         {
-            m_UpdateRunner = updateRunner;
-            m_LocalLobby = localLobby;
-            m_LocalUser = localUser;
-            m_UnityServiceErrorMessagePub = serviceErrorMessagePub;
-            m_LobbyListFetchedPub = lobbyListFetchedPub;
+            m_ServiceScope = m_ParentScope.CreateChild(builder =>
+            {
+                builder.Register<JoinedLobbyContentHeartbeat>(Lifetime.Singleton);
+                builder.Register<LobbyAPIInterface>(Lifetime.Singleton);
+            });
 
-            m_ServiceScope = new DIScope(DIScope.RootScope);
-            m_ServiceScope.BindInstanceAsSingle(this); //so that LobbyServiceFacade can get injected into whatever internal dependencies
-            m_ServiceScope.BindAsSingle<JoinedLobbyContentHeartbeat>();
-            m_ServiceScope.BindAsSingle<LobbyAPIInterface>();
-            m_ServiceScope.FinalizeScopeConstruction();
-
-            m_LobbyApiInterface = m_ServiceScope.Resolve<LobbyAPIInterface>();
-            m_JoinedLobbyContentHeartbeat = m_ServiceScope.Resolve<JoinedLobbyContentHeartbeat>();
+            m_LobbyApiInterface = m_ServiceScope.Container.Resolve<LobbyAPIInterface>();
+            m_JoinedLobbyContentHeartbeat = m_ServiceScope.Container.Resolve<JoinedLobbyContentHeartbeat>();
 
             //See https://docs.unity.com/lobby/rate-limits.html
             m_RateLimitQuery = new RateLimitCooldown(1f);
@@ -72,7 +63,10 @@ namespace Unity.Multiplayer.Samples.BossRoom.Shared.Net.UnityServices.Lobbies
         public void Dispose()
         {
             EndTracking();
-            m_ServiceScope?.Dispose();
+            if (m_ServiceScope != null)
+            {
+                m_ServiceScope.Dispose();
+            }
         }
 
         public void SetRemoteLobby(Lobby lobby)
@@ -100,9 +94,18 @@ namespace Unity.Multiplayer.Samples.BossRoom.Shared.Net.UnityServices.Lobbies
             {
                 CurrentUnityLobby = null;
 
-                if (!string.IsNullOrEmpty(m_LocalLobby?.LobbyID))
+                var lobbyId = m_LocalLobby?.LobbyID;
+
+                if (!string.IsNullOrEmpty(lobbyId))
                 {
-                    task = LeaveLobbyAsync(m_LocalLobby?.LobbyID);
+                    if (m_LocalUser.IsHost)
+                    {
+                        task = DeleteLobbyAsync(lobbyId);
+                    }
+                    else
+                    {
+                        task = LeaveLobbyAsync(lobbyId);
+                    }
                 }
 
                 m_LocalUser.ResetState();
@@ -155,6 +158,10 @@ namespace Unity.Multiplayer.Samples.BossRoom.Shared.Net.UnityServices.Lobbies
                 {
                     m_RateLimitQuery.PutOnCooldown();
                 }
+                else if (e.Reason != LobbyExceptionReason.LobbyNotFound && !m_LocalUser.IsHost) // If Lobby is not found and if we are not the host, it has already been deleted. No need to publish the error here.
+                {
+                    PublishError(e);
+                }
             }
         }
 
@@ -179,6 +186,10 @@ namespace Unity.Multiplayer.Samples.BossRoom.Shared.Net.UnityServices.Lobbies
                 if (e.Reason == LobbyExceptionReason.RateLimited)
                 {
                     m_RateLimitHost.PutOnCooldown();
+                }
+                else
+                {
+                    PublishError(e);
                 }
             }
 
@@ -216,6 +227,10 @@ namespace Unity.Multiplayer.Samples.BossRoom.Shared.Net.UnityServices.Lobbies
                 {
                     m_RateLimitJoin.PutOnCooldown();
                 }
+                else
+                {
+                    PublishError(e);
+                }
             }
 
             return (false, null);
@@ -242,6 +257,10 @@ namespace Unity.Multiplayer.Samples.BossRoom.Shared.Net.UnityServices.Lobbies
                 if (e.Reason == LobbyExceptionReason.RateLimited)
                 {
                     m_RateLimitQuickJoin.PutOnCooldown();
+                }
+                else
+                {
+                    PublishError(e);
                 }
             }
 
@@ -270,7 +289,29 @@ namespace Unity.Multiplayer.Samples.BossRoom.Shared.Net.UnityServices.Lobbies
                 {
                     m_RateLimitQuery.PutOnCooldown();
                 }
+                else
+                {
+                    PublishError(e);
+                }
             }
+        }
+
+        public async Task<Lobby> ReconnectToLobbyAsync(string lobbyId)
+        {
+            try
+            {
+                return await m_LobbyApiInterface.ReconnectToLobby(lobbyId);
+            }
+            catch (LobbyServiceException e)
+            {
+                // If Lobby is not found and if we are not the host, it has already been deleted. No need to publish the error here.
+                if (e.Reason != LobbyExceptionReason.LobbyNotFound && !m_LocalUser.IsHost)
+                {
+                    PublishError(e);
+                }
+            }
+
+            return null;
         }
 
         /// <summary>
@@ -279,14 +320,33 @@ namespace Unity.Multiplayer.Samples.BossRoom.Shared.Net.UnityServices.Lobbies
         public async Task LeaveLobbyAsync(string lobbyId)
         {
             string uasId = AuthenticationService.Instance.PlayerId;
-            await m_LobbyApiInterface.RemovePlayerFromLobby(uasId, lobbyId);
+            try
+            {
+                await m_LobbyApiInterface.RemovePlayerFromLobby(uasId, lobbyId);
+            }
+            catch (LobbyServiceException e)
+            {
+                // If Lobby is not found and if we are not the host, it has already been deleted. No need to publish the error here.
+                if (e.Reason != LobbyExceptionReason.LobbyNotFound && !m_LocalUser.IsHost)
+                {
+                    PublishError(e);
+                }
+            }
+
         }
 
         public async void RemovePlayerFromLobbyAsync(string uasId, string lobbyId)
         {
             if (m_LocalUser.IsHost)
             {
-                await m_LobbyApiInterface.RemovePlayerFromLobby(uasId, lobbyId);
+                try
+                {
+                    await m_LobbyApiInterface.RemovePlayerFromLobby(uasId, lobbyId);
+                }
+                catch (LobbyServiceException e)
+                {
+                    PublishError(e);
+                }
             }
             else
             {
@@ -294,11 +354,18 @@ namespace Unity.Multiplayer.Samples.BossRoom.Shared.Net.UnityServices.Lobbies
             }
         }
 
-        public async void DeleteLobbyAsync(string lobbyId)
+        public async Task DeleteLobbyAsync(string lobbyId)
         {
             if (m_LocalUser.IsHost)
             {
-                await m_LobbyApiInterface.DeleteLobby(lobbyId);
+                try
+                {
+                    await m_LobbyApiInterface.DeleteLobby(lobbyId);
+                }
+                catch (LobbyServiceException e)
+                {
+                    PublishError(e);
+                }
             }
             else
             {
@@ -331,6 +398,10 @@ namespace Unity.Multiplayer.Samples.BossRoom.Shared.Net.UnityServices.Lobbies
                 {
                     m_RateLimitQuery.PutOnCooldown();
                 }
+                else if (e.Reason != LobbyExceptionReason.LobbyNotFound && !m_LocalUser.IsHost) // If Lobby is not found and if we are not the host, it has already been deleted. No need to publish the error here.
+                {
+                    PublishError(e);
+                }
             }
         }
 
@@ -353,6 +424,10 @@ namespace Unity.Multiplayer.Samples.BossRoom.Shared.Net.UnityServices.Lobbies
                 if (e.Reason == LobbyExceptionReason.RateLimited)
                 {
                     m_RateLimitQuery.PutOnCooldown();
+                }
+                else
+                {
+                    PublishError(e);
                 }
 
                 //todo - retry logic? SDK is supposed to handle this eventually
@@ -401,6 +476,10 @@ namespace Unity.Multiplayer.Samples.BossRoom.Shared.Net.UnityServices.Lobbies
                 {
                     m_RateLimitQuery.PutOnCooldown();
                 }
+                else
+                {
+                    PublishError(e);
+                }
             }
         }
 
@@ -413,8 +492,25 @@ namespace Unity.Multiplayer.Samples.BossRoom.Shared.Net.UnityServices.Lobbies
             if (m_HeartbeatTime > k_HeartbeatPeriod)
             {
                 m_HeartbeatTime -= k_HeartbeatPeriod;
-                m_LobbyApiInterface.SendHeartbeatPing(CurrentUnityLobby.Id);
+                try
+                {
+                    m_LobbyApiInterface.SendHeartbeatPing(CurrentUnityLobby.Id);
+                }
+                catch (LobbyServiceException e)
+                {
+                    // If Lobby is not found and if we are not the host, it has already been deleted. No need to publish the error here.
+                    if (e.Reason != LobbyExceptionReason.LobbyNotFound && !m_LocalUser.IsHost)
+                    {
+                        PublishError(e);
+                    }
+                }
             }
+        }
+
+        void PublishError(LobbyServiceException e)
+        {
+            var reason = $"{e.Message} ({e.InnerException?.Message})"; // Lobby error type, then HTTP error type.
+            m_UnityServiceErrorMessagePub.Publish(new UnityServiceErrorMessage("Lobby Error", reason, UnityServiceErrorMessage.Service.Lobby, e));
         }
     }
 }

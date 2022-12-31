@@ -51,7 +51,7 @@ namespace LF2.Client{
         public override void PlayAnim( int nbanim = 1 , bool sequence = false)
         {
             base.PlayAnim();
-            stateMachineFX.m_ClientVisual.DisableHitBox();
+            stateMachineFX.m_ClientVisual.SetHitBox(false);
             stateMachineFX.m_ClientVisual.NormalAnimator.Play(stateMachineFX.m_ClientVisual.VizAnimation.a_Air);
 
         }

@@ -1,13 +1,13 @@
 using UnityEngine;
 using TMPro;
 using Unity.Multiplayer.Samples.BossRoom.ApplicationLifecycle.Messages;
-using LF2.Shared;
-using Unity.Multiplayer.Samples.BossRoom.Shared.Infrastructure;
+using Unity.Multiplayer.Infrastructure;
 using Unity.Multiplayer.Samples.Utilities;
 using Unity.Netcode;
+using VContainer;
 
 
-namespace LF2.Visual
+namespace LF2.Gameplay.UI
 {
     /// <summary>
     /// Provides backing logic for all of the UI that runs in the PostGame stage.

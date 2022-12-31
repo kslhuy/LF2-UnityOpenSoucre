@@ -307,9 +307,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_NetworkStatics: {fileID: 5306942716750395604}
   m_NetworkLifeState: {fileID: 758663530373189659}
-  IsHOST: 0
   m_CharacterClassContainer: {fileID: 405412423302776698}
-  TeamType: 0
 --- !u!114 &758663530373189659
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -889,7 +887,7 @@ MonoBehaviour:
   InteractionZone: {fileID: 5948379090898866286}
   m_NetState: {fileID: 7541297034058180883}
   textMesh: {fileID: 7936842902865023946}
-  spriteRenderer: {fileID: 1557173061463671463}
+  <spriteRenderer>k__BackingField: {fileID: 1557173061463671463}
   VizAnimation: {fileID: 11400000, guid: 95afad6b6987c5c4e84d900ac33c09b8, type: 2}
   _sfxEventChannel: {fileID: 11400000, guid: 1981ab6cbad46e54ca529e09ba189c16, type: 2}
   _audioConfig: {fileID: 11400000, guid: e8a6884befaa7e544b61747452adc267, type: 2}

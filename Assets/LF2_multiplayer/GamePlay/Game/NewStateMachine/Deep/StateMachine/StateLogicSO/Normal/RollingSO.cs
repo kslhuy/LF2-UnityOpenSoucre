@@ -68,7 +68,7 @@ namespace LF2.Client{
         {
             base.PlayAnim();
             stateMachineFX.m_ClientVisual.NormalAnimator.Play("Rolling_anim");
-            stateMachineFX.m_ClientVisual.DisableHitBox();
+            stateMachineFX.m_ClientVisual.SetHitBox(false);
             stateMachineFX.m_ClientVisual.UpdateSizeHurtBox();
             if (stateData.Sounds) stateMachineFX.m_ClientVisual.PlayAudio(stateData.Sounds);
         }

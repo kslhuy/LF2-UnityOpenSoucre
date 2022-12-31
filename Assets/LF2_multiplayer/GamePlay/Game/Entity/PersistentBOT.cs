@@ -2,6 +2,8 @@ using Unity.Netcode;
 using UnityEngine;
 using Unity.Multiplayer.Samples.BossRoom;
 using System;
+using Unity.Multiplayer.Infrastructure;
+using LF2.Utils;
 
 namespace LF2
 {

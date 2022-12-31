@@ -1,3 +1,4 @@
+using Unity.Netcode;
 using UnityEngine;
 namespace LF2.Client
 {
@@ -75,7 +76,11 @@ namespace LF2.Client
             {
                 if (stateMachineFX.m_ClientVisual._IsServer)
                 {
-                    SpwanProjectile(stateData.Projectiles[0], new Vector3(stateMachineFX.CoreMovement.GetFacingDirection(), 0, stateMachineFX.InputZ));
+                    var projectile = GameObject.Instantiate(stateData.Projectiles[0].ProjectilePrefab, stateMachineFX.CoreMovement.transform   );
+                
+                    projectile.GetComponent<ProjectileLogic>().Initialize(stateMachineFX.m_ClientVisual.NetworkObjectId,stateMachineFX.team, Vector3.right);
+
+                    projectile.GetComponent<NetworkObject>().Spawn();
                     m_Launched = true;
                 }
             }
@@ -97,7 +102,7 @@ namespace LF2.Client
             {
                 if (stateMachineFX.m_ClientVisual._IsServer)
                 {
-                    SpwanProjectile(stateData.Projectiles[0], new Vector3(stateMachineFX.CoreMovement.GetFacingDirection(), 0, stateMachineFX.InputZ));
+                    SpwanProjectileObjectPooling(stateData.Projectiles[0], new Vector3(stateMachineFX.CoreMovement.GetFacingDirection(), 0, stateMachineFX.InputZ));
                 }
                 stateMachineFX.m_ClientVisual.PlayAudio(stateData.Sounds);
             }

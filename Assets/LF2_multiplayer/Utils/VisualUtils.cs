@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace LF2.Client
+namespace LF2.Utils
 {
     /// <summary>
     /// Repository for visualization-related utility functions. 

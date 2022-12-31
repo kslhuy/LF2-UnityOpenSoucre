@@ -1,0 +1,26 @@
+{
+    "name": "LF2.ConnectionManagement",
+    "rootNamespace": "",
+    "references": [
+        "Unity.Netcode.Runtime",
+        "Unity.Multiplayer.Samples.Utilities",
+        "LF2.UnityServices",
+        "LF2.Multiplayer.Infrastructure",
+        "Unity.Services.Core",
+        "Unity.Services.Authentication",
+        "LF2.Utils",
+        "Unity.Services.Lobbies",
+        "Unity.Networking.Transport",
+        "VContainer",
+        "Unity.Services.Relay"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

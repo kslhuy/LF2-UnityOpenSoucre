@@ -60,7 +60,7 @@ namespace LF2.Client{
 
         public override void PlayPredictState(int nbAniamtion = 1, bool sequen = false)
         {
-            Debug.Log("IDle play predict");
+            // Debug.Log("IDle play predict");
             // Client Send to Server  =>>>  Server know what state Client is =>>  Server propagate to all others players (except this client (who send))).
             if (stateMachineFX.m_ClientVisual.Owner) 
                 stateMachineFX.m_ClientVisual.m_NetState.AddPredictState_and_SyncServerRpc(GetId());

@@ -16,24 +16,14 @@ namespace LF2.Client
         private float timeNow;
         AttackDataSend Atk_data;
 
-        // private int Hit = Animator.StringToHash("DDA_Hit_Jonh_anim");
-
+        public override void OnNetworkSpawn()
+        {
+            base.OnNetworkSpawn();
+            PlayAudio(Sounds[0]);
+        }
         public override void FixedUpdate()
         {
             base.FixedUpdate();
-            // if (IsServer){
-            // if (Time.time - timeNow > ProjectileDamage[0].vrest)
-            // {
-            //     foreach (IHurtBox damagable in _Listdamagable)
-            //     {
-            //         if (damagable != null && damagable.IsDamageable(teamAttacker))
-            //         {
-            //             damagable.ReceiveHP(Atk_data);
-            //         }
-            //     }
-            //     timeNow = Time.time;
-            // }
-            // }
         }
 
         protected override void OnTriggerEnter(Collider collider)
@@ -59,14 +49,8 @@ namespace LF2.Client
             }
         }
 
-        // protected override void OnTriggerExit(Collider collider)
-        // {
-        //     IHurtBox damagable = collider.GetComponentInParent<IHurtBox>();
-        //     if (damagable != null)
-        //     {
-        //         _Listdamagable.Remove(damagable);
-        //     }
-        // }
+
+
 
         // IEnumerator Coro_Balldp(float delay)
         // {

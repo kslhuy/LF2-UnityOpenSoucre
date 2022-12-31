@@ -7,6 +7,7 @@ using TMPro;
 using LF2.Server;
 using UnityEngine.Assertions;
 using LF2.Client;
+using LF2.Utils;
 
 namespace Unity.BossRoom.DebugCheats
 {

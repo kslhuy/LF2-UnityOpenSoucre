@@ -153,16 +153,14 @@
       "source": "embedded",
       "dependencies": {
         "com.unity.learn.iet-framework": "1.2.1",
-        "com.unity.multiplayer.tools": "1.0.0-pre.7",
-        "com.unity.netcode.gameobjects": "1.0.0-pre.10",
-        "com.unity.services.authentication": "1.0.0-pre.4",
-        "com.unity.services.lobby": "1.0.0-pre.6",
-        "com.unity.services.relay": "1.0.2"
+        "com.unity.multiplayer.tools": "1.1.0",
+        "com.unity.netcode.gameobjects": "1.1.0",
+        "com.unity.services.relay": "1.0.3"
       }
     },
     "com.unity.multiplayer.tools": {
-      "version": "1.0.0",
-      "depth": 0,
+      "version": "1.1.0",
+      "depth": 1,
       "source": "registry",
       "dependencies": {
         "com.unity.profiling.core": "1.0.0-pre.1",
@@ -174,7 +172,7 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.netcode.gameobjects": {
-      "version": "1.1.0",
+      "version": "1.2.0",
       "depth": 0,
       "source": "registry",
       "dependencies": {
@@ -468,6 +466,15 @@
         "com.unity.modules.xr": "1.0.0"
       },
       "url": "https://packages.unity.com"
+    },
+    "jp.hadashikick.vcontainer": {
+      "version": "https://github.com/hadashiA/VContainer.git?path=VContainer/Assets/VContainer#1.12.0",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {
+        "com.unity.nuget.mono-cecil": "1.10.1"
+      },
+      "hash": "9fff851582d14810565f8db3e82dba2227a091d4"
     },
     "com.unity.modules.ai": {
       "version": "1.0.0",

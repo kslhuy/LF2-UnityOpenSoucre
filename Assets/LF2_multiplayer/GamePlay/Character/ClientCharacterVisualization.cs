@@ -7,7 +7,7 @@ using UnityEngine.Assertions;
 using TMPro;
 using System.Collections;
 using LF2.ObjectPool;
-
+using LF2.Utils;
 
 namespace LF2.Client
 {
@@ -67,7 +67,7 @@ namespace LF2.Client
 
         public TextMeshPro textMesh;
 
-        [SerializeField] SpriteRenderer spriteRenderer;
+        [field:SerializeField] public SpriteRenderer spriteRenderer {get ; private set;}
 
         public VisualizationConfiguration VizAnimation;
 
@@ -225,7 +225,6 @@ namespace LF2.Client
                 for (int i = 0 ; i < m_NetState.CharacterClass.objectPollingRegistry.PooledPrefabsList.Count ; i++){
                     NetworkObjectPool.Singleton.AddPrefab(m_NetState.CharacterClass.objectPollingRegistry.PooledPrefabsList[i].Prefab , m_NetState.CharacterClass.objectPollingRegistry.PooledPrefabsList[i].PrewarmCount ) ;
                 }
-
             }
         }
 
@@ -356,11 +355,11 @@ namespace LF2.Client
             // Debug.Log(MStateMachinePlayerViz);
             // if (m_NetState.LifeState != LifeState.Dead){    
             MStateMachinePlayerViz.OnUpdate();
-            if (LastStateViz !=  MStateMachinePlayerViz.CurrentStateViz.GetId()){
-                LastStateViz = MStateMachinePlayerViz.CurrentStateViz.GetId();
-                // textMesh.text = LastStateViz.ToString();
-                textMesh.text = coreMovement.GetFacingDirection().ToString();
-            }
+            // if (LastStateViz !=  MStateMachinePlayerViz.CurrentStateViz.GetId()){
+            //     LastStateViz = MStateMachinePlayerViz.CurrentStateViz.GetId();
+            //     // textMesh.text = LastStateViz.ToString();
+            //     textMesh.text = coreMovement.GetFacingDirection().ToString();
+            // }
             // }
             // UpdateSizeHurtBox();
         }
@@ -466,8 +465,8 @@ namespace LF2.Client
             // Debug.Log(spriteRenderer.sprite.bounds.size);
         }
 
-        public void DisableHitBox(){
-            _hitBox.enabled = false;
+        public void SetHitBox(bool setting){
+            _hitBox.enabled = setting;
             // Debug.Log(spriteRenderer.sprite.bounds.size);
         }
     #endregion

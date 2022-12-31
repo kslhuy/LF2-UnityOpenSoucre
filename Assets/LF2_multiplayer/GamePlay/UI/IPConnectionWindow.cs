@@ -1,12 +1,14 @@
 using System;
 using System.Collections;
+using LF2.ConnectionManagement;
 using TMPro;
-using Unity.Multiplayer.Samples.BossRoom.Shared.Infrastructure;
+using Unity.Multiplayer.Infrastructure;
 using Unity.Netcode;
 using Unity.Netcode.Transports.UTP;
 using UnityEngine;
+using VContainer;
 
-namespace LF2.Visual
+namespace LF2.Gameplay.UI
 {
     public class IPConnectionWindow : MonoBehaviour
     {

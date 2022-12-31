@@ -114,6 +114,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 5359535883441174824, guid: e1e6fa40b644751498970cb113c8b0a1, type: 3}
+    - {fileID: 565324695859551486, guid: e1e6fa40b644751498970cb113c8b0a1, type: 3}
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: e1e6fa40b644751498970cb113c8b0a1, type: 3}
 --- !u!95 &2824757819236973845 stripped
@@ -121,17 +122,6 @@ Animator:
   m_CorrespondingSourceObject: {fileID: 3672223636655927781, guid: e1e6fa40b644751498970cb113c8b0a1, type: 3}
   m_PrefabInstance: {fileID: 1568895022039502064}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &4100799406809116488 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3255296454070526904, guid: e1e6fa40b644751498970cb113c8b0a1, type: 3}
-  m_PrefabInstance: {fileID: 1568895022039502064}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4479758005046589536}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 39975f2fa809f7d44883789ef7323259, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &4479758005046589536 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3165636493918647440, guid: e1e6fa40b644751498970cb113c8b0a1, type: 3}
@@ -149,19 +139,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ffc13830bf48c24cacb8180656057d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_NetState: {fileID: 4100799406809116488}
   m_OurCollider: {fileID: 7058080987340510452}
-  m_Rigidbody: {fileID: 0}
   k_GroundLayerMask: 0
   ProjectileDamage:
   - {fileID: 11400000, guid: 70d5e18483e2d554888ac1f8058428d5, type: 2}
   Speed_m_s: 0
   Range: 0
   MaxVictims: 0
-  SpawnFX: {fileID: 8179895959186886897, guid: 42704ac5ce4eada4e842e9fd14dd3960, type: 3}
+  m_OnHitParticlePrefab: {fileID: 8179895959186886897, guid: 42704ac5ce4eada4e842e9fd14dd3960, type: 3}
   _sfxEventChannel: {fileID: 11400000, guid: 1981ab6cbad46e54ca529e09ba189c16, type: 2}
   _audioConfig: {fileID: 11400000, guid: e8a6884befaa7e544b61747452adc267, type: 2}
-  Sounds: []
+  Sounds:
+  - {fileID: 11400000, guid: 508252992539a5642a7d838c9a4693d9, type: 2}
   EndAnimation: 
   DestroyAfterSec: 10
   DestroyAfterHit: 0.1

@@ -1,6 +1,6 @@
 using System;
 
-namespace Unity.Multiplayer.Samples.BossRoom.Shared.Infrastructure
+namespace Unity.Multiplayer.Infrastructure
 {
     public interface IPublisher<T>
     {
@@ -10,6 +10,8 @@ namespace Unity.Multiplayer.Samples.BossRoom.Shared.Infrastructure
     public interface ISubscriber<T>
     {
         IDisposable Subscribe(Action<T> handler);
+        void Unsubscribe(Action<T> handler);
+
     }
 
     public interface IMessageChannel<T> : IPublisher<T>, ISubscriber<T>, IDisposable

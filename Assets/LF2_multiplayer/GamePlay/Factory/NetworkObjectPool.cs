@@ -5,6 +5,8 @@ using Unity.Netcode;
 using UnityEngine;
 using UnityEngine.Assertions;
 
+
+
 namespace LF2.ObjectPool
 {
     /// <summary>
@@ -19,8 +21,8 @@ namespace LF2.ObjectPool
 
         public static NetworkObjectPool Singleton { get { return _instance; } }
 
-        
-        public List<ObjectPollingRegistry> OPRegistrys;
+        [SerializeField]
+        List<PoolConfigObject> PooledPrefabsList;
 
         HashSet<GameObject> prefabs = new HashSet<GameObject>();
 
@@ -40,10 +42,10 @@ namespace LF2.ObjectPool
             }
         }
 
-        // public override void OnNetworkSpawn()
-        // {
-        //     InitializePool();
-        // }
+        public override void OnNetworkSpawn()
+        {
+            // InitializePool();
+        }
 
         public override void OnNetworkDespawn()
         {
@@ -52,14 +54,12 @@ namespace LF2.ObjectPool
 
         public void OnValidate()
         {
-            for (var i = 0; i < OPRegistrys.Count; i++){
-                var OPr = OPRegistrys[i];
-                for (var j = 0; j < OPr.PooledPrefabsList.Count; j++){
-                    var prefab = OPr.PooledPrefabsList[j].Prefab;
-                    if (prefab != null)
-                    {
-                        Assert.IsNotNull(prefab.GetComponent<NetworkObject>(), $"{nameof(NetworkObjectPool)}: Pooled prefab \"{prefab.name}\"  has no {nameof(NetworkObject)} component.");
-                    }
+            for (var i = 0; i < PooledPrefabsList.Count; i++)
+            {
+                var prefab = PooledPrefabsList[i].Prefab;
+                if (prefab != null)
+                {
+                    Assert.IsNotNull(prefab.GetComponent<NetworkObject>(), $"{nameof(NetworkObjectPool)}: Pooled prefab \"{prefab.name}\" at index {i.ToString()} has no {nameof(NetworkObject)} component.");
                 }
             }
         }
@@ -91,13 +91,12 @@ namespace LF2.ObjectPool
         /// </summary>
         public void ReturnNetworkObject(NetworkObject networkObject, GameObject prefab)
         {
-            
             var go = networkObject.gameObject;
             go.SetActive(false);
             pooledObjects[prefab].Enqueue(networkObject);
         }
 
-        /// <summary>
+                /// <summary>
         /// Adds a prefab to the list of spawnable prefabs.
         /// </summary>
         /// <param name="prefab">The prefab to add.</param>
@@ -142,6 +141,40 @@ namespace LF2.ObjectPool
 
         }
 
+        // /// <summary>
+        // /// Adds a prefab to the list of spawnable prefabs.
+        // /// </summary>
+        // /// <param name="prefab">The prefab to add.</param>
+        // /// <param name="prewarmCount"></param>
+        // public void AddPrefab(GameObject prefab, int prewarmCount = 0)
+        // {
+        //     var networkObject = prefab.GetComponent<NetworkObject>();
+
+        //     Assert.IsNotNull(networkObject, $"{nameof(prefab)} must have {nameof(networkObject)} component.");
+        //     Assert.IsFalse(prefabs.Contains(prefab), $"Prefab {prefab.name} is already registered in the pool.");
+
+        //     RegisterPrefabInternal(prefab, prewarmCount);
+        // }
+
+        // /// <summary>
+        // /// Builds up the cache for a prefab.
+        // /// </summary>
+        // private void RegisterPrefabInternal(GameObject prefab, int prewarmCount)
+        // {
+        //     prefabs.Add(prefab);
+
+        //     var prefabQueue = new Queue<NetworkObject>();
+        //     pooledObjects[prefab] = prefabQueue;
+        //     for (int i = 0; i < prewarmCount; i++)
+        //     {
+        //         var go = CreateInstance(prefab);
+        //         ReturnNetworkObject(go.GetComponent<NetworkObject>(), prefab);
+        //     }
+
+        //     // Register Netcode Spawn handlers
+        //     NetworkManager.Singleton.PrefabHandler.AddHandler(prefab, new PooledPrefabInstanceHandler(prefab, this));
+        // }
+
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         private GameObject CreateInstance(GameObject prefab)
         {
@@ -152,7 +185,8 @@ namespace LF2.ObjectPool
         /// This matches the signature of <see cref="NetworkSpawnManager.SpawnHandlerDelegate"/>
         /// </summary>
         /// <param name="prefab"></param>
-
+        /// <param name="position"></param>
+        /// <param name="rotation"></param>
         /// <returns></returns>
         private NetworkObject GetNetworkObjectInternal(GameObject prefab, Vector3 position, Quaternion rotation)
         {
@@ -168,25 +202,42 @@ namespace LF2.ObjectPool
                 networkObject = CreateInstance(prefab).GetComponent<NetworkObject>();
             }
 
+            // Here we must reverse the logic in ReturnNetworkObject.
+            var go = networkObject.gameObject;
+            go.SetActive(true);
 
-            
+            go.transform.position = position;
+            go.transform.rotation = rotation;
+
             return networkObject;
         }
 
-        /// <summary>
-        /// Registers all objects in <see cref="PooledPrefabsList"/> to the cache.
-        /// </summary>
+        public NetworkObject GetNetworkObjectPublic(GameObject prefab, Vector3 position, Quaternion rotation)
+        {
+            NetworkObject networkObject;
+
+            networkObject = CreateInstance(prefab).GetComponent<NetworkObject>();
+
+            // Here we must reverse the logic in ReturnNetworkObject.
+            var go = networkObject.gameObject;
+            go.SetActive(true);
+
+            go.transform.position = position;
+            go.transform.rotation = rotation;
+
+            return networkObject;
+        }
+
+        // /// <summary>
+        // /// Registers all objects in <see cref="PooledPrefabsList"/> to the cache.
+        // /// </summary>
         // public void InitializePool()
         // {
         //     if (m_HasInitialized) return;
-        //     foreach (ObjectPollingRegistry OPr in OPRegistrys )
+        //     foreach (var configObject in PooledPrefabsList)
         //     {
-        //         foreach (var configObject in OPr.PooledPrefabsList)
-        //         {        
-        //             RegisterPrefabInternal(configObject.Prefab, configObject.PrewarmCount);
-        //         }
+        //         RegisterPrefabInternal(configObject.Prefab, configObject.PrewarmCount);
         //     }
-               
         //     m_HasInitialized = true;
         // }
 

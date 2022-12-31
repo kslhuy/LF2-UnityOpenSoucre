@@ -17,25 +17,23 @@ namespace LF2.Client
     public class DennisDUJ1Logic : LaunchProjectileLogic, IFrameCheckHandler
     {
 
-        private float timeNow;
+        // private float timeNow;
 
         private List<IHurtBox> _Listdamagable = new List<IHurtBox>();
 
-        private AttackDataSend Atk_data ;
-
+        // private AttackDataSend Atk_data ;
+        // private float loopframePersentage;
 
         public override void Awake(StateMachineNew stateMachine)
         {
             stateMachineFX = stateMachine;
-
+            // loopframePersentage = stateData.frameChecker.percentageOnFrame(10);
+            stateData.frameChecker.initialize(this , stateMachineFX.m_ClientVisual.NormalAnimator,stateMachineFX.m_ClientVisual.spriteRenderer);
         }
 
         public override bool ShouldAnticipate(ref InputPackage requestData)
         {
-            if (requestData.StateTypeEnum == StateType.Defense)
-            {
-                stateMachineFX.idle();
-            }
+            stateData.frameChecker.CheckTransition(requestData.StateTypeEnum);
             return true;
         }
         public override void Enter()
@@ -56,9 +54,15 @@ namespace LF2.Client
 
         public override void End()
         {
-            stateMachineFX.m_ClientVisual.NormalAnimator.Play(stateMachineFX.m_ClientVisual.VizAnimation.a_DUJ_1);
+            // stateMachineFX.m_ClientVisual.NormalAnimator.Play(stateMachineFX.m_ClientVisual.VizAnimation.a_DUJ_1);
             _Listdamagable = new List<IHurtBox>();
             stateMachineFX.idle();
+
+        }
+        public override void Exit()
+        {
+            _Listdamagable = new List<IHurtBox>();
+            stateMachineFX.m_ClientVisual.NormalAnimator.enabled = true;
 
         }
 
@@ -66,27 +70,27 @@ namespace LF2.Client
         public override void PlayAnim(int nbAniamtion = 1, bool sequence = false)
         {
             base.PlayAnim();
-            timeNow = TimeStarted_Animation;
-            stateMachineFX.m_ClientVisual.NormalAnimator.Play(stateMachineFX.m_ClientVisual.VizAnimation.a_DUJ_1);
+            // timeNow = TimeStarted_Animation;
+            stateMachineFX.m_ClientVisual.NormalAnimator.enabled = false;
+            stateData.frameChecker.initCheck();
+            stateMachineFX.m_ClientVisual.SetHitBox(true);
+
+            // stateMachineFX.m_ClientVisual.NormalAnimator.Play(stateMachineFX.m_ClientVisual.VizAnimation.a_DUJ_1);
         }
 
         public override void LogicUpdate()
         {
-            stateMachineFX.CoreMovement.CustomMove_InputZ(stateData.Dx, stateData.Dz, stateMachineFX.InputZ);
 
-            if (Time.time - timeNow > stateData.DamageDetails[0].vrest){
-                foreach (IHurtBox damagable in _Listdamagable)
-                {
-                    if (damagable != null && damagable.IsDamageable(stateMachineFX.m_ClientVisual.teamType))
-                    {
-                        damagable.ReceiveHP(Atk_data);
-                    }
-                }
-                timeNow = Time.time;
-            }
-            stateData.frameChecker.CheckReturnFrame();
-
+            stateData.frameChecker.CheckFrame(()=> stateMachineFX.idle());
+            // if (Time.time - timeNow > stateData.DamageDetails[0].vrest){
+  
+            //     timeNow = Time.time;
+            // }
+            // if (loopframePersentage <= stateMachineFX.m_ClientVisual.NormalAnimator.normalizedTime(0)){
+            //     stateMachineFX.m_ClientVisual.NormalAnimator.Play(stateMachineFX.m_ClientVisual.VizAnimation.a_DUJ_1 , 0,stateData.frameChecker.percentageOnFrame(2));
+            // }
         }
+
         public override void OnAnimEvent(int id){
             stateMachineFX.m_ClientVisual.PlayAudio(stateData.Sounds);
         }
@@ -133,24 +137,12 @@ namespace LF2.Client
 
 
 
-        public void onLoopFrame()
-        {
-            // Debug.Log("On Loop Frame");
-            stateMachineFX.m_ClientVisual.NormalAnimator.Play(stateMachineFX.m_ClientVisual.VizAnimation.a_DUJ_1, 0, stateData.frameChecker.percentageOnFrame(2));
-            stateData.frameChecker.initCheck();
-
-        }
 
         public override void AddCollider(Collider collider)
         {
             IHurtBox damagable = collider.GetComponentInParent<IHurtBox>();
             if (damagable != null)
             {
-                Atk_data.Amount_injury = stateData.DamageDetails[0].damageAmount;
-                Atk_data.Direction = new Vector3(stateData.DamageDetails[0].Dirxyz.x * stateMachineFX.CoreMovement.GetFacingDirection(), stateData.DamageDetails[0].Dirxyz.y, stateData.DamageDetails[0].Dirxyz.z);
-                Atk_data.BDefense_p = stateData.DamageDetails[0].Bdefend;
-                Atk_data.Fall_p = stateData.DamageDetails[0].fall;
-                Atk_data.Effect = (byte)stateData.DamageDetails[0].Effect;
                 _Listdamagable.Add(damagable);
             }
         }
@@ -160,6 +152,35 @@ namespace LF2.Client
             if (damagable != null)
             {
                 _Listdamagable.Remove(damagable);
+            }
+        }
+
+        public void onNextFrame(int frame)
+        {
+            stateMachineFX.CoreMovement.CustomMove_InputZ(stateData.frameChecker._frameStruct[frame].dvx, stateData.frameChecker._frameStruct[frame].dvz);
+        }
+
+        public void playAnimation(int frame)
+        {
+            stateMachineFX.m_ClientVisual.NormalAnimator.Play(stateMachineFX.m_ClientVisual.VizAnimation.a_DUJ_1 , 0,stateData.frameChecker.percentageOnFrame(frame));
+        }
+
+        public void playSound(AudioCueSO audioCue)
+        {
+            
+            stateMachineFX.m_ClientVisual.PlayAudio(audioCue);
+        }
+
+        public void onAttackFrame(AttackDataSend AttkData)
+        {
+            AttkData.Direction = new Vector3 (AttkData.Direction.x * stateMachineFX.CoreMovement.GetFacingDirection(),AttkData.Direction.y , AttkData.Direction.z ) ;
+
+            foreach (IHurtBox damagable in _Listdamagable)
+            {
+                if (damagable != null && damagable.IsDamageable(stateMachineFX.m_ClientVisual.teamType))
+                {
+                    damagable.ReceiveHP(AttkData);
+                }
             }
         }
     }

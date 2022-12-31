@@ -1,7 +1,9 @@
+using LF2.Client;
+using LF2.Utils;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace LF2.Client
+namespace LF2.Gameplay.UI
 {
 
     public class UISettingsPanel : MonoBehaviour

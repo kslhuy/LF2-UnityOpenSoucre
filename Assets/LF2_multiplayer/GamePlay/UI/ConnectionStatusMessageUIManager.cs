@@ -1,8 +1,10 @@
 using System;
-using Unity.Multiplayer.Samples.BossRoom.Shared.Infrastructure;
+using Unity.Multiplayer.Infrastructure;
+using LF2.ConnectionManagement;
 using UnityEngine;
+using VContainer;
 
-namespace LF2.Visual
+namespace LF2.Gameplay.UI
 {
     /// <summary>
     /// Subscribes to connection status messages to display them through the popup panel.

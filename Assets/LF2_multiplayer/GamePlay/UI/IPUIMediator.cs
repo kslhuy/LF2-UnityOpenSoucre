@@ -1,11 +1,13 @@
 using System;
 using System.Text.RegularExpressions;
 using TMPro;
-using LF2.Client;
-using Unity.Multiplayer.Samples.BossRoom.Shared.Infrastructure;
+using LF2.ConnectionManagement;
+using Unity.Multiplayer.Infrastructure;
 using UnityEngine;
+using VContainer;
+using LF2.Utils;
 
-namespace LF2.Visual
+namespace LF2.Gameplay.UI
 {
     public class IPUIMediator : MonoBehaviour
     {
@@ -34,29 +36,18 @@ namespace LF2.Visual
         [SerializeField]
         IPConnectionWindow m_IPConnectionWindow;
 
-
-
-        // NameGenerationData m_NameGenerationData;
-        GameNetPortal m_GameNetPortal;
-        ClientGameNetPortal m_ClientNetPortal;
-        IPublisher<ConnectStatus> m_ConnectStatusPublisher;
+        [Inject] ConnectionManager m_ConnectionManager;
 
         public IPHostingUI IPHostingUI => m_IPHostingUI;
 
-        [Inject]
-        void InjectDependenciesAndInitialize(
-            // NameGenerationData nameGenerationData,
-            GameNetPortal gameNetPortal,
-            ClientGameNetPortal clientGameNetPortal,
-            IPublisher<ConnectStatus> connectStatusPublisher
-        )
-        {
-            // m_NameGenerationData = nameGenerationData;
-            m_GameNetPortal = gameNetPortal;
-            m_ClientNetPortal = clientGameNetPortal;
-            m_ConnectStatusPublisher = connectStatusPublisher;
+        ISubscriber<ConnectStatus> m_ConnectStatusSubscriber;
+        [Inject] ProfileManager m_projileManager;
 
-            RegenerateName();
+        [Inject]
+        void InjectDependencies(ISubscriber<ConnectStatus> connectStatusSubscriber)
+        {
+            m_ConnectStatusSubscriber = connectStatusSubscriber;
+            m_ConnectStatusSubscriber.Subscribe(OnConnectStatusMessage);
         }
 
         void Awake()
@@ -68,6 +59,17 @@ namespace LF2.Visual
         {
             // show create IP as default
             ToggleCreateIPUI();
+            RegenerateName();
+        }
+
+        void OnDestroy()
+        {
+            m_ConnectStatusSubscriber?.Unsubscribe(OnConnectStatusMessage);
+        }
+
+        void OnConnectStatusMessage(ConnectStatus connectStatus)
+        {
+            DisableSignInSpinner();
         }
 
         public void HostIPRequest(string ip, string port)
@@ -80,16 +82,11 @@ namespace LF2.Visual
 
             ip = string.IsNullOrEmpty(ip) ? k_DefaultIP : ip;
 
-            m_GameNetPortal.PlayerName = m_GameNetPortal.ProfileManager.Profile;
+            // m_GameNetPortal.PlayerName = m_GameNetPortal.ProfileManager.Profile;
 
-            if (m_GameNetPortal.StartHost(ip, portNum))
-            {
-                m_SignInSpinner.SetActive(true);
-            }
-            else
-            {
-                m_ConnectStatusPublisher.Publish(ConnectStatus.StartHostFailed);
-            }
+
+            m_SignInSpinner.SetActive(true);
+            m_ConnectionManager.StartHostIp(m_PlayerNameLabel.text, ip, portNum);
         }
 
         public void JoinWithIP(string ip, string port)
@@ -102,12 +99,12 @@ namespace LF2.Visual
 
             ip = string.IsNullOrEmpty(ip) ? k_DefaultIP : ip;
 
-            m_GameNetPortal.PlayerName = m_GameNetPortal.ProfileManager.Profile;
-            
-            Debug.Log(m_GameNetPortal.PlayerName);
+            // m_GameNetPortal.PlayerName = m_GameNetPortal.ProfileManager.Profile;
+            // m_GameNetPortal may be == ConnectionManager
+            m_PlayerNameLabel.text = m_projileManager.Profile;
             m_SignInSpinner.SetActive(true);
 
-            m_ClientNetPortal.StartClient(ip, portNum);
+            m_ConnectionManager.StartClientIp(m_PlayerNameLabel.text, ip, portNum);
 
             m_IPConnectionWindow.ShowConnectingWindow();
         }
@@ -125,9 +122,9 @@ namespace LF2.Visual
 
         void RequestShutdown()
         {
-            if (m_GameNetPortal && m_GameNetPortal.NetManager)
+            if (m_ConnectionManager && m_ConnectionManager.NetworkManager)
             {
-                m_GameNetPortal.NetManager.Shutdown();
+                m_ConnectionManager.RequestShutdown();
             }
         }
 

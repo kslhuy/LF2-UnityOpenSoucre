@@ -1,9 +1,10 @@
 using System;
-using Unity.Multiplayer.Samples.BossRoom.Shared.Infrastructure;
+using Unity.Multiplayer.Infrastructure;
 using UnityEngine;
 using UnityEngine.UI;
+using VContainer;
 
-namespace LF2.Visual
+namespace LF2.Gameplay.UI
 {
     public class IPJoiningUI : MonoBehaviour
     {

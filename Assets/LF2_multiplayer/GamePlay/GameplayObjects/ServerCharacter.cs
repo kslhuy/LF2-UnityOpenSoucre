@@ -3,6 +3,7 @@ using Unity.Netcode;
 using UnityEngine;
 using TMPro;
 using System;
+using LF2.Utils;
 
 namespace LF2.Server
 {

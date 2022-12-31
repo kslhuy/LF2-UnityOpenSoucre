@@ -1,9 +1,7 @@
 using System;
-using System.Collections.Generic;
-using Unity.Multiplayer.Samples.BossRoom.Shared.Infrastructure;
 using UnityEngine;
 
-namespace Unity.Multiplayer.Samples.BossRoom.Shared.Net.UnityServices.Infrastructure
+namespace Unity.Multiplayer.LF2.Infrastructure
 {
     public class RateLimitCooldown
     {

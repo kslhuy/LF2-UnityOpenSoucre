@@ -290,7 +290,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1
+      scalar: 0.5
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -4852,7 +4852,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 597002929163656114, guid: 07268b286ade3984997fd0292015a22b, type: 3}
       propertyPath: ShapeModule.angle
-      value: 50
+      value: 49.71
+      objectReference: {fileID: 0}
+    - target: {fileID: 597002929163656114, guid: 07268b286ade3984997fd0292015a22b, type: 3}
+      propertyPath: moveWithTransform
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 597002929163656114, guid: 07268b286ade3984997fd0292015a22b, type: 3}
       propertyPath: SizeModule.enabled
@@ -4884,7 +4888,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 597002929163656114, guid: 07268b286ade3984997fd0292015a22b, type: 3}
       propertyPath: ShapeModule.radius.value
-      value: 3
+      value: 1.75
       objectReference: {fileID: 0}
     - target: {fileID: 597002929163656114, guid: 07268b286ade3984997fd0292015a22b, type: 3}
       propertyPath: ShapeModule.radiusThickness
@@ -4896,11 +4900,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 597002929163656114, guid: 07268b286ade3984997fd0292015a22b, type: 3}
       propertyPath: InitialModule.startSize.scalar
-      value: 1
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 597002929163656114, guid: 07268b286ade3984997fd0292015a22b, type: 3}
       propertyPath: ShapeModule.randomPositionAmount
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 597002929163656114, guid: 07268b286ade3984997fd0292015a22b, type: 3}
       propertyPath: ShapeModule.randomDirectionAmount
@@ -4928,7 +4932,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 597002929163656114, guid: 07268b286ade3984997fd0292015a22b, type: 3}
       propertyPath: InitialModule.gravityModifier.scalar
-      value: 0
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 597002929163656114, guid: 07268b286ade3984997fd0292015a22b, type: 3}
       propertyPath: ShapeModule.sphericalDirectionAmount
@@ -5080,7 +5084,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 597002929163656114, guid: 07268b286ade3984997fd0292015a22b, type: 3}
       propertyPath: ShapeModule.radius.value
-      value: 3
+      value: 1.36
       objectReference: {fileID: 0}
     - target: {fileID: 597002929163656114, guid: 07268b286ade3984997fd0292015a22b, type: 3}
       propertyPath: ShapeModule.radiusThickness
@@ -5092,7 +5096,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 597002929163656114, guid: 07268b286ade3984997fd0292015a22b, type: 3}
       propertyPath: InitialModule.startSize.scalar
-      value: 1
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 597002929163656114, guid: 07268b286ade3984997fd0292015a22b, type: 3}
       propertyPath: ShapeModule.randomPositionAmount
@@ -5252,7 +5256,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 597002929163656114, guid: 07268b286ade3984997fd0292015a22b, type: 3}
       propertyPath: InitialModule.startSize.scalar
-      value: 1
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 597002929163656114, guid: 07268b286ade3984997fd0292015a22b, type: 3}
       propertyPath: InitialModule.startColor.maxColor.a
@@ -5312,7 +5316,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3526290567721581141, guid: 07268b286ade3984997fd0292015a22b, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5873737132406548947, guid: 07268b286ade3984997fd0292015a22b, type: 3}
       propertyPath: m_RootOrder
@@ -5424,7 +5428,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 597002929163656114, guid: 07268b286ade3984997fd0292015a22b, type: 3}
       propertyPath: InitialModule.startSize.scalar
-      value: 1
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 597002929163656114, guid: 07268b286ade3984997fd0292015a22b, type: 3}
       propertyPath: ShapeModule.randomPositionAmount

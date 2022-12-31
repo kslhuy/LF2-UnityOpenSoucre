@@ -2,7 +2,7 @@ using System;
 using Unity.Multiplayer.Samples.Utilities;
 using UnityEngine;
 
-namespace LF2.Visual
+namespace LF2.Gameplay.UI
 {
     public class ClientLF2LoadingScreen : ClientLoadingScreen
     {

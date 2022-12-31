@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using LF2.Utils;
 using Unity.Netcode;
 using UnityEngine;
 
@@ -17,7 +18,7 @@ namespace LF2
             LockedIn,
         }
 
-        public const int k_MaxLobbyPlayers = 8;
+        
 
         /// <summary>
         /// Describes one of the players in the lobby, and their current character-select status.

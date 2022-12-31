@@ -504,7 +504,7 @@ namespace LF2
                 // Debug.Log(Mathf.Abs((networkState.RotAngleY - rotAnglesY))); 
                 // Debug.Log((" isTeleporNextFrame " + networkState.IsTeleportingNextFrame));
                 
-                Debug.Log((" networkState.RotAngleY " + networkState.RotAngleY  + "  vs  "+ " rotAnglesY " +  rotAnglesY)); 
+                // Debug.Log((" networkState.RotAngleY " + networkState.RotAngleY  + "  vs  "+ " rotAnglesY " +  rotAnglesY)); 
                 networkState.RotAngleY = rotAnglesY;
                 networkState.HasRotAngleY = true;
                 isRotationDirty = true;
@@ -678,9 +678,9 @@ namespace LF2
                 clientCharaterMovement.ChangeValueFacingDirection(lastRotaion);
             }
 
-            Debug.Log( " Has Position X" + newState.HasPositionX);
-            Debug.Log( " Has Rotation Y" + newState.HasRotAngleY); 
-            Debug.Log( " Has Rotation Z" + newState.HasRotAngleY); 
+            // Debug.Log( " Has Position X" + newState.HasPositionX);
+            // Debug.Log( " Has Rotation Y" + newState.HasRotAngleY); 
+            // Debug.Log( " Has Rotation Z" + newState.HasRotAngleY); 
 
         }
 

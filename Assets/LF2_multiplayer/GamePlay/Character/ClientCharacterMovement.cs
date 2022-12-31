@@ -439,7 +439,7 @@ namespace LF2.Client
 
         // That should only trigger in non_authorit
         public void ChangeValueFacingDirection(byte lastRotaion){
-            Debug.Log(gameObject.name + "Change value Facing ");
+            // Debug.Log(gameObject.name + "Change value Facing ");
             if (lastRotaion == 180) 
                 FacingDirection = -1;
             else{

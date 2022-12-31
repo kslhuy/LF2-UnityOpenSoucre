@@ -1,20 +1,26 @@
 using System;
 using System.Collections;
+using LF2.ConnectionManagement;
+using LF2.Gameplay.GameState;
+using LF2.Utils;
+using Unity.Multiplayer.Infrastructure;
 using Unity.Multiplayer.Samples.BossRoom;
 using Unity.Multiplayer.Samples.Utilities;
 using Unity.Netcode;
 using UnityEngine;
+using VContainer;
+
 
 namespace LF2.Server
 {
     /// <summary>
     /// Server specialization of Character Select game state.
     /// </summary>
-    [RequireComponent(typeof(CharSelectData))]
-    [RequireComponent(typeof(BackGroundSelectData))]
-
+    [RequireComponent(typeof(NetcodeHooks),typeof(CharSelectData) , typeof(BackGroundSelectData))]
     public class ServerCharSelectState : GameStateBehaviour
     {
+        [SerializeField]
+        NetcodeHooks m_NetcodeHooks;
         public override GameState ActiveState { get { return GameState.CharSelect; } }
         public CharSelectData CharSelectData { get; private set; }
 
@@ -23,7 +29,7 @@ namespace LF2.Server
 
         Coroutine m_WaitToEndLobbyCoroutine;
 
-
+        [Inject] ConnectionManager m_ConnectionManager;
         
 
 
@@ -32,10 +38,22 @@ namespace LF2.Server
             CharSelectData = GetComponent<CharSelectData>();
             BackGroundSelectData = GetComponent<BackGroundSelectData>();
 
+            m_NetcodeHooks.OnNetworkSpawnHook += OnNetworkSpawn;
+            m_NetcodeHooks.OnNetworkDespawnHook += OnNetworkDespawn;
         }
-        public override void OnNetworkSpawn()
+        protected override void OnDestroy()
         {
-            if (!IsServer)
+            base.OnDestroy();
+
+            if (m_NetcodeHooks)
+            {
+                m_NetcodeHooks.OnNetworkSpawnHook -= OnNetworkSpawn;
+                m_NetcodeHooks.OnNetworkDespawnHook -= OnNetworkDespawn;
+            }
+        }
+        void OnNetworkSpawn()
+        {
+            if (!NetworkManager.Singleton.IsServer)
             {
                 enabled = false;
             }
@@ -52,7 +70,7 @@ namespace LF2.Server
                 NetworkManager.Singleton.SceneManager.OnSceneEvent += OnSceneEvent;
             }
         }
-        public override void OnNetworkDespawn()
+        public void OnNetworkDespawn()
         {
             if (NetworkManager.Singleton)
             {
@@ -346,7 +364,7 @@ namespace LF2.Server
 
         int GetAvailablePlayerNumber()
         {
-            for (int possiblePlayerNumber = 0; possiblePlayerNumber < CharSelectData.k_MaxLobbyPlayers; ++possiblePlayerNumber)
+            for (int possiblePlayerNumber = 0; possiblePlayerNumber < 4; ++possiblePlayerNumber)
             {
                 if (IsPlayerNumberAvailable(possiblePlayerNumber))
                 {

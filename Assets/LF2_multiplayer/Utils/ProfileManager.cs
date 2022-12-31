@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using LF2.Client;
 
 #if UNITY_EDITOR
 using System.Security.Cryptography;
@@ -10,7 +9,7 @@ using System.Text;
 
 using UnityEngine;
 
-namespace LF2.Shared
+namespace LF2.Utils
 {
     public class ProfileManager
     {

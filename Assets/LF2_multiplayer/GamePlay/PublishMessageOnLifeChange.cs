@@ -1,6 +1,8 @@
-using Unity.Multiplayer.Samples.BossRoom.Shared.Infrastructure;
+using LF2.Utils;
+using Unity.Multiplayer.Infrastructure;
 using Unity.Netcode;
 using UnityEngine;
+using VContainer;
 
 namespace LF2.Server
 {
@@ -41,7 +43,7 @@ namespace LF2.Server
                 var gameState = FindObjectOfType<ServerLF2State>();
                 if (gameState != null)
                 {
-                    gameState.Scope.InjectIn(this);
+                    gameState.Container.Inject(this);
                 }
             }
         }

@@ -29,7 +29,7 @@ MonoBehaviour:
     m_RotationOrder: 4
   Projectiles:
   - ProjectilePrefab: {fileID: 4477627029082403580, guid: d2c2b131f78655f45a0a014787ad8905, type: 3}
-    pivot: {x: 70, y: 70, z: 0}
+    pivot: {x: 60, y: 35, z: 0}
   DurationSeconds: 0.7
   expirable: 1
   ReuseTimeSeconds: 0.7
@@ -41,10 +41,7 @@ MonoBehaviour:
   - _Object: {fileID: 3526290567721581141, guid: 4db002a752d0d224a8c1bdd5e34cd63f, type: 3}
     pivot: {x: 0, y: 50, z: 0}
   frameChecker:
-    hitFrameStart: 0
-    hitFrameEnd: 0
-    returnFrame:
-      FrameToReturn: 0
-      ReturnToFrame: 0
+    clip: {fileID: 0}
     totalFrames: 0
+    _frameStruct: []
     layerNumber: 0

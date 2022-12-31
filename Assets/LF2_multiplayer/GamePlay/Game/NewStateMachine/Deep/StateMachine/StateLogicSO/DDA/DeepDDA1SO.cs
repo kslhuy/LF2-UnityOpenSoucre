@@ -79,7 +79,7 @@ namespace LF2.Client{
                 stateMachineFX.m_ClientVisual.PlayAudio(stateData.Sounds);
                 m_Launched = true;
                 if (stateMachineFX.m_ClientVisual._IsServer) {
-                    SpwanProjectile(stateData.Projectiles[0], new Vector3(stateMachineFX.CoreMovement.GetFacingDirection() ,0,stateMachineFX.InputZ));
+                    SpwanProjectileObjectPooling(stateData.Projectiles[0], new Vector3(stateMachineFX.CoreMovement.GetFacingDirection() ,0,stateMachineFX.InputZ));
                 }
             }
         }
@@ -88,9 +88,9 @@ namespace LF2.Client{
         public override void End(){
             if (!m_Launched) {
                 stateMachineFX.m_ClientVisual.PlayAudio(stateData.Sounds);
-                // if (stateMachineFX.m_ClientVisual._IsServer) {
+                if (stateMachineFX.m_ClientVisual._IsServer) {
                     SpwanProjectile(stateData.Projectiles[0], new Vector3 (stateMachineFX.CoreMovement.GetFacingDirection(),0,stateMachineFX.InputZ));
-            // }
+            }
             }
             stateMachineFX.idle();
         }

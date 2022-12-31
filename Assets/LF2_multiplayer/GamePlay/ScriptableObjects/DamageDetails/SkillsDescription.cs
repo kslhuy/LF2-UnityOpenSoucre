@@ -75,7 +75,7 @@ namespace LF2{
 
         public FrameChecker frameChecker;
 
-        private bool refeshFramCheckerOnce ;
+        [SerializeField] private bool refeshFramCheckerOnce ;
 
 
 
@@ -101,9 +101,10 @@ namespace LF2{
 
             
 
-            if (!refeshFramCheckerOnce && frameChecker.clip != null ){
+            if (!refeshFramCheckerOnce && frameChecker != null  ){
                 refeshFramCheckerOnce = !refeshFramCheckerOnce;
                 frameChecker.initialize();
+                DurationSeconds = frameChecker.length;
             }
 
         }

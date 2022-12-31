@@ -1,11 +1,11 @@
 using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using Unity.Multiplayer.Samples.BossRoom.Shared.Infrastructure;
+using Unity.Multiplayer.Infrastructure;
 using Unity.Multiplayer.Samples.BossRoom.ApplicationLifecycle.Messages;
+using VContainer;
 
-
-namespace LF2.Client
+namespace LF2.Gameplay.UI
 {
     /// <summary>
     /// Controls the special Canvas that has the settings icon and the settings window.
@@ -20,38 +20,13 @@ namespace LF2.Client
         private GameObject m_QuitPanelRoot;
 
 
-        private IPublisher<QuitGameSessionMessage> m_QuitGameSessionPub;
-
-        [Inject]
-        void InjectDependencies(IPublisher<QuitGameSessionMessage> quitGameSessionPub)
-        {
-            m_QuitGameSessionPub = quitGameSessionPub;
-        }
         void Awake()
         {
-            // the settings canvas should exist in all scenes!
-            // DontDestroyOnLoad(gameObject);
-
-
             // hide the settings window at startup (this is just to handle the common case where an artist forgets to disable the window in the prefab)
             DisablePanels();
-            SceneManager.sceneLoaded += OnSceneLoaded;
         }
 
 
-
-        void OnDestroy()
-        {
-            SceneManager.sceneLoaded -= OnSceneLoaded;
-        }
-
-        void OnSceneLoaded(Scene scene, LoadSceneMode loadSceneMode)
-        {
-            if (loadSceneMode == LoadSceneMode.Single)
-            {
-                DisablePanels();
-            }
-        }
 
         void DisablePanels()
         {
@@ -77,15 +52,7 @@ namespace LF2.Client
             m_SettingsPanelRoot.SetActive(false);
         }
 
-        /// <summary>
-        /// Go to Main Menu
-        /// </summary>
-        public void OnClickQuitSceneGameButton()
-        {
 
-            m_QuitGameSessionPub.Publish(new QuitGameSessionMessage() { UserRequested = true });
-
-        }
 
     }
 }

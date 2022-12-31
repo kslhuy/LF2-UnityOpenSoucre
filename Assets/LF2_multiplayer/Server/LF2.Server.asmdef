@@ -3,9 +3,9 @@
     "rootNamespace": "",
     "references": [
         "Unity.Netcode.Runtime",
-        "LF2.Shared",
         "Unity.Netcode.Components",
-        "Unity.TextMeshPro"
+        "Unity.TextMeshPro",
+        "LF2.GamePlay"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

@@ -1,8 +1,9 @@
+using LF2.Utils;
 using Unity.Collections;
 using Unity.Netcode;
 using UnityEngine;
 
-namespace LF2
+namespace LF2.Gameplay.UI
 {
     /// <summary>
     /// Class containing references to UI children that we can display. Both are disabled by default on prefab.

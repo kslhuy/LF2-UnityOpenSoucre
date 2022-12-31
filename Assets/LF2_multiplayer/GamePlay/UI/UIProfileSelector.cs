@@ -1,12 +1,13 @@
 using System;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
-using LF2.Shared;
-using Unity.Multiplayer.Samples.BossRoom.Shared.Infrastructure;
+using LF2.Utils;
+using Unity.Multiplayer.Infrastructure;
 using UnityEngine;
 using UnityEngine.UI;
+using VContainer;
 
-namespace LF2.Visual
+namespace LF2.Gameplay.UI
 {
     public class UIProfileSelector : MonoBehaviour
     {
@@ -23,16 +24,9 @@ namespace LF2.Visual
 
         List<ProfileListItemUI> m_ProfileListItems = new List<ProfileListItemUI>();
 
-        IInstanceResolver m_Container;
-        ProfileManager m_ProfileManager;
+        [Inject] IObjectResolver m_Resolver;
+        [Inject] ProfileManager m_ProfileManager;
 
-        [Inject]
-        void InjectDependency(IInstanceResolver container, ProfileManager profileManager)
-        {
-            // Debug.Log("inject");
-            m_Container = container;
-            m_ProfileManager = profileManager;
-        }
 
         void Awake()
         {
@@ -104,7 +98,7 @@ namespace LF2.Visual
                 .GetComponent<ProfileListItemUI>();
             m_ProfileListItems.Add(listItem);
             listItem.gameObject.SetActive(true);
-            m_Container.InjectIn(listItem);
+            m_Resolver.Inject(listItem);
         }
 
         public void Show()

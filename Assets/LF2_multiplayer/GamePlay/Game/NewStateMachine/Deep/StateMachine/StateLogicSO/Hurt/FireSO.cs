@@ -11,7 +11,7 @@ namespace LF2.Client{
         }
     }
 
-    public class FireLogic : StateActionLogic
+    public class FireLogic : MeleLogic
     {
         //Component references
         // private IdleLogicSO _originSO => (IdleLogicSO)base.OriginSO; // The SO this StateAction spawned from
@@ -39,7 +39,7 @@ namespace LF2.Client{
 
         public override void PlayPredictState( int nbanim = 1 , bool sequence = false)
         {
-            Debug.Log(GetId());
+            // Debug.Log(GetId());
             if (stateMachineFX.m_ClientVisual.Owner) {
                 stateMachineFX.m_ClientVisual.m_NetState.AddPredictState_and_SyncServerRpc(GetId());
             }
@@ -59,6 +59,11 @@ namespace LF2.Client{
                 stateMachineFX.ChangeState(StateType.LayingFront);
             }
             stateMachineFX.CoreMovement.SetFallingDown();
+        }
+
+        public override void AddCollider(Collider collider)
+        {
+            base.AddCollider(collider);
         }
     }
 

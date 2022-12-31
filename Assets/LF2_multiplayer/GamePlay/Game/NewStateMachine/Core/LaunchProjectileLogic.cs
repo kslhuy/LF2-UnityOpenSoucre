@@ -43,24 +43,23 @@ namespace LF2.Client
         protected void SpwanProjectile(SkillsDescription.ProjectileInfo projectileInfo , Vector3 dirToMove , Vector3 rotaion = default)
         {
 
-            // var projectileInfo = GetProjectileInfo(skillsDescription);
             var playerPOS = stateMachineFX.CoreMovement.transform;
-            // Debug.Log(projectileInfo.pivot);
-            // Debug.Log(playerPOS.eulerAngles);
+
 
             var projectile = GameObject.Instantiate(projectileInfo.ProjectilePrefab, playerPOS.position + new Vector3(projectileInfo.pivot.x * stateMachineFX.CoreMovement.GetFacingDirection() ,projectileInfo.pivot.y,projectileInfo.pivot.z) , rotaion != default ? Quaternion.Euler(rotaion) : playerPOS.rotation  );
-            // Debug.Log(playerPOS);
-            // point the projectile the same way we're facing
-            // projectile.transform.right = playerPOS.right;
-
-            //this way, you just need to "place" the arrow by moving it in the prefab, and that will control
-            //where it appears next to the stateMachine.
-
-            // projectile.transform.position =  + playerPOS.localToWorldMatrix.MultiplyPoint(projectile.transform.position);
+            
             projectile.GetComponent<ProjectileLogic>().Initialize(stateMachineFX.m_ClientVisual.NetworkObjectId,stateMachineFX.team, dirToMove);
 
-            projectile.GetComponent<NetworkObject>().Spawn();
+            projectile.GetComponent<NetworkObject>().Spawn(true);
         
+        }
+
+        protected void SpwanProjectileNormal(SkillsDescription.ProjectileInfo projectileInfo , Vector3 dirToMove , Vector3 rotaion = default){
+            var playerPOS = stateMachineFX.CoreMovement.transform;
+            var projectile = GameObject.Instantiate(projectileInfo.ProjectilePrefab, playerPOS.position + new Vector3(projectileInfo.pivot.x * stateMachineFX.CoreMovement.GetFacingDirection() ,projectileInfo.pivot.y,projectileInfo.pivot.z) , rotaion != default ? Quaternion.Euler(rotaion) : playerPOS.rotation  );
+            
+            projectile.GetComponent<ProjectileLogic>().Initialize(stateMachineFX.m_ClientVisual.NetworkObjectId,stateMachineFX.team, dirToMove);
+
         }
         protected void SpwanFX(LF2.SkillsDescription.SpawnsObject spawner ,int facing = 0)
         {
@@ -73,10 +72,7 @@ namespace LF2.Client
             projectile.transform.localRotation =  playerPOS.rotation;
             
 
-            // // projectile.transform.position =  + playerPOS.localToWorldMatrix.MultiplyPoint(projectile.transform.position);
-            // projectile.GetComponent<ProjectileLogic>().Initialize(stateMachineFX.m_ClientVisual.NetworkObjectId,stateMachineFX.team, dirToMove);
 
-            // projectile.GetComponent<NetworkObject>().Spawn();
         
         }
         protected void SpwanProjectileObjectPooling(SkillsDescription.ProjectileInfo projectileInfo, Vector3 dirToMove , Vector3 rotaion = default)
@@ -85,21 +81,21 @@ namespace LF2.Client
             var playerPOS = stateMachineFX.CoreMovement.transform;
             // Debug.Log(playerPOS.position);
 
-            NetworkObject no = NetworkObjectPool.Singleton.GetNetworkObject(projectileInfo.ProjectilePrefab);
+            NetworkObject no = NetworkObjectPool.Singleton.GetNetworkObject(projectileInfo.ProjectilePrefab,playerPOS.position + new Vector3(projectileInfo.pivot.x * stateMachineFX.CoreMovement.GetFacingDirection() ,projectileInfo.pivot.y,projectileInfo.pivot.z),rotaion != default ? Quaternion.Euler(rotaion) : playerPOS.rotation);
             // point the projectile the same way we're facing
 
             //this way, you just need to "place" the arrow by moving it in the prefab, and that will control
             //where it appears next to the player.
 
-            var go = no.gameObject;
+            // var go = no.gameObject;
 
-            go.transform.position = playerPOS.position + new Vector3(projectileInfo.pivot.x * stateMachineFX.CoreMovement.GetFacingDirection() ,projectileInfo.pivot.y,projectileInfo.pivot.z) ;
-            // Debug.Log(go.transform.position);
-            go.transform.rotation = rotaion != default ? Quaternion.Euler(rotaion) : playerPOS.rotation;
+            // go.SetActive(true);
+            // go.transform.position = playerPOS.position + new Vector3(projectileInfo.pivot.x * stateMachineFX.CoreMovement.GetFacingDirection() ,projectileInfo.pivot.y,projectileInfo.pivot.z) ;
+            // // Debug.Log(go.transform.position);
+            // go.transform.rotation = rotaion != default ? Quaternion.Euler(rotaion) : playerPOS.rotation;
             
             var projectileLogic = no.GetComponent<ProjectileLogic>();
             projectileLogic.GetComponent<ProjectileLogic>().Initialize(stateMachineFX.m_ClientVisual.NetworkObjectId,stateMachineFX.team, dirToMove , rotaion);
-            go.SetActive(true);
             no.Spawn(true);
         
         }

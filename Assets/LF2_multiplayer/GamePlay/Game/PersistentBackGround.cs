@@ -1,3 +1,4 @@
+using Unity.Multiplayer.Infrastructure;
 using UnityEngine;
 
 namespace LF2

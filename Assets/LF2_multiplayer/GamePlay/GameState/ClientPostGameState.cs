@@ -1,4 +1,7 @@
+using LF2.Gameplay.GameState;
 using UnityEngine;
+using VContainer;
+
 
 namespace LF2.Client
 {
@@ -10,13 +13,13 @@ namespace LF2.Client
     {
         public override GameState ActiveState { get { return GameState.PostGame; } }
 
-        public override void OnNetworkSpawn()
-        {
-            if (!IsClient)
-            {
-                enabled = false;
-            }
-        }
+        // protected override void OnNetworkSpawn()
+        // {
+        //     // if (!IsClient)
+        //     // {
+        //     //     enabled = false;
+        //     // }
+        // }
 
     }
 }

@@ -1,23 +1,19 @@
 using TMPro;
-using LF2.Shared;
 using LF2.Client;
-using Unity.Multiplayer.Samples.BossRoom.Shared.Infrastructure;
+using Unity.Multiplayer.Infrastructure;
 using UnityEngine;
+using LF2.Utils;
+using VContainer;
 
-namespace LF2.Visual
+namespace LF2.Gameplay.UI
 {
     public class ProfileListItemUI : MonoBehaviour
     {
         [SerializeField]
         TextMeshProUGUI m_ProfileNameText;
 
-        ProfileManager m_ProfileManager;
+        [Inject] ProfileManager m_ProfileManager;
 
-        [Inject]
-        void InjectDependency(ProfileManager profileManager)
-        {
-            m_ProfileManager = profileManager;
-        }
 
         public void SetProfileName(string profileName)
         {

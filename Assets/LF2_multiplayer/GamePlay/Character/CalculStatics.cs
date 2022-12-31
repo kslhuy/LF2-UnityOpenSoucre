@@ -4,8 +4,8 @@ namespace LF2{
     public class CalculStatics {
         
         // This broken_defend check does not apply if the character is in mid-air(effectively giving you a super block).
-            private int Current_BDefense;
-            private int Current_Fall;
+            public int Current_BDefense {private set ; get;}
+            public int Current_Fall {private set ; get;}
 
             // private int Current_Amor ;
             public int BaseAmor;

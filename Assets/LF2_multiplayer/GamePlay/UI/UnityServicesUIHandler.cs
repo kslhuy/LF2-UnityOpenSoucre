@@ -1,11 +1,12 @@
 using System;
-using LF2.Shared;
-using Unity.Multiplayer.Samples.BossRoom.Shared.Infrastructure;
-using Unity.Multiplayer.Samples.BossRoom.Shared.Net.UnityServices.Infrastructure;
+using LF2.Utils;
+using Unity.Multiplayer.Infrastructure;
+using Unity.Multiplayer.LF2.Infrastructure;
 using Unity.Services.Lobbies;
 using UnityEngine;
+using VContainer;
 
-namespace LF2.Visual
+namespace LF2.Gameplay.UI
 {
     public class UnityServicesUIHandler : MonoBehaviour
     {

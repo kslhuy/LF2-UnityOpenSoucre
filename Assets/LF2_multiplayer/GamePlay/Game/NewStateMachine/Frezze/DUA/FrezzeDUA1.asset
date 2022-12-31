@@ -36,13 +36,13 @@ MonoBehaviour:
   ActionInterruptible: 0
   Sounds: {fileID: 11400000, guid: 0672f2e383016fe44bda20feb2e33f22, type: 2}
   delayLoopSound: 0
-  Start_Sounds: []
+  Start_Sounds:
+  - {fileID: 11400000, guid: 0672f2e383016fe44bda20feb2e33f22, type: 2}
+  - {fileID: 0}
   SpawnsFX: []
   frameChecker:
-    hitFrameStart: 0
-    hitFrameEnd: 0
-    returnFrame:
-      FrameToReturn: 0
-      ReturnToFrame: 0
+    clip: {fileID: 0}
     totalFrames: 0
+    _frameStruct: []
     layerNumber: 0
+  refeshFramCheckerOnce: 1

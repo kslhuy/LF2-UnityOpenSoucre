@@ -28,7 +28,7 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   Projectiles: []
-  DurationSeconds: 0.2
+  DurationSeconds: 0.333
   expirable: 1
   ReuseTimeSeconds: 0
   ActionInterruptible: 0
@@ -39,10 +39,7 @@ MonoBehaviour:
   - _Object: {fileID: 1089611201767676, guid: dc8e5d9b6b2688843ae86b46280ee93f, type: 3}
     pivot: {x: 0, y: 0, z: 0}
   frameChecker:
-    hitFrameStart: 0
-    hitFrameEnd: 0
-    returnFrame:
-      FrameToReturn: 0
-      ReturnToFrame: 0
+    clip: {fileID: 0}
     totalFrames: 0
+    _frameStruct: []
     layerNumber: 0

@@ -57,7 +57,7 @@ namespace LF2.Client{
  
         public override void OnAnimEvent(int id)
         {
-            // ID 300 = Play sound
+            // ID 100 = Play sound
             stateMachineFX.m_ClientVisual.PlayAudio(stateData.Sounds);
         }
 

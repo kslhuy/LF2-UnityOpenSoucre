@@ -57,7 +57,6 @@ namespace LF2.Client
                     
                     // Debug.Log(targetNetObj);
 
-                    m_NetState.RecvHitEnemyClientRPC(targetNetObj.NetworkObjectId);
                     AttackDataSend Atk_data = new AttackDataSend();
                     
                     Atk_data.Amount_injury = ProjectileDamage[0].damageAmount;

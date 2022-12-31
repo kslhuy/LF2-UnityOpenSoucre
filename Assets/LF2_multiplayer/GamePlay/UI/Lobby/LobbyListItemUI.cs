@@ -1,9 +1,10 @@
 using TMPro;
-using Unity.Multiplayer.Samples.BossRoom.Shared.Infrastructure;
-using Unity.Multiplayer.Samples.BossRoom.Shared.Net.UnityServices.Lobbies;
+using Unity.Multiplayer.Infrastructure;
+using Unity.Multiplayer.Lobbies;
 using UnityEngine;
+using VContainer;
 
-namespace LF2.Visual
+namespace LF2.Gameplay.UI
 {
     /// <summary>
     /// An individual Lobby UI in the list of available lobbies

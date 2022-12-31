@@ -6,6 +6,7 @@ using LF2.Server;
 using UnityEngine;
 using System.Collections;
 using System;
+using LF2.Utils;
 
 namespace LF2.Client
 {
@@ -15,19 +16,13 @@ namespace LF2.Client
         protected bool m_Started = false;
 
 
-        [SerializeField]
-        protected NetworkProjectileState m_NetState;
         [Header("----- Physics ------")]
 
 
         [SerializeField]
         protected BoxCollider m_OurCollider;
 
-        [SerializeField]
-        protected Rigidbody m_Rigidbody;
-        
 
-        // [SerializeField] Animator _animator;
         /// <summary>
         /// The character that created us. Can be 0 to signal that we were created generically by the server.
         /// </summary>
@@ -56,7 +51,7 @@ namespace LF2.Client
         /// Are we done moving?
         /// </summary>
         protected int m_facing =  1;
-        private bool m_cachedIsServer;
+        protected bool m_cachedIsServer {get ; private set;}
 
         [Tooltip("Projectile's speed in meters/second")]
         public DamageDetails[] ProjectileDamage;
@@ -69,7 +64,7 @@ namespace LF2.Client
         public int MaxVictims;
 
         // Effect affter hit , or rebouding 
-        public GameObject SpawnFX;
+        public GameObject m_OnHitParticlePrefab;
 
 
 
@@ -114,12 +109,6 @@ namespace LF2.Client
                 transform.rotation = Quaternion.Euler(rotation);
             }
 
-            // Debug.Log("Call init");
-            // Debug.Log("m_SpawnerId" + m_SpawnerId);
-            
-            // Debug.Log("network object ID" + NetworkObjectId);
-
-            // m_ProjectileInfo = projectileInfo;
         }
 
         public virtual void InitializeData(in SkillsDescription.ProjectileInfo projectileInfo)
@@ -129,7 +118,6 @@ namespace LF2.Client
 
         public override void OnNetworkSpawn()
         {
-            // if (!IsServer) enabled = false;
             m_CollisionMask = LayerMask.GetMask(new[] { "HurtBox" });
             m_BlockerMask = LayerMask.GetMask(new[] { "HitBox" });
             k_GroundLayerMask = LayerMask.GetMask(new[] { "Ground" });
@@ -146,7 +134,7 @@ namespace LF2.Client
         }
 
         public virtual void FixedUpdate() {
-            if (!m_cachedIsServer && !m_Started) return;
+            if (!m_cachedIsServer || !m_Started) return;
 
             if (DestroyAfterSec + timerDestroy < Time.time)
             {
@@ -183,8 +171,7 @@ namespace LF2.Client
 
         protected virtual void OnTriggerEnter(Collider collider) {
 
-            if (!CanMove) return; 
-            // if (!m_cachedIsServer) return; 
+            if (!m_cachedIsServer) return; 
 
             if (collider.CompareTag("HitBox")){
                 // canHitCreator = true;
@@ -212,7 +199,6 @@ namespace LF2.Client
                     {
                         // Debug.Log("Hit ID " + targetNetObj.NetworkObjectId);
                         // Debug.Log("spawner ID " + m_SpawnerId);
-                        m_NetState.RecvHitEnemyClientRPC(targetNetObj.NetworkObjectId);
                         AttackDataSend Atk_data = new AttackDataSend();
                         // Debug.Log("Projecile Dirxyz" + ProjectileDamage[0].Dirxyz);
                         Atk_data.Direction = new Vector3(ProjectileDamage[0].Dirxyz.x * transform.right.x , ProjectileDamage[0].Dirxyz.y,ProjectileDamage[0].Dirxyz.z) ;

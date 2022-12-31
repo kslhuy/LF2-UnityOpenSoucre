@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace LF2.Client
+namespace LF2.Utils
 {
     /// <summary>
     /// Singleton class which saves/loads local-client settings.

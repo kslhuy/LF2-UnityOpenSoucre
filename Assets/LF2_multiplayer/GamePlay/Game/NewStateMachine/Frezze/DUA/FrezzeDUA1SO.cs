@@ -62,10 +62,10 @@ namespace LF2.Client{
 
         public override void OnAnimEvent(int id)
         {
-            if (stateMachineFX.m_ClientVisual._IsServer) {
-                SpwanProjectile(stateData.Projectiles[0], new Vector3(stateMachineFX.CoreMovement.GetFacingDirection() ,0,stateMachineFX.InputZ));
-            }       
-            stateMachineFX.m_ClientVisual.PlayAudio(stateData.Sounds);
+            // Beacause the xSlash move quick and big size so dont need to sync transform and so , we can spwan direct in client 
+            SpwanProjectileNormal(stateData.Projectiles[0], new Vector3(stateMachineFX.CoreMovement.GetFacingDirection() ,0,stateMachineFX.InputZ));
+            
+                   
             m_Launched = true;
         }
 

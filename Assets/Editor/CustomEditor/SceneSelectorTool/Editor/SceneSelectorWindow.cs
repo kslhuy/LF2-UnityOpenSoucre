@@ -21,8 +21,7 @@ namespace LF2.Editor{
 
         void CreateGUI()
         {
-            string[] folders = new string[] { "Assets/Scenes/Main" };
-            var sceneGuids = AssetDatabase.FindAssets("t:Scene",folders);
+            var sceneGuids = AssetDatabase.FindAssets("t:Scene" ,new[] {"Assets/Scenes/Main"});
 
             foreach (var sceneGuid in sceneGuids)
             {

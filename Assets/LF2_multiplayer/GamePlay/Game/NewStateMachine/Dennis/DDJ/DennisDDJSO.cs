@@ -20,9 +20,6 @@ namespace LF2.Client{
         private float timeNow ;
         AttackDataSend Atk_data ;
 
-
-
-
         public override void Awake(StateMachineNew stateMachine)
         {
             stateMachineFX = stateMachine;
@@ -58,12 +55,13 @@ namespace LF2.Client{
             }
             stateMachineFX.CoreMovement.CustomMove_InputX(stateData.Dx);
 
+
         }
 
 
         public override void PlayAnim( int nbanim = 1 , bool sequen = false)
         {
-            stateData.frameChecker.initCheck();
+            // stateData.frameChecker.initCheck();
             base.PlayAnim();
             timeNow = TimeStarted_Animation;
             stateMachineFX.m_ClientVisual.NormalAnimator.Play(stateMachineFX.m_ClientVisual.VizAnimation.a_DDJ_1);

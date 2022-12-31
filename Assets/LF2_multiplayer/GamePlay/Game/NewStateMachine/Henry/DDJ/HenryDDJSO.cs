@@ -48,7 +48,6 @@ namespace LF2.Client{
         {
             base.PlayAnim();
             stateMachineFX.m_ClientVisual.NormalAnimator.Play(stateMachineFX.m_ClientVisual.VizAnimation.a_DDJ_1);
-            stateMachineFX.m_ClientVisual.PlayAudio(stateData.Start_Sounds[0]);
 
 
         }
@@ -67,13 +66,14 @@ namespace LF2.Client{
         public override void OnAnimEvent(int id)
         {
             // ID 100 = Play sound
-            if (id == 100 ) stateMachineFX.m_ClientVisual.PlayAudio(stateData.Sounds);
+            if (id == 100 )  stateMachineFX.m_ClientVisual.PlayAudio(stateData.Start_Sounds[0]);
+
             if (id == 0) {
                 Vector3 ourPosition = stateMachineFX.CoreMovement.transform.position;
 
                 SpwanFX(stateData.SpawnsFX[0], stateMachineFX.CoreMovement.GetFacingDirection() );
                 
-                stateMachineFX.m_ClientVisual.PlayAudio(stateData.Start_Sounds[0]);
+                stateMachineFX.m_ClientVisual.PlayAudio(stateData.Start_Sounds[1]);
 
                 int nbHit  = StateUtils.DetectNearbyEntities(true , true ,stateMachineFX.m_ClientVisual.PhysicsWrapper.DamageCollider,out RaycastHit[] results ,2000f );
                 // Debug.Log("Raycast Hit " + results.Length); 

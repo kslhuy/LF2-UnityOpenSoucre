@@ -5,6 +5,7 @@ using System.IO;
 using UnityEngine;
 using System.Collections;
 using System;
+using LF2.Utils;
 
 namespace LF2.Client
 {

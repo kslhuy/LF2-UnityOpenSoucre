@@ -1,9 +1,8 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace LF2.Visual
+namespace LF2.Gameplay.UI
 {
     /// <summary>
     /// Handles the display of Popup messages. Instantiates and reuses popup panel prefabs to allow displaying multiple

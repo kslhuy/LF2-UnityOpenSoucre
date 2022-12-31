@@ -1,9 +1,11 @@
 using System.Collections;
+using LF2.Client;
+using LF2.Utils;
 using Unity.Netcode;
 using UnityEngine;
 using UnityEngine.Assertions;
 
-namespace LF2.Client
+namespace LF2.Gameplay.UI
 {
     /// <summary>
     /// Class designed to only run on a client. Add this to a world-space prefab to display health or name on UI.

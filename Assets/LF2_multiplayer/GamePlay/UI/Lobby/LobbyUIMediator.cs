@@ -1,14 +1,16 @@
 using System;
-using BossRoom.Scripts.Shared.Net.UnityServices.Auth;
+using LF2.UnityServices.Auth;
 using TMPro;
 using LF2.Client;
-using Unity.Multiplayer.Samples.BossRoom.Shared.Infrastructure;
-using Unity.Multiplayer.Samples.BossRoom.Shared.Net.UnityServices.Lobbies;
+using Unity.Multiplayer.Infrastructure;
+using Unity.Multiplayer.Lobbies;
 using Unity.Services.Core;
 using Unity.Services.Lobbies.Models;
 using UnityEngine;
+using VContainer;
+using LF2.ConnectionManagement;
 
-namespace LF2.Visual
+namespace LF2.Gameplay.UI
 {
     public class LobbyUIMediator : MonoBehaviour
     {
@@ -26,10 +28,8 @@ namespace LF2.Visual
         LobbyServiceFacade m_LobbyServiceFacade;
         LocalLobbyUser m_LocalUser;
         LocalLobby m_LocalLobby;
-        // NameGenerationData m_NameGenerationData;
-        GameNetPortal m_GameNetPortal;
-        ClientGameNetPortal m_ClientNetPortal;
-        IDisposable m_Subscriptions;
+        ConnectionManager m_ConnectionManager;
+        ISubscriber<ConnectStatus> m_ConnectStatusSubscriber;
 
         const string k_DefaultLobbyName = "no-name";
 
@@ -39,24 +39,18 @@ namespace LF2.Visual
             LobbyServiceFacade lobbyServiceFacade,
             LocalLobbyUser localUser,
             LocalLobby localLobby,
-            // NameGenerationData nameGenerationData,
-            GameNetPortal gameNetPortal,
             ISubscriber<ConnectStatus> connectStatusSub,
-            ClientGameNetPortal clientGameNetPortal
+            ConnectionManager connectionManager
         )
         {
-            // Debug.Log("Inject");
             m_AuthenticationServiceFacade = authenticationServiceFacade;
-            // m_NameGenerationData = nameGenerationData;
             m_LocalUser = localUser;
             m_LobbyServiceFacade = lobbyServiceFacade;
             m_LocalLobby = localLobby;
-            m_GameNetPortal = gameNetPortal;
-            m_ClientNetPortal = clientGameNetPortal;
+            m_ConnectionManager = connectionManager;
+            m_ConnectStatusSubscriber = connectStatusSub;
 
-            // RegenerateName();
-
-            m_Subscriptions = connectStatusSub.Subscribe(OnConnectStatus);
+            m_ConnectStatusSubscriber.Subscribe(OnConnectStatus);
         }
 
         void OnConnectStatus(ConnectStatus status)
@@ -69,12 +63,12 @@ namespace LF2.Visual
 
         void OnDestroy()
         {
-            m_Subscriptions?.Dispose();
+            m_ConnectStatusSubscriber?.Unsubscribe(OnConnectStatus);
         }
 
         //Lobby and Relay calls done from UI
 
-        public async void CreateLobbyRequest(string lobbyName, bool isPrivate, int maxPlayers)
+        public async void CreateLobbyRequest(string lobbyName, bool isPrivate)
         {
             // before sending request to lobby service, populate an empty lobby name, if necessary
             if (string.IsNullOrEmpty(lobbyName))
@@ -92,17 +86,15 @@ namespace LF2.Visual
                 return;
             }
 
-            var lobbyCreationAttempt = await m_LobbyServiceFacade.TryCreateLobbyAsync(lobbyName, maxPlayers, isPrivate);
+            var lobbyCreationAttempt = await m_LobbyServiceFacade.TryCreateLobbyAsync(lobbyName, m_ConnectionManager.MaxConnectedPlayers, isPrivate);
 
             if (lobbyCreationAttempt.Success)
             {
                 m_LocalUser.IsHost = true;
                 m_LobbyServiceFacade.SetRemoteLobby(lobbyCreationAttempt.Lobby);
 
-                m_GameNetPortal.PlayerName = m_GameNetPortal.ProfileManager.Profile;
-
-                Debug.Log($"Created lobby with ID: {m_LocalLobby.LobbyID} and code {m_LocalLobby.LobbyCode}, Internal Relay Join Code{m_LocalLobby.RelayJoinCode}");
-                m_GameNetPortal.StartUnityRelayHost();
+                Debug.Log($"Created lobby with ID: {m_LocalLobby.LobbyID} and code {m_LocalLobby.LobbyCode}");
+                m_ConnectionManager.StartHostLobby(m_LocalUser.DisplayName);
             }
             else
             {
@@ -112,7 +104,7 @@ namespace LF2.Visual
 
         public async void QueryLobbiesRequest(bool blockUI)
         {
-            if (UnityServices.State != ServicesInitializationState.Initialized)
+            if (Unity.Services.Core.UnityServices.State != ServicesInitializationState.Initialized)
             {
                 return;
             }
@@ -124,14 +116,18 @@ namespace LF2.Visual
 
             bool playerIsAuthorized = await m_AuthenticationServiceFacade.EnsurePlayerIsAuthorized();
 
-            if (!playerIsAuthorized)
+            if (blockUI && !playerIsAuthorized)
             {
                 UnblockUIAfterLoadingIsComplete();
                 return;
             }
 
             await m_LobbyServiceFacade.RetrieveAndPublishLobbyListAsync();
-            UnblockUIAfterLoadingIsComplete();
+
+            if (blockUI)
+            {
+                UnblockUIAfterLoadingIsComplete();
+            }
         }
 
         public async void JoinLobbyWithCodeRequest(string lobbyCode)
@@ -206,22 +202,12 @@ namespace LF2.Visual
             }
         }
 
-        async void OnJoinedLobby(Lobby remoteLobby)
+        void OnJoinedLobby(Unity.Services.Lobbies.Models.Lobby remoteLobby)
         {
             m_LobbyServiceFacade.SetRemoteLobby(remoteLobby);
-            // m_GameNetPortal.PlayerName = m_GameNetPortal.ProfileManager.Profile;
 
             Debug.Log($"Joined lobby with code: {m_LocalLobby.LobbyCode}, Internal Relay Join Code{m_LocalLobby.RelayJoinCode}");
-            await m_ClientNetPortal.StartClientUnityRelayModeAsync(OnRelayJoinFailed);
-
-            void OnRelayJoinFailed(string message)
-            {
-                PopupManager.ShowPopupPanel("Relay join failed", message);
-                Debug.Log($"Relay join failed: {message}");
-                //leave the lobby if relay failed for some reason
-                m_LobbyServiceFacade.EndTracking();
-                UnblockUIAfterLoadingIsComplete();
-            }
+            m_ConnectionManager.StartClientLobby(m_LocalUser.DisplayName);
         }
 
         //show/hide UI
@@ -230,13 +216,14 @@ namespace LF2.Visual
         {
             m_CanvasGroup.alpha = 1f;
             m_CanvasGroup.blocksRaycasts = true;
-            RegenerateName();
         }
 
         public void Hide()
         {
             m_CanvasGroup.alpha = 0f;
             m_CanvasGroup.blocksRaycasts = false;
+            m_LobbyCreationUI.Hide();
+            m_LobbyJoiningUI.Hide();
         }
 
         public void ToggleJoinLobbyUI()
@@ -261,9 +248,9 @@ namespace LF2.Visual
 
         public void RegenerateName()
         {
-            Debug.Log(m_GameNetPortal.ProfileManager.Profile);
-            m_LocalUser.DisplayName = m_GameNetPortal.ProfileManager.Profile;
-            m_PlayerNameLabel.text = m_GameNetPortal.ProfileManager.Profile;
+            Debug.Log("Not Finish Name Here");
+            // m_LocalUser.DisplayName = m_GameNetPortal.ProfileManager.Profile;
+            m_PlayerNameLabel.text = "NOT";
         }
 
         void BlockUIWhileLoadingIsInProgress()
@@ -284,3 +271,5 @@ namespace LF2.Visual
         }
     }
 }
+
+

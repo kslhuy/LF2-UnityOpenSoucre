@@ -16,7 +16,10 @@ namespace LF2.Client
 
         public override void Rebound()
         {
-            if (SpawnFX != null ) Instantiate(SpawnFX , transform.position , Quaternion.identity);
+            if (m_OnHitParticlePrefab != null ) {
+                Instantiate(m_OnHitParticlePrefab , transform.position , Quaternion.identity);
+                PlayAudio(Sounds[0]);
+            }
             StartCoroutine(Coro_Balldp(DestroyAfterHit));
         }
         protected override void OnTriggerEnter(Collider collider) {
@@ -39,7 +42,6 @@ namespace LF2.Client
                     {
                         // Debug.Log(targetNetObj);
 
-                        m_NetState.RecvHitEnemyClientRPC(targetNetObj.NetworkObjectId);
                         AttackDataSend Atk_data = new AttackDataSend();
                         Atk_data.Amount_injury = ProjectileDamage[0].damageAmount;
                         Atk_data.Effect = (byte)ProjectileDamage[0].Effect;

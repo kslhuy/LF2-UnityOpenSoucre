@@ -3,7 +3,7 @@ guid: ea487a3ec05c81f45b42cdee7022c8bf
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -20,6 +20,7 @@ TextureImporter:
     externalNormalMap: 0
     heightScale: 0.25
     normalMapFilter: 0
+    flipGreenChannel: 0
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
@@ -63,6 +64,8 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -124,6 +127,18 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 1024
+    resizeAlgorithm: 0
+    textureFormat: 4
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -152,7 +167,7 @@ TextureImporter:
       name: davis_ball_1
       rect:
         serializedVersion: 2
-        x: 113
+        x: 112
         y: 100
         width: 42
         height: 34
@@ -170,7 +185,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: davis_ball_2
+      name: davis_ball_9
       rect:
         serializedVersion: 2
         x: 84
@@ -178,7 +193,7 @@ TextureImporter:
         width: 76
         height: 34
       alignment: 9
-      pivot: {x: 0.509421, y: 0.4578822}
+      pivot: {x: 0.6, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -191,10 +206,10 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: davis_ball_3
+      name: davis_ball_2
       rect:
         serializedVersion: 2
-        x: 188
+        x: 189
         y: 101
         width: 50
         height: 34
@@ -212,7 +227,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: davis_ball_4
+      name: davis_ball_3
       rect:
         serializedVersion: 2
         x: 268
@@ -233,7 +248,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: davis_ball_5
+      name: davis_ball_8
       rect:
         serializedVersion: 2
         x: 3
@@ -241,7 +256,7 @@ TextureImporter:
         width: 76
         height: 34
       alignment: 9
-      pivot: {x: 0.54710525, y: 0.52105844}
+      pivot: {x: 0.6, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -254,7 +269,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: davis_ball_6
+      name: davis_ball_4
       rect:
         serializedVersion: 2
         x: 19
@@ -275,7 +290,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: davis_ball_7
+      name: davis_ball_5
       rect:
         serializedVersion: 2
         x: 97
@@ -296,7 +311,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: davis_ball_8
+      name: davis_ball_6
       rect:
         serializedVersion: 2
         x: 181
@@ -317,7 +332,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: davis_ball_9
+      name: davis_ball_7
       rect:
         serializedVersion: 2
         x: 262
@@ -348,19 +363,18 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      davis_ball_2: 556419439339462950
-      davis_ball_9: 7238787360965273657
-      davis_ball_4: -4378204040771870774
+      davis_ball_2: -4203024528828146468
+      davis_ball_9: 556419439339462950
+      davis_ball_4: -2550430326432456235
       davis_ball_1: 1938151894853323339
-      davis_ball_8: 4637416887101801037
+      davis_ball_8: 521504958498049303
       davis_ball_0: 6823443472321386279
-      davis_ball_3: -4203024528828146468
-      davis_ball_7: 4280136284512624080
-      davis_ball_6: -2550430326432456235
-      davis_ball_5: 521504958498049303
+      davis_ball_3: -4378204040771870774
+      davis_ball_7: 7238787360965273657
+      davis_ball_6: 4637416887101801037
+      davis_ball_5: 4280136284512624080
   spritePackingTag: 
   pSDRemoveMatte: 0
-  pSDShowRemoveMatteOption: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 

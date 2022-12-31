@@ -2,8 +2,9 @@ using UnityEngine;
 using TMPro;
 using Unity.Collections;
 using Unity.Netcode;
+using LF2.Utils;
 
-namespace LF2
+namespace LF2.Gameplay.UI
 {
     /// <summary>
     /// UI object that visually represents an object's name. Visuals are updated when NetworkVariable is modified.

@@ -1,10 +1,11 @@
 using System;
 using Unity.Multiplayer.Samples.BossRoom.ApplicationLifecycle.Messages;
-using Unity.Multiplayer.Samples.BossRoom.Shared;
-using Unity.Multiplayer.Samples.BossRoom.Shared.Infrastructure;
+using Unity.Multiplayer.Infrastructure;
 using UnityEngine;
+using VContainer;
+using LF2.ConnectionManagement;
 
-namespace Unity.Multiplayer.Samples.BossRoom.Client
+namespace Gameplay.UI
 {
     public class UIQuitPanel : MonoBehaviour
     {
@@ -17,22 +18,15 @@ namespace Unity.Multiplayer.Samples.BossRoom.Client
         [SerializeField]
         QuitMode m_QuitMode = QuitMode.ReturnToMenu;
 
-        IPublisher<QuitGameSessionMessage> m_QuitGameSessionPub;
-        IPublisher<QuitApplicationMessage> m_QuitApplicationPub;
-
-        [Inject]
-        void InjectDependencies(IPublisher<QuitGameSessionMessage> quitGameSessionPub, IPublisher<QuitApplicationMessage> quitApplicationPub)
-        {
-            m_QuitGameSessionPub = quitGameSessionPub;
-            m_QuitApplicationPub = quitApplicationPub;
-        }
+        [Inject] ConnectionManager m_ConnectionManager;
+        [Inject] IPublisher<QuitApplicationMessage> m_QuitApplicationPub;
 
         public void Quit()
         {
             switch (m_QuitMode)
             {
                 case QuitMode.ReturnToMenu:
-                    m_QuitGameSessionPub.Publish(new QuitGameSessionMessage() { UserRequested = true });
+                    m_ConnectionManager.RequestShutdown();
                     break;
                 case QuitMode.QuitApplication:
                     m_QuitApplicationPub.Publish(new QuitApplicationMessage());

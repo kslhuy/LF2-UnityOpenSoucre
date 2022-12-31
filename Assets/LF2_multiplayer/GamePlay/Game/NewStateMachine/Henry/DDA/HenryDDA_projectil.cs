@@ -20,7 +20,7 @@ namespace LF2.Client
             // Debug.Log(m_facing);
             if (CanMove){
                 Vector3 displacement = Speed_m_s*Time.deltaTime*m_facing*Vector3.right ;
-                m_Rigidbody.MovePosition(transform.position + displacement);
+                transform.position +=  displacement;
 
             }
         }

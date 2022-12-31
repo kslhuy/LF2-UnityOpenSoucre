@@ -1,16 +1,18 @@
 using System;
-using BossRoom.Scripts.Shared.Net.UnityServices.Auth;
-using LF2.Shared;
-using Unity.Multiplayer.Samples.BossRoom.Shared.Infrastructure;
-using Unity.Multiplayer.Samples.BossRoom.Shared.Net.UnityServices.Lobbies;
-using LF2.Visual;
+using LF2.UnityServices.Auth;
+using Unity.Multiplayer.Infrastructure;
+using Unity.Multiplayer.Lobbies;
 using Unity.Services.Authentication;
 using Unity.Services.Core;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityGamingServicesUseCases;
 using System.Threading.Tasks;
-
+using LF2.Gameplay.GameState;
+using VContainer;
+using VContainer.Unity;
+using LF2.Gameplay.UI;
+using LF2.Utils;
 
 namespace LF2.Client
 {
@@ -25,9 +27,6 @@ namespace LF2.Client
     {
         public override GameState ActiveState { get { return GameState.MainMenu; } }
 
-        // [SerializeField] NameGenerationData m_NameGenerationData;
-        // [SerializeField] LobbyUIMediator m_LobbyUIMediator;
-
         [SerializeField] LobbyUIMediator m_LobbyUIMediator;
         [SerializeField] IPUIMediator m_IPUIMediator;
         [SerializeField] Button m_LobbyButton;
@@ -38,40 +37,37 @@ namespace LF2.Client
 
         
 
-        AuthenticationServiceFacade m_AuthServiceFacade;
-        LocalLobbyUser m_LocalUser;
-        LocalLobby m_LocalLobby;
-        ProfileManager m_ProfileManager;
+
+        [Inject] AuthenticationServiceFacade m_AuthServiceFacade;
+        [Inject] LocalLobbyUser m_LocalUser;
+        [Inject] LocalLobby m_LocalLobby;
+        [Inject] ProfileManager m_ProfileManager;
 
         protected override void Awake()
         {
+            base.Awake();
+
             m_LobbyButton.interactable = false;
             m_LobbyUIMediator.Hide();
-            base.Awake();
-        }
 
-        protected override void InitializeScope()
-        {
-            // Scope.BindInstanceAsSingle(m_NameGenerationData);
-            Scope.BindInstanceAsSingle(m_LobbyUIMediator);
-            Scope.BindInstanceAsSingle(m_IPUIMediator);
-        }
-
-        [Inject]
-        async void InjectDependenciesAndInitialize(AuthenticationServiceFacade authServiceFacade, LocalLobbyUser localUser, LocalLobby localLobby, ProfileManager profileManager)
-        {
-            m_AuthServiceFacade = authServiceFacade;
-            m_LocalUser = localUser;
-            m_LocalLobby = localLobby;
-            m_ProfileManager = profileManager;
-
-            // Debug.Log(m_ProfileManager.AvailableProfiles.Count); 
             if (string.IsNullOrEmpty(Application.cloudProjectId))
             {
-                Debug.Log("Application.cloudProjectId");
                 OnSignInFailed();
                 return;
             }
+            TryToSignIn();
+        }
+
+        protected override void Configure(IContainerBuilder builder)
+        {
+            base.Configure(builder);
+            builder.RegisterComponent(m_LobbyUIMediator);
+            builder.RegisterComponent(m_IPUIMediator);
+        }
+
+        private async void TryToSignIn(){
+            // Debug.Log(m_ProfileManager.AvailableProfiles.Count); 
+
 
             m_ProfileManager.onProfileChanged += OnProfileChanged;
             await SignIn();
@@ -79,7 +75,6 @@ namespace LF2.Client
 
 
             async Task SignInAndLoadDataFromServices(){
-                await m_AuthServiceFacade.SignInAnonymous_Async();
                 if (this == null) return;
                 Debug.Log($" Player id: {AuthenticationService.Instance.PlayerId}");
 
@@ -129,14 +124,14 @@ namespace LF2.Client
                         {
                             unityAuthenticationInitOptions.SetProfile(profile);
                         }
-                        await m_AuthServiceFacade.InitializeUGS_Async(unityAuthenticationInitOptions);
+                        await m_AuthServiceFacade.InitializeAndSignInAsync(unityAuthenticationInitOptions);
                         
                         await SignInAndLoadDataFromServices();
                         Debug.Log("Initialization and signin complete.");
                     }
                     // First Time play game
                     else {
-                        await m_AuthServiceFacade.InitializeUGS_Async(unityAuthenticationInitOptions);
+                        await m_AuthServiceFacade.InitializeAndSignInAsync(unityAuthenticationInitOptions);
                         Debug.Log("First Time Sign In.");
                         await SignInAndLoadDataFromServices();
                         m_UIProfileSelector.ShowFirstTime();
@@ -173,7 +168,7 @@ namespace LF2.Client
             }
         }
 
-        public override void OnDestroy()
+        protected override void OnDestroy()
         {
             m_ProfileManager.onProfileChanged -= OnProfileChanged;
             base.OnDestroy();
@@ -243,17 +238,7 @@ namespace LF2.Client
             m_UIProfileSelector.Show();
         }
 
-        public void OnHerosClicked()
-        {
-        }
 
-
-
-        public void OnStartClicked()
-        {
-
-
-        }
 
     }
 }

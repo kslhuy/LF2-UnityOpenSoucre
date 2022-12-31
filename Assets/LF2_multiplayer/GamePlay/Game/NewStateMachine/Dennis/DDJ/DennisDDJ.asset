@@ -28,7 +28,7 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   Projectiles: []
-  DurationSeconds: 0.9
+  DurationSeconds: 0.8
   expirable: 1
   ReuseTimeSeconds: 0.9
   ActionInterruptible: 0
@@ -37,10 +37,104 @@ MonoBehaviour:
   Start_Sounds: []
   SpawnsFX: []
   frameChecker:
-    hitFrameStart: 1
-    hitFrameEnd: 9
-    returnFrame:
-      FrameToReturn: 0
+    clip: {fileID: 7400000, guid: 7d93aef7d15ae104eaaa525c98df3324, type: 2}
+    totalFrames: 12
+    _frameStruct:
+    - UseThisFrame: 0
+      dvx: 0
+      dvy: 0
+      dvz: 0
+      damageDetails: {fileID: 0}
+      SpwanObject: {fileID: 0}
+      Sound: {fileID: 0}
       ReturnToFrame: 0
-    totalFrames: 10
+    - UseThisFrame: 0
+      dvx: 0
+      dvy: 0
+      dvz: 0
+      damageDetails: {fileID: 0}
+      SpwanObject: {fileID: 0}
+      Sound: {fileID: 0}
+      ReturnToFrame: 0
+    - UseThisFrame: 0
+      dvx: 0
+      dvy: 0
+      dvz: 0
+      damageDetails: {fileID: 0}
+      SpwanObject: {fileID: 0}
+      Sound: {fileID: 0}
+      ReturnToFrame: 0
+    - UseThisFrame: 0
+      dvx: 0
+      dvy: 0
+      dvz: 0
+      damageDetails: {fileID: 0}
+      SpwanObject: {fileID: 0}
+      Sound: {fileID: 0}
+      ReturnToFrame: 0
+    - UseThisFrame: 0
+      dvx: 0
+      dvy: 0
+      dvz: 0
+      damageDetails: {fileID: 0}
+      SpwanObject: {fileID: 0}
+      Sound: {fileID: 0}
+      ReturnToFrame: 0
+    - UseThisFrame: 0
+      dvx: 0
+      dvy: 0
+      dvz: 0
+      damageDetails: {fileID: 0}
+      SpwanObject: {fileID: 0}
+      Sound: {fileID: 0}
+      ReturnToFrame: 0
+    - UseThisFrame: 0
+      dvx: 0
+      dvy: 0
+      dvz: 0
+      damageDetails: {fileID: 0}
+      SpwanObject: {fileID: 0}
+      Sound: {fileID: 0}
+      ReturnToFrame: 0
+    - UseThisFrame: 0
+      dvx: 0
+      dvy: 0
+      dvz: 0
+      damageDetails: {fileID: 0}
+      SpwanObject: {fileID: 0}
+      Sound: {fileID: 0}
+      ReturnToFrame: 0
+    - UseThisFrame: 0
+      dvx: 0
+      dvy: 0
+      dvz: 0
+      damageDetails: {fileID: 0}
+      SpwanObject: {fileID: 0}
+      Sound: {fileID: 0}
+      ReturnToFrame: 0
+    - UseThisFrame: 0
+      dvx: 0
+      dvy: 0
+      dvz: 0
+      damageDetails: {fileID: 0}
+      SpwanObject: {fileID: 0}
+      Sound: {fileID: 0}
+      ReturnToFrame: 0
+    - UseThisFrame: 0
+      dvx: 0
+      dvy: 0
+      dvz: 0
+      damageDetails: {fileID: 0}
+      SpwanObject: {fileID: 0}
+      Sound: {fileID: 0}
+      ReturnToFrame: 2
+    - UseThisFrame: 0
+      dvx: 0
+      dvy: 0
+      dvz: 0
+      damageDetails: {fileID: 0}
+      SpwanObject: {fileID: 0}
+      Sound: {fileID: 0}
+      ReturnToFrame: 0
     layerNumber: 0
+  refeshFramCheckerOnce: 1

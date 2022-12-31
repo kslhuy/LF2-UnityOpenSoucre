@@ -1,10 +1,12 @@
 using System;
 using System.Collections.Generic;
-using Unity.Multiplayer.Samples.BossRoom.Shared.Infrastructure;
+using LF2.ConnectionManagement;
+using Unity.Multiplayer.Infrastructure;
 using UnityEngine;
 using UnityEngine.UI;
+using VContainer;
 
-namespace LF2.Visual
+namespace LF2.Gameplay.UI
 {
     /// <summary>
     /// Handles the display of in-game messages in a message feed

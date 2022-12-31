@@ -5,11 +5,20 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 2
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: -2751153693144913985, guid: e1e6fa40b644751498970cb113c8b0a1, type: 3}
       propertyPath: GlobalObjectIdHash
       value: 951099334
+      objectReference: {fileID: 0}
+    - target: {fileID: 565324695859551486, guid: e1e6fa40b644751498970cb113c8b0a1, type: 3}
+      propertyPath: SyncPositionZ
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 565324695859551486, guid: e1e6fa40b644751498970cb113c8b0a1, type: 3}
+      propertyPath: SyncRotAngleY
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2075974051578360440, guid: e1e6fa40b644751498970cb113c8b0a1, type: 3}
       propertyPath: m_Size.x
@@ -104,18 +113,8 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: e1e6fa40b644751498970cb113c8b0a1, type: 3}
---- !u!114 &4100799406809116488 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3255296454070526904, guid: e1e6fa40b644751498970cb113c8b0a1, type: 3}
-  m_PrefabInstance: {fileID: 1568895022039502064}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4479758005046589536}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 39975f2fa809f7d44883789ef7323259, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &4479758005046589536 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3165636493918647440, guid: e1e6fa40b644751498970cb113c8b0a1, type: 3}
@@ -133,27 +132,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b100f40006b159249862da840ea604b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_NetState: {fileID: 4100799406809116488}
   m_OurCollider: {fileID: 7058080987340510452}
-  m_Rigidbody: {fileID: 6891968443062646232}
   k_GroundLayerMask: 0
   ProjectileDamage:
   - {fileID: 11400000, guid: 697a9edb84a0bb54aa7f1af621650e08, type: 2}
   Speed_m_s: 200
   Range: 0
   MaxVictims: 0
+  m_OnHitParticlePrefab: {fileID: 0}
   _sfxEventChannel: {fileID: 11400000, guid: 1981ab6cbad46e54ca529e09ba189c16, type: 2}
   _audioConfig: {fileID: 11400000, guid: e8a6884befaa7e544b61747452adc267, type: 2}
-  Sounds: []
+  Sounds:
+  - {fileID: 11400000, guid: e635a7f302778324f9d4a02b9df9a66d, type: 2}
   EndAnimation: 
   DestroyAfterSec: 5
   DestroyAfterHit: 0
+  m_BoxType: 0
   animator: {fileID: 0}
---- !u!54 &6891968443062646232 stripped
-Rigidbody:
-  m_CorrespondingSourceObject: {fileID: 5359535883441174824, guid: e1e6fa40b644751498970cb113c8b0a1, type: 3}
-  m_PrefabInstance: {fileID: 1568895022039502064}
-  m_PrefabAsset: {fileID: 0}
 --- !u!65 &7058080987340510452 stripped
 BoxCollider:
   m_CorrespondingSourceObject: {fileID: 8374024554256111620, guid: e1e6fa40b644751498970cb113c8b0a1, type: 3}
