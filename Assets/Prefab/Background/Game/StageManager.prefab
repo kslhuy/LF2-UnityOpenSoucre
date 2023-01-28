@@ -30,7 +30,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 20
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &6198011903121463692
 MonoBehaviour:
@@ -50,12 +50,9 @@ MonoBehaviour:
   m_SpawnPositions_Right:
   - m_Transform: {fileID: 0}
   - m_Transform: {fileID: 0}
-  m_NetworkedPrefabs:
-  - BotType: 0
-    m_NetworkedPrefab: {fileID: 0}
-  - BotType: 0
-    m_NetworkedPrefab: {fileID: 0}
+  m_AIPrefab: {fileID: 6930547048514179167, guid: 291667ebdc9681440b478639d69455eb, type: 3}
+  avatarRegistry: {fileID: 11400000, guid: cd92c35a99fc45748b8c2d6c8259f45e, type: 2}
   m_PlayerProximityValidationTimestep: 2
   lifeStateEventChannelSO: {fileID: 11400000, guid: 7959b6e781a04fd4b816463502e9d45b, type: 2}
-  boolEventChannelSO: {fileID: 11400000, guid: d6d0ffb4c07562244b3c2d4f92b6f343, type: 2}
+  m_DebugSpwanWaves: {fileID: 11400000, guid: d6d0ffb4c07562244b3c2d4f92b6f343, type: 2}
   Debug_SpawnWave_Active: 0

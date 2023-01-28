@@ -36,7 +36,7 @@ namespace LF2.Client
                 Atk_data.Effect = (byte)stateData.DamageDetails[0].Effect;
 
                 damageables.ReceiveHP(Atk_data);
-                if (stateData.SpawnsFX != null )
+                if (stateData.SpawnsFX[0]._Object)
                 {
                     Vector3 positionEffect = new (damageables.transform.position.x , stateMachineFX.m_ClientVisual.GetCenterHitBox().y , damageables.transform.position.z) ;
                     GameObject.Instantiate(stateData.SpawnsFX[0]._Object, positionEffect, Quaternion.identity);

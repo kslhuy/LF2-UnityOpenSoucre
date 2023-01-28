@@ -50,7 +50,7 @@ namespace LF2.Gameplay.UI
 
         private Dictionary<ulong, NetworkCharacterState> m_TrackedAllies = new Dictionary<ulong, NetworkCharacterState>();
 
-        private Client.ClientInputSender m_ClientSender;
+        // private Client.ClientInputSender m_ClientSender;
 
         void Awake()
         {
@@ -116,7 +116,7 @@ namespace LF2.Gameplay.UI
             // plus we track their target
             // m_OwnedCharacterState.TargetId.OnValueChanged += OnHeroSelectionChanged;
 
-            m_ClientSender = m_OwnedCharacterState.GetComponent<ClientInputSender>();
+            // m_ClientSender = m_OwnedCharacterState.GetComponent<ClientInputSender>();
         }
 
         void SetHeroHP(int previousValue, int newValue)

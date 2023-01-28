@@ -82,7 +82,7 @@ namespace LF2.Client{
                         // base.Initialize(creatorsNetworkObjectId ,teamType, dir_ToMove );
             // var nbPlayer = GetNetworkObject(creatorsNetworkObjectId).GetComponent<NbPlayer>();
             // nbCharacterViz = NbPlayer.GetPlayer();
-            foreach (ClientCharacterVisualization viz in NbPlayer.GetPlayer()){
+            foreach (ClientCharacterVisualization viz in NbPlayer.GetCharacter()){
                 if (viz.NetworkObjectId != creatorsNetworkObjectId ){
                     Debug.Log("clientCharacter" + viz);
                     nbCharacterViz.Add(viz);
@@ -125,10 +125,10 @@ namespace LF2.Client{
         
         }
 
-        public override void FixedUpdate()
-        {
-            Debug.Log("notthing");
-        }
+        // public override void FixedUpdate()
+        // {
+        //     Debug.Log("notthing");
+        // }
 
 
 

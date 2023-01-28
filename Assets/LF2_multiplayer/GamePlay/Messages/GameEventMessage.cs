@@ -7,8 +7,9 @@ namespace LF2
 {
     public struct LifeStateChangedEventMessage : INetworkSerializeByMemcpy
     {
+        // public byte IDPlayer; 
         public LifeState NewLifeState;
-        public TeamType teamType;
+        // public TeamType teamType;
         // public FixedPlayerName CharacterName;
     }
 

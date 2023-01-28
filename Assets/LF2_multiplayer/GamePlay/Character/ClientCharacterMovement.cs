@@ -300,12 +300,12 @@ namespace LF2.Client
             // transform.position +=  Time.deltaTime*moveDir;
 
         }
-        public void SetRoll(float speed = 0)
+        public void SetRoll()
         {
             moveDir = IsBorder(new Vector3(FacingDirection * m_speedRoll, 0, 0));
-            moveDir = IsBorder(moveDir);
+            // moveDir = IsBorder(moveDir);
 
-            m_Rigidbody.velocity += Time.deltaTime * moveDir;
+            m_Rigidbody.velocity =  moveDir;
 
         }
 
@@ -313,9 +313,9 @@ namespace LF2.Client
         {
 
             moveDir = IsBorder(new Vector3(FacingDirection * speed, 0, 0));
-            moveDir = IsBorder(moveDir);
+            // moveDir = IsBorder(moveDir);
 
-            m_Rigidbody.velocity += Time.deltaTime * moveDir;
+            m_Rigidbody.velocity =  moveDir;
 
         }
         public void InstanceVelocity(float velX = 0, float velY = 0, float velZ = 0)

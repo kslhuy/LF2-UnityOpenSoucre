@@ -26,7 +26,7 @@ namespace LF2.Client
             // var nbPlayer = GetNetworkObject(creatorsNetworkObjectId).GetComponent<NbPlayer>();
             // nbCharacterViz = NbPlayer.GetPlayer();
             interpolationAmount = 0f;
-            foreach (ClientCharacterVisualization viz in NbPlayer.GetPlayer()){
+            foreach (ClientCharacterVisualization viz in NbPlayer.GetCharacter()){
                 if (viz.NetworkObjectId != creatorsNetworkObjectId ){
                     Debug.Log("clientCharacter" + viz);
                     nbCharacterViz.Add(viz);

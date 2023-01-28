@@ -1,6 +1,9 @@
 using System;
 using LF2.Gameplay.GameState;
+using LF2.Utils;
 using TMPro;
+using Unity.Multiplayer.Infrastructure;
+using Unity.Netcode;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using VContainer;
@@ -15,18 +18,60 @@ namespace LF2.Client
     {
         public override GameState ActiveState {  get { return GameState.LF2_Net; } }
 
-        [SerializeField]
-        private NetLF2State _NetLF2State;
+        // [SerializeField]
+        // private NetLF2State _NetLF2State;
         
         public Transform TransformCamera;
-        
-        [SerializeField]
-        private Transform BackGroundSpwanPoint;
+
         [SerializeField]
         private BackGroundGameRegistry m_BackGroundResigtry ;
+        [SerializeField]
+        private Transform BackGroundSpwanPoint;
 
-        [SerializeField] TextMeshProUGUI Text_GameEnd;
-        [SerializeField] GameObject SummaryTable;
+        // [SerializeField] TextMeshProUGUI Text_GameEnd;
+        // [SerializeField] GameObject SummaryTable;
+        [SerializeField] PersistentPlayerRuntimeCollection persistentPlayerRuntimeCollection;
+
+        // public Action GameEnd;
+        
+        [ServerRpc]
+        public void EndGameServerRPC(TeamType teamType){
+            Debug.Log("cLient Game End ");
+            Debug.Log(teamType);
+            // Save win state
+            foreach (ClientCharacterVisualization player in NbPlayer.GetPlayers()){
+                PersistentPlayer persistentPlayer;
+                if (!(player.m_NetState.LifeState == LifeState.Alive) || !(player.m_NetState.TryGetTeamType() == teamType)){
+                    persistentPlayerRuntimeCollection.TryGetPlayer(player.OwnerClientId , out persistentPlayer);
+                    persistentPlayer.SetWinState(WinState.Loss);
+                    continue;
+                }
+                // 3: Find All Players In this Team  
+                persistentPlayerRuntimeCollection.TryGetPlayer(player.OwnerClientId , out persistentPlayer);
+                persistentPlayer.SetWinState(WinState.Win);
+            }
+        }
+        
+        [ServerRpc]
+        public void SpawnBackGroundServerRPC(NetworkGuid networkGuid){
+            Debug.Log("Client Spwan BackGround");
+            m_BackGroundResigtry.TryGetBackGround(networkGuid.ToGuid(), out BackGroundGame backGroundGame);
+                backGroundGame.BackGroundPreFab.InstantiateAsync(BackGroundSpwanPoint).Completed += (handle) =>
+                {
+                    var backgroundOBject = handle.Result;
+                    // Debug.Log(backgroundOBject);
+                    // backgroundOBject.GetComponent<NetworkObject>().Spawn(true);
+                    // if (m_NetworkGameState.NetworkGameMode.gameMode.Value == GameMode.Stage){
+                    //     stageManager = backgroundOBject.GetComponent<StageManager>();
+                    //     stageManager.StageFinishEvent += OnStageEndEventMessage;
+                    // }
+                };
+        }
+        
+
+
+
+
 
 
 

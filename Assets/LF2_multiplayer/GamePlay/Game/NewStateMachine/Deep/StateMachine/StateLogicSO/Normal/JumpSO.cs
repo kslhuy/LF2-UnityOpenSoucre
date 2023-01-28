@@ -84,7 +84,7 @@ namespace LF2.Client{
                 if (Time.time - TimeStarted_Animation > 0.15f){
                     // Debug.Log("TIMER Ok , Check Is Grounded");
                     if (stateMachineFX.CoreMovement.IsGounded()){
-                        Debug.Log("Land Not owner");
+                        // Debug.Log("Land Not owner");
                         stateMachineFX.ChangeState(StateType.Land);
                     }
                 }

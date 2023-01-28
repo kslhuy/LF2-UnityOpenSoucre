@@ -28,7 +28,7 @@ namespace LF2.ObjectPool
 
         Dictionary<GameObject, Queue<NetworkObject>> pooledObjects = new Dictionary<GameObject, Queue<NetworkObject>>();
 
-        private bool m_HasInitialized = false;
+        // private bool m_HasInitialized = false;
 
         public void Awake()
         {

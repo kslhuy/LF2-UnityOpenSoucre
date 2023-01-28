@@ -76,11 +76,7 @@ namespace LF2.Client
             {
                 if (stateMachineFX.m_ClientVisual._IsServer)
                 {
-                    var projectile = GameObject.Instantiate(stateData.Projectiles[0].ProjectilePrefab, stateMachineFX.CoreMovement.transform   );
-                
-                    projectile.GetComponent<ProjectileLogic>().Initialize(stateMachineFX.m_ClientVisual.NetworkObjectId,stateMachineFX.team, Vector3.right);
-
-                    projectile.GetComponent<NetworkObject>().Spawn();
+                    SpwanProjectile(stateData.Projectiles[0], new Vector3 (stateMachineFX.CoreMovement.GetFacingDirection(),0,stateMachineFX.InputZ));
                     m_Launched = true;
                 }
             }
@@ -102,7 +98,7 @@ namespace LF2.Client
             {
                 if (stateMachineFX.m_ClientVisual._IsServer)
                 {
-                    SpwanProjectileObjectPooling(stateData.Projectiles[0], new Vector3(stateMachineFX.CoreMovement.GetFacingDirection(), 0, stateMachineFX.InputZ));
+                    SpwanProjectile(stateData.Projectiles[0], new Vector3(stateMachineFX.CoreMovement.GetFacingDirection(), 0, stateMachineFX.InputZ));
                 }
                 stateMachineFX.m_ClientVisual.PlayAudio(stateData.Sounds);
             }

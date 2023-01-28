@@ -43,7 +43,7 @@ namespace LF2.Client
             m_GraphicsAnimator.Rebind();
             m_GraphicsAnimator.Update(0f);
 
-            // AvatarGraphicsSpawned?.Invoke(m_GraphicsAnimator.gameObject);
+            AvatarGraphicsSpawned?.Invoke(m_GraphicsAnimator.gameObject);
 
         }
     }

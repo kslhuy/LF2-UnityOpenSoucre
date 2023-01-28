@@ -17,6 +17,7 @@ namespace LF2.Client
     // [RequireComponent(typeof(ServerCharacter))]
     public class NbPlayer : NetworkBehaviour{
 
+        static List<ClientCharacterVisualization> s_ActiveCharacter = new List<ClientCharacterVisualization>();
         static List<ClientCharacterVisualization> s_ActivePlayers = new List<ClientCharacterVisualization>();
 
         [SerializeField]
@@ -28,20 +29,36 @@ namespace LF2.Client
             {
                 enabled = false;
             }
-            s_ActivePlayers.Add(m_CachedClientCharacter);
+            s_ActiveCharacter.Add(m_CachedClientCharacter);
+            if (!m_CachedClientCharacter.IsNPC){
+                s_ActivePlayers.Add(m_CachedClientCharacter);
+            }
 
         }
 
         void OnDisable()
         {
-            s_ActivePlayers.Remove(m_CachedClientCharacter);
+            s_ActiveCharacter.Remove(m_CachedClientCharacter);
+            if (!m_CachedClientCharacter.IsNPC){
+                s_ActivePlayers.Add(m_CachedClientCharacter);
+            }
         }
 
         /// <summary>
         /// Returns a list of all active players' ServerCharacters. Treat the list as read-only!
         /// The list will be empty on the client.
         /// </summary>
-        public static List<ClientCharacterVisualization> GetPlayer()
+        public static List<ClientCharacterVisualization> GetCharacter()
+        {
+
+            return s_ActiveCharacter;
+        }
+
+        /// <summary>
+        /// Returns a list of all active players' ServerCharacters. Treat the list as read-only!
+        /// The list will be empty on the client.
+        /// </summary>
+        public static List<ClientCharacterVisualization> GetPlayers()
         {
 
             return s_ActivePlayers;

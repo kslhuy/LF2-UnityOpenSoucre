@@ -74,7 +74,7 @@ namespace LF2.Client{
                 inputEnable = true;
                 if (stateMachineFX.m_ClientVisual._IsServer) {
                     stateMachineFX.m_ClientVisual.PlayAudio(stateData.Sounds);
-                    SpwanProjectileObjectPooling(stateData.Projectiles[0], Vector3.right*stateMachineFX.CoreMovement.GetFacingDirection());
+                    SpwanProjectile(stateData.Projectiles[0], Vector3.right*stateMachineFX.CoreMovement.GetFacingDirection());
                     m_Launched = true;
                 }
             }
@@ -89,7 +89,7 @@ namespace LF2.Client{
         public override void End(){
             if (stateMachineFX.m_ClientVisual._IsServer) {
                 if (!m_Launched) {
-                    SpwanProjectileObjectPooling(stateData.Projectiles[0], Vector3.right*stateMachineFX.CoreMovement.GetFacingDirection());
+                    SpwanProjectile(stateData.Projectiles[0], Vector3.right*stateMachineFX.CoreMovement.GetFacingDirection());
                     stateMachineFX.m_ClientVisual.PlayAudio(stateData.Start_Sounds[0]);
 
                     }

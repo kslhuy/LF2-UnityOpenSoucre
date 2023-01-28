@@ -4,6 +4,7 @@ using Unity.Multiplayer.Samples.BossRoom;
 using LF2.Utils;
 using LF2.ConnectionManagement;
 using Unity.Multiplayer.Infrastructure;
+using LF2.Client;
 
 namespace LF2
 {
@@ -23,6 +24,15 @@ namespace LF2
         public PersistentBOTRuntimeCollection PersistentBOT => m_PersistentBOTRuntimeCollection;
 
         public PersistentBackGround PersistentBackGround;
+        // public NetworkVariable<WinState> WinState = new NetworkVariable<WinState>();
+
+        public LifeState LifeState { get; private set; }
+
+        // [field:SerializeField] public WinState WinState { get; private set; }
+
+
+        // [SerializeField] PersistentWinStateRuntimeCollection persistentWinStateRuntimeCollection;
+
 
         
         [SerializeField]
@@ -30,6 +40,8 @@ namespace LF2
 
         [SerializeField]
         NetworkAvatarGuidState m_NetworkAvatarGuidState;
+
+        // NetworkManager.Singleton.LocalClientId
 
         // [SerializeField]
         // NetworkBackGroundGuidState m_NetworkBackGroundGuidState;
@@ -40,6 +52,8 @@ namespace LF2
         public NetworkAvatarGuidState NetworkAvatarGuidState => m_NetworkAvatarGuidState;
         // public NetworkBackGroundGuidState NetworkBackGroundGuidState => m_NetworkBackGroundGuidState;
 
+        // [SerializeField] LifeStateEventChannelSO lifeStateEventChannelSO;
+        public NetworkVariable<WinState> GameWinState = new NetworkVariable<WinState>();
 
         void Awake()
         {
@@ -55,6 +69,8 @@ namespace LF2
             // when this element is added to the runtime collection. If this was done in OnEnable() there is a chance
             // that OwnerClientID could be its default value (0).
             m_PersistentPlayerRuntimeCollection.Add(this);
+            // persistentWinStateRuntimeCollection.Add(this);
+            // lifeStateEventChannelSO.LifeStateEvent += SetWinState;
             if (IsServer)
             {
                 
@@ -85,11 +101,27 @@ namespace LF2
 
         public override void OnNetworkDespawn()
         {
-            RemovePersistentPlayer();
+            // RemovePersistentPlayer();
+            Debug.Log("Remove Persistent player Data");
+
+        }
+
+
+        public void SetWinState(WinState winState )
+        {
+            GameWinState.Value = winState; // 
+        }
+
+        public void Reset()
+        {
+            LifeState = LifeState.Alive;
+            // WinState = WinState.Invalid; // 
+            GameWinState.Value = WinState.Invalid;
         }
 
         void RemovePersistentPlayer()
         {
+            Debug.Log("Remove Persistent player Data");
             m_PersistentPlayerRuntimeCollection.Remove(this);
             m_PersistentBOTRuntimeCollection.RemoveALL();
             PersistentBackGround.NetworkBackGroundGuid = new NetworkGuid();

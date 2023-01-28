@@ -44,7 +44,7 @@ namespace LF2.ApplicationLifecycle
 
             builder.Register<ProfileManager>(Lifetime.Singleton);
 
-            builder.Register<PersistentGameState>(Lifetime.Singleton);
+            // builder.Register<PersistentGameState>(Lifetime.Singleton);
 
             //these message channels are essential and persist for the lifetime of the lobby and relay services
             // Registering as instance to prevent code stripping on iOS

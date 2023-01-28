@@ -566,7 +566,7 @@ namespace LF2
             // Dont Need This code below but i keep that 
             if (lastRotaion != networkState.RotAngleY)
             {
-                Debug.Log("last" +  lastRotaion + " vs " + " networkState.RotAngleY " + networkState.RotAngleY  );
+                // Debug.Log("last" +  lastRotaion + " vs " + " networkState.RotAngleY " + networkState.RotAngleY  );
                 // Debug.Log(networkState.RotAngleY);
 
                 transform.Rotate(new Vector3(0, 180, 0));

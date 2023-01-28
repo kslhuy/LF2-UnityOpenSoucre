@@ -29,7 +29,7 @@ namespace LF2.Gameplay.UI
 #if UNITY_EDITOR || DEVELOPMENT_BUILD
             ISubscriber<CheatUsedMessage> cheatUsedMessageSubscriber,
 #endif
-            ISubscriber<DoorStateChangedEventMessage> doorStateChangedSubscriber,
+            // ISubscriber<DoorStateChangedEventMessage> doorStateChangedSubscriber,
             ISubscriber<ConnectionEventMessage> connectionEventSubscriber,
             ISubscriber<LifeStateChangedEventMessage> lifeStateChangedEventSubscriber
         )
@@ -38,7 +38,7 @@ namespace LF2.Gameplay.UI
 #if UNITY_EDITOR || DEVELOPMENT_BUILD
             m_Subscriptions.Add(cheatUsedMessageSubscriber.Subscribe(OnCheatUsedEvent));
 #endif
-            m_Subscriptions.Add(doorStateChangedSubscriber.Subscribe(OnDoorStateChangedEvent));
+            // m_Subscriptions.Add(doorStateChangedSubscriber.Subscribe(OnDoorStateChangedEvent));
             m_Subscriptions.Add(connectionEventSubscriber.Subscribe(OnConnectionEvent));
             // m_Subscriptions.Add(lifeStateChangedEventSubscriber.Subscribe(OnLifeStateChangedEvent));
         }

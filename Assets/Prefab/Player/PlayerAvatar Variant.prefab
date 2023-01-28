@@ -420,6 +420,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7039428930130149652, guid: 687160c7cfd6cd748877c28fe515d9c6, type: 3}
+      propertyPath: m_KilledDestroyDelaySeconds
+      value: -1
+      objectReference: {fileID: 0}
     - target: {fileID: 7128102238112117297, guid: 687160c7cfd6cd748877c28fe515d9c6, type: 3}
       propertyPath: m_LocalRotation.w
       value: 1

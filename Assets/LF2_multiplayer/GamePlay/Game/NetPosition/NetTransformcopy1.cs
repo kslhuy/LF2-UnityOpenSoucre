@@ -163,14 +163,14 @@ namespace LF2
         [Range(0.001f, 360.0f)]
         public float RotAngleThreshold = RotAngleThresholdDefault;
 
-        /// <summary>
-        /// Sets whether this transform should sync in local space or in world space.
-        /// This is important to set since reparenting this transform could have issues,
-        /// if using world position (depending on who gets synced first: the parent or the child)
-        /// Having a child always at position 0,0,0 for example will have less possibilities of desync than when using world positions
-        /// </summary>
-        [Tooltip("Sets whether this transform should sync in local space or in world space")]
-        private bool m_LastInterpolateLocal = false; // was the last frame local
+        // /// <summary>
+        // /// Sets whether this transform should sync in local space or in world space.
+        // /// This is important to set since reparenting this transform could have issues,
+        // /// if using world position (depending on who gets synced first: the parent or the child)
+        // /// Having a child always at position 0,0,0 for example will have less possibilities of desync than when using world positions
+        // /// </summary>
+        // [Tooltip("Sets whether this transform should sync in local space or in world space")]
+        // private bool m_LastInterpolateLocal = false; // was the last frame local
 
         public bool Interpolate = true;
         private bool m_LastInterpolate = true; // was the last frame interpolated

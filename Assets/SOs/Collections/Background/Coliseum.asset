@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: Coliseum
   m_EditorClassIdentifier: 
   m_Guid: 9e81c449ffe4c14eb9b8f6a708163758
-  NameBackGround: Queen Island
+  NameBackGround: Coliseum
   BackGroundPreFab:
-    m_AssetGUID: 408d6845580a46f45a44ef3047371e3b
+    m_AssetGUID: 7123471ffc7e8d941a7be4fae24c81b0
     m_SubObjectName: 
     m_SubObjectType: 
     m_EditorAssetChanged: 0

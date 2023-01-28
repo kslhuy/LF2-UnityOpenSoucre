@@ -20,8 +20,8 @@ namespace LF2.Server
         // [SerializeField]
         // string m_CharacterName;
 
-        // [SerializeField]
-        // CharacterClassContainer m_CharacterClass;
+        [SerializeField]
+        CharacterClassContainer m_CharacterClass;
 
         NetworkNameState m_NameState;
 
@@ -50,14 +50,20 @@ namespace LF2.Server
 
         void OnLifeStateChanged(LifeState previousState, LifeState newState)
         {
-            if (newState == LifeState.Dead)
-            m_Publisher.Publish(new LifeStateChangedEventMessage()
-            {
-                // CharacterName = m_NameState != null ? m_NameState.Name.Value : (FixedPlayerName)m_CharacterName,
-                // CharacterType = m_CharacterClass.CharacterClass.CharacterType,
-                NewLifeState = newState
-            });
-            lifeStateEventChannelSO.RaiseEvent(newState);
+            
+            if (newState == LifeState.Dead){
+                // m_Publisher.Publish(new LifeStateChangedEventMessage(){
+                //     // CharacterName = m_NameState != null ? m_NameState.Name.Value : (FixedPlayerName)m_CharacterName,
+                //     // CharacterType = m_CharacterClass.CharacterClass.CharacterType,
+
+                //     NewLifeState = newState
+                // });
+                if (m_CharacterClass.CharacterClass.IsNpc){
+                    lifeStateEventChannelSO.RaiseEvent_AI(newState);
+                }else{
+                    lifeStateEventChannelSO.RaiseEvent_Player(newState , OwnerClientId);
+                }
+            }
         }
     }
 }

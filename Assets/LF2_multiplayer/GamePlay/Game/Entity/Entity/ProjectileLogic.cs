@@ -170,7 +170,7 @@ namespace LF2.Client
 
 
         protected virtual void OnTriggerEnter(Collider collider) {
-
+            // Debug.Log(collider);
             if (!m_cachedIsServer) return; 
 
             if (collider.CompareTag("HitBox")){

@@ -25,8 +25,9 @@ namespace LF2.Client
 
 
         protected override void OnTriggerEnter(Collider collider) {
-         
+            
             base.OnTriggerEnter(collider);
+
 
         }
         protected override void OnTriggerExit(Collider collider) {

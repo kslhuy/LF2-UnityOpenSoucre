@@ -7,8 +7,8 @@ namespace LF2{
 public class DamageDetails : ScriptableObject{
 
 
-    [Tooltip("The name of a node in the Animator's state machine.")]
-    public string m_AnimationName;
+    // [Tooltip("The name of a node in the Animator's state machine.")]
+    // public string m_AnimationName;
 
     [Header("--Effect to the enemy--")]
 
@@ -65,8 +65,8 @@ public class DamageDetails : ScriptableObject{
     public AudioCueSO[] SoundHit;
 
     
-    [HideInInspector]
-    public int AnimationNameHash; // this is maintained via OnValidate() in the editor
+    // [HideInInspector]
+    // public int AnimationNameHash; // this is maintained via OnValidate() in the editor
 
 
 

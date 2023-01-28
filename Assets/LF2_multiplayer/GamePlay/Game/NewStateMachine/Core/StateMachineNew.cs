@@ -134,7 +134,7 @@ namespace LF2.Client
         public void PerformSyncStateFX(ref StateType stateTypeSync)
         {
             // Debug.Log("Change State");
-            // if (CurrentStateViz.GetId().Equals(stateTypeSync)) return;
+            if (CurrentStateViz.GetId().Equals(stateTypeSync)) return;
             if (stateTypeSync == StateType.Land && stateTypeSync == StateType.Crouch &&  stateTypeSync == StateType.Idle ){
                 // Debug.Log( "Return car StateType is Land");
                 return;

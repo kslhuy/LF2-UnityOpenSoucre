@@ -96,6 +96,10 @@ PrefabInstance:
       propertyPath: _jumpVelocityFalloffLimit
       value: -250
       objectReference: {fileID: 0}
+    - target: {fileID: 4799267694107263265, guid: 687160c7cfd6cd748877c28fe515d9c6, type: 3}
+      propertyPath: m_CharacterClass
+      value: 
+      objectReference: {fileID: 4962415711599271908}
     - target: {fileID: 7234482614249149150, guid: 687160c7cfd6cd748877c28fe515d9c6, type: 3}
       propertyPath: _audioHits
       value: 
@@ -135,6 +139,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95bffcd932cbbea4a949b36d930c1a9e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &4962415711599271908 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 405412423302776698, guid: 687160c7cfd6cd748877c28fe515d9c6, type: 3}
+  m_PrefabInstance: {fileID: 4719309237053757598}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7459977332869851196}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25357ad53a30590439cb5fda10cddb76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &7459977332869851195 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2808402712987922597, guid: 687160c7cfd6cd748877c28fe515d9c6, type: 3}
@@ -159,32 +174,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Team:
     m_InternalValue: 0
---- !u!114 &1311214022923072589
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7459977332869851196}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e96cb6065543e43c4a752faaa1468eb1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  SyncPositionX: 1
-  SyncPositionY: 1
-  SyncPositionZ: 1
-  SyncRotAngleX: 0
-  SyncRotAngleY: 0
-  SyncRotAngleZ: 0
-  SyncScaleX: 0
-  SyncScaleY: 0
-  SyncScaleZ: 0
-  PositionThreshold: 0.001
-  RotAngleThreshold: 0.01
-  ScaleThreshold: 0.01
-  InLocalSpace: 0
-  Interpolate: 1
 --- !u!114 &1888124770139143741
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -206,6 +195,27 @@ MonoBehaviour:
   m_TransformToTrack: {fileID: 7459977332869851195}
   m_YOffset: 50
   m_XOffset: 0
+--- !u!114 &5939681629731178777
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7459977332869851196}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06d771e568d41fb44b5d5352b0192b0b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clientCharaterMovement: {fileID: 8813640699579336914}
+  distanceY: 0
+  SyncPositionX: 1
+  SyncPositionY: 1
+  SyncPositionZ: 1
+  SyncRotAngleY: 1
+  PositionThreshold: 0.5
+  RotAngleThreshold: 1
+  Interpolate: 1
 --- !u!114 &9117809403509319353
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -225,3 +235,14 @@ MonoBehaviour:
   ShowScoreAll: 0
   LowHP_Threshold: 250
   _MethodeChoseFoe: 1
+--- !u!114 &8813640699579336914 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4264360441126654028, guid: 687160c7cfd6cd748877c28fe515d9c6, type: 3}
+  m_PrefabInstance: {fileID: 4719309237053757598}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7459977332869851196}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4a10114d720c7f498b7dfbca105c005, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

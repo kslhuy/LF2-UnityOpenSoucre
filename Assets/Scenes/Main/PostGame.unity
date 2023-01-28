@@ -482,7 +482,6 @@ GameObject:
   - component: {fileID: 274997834}
   - component: {fileID: 274997837}
   - component: {fileID: 274997839}
-  - component: {fileID: 274997838}
   m_Layer: 0
   m_Name: PostGameState
   m_TagString: Untagged
@@ -519,9 +518,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parentReference:
-    TypeName: 
+    TypeName: LF2.ApplicationLifecycle.ApplicationController
   autoRun: 1
   autoInjectGameObjects: []
+  m_NetcodeHooks: {fileID: 274997839}
+  persistentPlayerRuntimeCollection: {fileID: 11400000, guid: 3d452f205bfe6f1458ac48ae9c9481d8, type: 2}
 --- !u!4 &274997836
 Transform:
   m_ObjectHideFlags: 0
@@ -556,21 +557,6 @@ MonoBehaviour:
   - {fileID: 7372234155201562739}
   - {fileID: 1189436604}
   m_NetcodeHooks: {fileID: 274997839}
-  networkPostGame: {fileID: 274997838}
---- !u!114 &274997838
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 274997833}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1225f8431f7f2eb47b4722db7e955324, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  WinState:
-    m_InternalValue: 0
 --- !u!114 &274997839
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2180,3 +2166,4 @@ MonoBehaviour:
   m_NetworkGameStateTransform: {fileID: 11400000, guid: 2898f414d2dfc824d94cfddc2d153e97, type: 2}
   m_WinLightColor: {r: 0, g: 0, b: 0, a: 0}
   m_LoseLightColor: {r: 0, g: 0, b: 0, a: 0}
+  clientGameState: {fileID: 274997835}

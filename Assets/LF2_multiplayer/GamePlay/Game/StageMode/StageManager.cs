@@ -6,6 +6,8 @@ using System;
 using LF2.Client;
 using LF2.Server;
 using LF2;
+using UnityEngine.Assertions;
+using LF2.Utils;
 
 public class StageManager : NetworkBehaviour
 {
@@ -23,8 +25,13 @@ public class StageManager : NetworkBehaviour
     [SerializeField] SpwanPostion[] m_SpawnPositions_Left;
     [SerializeField] SpwanPostion[] m_SpawnPositions_Right;
 
+    [SerializeField]
+    [Tooltip("Enemy to spawn. Make sure this is included in the NetworkManager's list of prefabs!")]
+    NetworkObject m_AIPrefab;
+    // [SerializeField] List<BotObject> m_NetworkedPrefabs;
+    [SerializeField] AvatarRegistry avatarRegistry;
 
-    [SerializeField] List<BotObject> m_NetworkedPrefabs;
+
 
     public Action StageFinishEvent;
 
@@ -71,7 +78,7 @@ public class StageManager : NetworkBehaviour
             enabled = false;
             return;
         }
-        lifeStateEventChannelSO.LifeStateEvent += LifeStateChange;
+        lifeStateEventChannelSO.LifeStateEvent_AI += LifeStateChange;
         if (m_DebugSpwanWaves == null)
         {
             Debug.LogWarning("you miss debug Spawn Waves");
@@ -87,7 +94,7 @@ public class StageManager : NetworkBehaviour
 
     // // Not use yet
     // Trigger when a character died ( no matter PC or NPC )
-    private void LifeStateChange(LifeState lifeState)
+    private void LifeStateChange(LifeState lifeState )
     {
         if (lifeState == LifeState.Dead) StartCoroutine(CheckActiveSpawnWave(2f));
     }
@@ -112,7 +119,7 @@ public class StageManager : NetworkBehaviour
 
     public override void OnNetworkDespawn()
     {
-        if (lifeStateEventChannelSO != null) lifeStateEventChannelSO.LifeStateEvent -= LifeStateChange;
+        if (lifeStateEventChannelSO != null) lifeStateEventChannelSO.LifeStateEvent_AI -= LifeStateChange;
         StopWaveSpawning();
     }
 
@@ -235,55 +242,69 @@ public class StageManager : NetworkBehaviour
     /// </summary>
     NetworkObject SpawnPrefab(CharacterTypeEnum characterType, Vector3 position, Quaternion rotation)
     {
-        NetworkObject networkObject = SearchPrefab(characterType);
-        var clone = Instantiate(networkObject, position, rotation);
-        if (!clone.IsSpawned)
+        // var botNetworkObject = NetworkManager.Singleton.SpawnManager.GetLocalPlayerObject();
+
+        var persistentPlayerExists = m_AIPrefab.TryGetComponent(out PersistentPlayer persistentPlayer);
+        Assert.IsTrue(persistentPlayerExists,
+            $"Matching persistent PersistentPlayer for Bot not found!");
+
+
+        // Find a spawn point 
+        // Instaite a Bot Object
+        var newBOT = Instantiate(m_AIPrefab);
+        var newBOTCharacter = newBOT.GetComponent<ServerCharacter>();
+
+        var physicsTransform = newBOTCharacter.physicsWrapper.Transform;
+
+        //     // Set position and rotation to the Bot Object in the scene
+        physicsTransform.SetPositionAndRotation(position, rotation);
+
+        // Check if the Bot Object have Componenet NetworkAvatarGuidState  
+        var networkAvatarGuidStateExists =
+            newBOT.TryGetComponent(out NetworkAvatarGuidState networkAvatarGuidState);
+
+        Assert.IsTrue(networkAvatarGuidStateExists,
+            $"NetworkCharacterGuidState not found on player avatar!");
+
+        LF2.Avatar _botavatarValue;
+        avatarRegistry.TryGetAvatar(characterType, out _botavatarValue);
+        networkAvatarGuidState.RegisterAvatar(_botavatarValue);
+
+        // pass name , team type from persistent player to avatar
+        if (newBOT.TryGetComponent(out NetworkNameState networkNameState))
         {
-            clone.Spawn(true);
+            networkNameState.Name.Value = _botavatarValue.CharacterClass.CharacterType.ToString();
+            networkNameState.Team.Value = TeamType.COM;
         }
 
-        return clone;
+    
+        // newBOT.SpawnWithOwnership(NetworkManager.Singleton.LocalClientId, true);
+        newBOT.Spawn( true);
+
+        return newBOT;
     }
 
-    public NetworkObject SearchPrefab(CharacterTypeEnum characterType)
-    {
-        if (m_NetworkedPrefabs == null)
-        {
-            throw new System.ArgumentNullException("m_NetworkedPrefab");
-        }
-        foreach (BotObject networkObject in m_NetworkedPrefabs)
-        {
-            if (networkObject.BotType == characterType) return networkObject.m_NetworkedPrefab;
-        }
-        Debug.LogError("Error dont have this type of Bot");
-        return null;
-    }
 
-    bool IsRoomAvailableForAnotherSpawn()
-    {
-        // references to spawned components that no longer exist will become null,
-        // so clear those out. Then we know how many we have left
-        m_ActiveSpawnsPhase.RemoveAll(spawnedNetworkObject => { return spawnedNetworkObject == null; });
-        return m_ActiveSpawnsPhase.Count < GetCurrentSpawnCap();
-    }
 
-    // / <summary>
-    // / Returns the current max number of entities we should try to maintain.
-    // / This can change based on the current number of living players; if the cap goes below
-    // / our current number of active spawns, we don't spawn anything new until we're below the cap.
-    // / </summary>
-    int GetCurrentSpawnCap()
-    {
-        int numPlayers = 0;
-        foreach (var clientCharacter in NbPlayer.GetPlayer())
-        {
-            if (clientCharacter.m_NetState.LifeState == LifeState.Alive)
-            {
-                ++numPlayers;
-            }
-        }
 
-        return Mathf.CeilToInt(Mathf.Min(stageModeData.m_MinSpawnCap + (numPlayers * stageModeData.m_SpawnCapIncreasePerPlayer), stageModeData.m_MaxSpawnCap));
-    }
+
+    // // / <summary>
+    // // / Returns the current max number of entities we should try to maintain.
+    // // / This can change based on the current number of living players; if the cap goes below
+    // // / our current number of active spawns, we don't spawn anything new until we're below the cap.
+    // // / </summary>
+    // int GetCurrentSpawnCap()
+    // {
+    //     int numPlayers = 0;
+    //     foreach (var clientCharacter in NbPlayer.GetCharacter())
+    //     {
+    //         if (clientCharacter.m_NetState.LifeState == LifeState.Alive)
+    //         {
+    //             ++numPlayers;
+    //         }
+    //     }
+
+    //     return Mathf.CeilToInt(Mathf.Min(stageModeData.m_MinSpawnCap + (numPlayers * stageModeData.m_SpawnCapIncreasePerPlayer), stageModeData.m_MaxSpawnCap));
+    // }
 
 }

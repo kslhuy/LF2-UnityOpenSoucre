@@ -60,7 +60,9 @@ namespace LF2.Client{
 
         public override void LogicUpdate()
         {
-            stateMachineFX.m_ClientVisual.coreMovement.SetRoll();
+            if (stateMachineFX.m_ClientVisual.Owner) {
+                stateMachineFX.m_ClientVisual.coreMovement.SetRoll();
+            }
         }
 
 

@@ -1,6 +1,6 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="True">
-    <Style src="project://database/Assets/margin.uss?fileID=7433441132597879392&amp;guid=f428da7cc83e4f242b0ff60b0e74cce8&amp;type=3#margin" />
-    <Style src="project://database/Assets/SkillDescription.uss?fileID=7433441132597879392&amp;guid=07e4cc19516cac543a0d4c002c76f380&amp;type=3#SkillDescription" />
+    <Style src="project://database/Assets/LF2_multiplayer/Editor/margin.uss?fileID=7433441132597879392&amp;guid=f428da7cc83e4f242b0ff60b0e74cce8&amp;type=3#margin" />
+    <Style src="project://database/Assets/LF2_multiplayer/Editor/SkillDescription.uss?fileID=7433441132597879392&amp;guid=07e4cc19516cac543a0d4c002c76f380&amp;type=3#SkillDescription" />
     <ui:VisualElement>
         <ui:Label tabindex="-1" text="State" display-tooltip-when-elided="true" name="Label" class="section" style="-unity-text-align: upper-center; -unity-font-style: bold; color: rgb(90, 92, 255); font-size: 20px;" />
         <ui:VisualElement name="state" class="comparerBoxContainer section" style="flex-direction: row;">
@@ -35,10 +35,12 @@
         </ui:VisualElement>
         <uie:CurveField label="Curve" binding-path="curve" />
     </ui:VisualElement>
-    <ui:VisualElement class="section">
+    <ui:VisualElement>
         <ui:Label tabindex="-1" text="Sound" display-tooltip-when-elided="true" name="Label" class="section" style="-unity-text-align: upper-center; -unity-font-style: bold; color: rgb(90, 92, 255); font-size: 20px;" />
         <uie:PropertyField binding-path="Sounds" label="Sound" />
         <uie:PropertyField binding-path="Start_Sounds" label="Many Sounds" />
     </ui:VisualElement>
-    <ui:VisualElement />
+    <ui:VisualElement>
+        <uie:PropertyField binding-path="frameChecker" />
+    </ui:VisualElement>
 </ui:UXML>

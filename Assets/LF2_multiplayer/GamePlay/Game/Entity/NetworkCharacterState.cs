@@ -118,10 +118,10 @@ namespace LF2
         public event Action<StateType> StateDataSync;
         
         public event Action<InputPackage> InputSendBack;      
-        public event Action<float , float> InputMoveSendBack;
+        // public event Action<float , float> InputMoveSendBack;
 
 
-        public event Action<NetStatePackage> SyncStateEvent;
+        // public event Action<NetStatePackage> SyncStateEvent;
         public event Action<AttackDataSend> RecvHPClient;
 
 

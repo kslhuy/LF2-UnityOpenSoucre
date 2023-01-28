@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using LF2.Client;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "SummaryTable", menuName = "SummaryTable")]
@@ -9,9 +10,9 @@ public class SummaryTableSO : ScriptableObject {
     public int DamageAmounts;
     public int HPLost;
     public int MPUsage;
-    public LF2.WinState Status ;
+    public WinState Status ;
 
-    public void UpdateSummaryTable(int damage ,int hpLost , int mpUsage , int kill , LF2.WinState statusLifeState){
+    public void UpdateSummaryTable(int damage ,int hpLost , int mpUsage , int kill , WinState statusLifeState){
         
 
     }

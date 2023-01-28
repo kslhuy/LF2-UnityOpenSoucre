@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 1019631804263191272}
   - component: {fileID: 631951071426593979}
   - component: {fileID: 8014959445766633566}
-  - component: {fileID: 402437061545038742}
   - component: {fileID: 295566198200723713}
   - component: {fileID: 2575197348058606090}
   m_Layer: 0
@@ -65,22 +64,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_GameStateTransformVariable: {fileID: 11400000, guid: 2898f414d2dfc824d94cfddc2d153e97, type: 2}
-  m_NetworkWinState: {fileID: 402437061545038742}
   NetworkGameMode: {fileID: 2575197348058606090}
---- !u!114 &402437061545038742
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7220787923388136116}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a622abc86b5b53c4d82b81cb5ccd91de, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  winState:
-    m_InternalValue: 0
 --- !u!114 &295566198200723713
 MonoBehaviour:
   m_ObjectHideFlags: 0

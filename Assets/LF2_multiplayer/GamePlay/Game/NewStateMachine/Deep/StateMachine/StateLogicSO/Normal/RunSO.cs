@@ -59,6 +59,7 @@ namespace LF2.Client{
 
         public override void Exit()
         {
+            stateMachineFX.CoreMovement.ResetVelocity();
             base.Exit();
         }
 

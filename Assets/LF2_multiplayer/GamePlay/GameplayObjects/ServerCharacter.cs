@@ -51,7 +51,7 @@ namespace LF2.Server
 
         [SerializeField]
         [Tooltip("Setting negative value disables destroying object after it is killed.")]
-        private float m_KilledDestroyDelaySeconds = 3.0f;
+        private int m_KilledDestroyDelaySeconds = 3;
 
 
         // Start Here because the GameObject being intantied when we go to the Scence GamePlay LF2
@@ -124,16 +124,16 @@ namespace LF2.Server
         }
 
 
-        void Update()
-        {
+        // void Update()
+        // {
 
-            // MStateMachinePlayer.Update();
-            // if(m_lastState != MStateMachinePlayer.CurrentState.GetId()){
-            //     m_lastState = MStateMachinePlayer.CurrentState.GetId();
-            //     textMesh.text = m_lastState.ToString();
-            // }
+        //     // MStateMachinePlayer.Update();
+        //     // if(m_lastState != MStateMachinePlayer.CurrentState.GetId()){
+        //     //     m_lastState = MStateMachinePlayer.CurrentState.GetId();
+        //     //     textMesh.text = m_lastState.ToString();
+        //     // }
 
-        }
+        // }
 
 
         // For projectil ( Use server authoriza )
@@ -142,7 +142,7 @@ namespace LF2.Server
             // Debug.Log(attackData);
             NetState.RecvHPClientRPC(attackData);
             if (NetState.HPPoints <= 0 ) {
-
+                // Set m_KilledDestroyDelaySeconds = -1 for Player , so its can not destroyed 
                 if (m_KilledDestroyDelaySeconds >= 0.0f && NetState.LifeState != LifeState.Dead)
                 {
                     StartCoroutine(KilledDestroyProcess());

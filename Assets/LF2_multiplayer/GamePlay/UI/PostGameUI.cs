@@ -5,7 +5,9 @@ using Unity.Multiplayer.Infrastructure;
 using Unity.Multiplayer.Samples.Utilities;
 using Unity.Netcode;
 using VContainer;
-
+using LF2.Client;
+using LF2.Server;
+using System;
 
 namespace LF2.Gameplay.UI
 {
@@ -36,16 +38,15 @@ namespace LF2.Gameplay.UI
         [SerializeField]
         private Color m_LoseLightColor;
 
-        IPublisher<QuitGameSessionMessage> m_QuitGameSessionPub;
+        ServerPostGameState m_PostGameState;
+        // PersistentPlayer persistentPlayer;
+        [SerializeField] ClientPostGameState clientGameState;
 
         [Inject]
-        void InjectDependencies(IPublisher<QuitGameSessionMessage> quitGameSessionPub)
+        void Inject(ServerPostGameState postGameState )
         {
-            m_QuitGameSessionPub = quitGameSessionPub;
-        }
+            m_PostGameState = postGameState;
 
-        void Start()
-        {
             // only hosts can restart the game, other players see a wait message
             if (NetworkManager.Singleton.IsHost)
             {
@@ -58,15 +59,54 @@ namespace LF2.Gameplay.UI
                 m_WaitOnHostMsg.SetActive(true);
             }
 
-            if (m_NetworkGameStateTransform && m_NetworkGameStateTransform.Value &&
-                m_NetworkGameStateTransform.Value.TryGetComponent(out NetworkGameState networkGameState))
-            {
-                // SetPostGameUI(networkGameState.NetworkWinState);
-            }
+            
+            // if (m_NetworkGameStateTransform && m_NetworkGameStateTransform.Value &&
+            //     m_NetworkGameStateTransform.Value.TryGetComponent(out NetworkGameState networkGameState))
+            // {
+            // }
+            
+
         }
+        void Start()
+        {
+            // SetPostGameUI(clientGameState.winState);
+
+        //     PersistentPlayer persistentPlayer;
+        //     // Debug.Log(persistentPlayer.name);
+        //     // if (persistentPlayer.IsOwner)
+        //     // {
+        //     //     SetPostGameUI(persistentPlayer.WinState);
+        //     // }
+        //     // m_PostGameState.NetworkPostGame.WinState.OnValueChanged += OnWinStateChanged;
+        //     // SetPostGameUI(persistentPlayer.WinState);
+        //     persistentPlayer.Reset();
+        }
+
+        // private void PersistentPlayerRemoved(PersistentPlayer persistentPlayer)
+        // {
+        //     SetPostGameUI(persistentPlayer.WinState);
+        // }
+
+        // private void PersistentPlayerAdded(PersistentPlayer persistentPlayer)
+        // {
+        //     if (persistentPlayer.IsOwner)
+        //     {
+        //         SetPostGameUI(persistentPlayer.WinState);
+        //     }
+        //     // else
+        //     // {
+        //     //     SetAllyData(clientPlayerAvatar);
+        //     // }
+        // }
+
+        // void OnWinStateChanged(WinState previousValue, WinState newValue)
+        // {
+        //     SetPostGameUI(newValue);
+        // }
 
         void SetPostGameUI(WinState winState)
         {
+            Debug.Log(winState);
             // Set end message and background color based last game outcome
             if (winState == WinState.Win)
             {
@@ -80,6 +120,8 @@ namespace LF2.Gameplay.UI
             }
         }
 
+
+
         public void OnPlayAgainClicked()
         {
             // this should only ever be called by the Host - so just go ahead and switch scenes
@@ -90,7 +132,7 @@ namespace LF2.Gameplay.UI
 
         public void OnMainMenuClicked()
         {
-            m_QuitGameSessionPub.Publish(new QuitGameSessionMessage() { UserRequested = true });
+            m_PostGameState.GoToMainMenu();
         }
     }
 }

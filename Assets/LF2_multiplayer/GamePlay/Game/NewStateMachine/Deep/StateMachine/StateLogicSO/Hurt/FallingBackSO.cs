@@ -79,7 +79,7 @@ namespace LF2.Client{
         }
         public override void HurtResponder(Vector3 dirToRespond)
         {
-            Debug.Log("HurtResponder");
+            // Debug.Log("HurtResponder");
             stateMachineFX.CoreMovement.ResetVelocity();
             stateMachineFX.CoreMovement.SetHurtMovement(dirToRespond);
         }

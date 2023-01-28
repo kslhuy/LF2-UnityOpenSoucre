@@ -31,7 +31,7 @@ namespace LF2.Client{
         {
             base.PlayAnim();
             stateMachineFX.m_ClientVisual.NormalAnimator.Play(stateMachineFX.m_ClientVisual.VizAnimation.a_Sliding);  
-            stateMachineFX.m_ClientVisual.PlayAudio(stateData.Sounds);
+            if (stateData.Sounds) stateMachineFX.m_ClientVisual.PlayAudio(stateData.Sounds);
         }
 
         public override void PlayPredictState( int nbanim = 1 , bool sequence = false)

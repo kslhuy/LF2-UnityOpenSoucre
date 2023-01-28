@@ -7,7 +7,7 @@ public enum CharacterTypeEnum
     //heroes
     Deep,
 
-    David,
+    Davis,
     Dennis,
     John,
     Firen,

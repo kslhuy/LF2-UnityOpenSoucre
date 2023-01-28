@@ -51,13 +51,19 @@ namespace LF2.Client{
             if (stateMachineFX.m_ClientVisual._IsServer) {
                 SpwanProjectileObjectPooling(stateData.Projectiles[0], new Vector3(stateMachineFX.CoreMovement.GetFacingDirection() ,0,stateMachineFX.InputZ));
                 m_Launched = true;
-                }        
+            }        
         }
 
 
 
         public override void End(){
 
+            if (!m_Launched) {
+                stateMachineFX.m_ClientVisual.PlayAudio(stateData.Sounds);
+                if (stateMachineFX.m_ClientVisual._IsServer) {
+                    SpwanProjectile(stateData.Projectiles[0], new Vector3 (stateMachineFX.CoreMovement.GetFacingDirection(),0,stateMachineFX.InputZ));
+                }
+            }
             stateMachineFX.idle();
 
         }

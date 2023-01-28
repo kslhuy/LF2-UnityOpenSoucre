@@ -380,7 +380,7 @@ namespace LF2.Client
         {
             //  iterate all over the players have class NBplayer (even NPCs or PCs)
             // Debug.Log($"NbPlayer = {NbPlayer.GetPlayer().Count}"); 
-            foreach (var character in NbPlayer.GetPlayer())
+            foreach (var character in NbPlayer.GetCharacter())
             {
                 // Flitre out the NPCs , only take PCs
                 if (IsAppropriateFoe(character) )

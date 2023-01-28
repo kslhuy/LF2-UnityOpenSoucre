@@ -84,13 +84,12 @@ namespace LF2.Client{
 
 
         public override void End(){
-            // System.Math.Min(doCombo,subStateDetails.Length); 
-            // Debug.Log($"End && docombo = {doCombo}");
-            // if (!ExecuteOne){
-            //     ExecuteOne = true;
-            //     Test();
-            // }
-
+            if (!m_Launched) {
+                stateMachineFX.m_ClientVisual.PlayAudio(stateData.Sounds);
+                if (stateMachineFX.m_ClientVisual._IsServer) {
+                    SpwanProjectile(stateData.Projectiles[0], new Vector3 (stateMachineFX.CoreMovement.GetFacingDirection(),0,stateMachineFX.InputZ));
+                }
+            }
             stateMachineFX.idle();
         }
         public override void Exit()

@@ -16,14 +16,20 @@ public class SkillsDescriptionEditor : Editor
         VisualElement root = new VisualElement();
     
         m_VSTree.CloneTree(root);
+        var button = new Button() { text = "Reset FrameChecker" };
+        root.Add(button);
+        button.RegisterCallback<ClickEvent>(evt  =>{
+            var skilDes = (SkillsDescription)target;
+            skilDes.frameChecker.initialize();
+        });
 
         // Return the finished inspector UI
 
-        var folout = new Foldout() {
-            viewDataKey = "SkillsDescriptionFullView" , text = "Full Inspector"
-        };
-        InspectorElement.FillDefaultInspector(folout , serializedObject , this);
-        root.Add(folout);
+        // var folout = new Foldout() {
+        //     viewDataKey = "SkillsDescriptionFullView" , text = "Full Inspector"
+        // };
+        // InspectorElement.FillDefaultInspector(folout , serializedObject , this);
+        // root.Add(folout);
         return root;
     }
 

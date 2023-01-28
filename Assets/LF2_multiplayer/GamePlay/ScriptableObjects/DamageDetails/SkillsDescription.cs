@@ -75,7 +75,7 @@ namespace LF2{
 
         public FrameChecker frameChecker;
 
-        [SerializeField] private bool refeshFramCheckerOnce ;
+        // [SerializeField] private bool refeshFramCheckerOnce ;
 
 
 
@@ -88,11 +88,7 @@ namespace LF2{
                         Debug.LogWarning($"You may forgot SO_DamageDetails in  {StateType} SOs ");
                         break;
                     }
-                    if (DamageDetails[i].m_AnimationName == null) {
-                        throw new System.Exception($"Missing name animation for DamageDetails in state {StateType} at position {i} ");
-                    }
 
-                    DamageDetails[i].AnimationNameHash = Animator.StringToHash(DamageDetails[i].m_AnimationName);
                 }
             }
             if (Logic != StateLogic.Movement && DurationSeconds == 0){
@@ -101,11 +97,11 @@ namespace LF2{
 
             
 
-            if (!refeshFramCheckerOnce && frameChecker != null  ){
-                refeshFramCheckerOnce = !refeshFramCheckerOnce;
-                frameChecker.initialize();
-                DurationSeconds = frameChecker.length;
-            }
+            // if (!refeshFramCheckerOnce && frameChecker != null  ){
+            //     refeshFramCheckerOnce = !refeshFramCheckerOnce;
+            //     frameChecker.initialize();
+            //     DurationSeconds = frameChecker.length;
+            // }
 
         }
 

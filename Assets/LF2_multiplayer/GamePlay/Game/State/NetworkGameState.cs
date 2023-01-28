@@ -9,10 +9,10 @@ namespace LF2
         [SerializeField]
         TransformVariable m_GameStateTransformVariable;
 
-        [SerializeField]
-        NetworkWinState m_NetworkWinState;
+        // [SerializeField]
+        // NetworkWinState m_NetworkWinState;
 
-        public NetworkWinState NetworkWinState => m_NetworkWinState;
+        // public NetworkWinState NetworkWinState => m_NetworkWinState;
 
         public NetworkGameMode NetworkGameMode;
         

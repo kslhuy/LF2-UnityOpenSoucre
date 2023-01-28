@@ -1,0 +1,16 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="True">
+    <ui:VisualElement>
+        <ui:Label tabindex="-1" text="FrameChecker" display-tooltip-when-elided="true" name="FrameChecker" style="-unity-text-align: upper-center;" />
+        <uie:PropertyField name="Animation" binding-path="clip" />
+        <uie:PropertyField binding-path="totalFrames" />
+        <uie:PropertyField binding-path="length" />
+    </ui:VisualElement>
+    <ui:MultiColumnListView name="mcDirection" fixed-item-height="20">
+    <!-- Columns and Column aren't Visual Elements or controls. They are considered attributes of MultiColumnListView. -->
+    <ui:Columns>
+        <ui:Column name="dvx" title="dvx" width="50" />
+        <ui:Column name="dvy" title="dvy ?" width="50" />
+        <ui:Column name="dvz" title="dvz ?" width="50" />
+    </ui:Columns>
+    </ui:MultiColumnListView>
+</ui:UXML>

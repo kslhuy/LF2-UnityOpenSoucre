@@ -515,6 +515,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_NetworkLifeState: {fileID: 758663530373189659}
   lifeStateEventChannelSO: {fileID: 11400000, guid: 7959b6e781a04fd4b816463502e9d45b, type: 2}
+  m_CharacterClass: {fileID: 405412423302776698}
 --- !u!1 &2940818776946575046
 GameObject:
   m_ObjectHideFlags: 0

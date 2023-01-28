@@ -21,10 +21,11 @@ namespace LF2
     public struct FrameStruct{
         // How far this frame can move 
         public Sprite sprite;
+        public float time;
         public int dvx;
         public int dvy;
         public int dvz;
-
+        // return to frame when press a key  
         public int pressed_A;
         
         public int pressed_J;
@@ -82,16 +83,49 @@ namespace LF2
             _frameCheckHandler = frameCheckHandler;
             _animator = animator;
             _spriteRenderer = sp;
+            
+            // initCheck();
+        }
+        public void initialize(IFrameCheckHandler frameCheckHandler,SpriteRenderer sp)
+        {
+            _frameCheckHandler = frameCheckHandler;
+            _spriteRenderer = sp;
+            
             // initCheck();
         }
 
         // For Data 
         public void initialize()
         {       
+            if (!clip) return;
             totalFrames = Mathf.RoundToInt(clip.length * clip.frameRate);
             length = clip.length;
-            // _frameStruct = new FrameStruct[totalFrames];
-        
+            InitializeFrameStruct(clip);
+
+        }
+
+        public void InitializeFrameStruct(AnimationClip clip)
+        {
+            _frameStruct = new FrameStruct[totalFrames];
+            var sprites = new List<Sprite> ();
+            var times = new List<float> ();
+
+
+            foreach(var binding in AnimationUtility.GetObjectReferenceCurveBindings(clip))
+            {
+                var keyframes = AnimationUtility.GetObjectReferenceCurve (clip, binding);
+                foreach(var frame in keyframes)
+                {
+                    sprites.Add((Sprite) frame.value);
+                    times.Add(frame.time);
+                }
+            }
+            for (int i=0 ; i<totalFrames ; i++){
+                _frameStruct[i].sprite = sprites[i]; 
+                _frameStruct[i].time = times[i]; 
+                
+            }
+            
         }
         
         //First Frame 

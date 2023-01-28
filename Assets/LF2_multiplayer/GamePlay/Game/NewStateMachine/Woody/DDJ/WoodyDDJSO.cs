@@ -60,7 +60,7 @@ namespace LF2.Client{
         {
             nbCharacterViz = new List<ClientCharacterVisualization>();
             // Look throught all active PCs or NPCs 
-            foreach (ClientCharacterVisualization viz in NbPlayer.GetPlayer()){
+            foreach (ClientCharacterVisualization viz in NbPlayer.GetCharacter()){
                 if (viz.NetworkObjectId != stateMachineFX.m_ClientVisual.NetworkObjectId && viz.IsDamageable(stateMachineFX.m_ClientVisual.teamType)){
                     // Debug.Log("clientCharacter" + viz);
                     nbCharacterViz.Add(viz);

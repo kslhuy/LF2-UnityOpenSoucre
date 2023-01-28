@@ -15,7 +15,7 @@ MonoBehaviour:
   CharacterType: 9
   A_AttackAvaillable:
   - A_Availlable: {fileID: 11400000, guid: 724634a52ab534247bae6438f5fff115, type: 2}
-    Disable: 1
+    Disable: 0
     ShowScore: 0
   - A_Availlable: {fileID: 11400000, guid: cdb5a29210263c24bbda1c88d7973d70, type: 2}
     Disable: 0
@@ -23,7 +23,7 @@ MonoBehaviour:
   A_MoveAvaillable:
   - A_Availlable: {fileID: 11400000, guid: 25286e9215b7a7c4b88de38043c02526, type: 2}
     Disable: 0
-    ShowScore: 1
+    ShowScore: 0
   - A_Availlable: {fileID: 11400000, guid: dbd4ee5e5565e094e84d226ae260b594, type: 2}
     Disable: 0
     ShowScore: 0

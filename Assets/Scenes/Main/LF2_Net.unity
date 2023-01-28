@@ -13802,9 +13802,9 @@ MonoBehaviour:
   m_BOTPrefab: {fileID: 6930547048514179167, guid: 291667ebdc9681440b478639d69455eb, type: 3}
   m_PlayerSpawnPoints:
   - {fileID: 18476126}
-  _NetLF2State: {fileID: 2091721875}
-  m_BackGroundResigtry: {fileID: 11400000, guid: 757d32e2bb9129c4eb16af0089c73e39, type: 2}
-  BackGroundSpwanPoint: {fileID: 7013674841994154531}
+  _ClientLF2State: {fileID: 2091721874}
+  lifeStateEventChannelSO: {fileID: 11400000, guid: 7959b6e781a04fd4b816463502e9d45b, type: 2}
+  m_PersistentPlayerCollection: {fileID: 11400000, guid: 3d452f205bfe6f1458ac48ae9c9481d8, type: 2}
 --- !u!114 &2091721873
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13837,12 +13837,10 @@ MonoBehaviour:
     TypeName: 
   autoRun: 1
   autoInjectGameObjects: []
-  _NetLF2State: {fileID: 2091721875}
   TransformCamera: {fileID: 1371133419}
-  BackGroundSpwanPoint: {fileID: 7013674841994154531}
   m_BackGroundResigtry: {fileID: 11400000, guid: 757d32e2bb9129c4eb16af0089c73e39, type: 2}
-  Text_GameEnd: {fileID: 1685705421}
-  SummaryTable: {fileID: 0}
+  BackGroundSpwanPoint: {fileID: 7013674841004006585}
+  persistentPlayerRuntimeCollection: {fileID: 11400000, guid: 3d452f205bfe6f1458ac48ae9c9481d8, type: 2}
 --- !u!114 &2091721875
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13852,7 +13850,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2091721870}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e2491c4c58c4d084b9a57680936b594b, type: 3}
+  m_Script: {fileID: 11500000, guid: 4cd88a5adff08c94da40e1800604b911, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &2091721876
@@ -17261,6 +17259,10 @@ PrefabInstance:
       propertyPath: m_NetworkedPrefabs.Array.data[0].m_NetworkedPrefab
       value: 
       objectReference: {fileID: 6930547048514179167, guid: 291667ebdc9681440b478639d69455eb, type: 3}
+    - target: {fileID: 8543546271747941661, guid: cbd6c3b2c1fe41549a0b4349697f753d, type: 3}
+      propertyPath: GlobalObjectIdHash
+      value: 4037406913
+      objectReference: {fileID: 0}
     - target: {fileID: 8619232895712941909, guid: cbd6c3b2c1fe41549a0b4349697f753d, type: 3}
       propertyPath: m_Icon
       value: 

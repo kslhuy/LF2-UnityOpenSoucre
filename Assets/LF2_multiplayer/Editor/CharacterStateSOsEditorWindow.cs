@@ -79,45 +79,45 @@
 //         // m_ScrollView.Bind(serializedObject);
 //     }
 
-//     // private void OnListSelectionChanged(List<object> list)
-//     // {
-//     //         IMGUIContainer editor = rootVisualElement.Q<IMGUIContainer>(className: "table-editor");
-// 	// 		editor.onGUIHandler = null;
-// 	// 		if (list.Count == 0)
-// 	// 			return;
+    // private void OnListSelectionChanged(List<object> list)
+    // {
+    //         IMGUIContainer editor = rootVisualElement.Q<IMGUIContainer>(className: "table-editor");
+	// 		editor.onGUIHandler = null;
+	// 		if (list.Count == 0)
+	// 			return;
 
-// 	// 		var table = (CharacterStateSOs)list[0];
-// 	// 		if (table == null)
-// 	// 			return;
+	// 		var table = (CharacterStateSOs)list[0];
+	// 		if (table == null)
+	// 			return;
 
-// 	// 		if (_characterStateSOsEditor == null)
-// 	// 			_characterStateSOsEditor = UnityEditor.Editor.CreateEditor(table, typeof(TransitionTableEditor));
-// 	// 		else if (_characterStateSOsEditor.target != table)
-// 	// 			UnityEditor.Editor.CreateCachedEditor(table, typeof(TransitionTableEditor), ref _characterStateSOsEditor);
+	// 		if (_characterStateSOsEditor == null)
+	// 			_characterStateSOsEditor = UnityEditor.Editor.CreateEditor(table, typeof(TransitionTableEditor));
+	// 		else if (_characterStateSOsEditor.target != table)
+	// 			UnityEditor.Editor.CreateCachedEditor(table, typeof(TransitionTableEditor), ref _characterStateSOsEditor);
 
-// 	// 		editor.onGUIHandler = () =>
-// 	// 		{
-// 	// 			if (!_characterStateSOsEditor.target)
-// 	// 			{
-// 	// 				editor.onGUIHandler = null;
-// 	// 				return;
-// 	// 			}
+	// 		editor.onGUIHandler = () =>
+	// 		{
+	// 			if (!_characterStateSOsEditor.target)
+	// 			{
+	// 				editor.onGUIHandler = null;
+	// 				return;
+	// 			}
 
-// 	// 			ListView listView = rootVisualElement.Q<ListView>(className: "table-list");
-// 	// 			if ((Object)listView.selectedItem != _characterStateSOsEditor.target)
-// 	// 			{
-// 	// 				var i = listView.itemsSource.IndexOf(_characterStateSOsEditor.target);
-// 	// 				listView.selectedIndex = i;
-// 	// 				if (i < 0)
-// 	// 				{
-// 	// 					editor.onGUIHandler = null;
-// 	// 					return;
-// 	// 				}
-// 	// 			}
+	// 			ListView listView = rootVisualElement.Q<ListView>(className: "table-list");
+	// 			if ((Object)listView.selectedItem != _characterStateSOsEditor.target)
+	// 			{
+	// 				var i = listView.itemsSource.IndexOf(_characterStateSOsEditor.target);
+	// 				listView.selectedIndex = i;
+	// 				if (i < 0)
+	// 				{
+	// 					editor.onGUIHandler = null;
+	// 					return;
+	// 				}
+	// 			}
 
-// 	// 			_characterStateSOsEditor.OnInspectorGUI();
-// 	// 		};    
-//     //     }
+	// 			_characterStateSOsEditor.OnInspectorGUI();
+	// 		};    
+    //     }
 
 //     private VisualElement NewRow( VisualElement right)
 //     {
