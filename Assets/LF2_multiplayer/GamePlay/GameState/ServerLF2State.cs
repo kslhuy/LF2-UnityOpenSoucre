@@ -326,9 +326,12 @@ namespace LF2.Server
                 newBOT.Spawn(true);
             }
 
+            // Reset Bot Collection (Avoid case bot spwan even not select)
+            persistentPlayer.RemoveBotCollection();
+
             if (spawnBackGround)
             {
-                _ClientLF2State.SpawnBackGroundServerRPC(persistentPlayer.PersistentBackGround.NetworkBackGroundGuid);
+                _ClientLF2State.SpawnBackGroundServerRPC(persistentPlayer.PersistentBackGround.NetworkBackGround.Value);
             }
         
         }

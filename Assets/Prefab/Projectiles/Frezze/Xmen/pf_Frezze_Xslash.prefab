@@ -88,6 +88,10 @@ PrefabInstance:
       propertyPath: m_Constraints
       value: 116
       objectReference: {fileID: 0}
+    - target: {fileID: 5419839728806143420, guid: e1e6fa40b644751498970cb113c8b0a1, type: 3}
+      propertyPath: m_Constraints
+      value: 112
+      objectReference: {fileID: 0}
     - target: {fileID: 8374024554256111620, guid: e1e6fa40b644751498970cb113c8b0a1, type: 3}
       propertyPath: m_Size.x
       value: 148.76389

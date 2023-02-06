@@ -244,9 +244,9 @@ public class StageManager : NetworkBehaviour
     {
         // var botNetworkObject = NetworkManager.Singleton.SpawnManager.GetLocalPlayerObject();
 
-        var persistentPlayerExists = m_AIPrefab.TryGetComponent(out PersistentPlayer persistentPlayer);
-        Assert.IsTrue(persistentPlayerExists,
-            $"Matching persistent PersistentPlayer for Bot not found!");
+        // var persistentPlayerExists = m_AIPrefab.TryGetComponent(out PersistentPlayer persistentPlayer);
+        // Assert.IsTrue(persistentPlayerExists,
+        //     $"Matching persistent PersistentPlayer for Bot not found!");
 
 
         // Find a spawn point 

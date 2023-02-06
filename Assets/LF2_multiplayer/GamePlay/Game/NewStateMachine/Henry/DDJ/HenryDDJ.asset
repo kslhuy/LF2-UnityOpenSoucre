@@ -18,6 +18,7 @@ MonoBehaviour:
   ManaCost: -20
   DamageDetails:
   - {fileID: 11400000, guid: f2f5e2d56525c5242bb245184a89dc1f, type: 2}
+  Interactions: []
   Dx: 0
   Dy: 0
   Dz: 0
@@ -28,7 +29,7 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   Projectiles: []
-  DurationSeconds: 0.8
+  DurationSeconds: 0.65
   expirable: 1
   ReuseTimeSeconds: 0
   ActionInterruptible: 0
@@ -43,6 +44,7 @@ MonoBehaviour:
   frameChecker:
     clip: {fileID: 0}
     totalFrames: 0
-    length: 0
+    arest: 0
+    vrest: 0
     _frameStruct: []
     layerNumber: 0

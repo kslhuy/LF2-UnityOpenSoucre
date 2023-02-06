@@ -19,6 +19,13 @@ namespace LF2
 
             return backgroundValue != null;
         }
+        public BackGroundGame TryGetBackGround(BackGroundEnum nameBackground )
+        {
+            BackGroundGame backgroundValue;
+            backgroundValue = Array.Find(m_BackGrounds, background => background.NameBackGround == nameBackground);
+
+            return backgroundValue ;
+        }
         public BackGroundGame GetRandomBackGround()
         {
             if (m_BackGrounds == null || m_BackGrounds.Length == 0)
@@ -29,16 +36,7 @@ namespace LF2
             return m_BackGrounds[UnityEngine.Random.Range(0, m_BackGrounds.Length)];
             // return m_BackGrounds[0];
         }
-        public BackGroundGame GetSpecifiqueAvatar(int index)
-        {
-            if (m_BackGrounds == null || m_BackGrounds.Length == 0)
-            {
-                return null;
-            }
 
-            // return m_BackGrounds[UnityEngine.Random.Range(0, m_BackGrounds.Length)];
-            return m_BackGrounds[index];
-        }
 
     }
 }

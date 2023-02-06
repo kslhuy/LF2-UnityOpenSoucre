@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d730e41c51680c9499c842c8e6a8dfbb, type: 3}
   m_Name: CO_SUP_IsEnemyState
   m_EditorClassIdentifier: 
-  Name: 
-  isSubConsideration: 1
-  StateDesir: 1e000000080000001100000012000000
+  Owner: A_DDJ_John
+  isSubConsideration: 0
+  StateDesir: 07
   isDiffThisState: 0

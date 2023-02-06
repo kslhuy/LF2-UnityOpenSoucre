@@ -6,7 +6,7 @@ using UnityEngine;
 //behavior NPC can do = State 
 namespace LF2.Client{
     public abstract class StateAction : ScriptableObject{
-        public StateType TypeName;
+        [SerializeField] public StateType TypeName;
 
         private float _score;
 
@@ -27,7 +27,11 @@ namespace LF2.Client{
 
         public virtual void SetRequiredDestination(AIBrain npc) { }
 
-
+        private void OnValidate() {
+            for (int i = 0; i<considerations.Length ; i++){
+                considerations[i].Owner = name;
+            }
+        }
         
     }
 }

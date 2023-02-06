@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Forbiden Tower
   m_EditorClassIdentifier: 
   m_Guid: 44f8de7a097a84448392fae3f7272db4
-  NameBackGround: Forbiden Tower
+  NameBackGround: 1
   BackGroundPreFab:
     m_AssetGUID: cbd6c3b2c1fe41549a0b4349697f753d
     m_SubObjectName: 

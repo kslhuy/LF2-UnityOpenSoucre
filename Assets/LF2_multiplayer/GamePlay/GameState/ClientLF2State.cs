@@ -53,19 +53,18 @@ namespace LF2.Client
         }
         
         [ServerRpc]
-        public void SpawnBackGroundServerRPC(NetworkGuid networkGuid){
+        public void SpawnBackGroundServerRPC(BackGroundEnum networkGuid){
             Debug.Log("Client Spwan BackGround");
-            m_BackGroundResigtry.TryGetBackGround(networkGuid.ToGuid(), out BackGroundGame backGroundGame);
-                backGroundGame.BackGroundPreFab.InstantiateAsync(BackGroundSpwanPoint).Completed += (handle) =>
-                {
-                    var backgroundOBject = handle.Result;
-                    // Debug.Log(backgroundOBject);
-                    // backgroundOBject.GetComponent<NetworkObject>().Spawn(true);
-                    // if (m_NetworkGameState.NetworkGameMode.gameMode.Value == GameMode.Stage){
-                    //     stageManager = backgroundOBject.GetComponent<StageManager>();
-                    //     stageManager.StageFinishEvent += OnStageEndEventMessage;
-                    // }
-                };
+            m_BackGroundResigtry.TryGetBackGround(networkGuid).BackGroundPreFab.InstantiateAsync(BackGroundSpwanPoint).Completed += (handle) =>
+            {
+                var backgroundOBject = handle.Result;
+                // Debug.Log(backgroundOBject);
+                // backgroundOBject.GetComponent<NetworkObject>().Spawn(true);
+                // if (m_NetworkGameState.NetworkGameMode.gameMode.Value == GameMode.Stage){
+                //     stageManager = backgroundOBject.GetComponent<StageManager>();
+                //     stageManager.StageFinishEvent += OnStageEndEventMessage;
+                // }
+            };
         }
         
 

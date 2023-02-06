@@ -29,18 +29,18 @@ namespace LF2.Gameplay.UI
         [SerializeField]
         private GameObject m_WaitOnHostMsg;
 
-        [SerializeField]
-        TransformVariable m_NetworkGameStateTransform;
 
-        [SerializeField]
-        private Color m_WinLightColor;
+        // [SerializeField]
+        // private Color m_WinLightColor;
 
-        [SerializeField]
-        private Color m_LoseLightColor;
+        // [SerializeField]
+        // private Color m_LoseLightColor;
 
         ServerPostGameState m_PostGameState;
-        // PersistentPlayer persistentPlayer;
-        [SerializeField] ClientPostGameState clientGameState;
+        [SerializeField] UlongVariable OnwerClientID;
+
+
+        [SerializeField] PersistentPlayerRuntimeCollection persistentPlayerRuntimeCollection;
 
         [Inject]
         void Inject(ServerPostGameState postGameState )
@@ -69,7 +69,9 @@ namespace LF2.Gameplay.UI
         }
         void Start()
         {
-            // SetPostGameUI(clientGameState.winState);
+            
+            persistentPlayerRuntimeCollection.TryGetPlayer(OnwerClientID.Value, out PersistentPlayer persistentPlayer);
+            SetPostGameUI(persistentPlayer.GameWinState.Value);
 
         //     PersistentPlayer persistentPlayer;
         //     // Debug.Log(persistentPlayer.name);
@@ -79,7 +81,6 @@ namespace LF2.Gameplay.UI
         //     // }
         //     // m_PostGameState.NetworkPostGame.WinState.OnValueChanged += OnWinStateChanged;
         //     // SetPostGameUI(persistentPlayer.WinState);
-        //     persistentPlayer.Reset();
         }
 
         // private void PersistentPlayerRemoved(PersistentPlayer persistentPlayer)

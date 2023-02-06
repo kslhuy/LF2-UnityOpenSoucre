@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc3fd8c47895b7f4f85421a8f8c94a5f, type: 3}
+  m_Name: A_DDJ_Freeze
+  m_EditorClassIdentifier: 
+  TypeName: 33
+  considerations:
+  - {fileID: 11400000, guid: 9b1edbb4946f6264397be5aae82e991e, type: 2}
+  - {fileID: 11400000, guid: 338af59b4e5250a41aa220b60c335221, type: 2}
+  - {fileID: 11400000, guid: bbcfd23219aae604ba1bdac65e3919f8, type: 2}
+  - {fileID: 11400000, guid: 1f551da54f1a9994ca7e73fc0108cc5b, type: 2}
+  - {fileID: 11400000, guid: 6d2e3ff721e045344a6a3ca4a0edd25b, type: 2}

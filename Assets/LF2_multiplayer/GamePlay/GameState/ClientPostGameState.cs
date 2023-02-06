@@ -16,35 +16,8 @@ namespace LF2.Client
     {
         public override GameState ActiveState { get { return GameState.PostGame; } }
 
-        [SerializeField]
-        NetcodeHooks m_NetcodeHooks;
-        [SerializeField] PersistentPlayerRuntimeCollection persistentPlayerRuntimeCollection;
 
-        public WinState winState {private set; get;} 
-        protected override void Awake()
-        {
-            base.Awake();
-            m_NetcodeHooks.OnNetworkSpawnHook += OnNetworkSpawn;
-            m_NetcodeHooks.OnNetworkDespawnHook += OnNetworkDespawn;
-        }
 
-        private void OnNetworkDespawn()
-        {
-            m_NetcodeHooks.OnNetworkSpawnHook -= OnNetworkSpawn;
-            m_NetcodeHooks.OnNetworkDespawnHook -= OnNetworkDespawn;
-        }
-
-        private void OnNetworkSpawn()
-        {
-            if (!NetworkManager.Singleton.IsClient)
-            {
-                enabled = false;
-            }
-            Debug.Log("owner client ID" +  m_NetcodeHooks.OwnerClientId); 
-            persistentPlayerRuntimeCollection.TryGetPlayer(m_NetcodeHooks.OwnerClientId , out PersistentPlayer persistentPlayer);
-            winState = persistentPlayer.GameWinState.Value;
-            Debug.Log(winState);
-        }
 
     }
 }

@@ -42,7 +42,8 @@ namespace LF2.Client{
         {
             base.PlayAnim();
             stateMachineFX.m_ClientVisual.NormalAnimator.Play(stateMachineFX.m_ClientVisual.VizAnimation.a_DUA_1);
-            stateMachineFX.m_ClientVisual.PlayAudio(stateData.Sounds);
+            
+            if (stateData.Sounds) stateMachineFX.m_ClientVisual.PlayAudio(stateData.Sounds);
 
         }
 
@@ -65,7 +66,7 @@ namespace LF2.Client{
             if (stateMachineFX.m_ClientVisual._IsServer) {
                 SpwanProjectile(stateData.Projectiles[0], new Vector3(stateMachineFX.CoreMovement.GetFacingDirection() ,0,stateMachineFX.InputZ));
             }       
-            stateMachineFX.m_ClientVisual.PlayAudio(stateData.Sounds);
+            // stateMachineFX.m_ClientVisual.PlayAudio(stateData.Sounds);
             m_Launched = true;
         }
 

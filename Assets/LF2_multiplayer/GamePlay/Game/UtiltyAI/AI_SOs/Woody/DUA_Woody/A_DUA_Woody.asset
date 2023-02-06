@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc3fd8c47895b7f4f85421a8f8c94a5f, type: 3}
+  m_Name: A_DUA_Woody
+  m_EditorClassIdentifier: 
+  TypeName: 39
+  considerations:
+  - {fileID: 11400000, guid: 5ad117dfe6ed37e4281a544c8998035b, type: 2}
+  - {fileID: 11400000, guid: 4ebc82920521fa84c9b964fce72da5cd, type: 2}
+  - {fileID: 11400000, guid: a2c545b51c60e644d977067685f3cce0, type: 2}

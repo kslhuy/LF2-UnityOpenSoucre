@@ -1,5 +1,7 @@
 using Unity.Multiplayer.Infrastructure;
 using UnityEngine;
+using Unity.Netcode;
+
 
 namespace LF2
 {
@@ -9,6 +11,8 @@ namespace LF2
     [CreateAssetMenu(menuName = "Collection/PersistentBackGround")]
 
     public class PersistentBackGround : ScriptableObject {
-        public NetworkGuid NetworkBackGroundGuid ;
+        // public NetworkGuid NetworkBackGroundGuid ;
+        public NetworkVariable<BackGroundEnum> NetworkBackGround = new NetworkVariable<BackGroundEnum>(); 
+
     }
 }

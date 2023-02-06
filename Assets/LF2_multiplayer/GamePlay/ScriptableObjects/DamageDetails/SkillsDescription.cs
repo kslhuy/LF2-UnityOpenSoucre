@@ -24,6 +24,7 @@ namespace LF2{
         [Header("----- DAmage ------")]
         // [ExtendEditorSOs]
         public DamageDetails[] DamageDetails;
+        public Interaction[] Interactions;
 
         [Header("----- Range ------")]
 
@@ -94,6 +95,17 @@ namespace LF2{
             if (Logic != StateLogic.Movement && DurationSeconds == 0){
                 Debug.LogWarning($"You may forgot setting DurationSeconds in  {StateType} SOs ");
             }
+
+            // if (DamageDetails.Length > 0 ){
+            //     Debug.Log(Logic);
+            //     Interactions = new Interaction[1];
+            //     Interactions[0].Bdefend = DamageDetails[0].Bdefend;
+            //     Interactions[0].fall = DamageDetails[0].fall;
+            //     Interactions[0].Dirxyz = DamageDetails[0].Dirxyz;
+            //     Interactions[0].Effect = DamageDetails[0].Effect;
+            //     Interactions[0].damageAmount = DamageDetails[0].damageAmount;
+            // }
+            
 
             
 

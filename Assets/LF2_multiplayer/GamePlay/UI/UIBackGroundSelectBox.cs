@@ -122,8 +122,8 @@ namespace LF2.Client
         public void ConfigureBackGround(BackGroundGame backGroundGame)
         {
             m_ImageBackGround.sprite = backGroundGame.BackGroundImage;
-            ;
-            NameBackGround.text = backGroundGame.NameBackGround;
+            NameBackGround.text = backGroundGame.NameBackGround.ToString(); 
+            // System.Text.RegularExpressions.Regex.Replace(backGroundGame.NameBackGround.ToString(), "(\\B[A-Z])", " $1");
             SetLockedIn(false);
         }
 

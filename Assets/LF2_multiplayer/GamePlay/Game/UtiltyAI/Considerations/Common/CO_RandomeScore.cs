@@ -5,13 +5,15 @@ namespace LF2.Client{
     
     public class CO_RandomeScore : Consideration
     {
-        [SerializeField] AnimationCurve responseCurve ;
+        
+        // [SerializeField] AnimationCurve responseCurve ;
+        [Tooltip("bigger value , high chance to play onwer Action")]
         [Range(0,1f)]
         [SerializeField] float PointFrequencyAddition;
         
         public override float ScoreConsideration(AIBrain brain)
         {            
-            return Mathf.Clamp01(responseCurve.Evaluate(Random.Range(0, 100))+PointFrequencyAddition);
+            return Mathf.Clamp01(Random.value+PointFrequencyAddition);
         }
     }
 

@@ -14,7 +14,7 @@ namespace LF2.Client{
     public class HenryIdleLogic : StateActionLogic
     {
 
-        private bool isPlayAnimation;
+        // private bool isPlayAnimation;
         InteractionZone itr ;
 
         //Component references

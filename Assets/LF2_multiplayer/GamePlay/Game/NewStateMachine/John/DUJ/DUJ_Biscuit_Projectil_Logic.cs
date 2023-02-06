@@ -125,10 +125,9 @@ namespace LF2.Client{
         
         }
 
-        // public override void FixedUpdate()
-        // {
-        //     Debug.Log("notthing");
-        // }
+        // need overide , not remove that  
+        public override void FixedUpdate()
+        {}
 
 
 
@@ -137,9 +136,17 @@ namespace LF2.Client{
             bisCuitState = BisCuitState.borning;
 
             yield return new WaitForSeconds(_timerBorning);
-            StartCoroutine(Tele_Disappear_Then_Appear(m_timerTeleport_dessappear ,m_timerTeleport_appear )) ;
+
+            if (haveTarget){
+                StartCoroutine(Tele_Disappear_Then_Appear(m_timerTeleport_dessappear ,m_timerTeleport_appear )) ;
+
+            }else{
+                StartCoroutine(BiscuitFlyNoTarget());
+            }
 
         }
+
+        
 
         IEnumerator Tele_Disappear_Then_Appear(float timerTeleportDisappear , float timerTeleportAppear  ){
             // borning =>>>  teleport  
@@ -234,7 +241,7 @@ namespace LF2.Client{
             float timer = Time.time;
             while (Time.time - timer < delayToFinish)
             {
-                Debug.Log(m_facing);
+                // Debug.Log(m_facing);
                 transform.position +=  new Vector3(m_facing*Speed_m_s , 0 , 0)*Time.deltaTime;
                 yield return null;
             }
@@ -245,6 +252,20 @@ namespace LF2.Client{
 
             NetworkObject networkObject = gameObject.GetComponent<NetworkObject>();
             networkObject.Despawn();   
+        }
+
+        IEnumerator BiscuitFlyNoTarget(){
+
+            bisCuitState = BisCuitState.flying;
+
+            timerDestroy = Time.time;
+            while ( DestroyAfterSec + timerDestroy > Time.time){
+
+                transform.position += Speed_m_s*Time.deltaTime*transform.right;
+                yield return null;
+            }              
+            StartCoroutine(BiscuitFinish(timeToFinish)); 
+            
         }
             
         private Vector3 QuadraticLerp(Vector3 a , Vector3 b , Vector3 c , float t ){

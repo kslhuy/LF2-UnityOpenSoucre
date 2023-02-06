@@ -16,37 +16,7 @@ MonoBehaviour:
   m_Data:
     m_SerializedData: []
   m_GUID: 66c6c2ab891c19943b56b82972c03679
-  m_SerializeEntries:
-  - m_GUID: 6fc68e23ec5ad2e4cb31cb0645160d81
-    m_Address: Assets/Scenes/Locations/ForbidenTower.unity
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 39cdd4763f2abf8478aac080bba72e65
-    m_Address: Assets/Scenes/Locations/Queen Iceland.unity
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 30340fb366fef0f4388f25fb425e23a1
-    m_Address: Assets/Scenes/Locations/Coliseum.unity
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 7494189e1206f284c903a1a81d1c19a9
-    m_Address: Assets/Scenes/Locations/IceMoutain.unity
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 4fbe9c88ae0c4304ab09aaeabc3b181f
-    m_Address: Assets/Prefab/Background/Game/Forbiden Tower.prefab
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 7123471ffc7e8d941a7be4fae24c81b0
-    m_Address: Assets/Prefab/Background/Game/Coliseum 1.prefab
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
+  m_SerializeEntries: []
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: a52442f761726754ab01f493b225eb43, type: 2}
   m_SchemaSet:

@@ -21,7 +21,7 @@ namespace LF2{
     }
 
     [Serializable]
-    public struct StateActionDebug{
+    public struct StateActionDebug{  
         public StateAction A_Availlable;
         [Tooltip("Disable this action")]
         public bool Disable; 

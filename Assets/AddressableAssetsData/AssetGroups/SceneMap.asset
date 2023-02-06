@@ -17,35 +17,37 @@ MonoBehaviour:
     m_SerializedData: []
   m_GUID: 706be6e2ce4f2cd4a821c7c96efbda58
   m_SerializeEntries:
-  - m_GUID: 408d6845580a46f45a44ef3047371e3b
+  - m_GUID: 01fe1c990e708794a9fb7cf7172f274c
     m_Address: Assets/Prefab/Background/Game/Coliseum.prefab
     m_ReadOnly: 0
     m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: cbd6c3b2c1fe41549a0b4349697f753d
     m_Address: Assets/Prefab/Background/Game/Forbiden Tower.prefab
     m_ReadOnly: 0
     m_SerializedLabels: []
-  - m_GUID: c58c576d06ed8044b9b08b2db366ecfc
-    m_Address: Assets/Prefab/Background/Game/Hell Of Frame.prefab
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 79e49d86458e02a48a5cf11c3b79e79a
+    m_Address: Assets/Prefab/Background/Game/IceMoutain (1).prefab
     m_ReadOnly: 0
     m_SerializedLabels: []
-  - m_GUID: 5e6c85291559a2e4b99aac6e16056253
-    m_Address: Assets/Prefab/Background/Game/IceMoutain.prefab
-    m_ReadOnly: 0
-    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 620165ac93204cf42a20477a6e594a51
     m_Address: Assets/Prefab/Background/Game/Queen Iceland.prefab
     m_ReadOnly: 0
     m_SerializedLabels: []
-  - m_GUID: e93fd84da8b0cda4d867cc61c95094d3
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 083b53a57b4c4224d8f5466bce7eb606
     m_Address: Assets/Prefab/Background/Game/TheGreatWall.prefab
     m_ReadOnly: 0
     m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 6a6ac7ebe35c88b4e9ecffddb5825dd4
     m_Address: Assets/Images/BackGround/Original
     m_ReadOnly: 0
     m_SerializedLabels:
     - MapSprites
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: a52442f761726754ab01f493b225eb43, type: 2}
   m_SchemaSet:

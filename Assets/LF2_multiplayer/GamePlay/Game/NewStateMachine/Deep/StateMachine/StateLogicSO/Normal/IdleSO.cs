@@ -36,9 +36,9 @@ namespace LF2.Client{
 
             else if ( data.StateTypeEnum == StateType.Attack ){
                 // Debug.Log($"NB Animation{data.NbAnimation}");
-                if (itr.TriggerAttack3 || stateMachineFX.nbHit == 3 ) {
+                if (itr.TriggerAttack3 ) {
                     stateMachineFX.AnticipateState(StateType.Attack3, 1);
-                    stateMachineFX.nbHit = 1;
+
                     }
                 else if (data.NbAnimation == 1) stateMachineFX.AnticipateState(StateType.Attack, 1);
                 else if (data.NbAnimation == 2) stateMachineFX.AnticipateState(StateType.Attack2, 1);

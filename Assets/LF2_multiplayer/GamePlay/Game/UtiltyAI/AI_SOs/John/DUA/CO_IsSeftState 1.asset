@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06994f09079001e48ae560ee6977132d, type: 3}
   m_Name: CO_IsSeftState 1
   m_EditorClassIdentifier: 
-  Name: 
-  StateDesir: 000000000100000007000000
+  Owner: A_DUA_1_John
+  isSubConsideration: 0
+  StateDesir: 0007
   isDiffThisState: 0

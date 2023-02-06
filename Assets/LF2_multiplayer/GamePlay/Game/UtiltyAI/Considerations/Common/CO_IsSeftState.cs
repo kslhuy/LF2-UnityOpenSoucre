@@ -8,14 +8,14 @@ namespace LF2.Client{
         public bool isDiffThisState ;  
         public override float ScoreConsideration(AIBrain brain)
         {
-            if (isDiffThisState ){
-                // 1 cai bang stateDesir là Not ok 
+            if (isDiffThisState){
+                // 1 cai = stateDesir là Not ok 
                 foreach (StateType stateType in StateDesir){
                     if (brain.Self.MStateMachinePlayerViz.CurrentStateViz.GetId() == stateType){
                         return 0;
                     } 
                 }
-                // // ko 1 cai nao' bang stateDesir là  ok
+                // // ko 1 cai nao' = stateDesir là  ok
                 return 1;
 
             }else{

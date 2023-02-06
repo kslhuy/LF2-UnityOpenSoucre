@@ -196,7 +196,7 @@ namespace LF2.Client
         public void keyPressedsChanged_Callback(KeyPressedType keyPressedType){
             // if (keyPresseds.Count > 1 && keyPresseds.)
             PrintControls();
-            if (keyPresseds.Count == 3){
+            if (keyPresseds.Count >= 3){
                 foreach (ComboKey combo in avilableCombos){
                     if (combo.isComboAvilable(keyPresseds)){
                         // 2 parameter : name class of Scriptable Object

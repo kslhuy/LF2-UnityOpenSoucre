@@ -748,10 +748,10 @@ namespace LF2
         /// Sets the internal state (teleporting or just set state) of the authoritative
         /// transform directly.
         /// </summary>
-        private void SetStateInternal(Vector3 pos, byte rotY, bool shouldTeleport)
+        private void SetStateInternal(Vector3 pos, byte rotY , bool shouldTeleport)
         {
             transform.position = pos;
-            transform.rotation = Quaternion.Euler(0, rotY, 0);
+            if (rotY != 0) transform.rotation = Quaternion.Euler(0, rotY, 0);
 
             m_LocalAuthoritativeNetworkState.IsTeleportingNextFrame = shouldTeleport;
 
@@ -850,7 +850,7 @@ namespace LF2
         /// <param name="newRotation"></param> new rotation to rotate to.
         /// <param name="newScale">new scale to scale to.</param>
         /// <exception cref="Exception"></exception>
-        public void Teleport(Vector3 newPosition, byte newRotationY)
+        public void Teleport(Vector3 newPosition, byte newRotationY = 0)
         {
             if (!CanCommitToTransform)
             {

@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc3fd8c47895b7f4f85421a8f8c94a5f, type: 3}
+  m_Name: A_AttackJump_Firen
+  m_EditorClassIdentifier: 
+  TypeName: 9
+  considerations:
+  - {fileID: 11400000, guid: e8acc33f623eed44fb2af82a2aa1c80a, type: 2}
+  - {fileID: 11400000, guid: c97c8b504ff96a64fb90ec586269263d, type: 2}
+  - {fileID: 11400000, guid: 04e3572a257f5f14b81473f51729027e, type: 2}

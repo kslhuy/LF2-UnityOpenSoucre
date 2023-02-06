@@ -152,13 +152,18 @@ namespace LF2.Server
                 // The user tried to change BackGround  after everything was locked in... too late! Discard this choice
                 return;
             }
+
+            // StateType[] values = (StateType[])Enum.GetValues(typeof(StateType));
+            // StateType stateToPlay = (StateType)((enumNB) % values.Length);
+
+            // Debug.Log((BackGroundEnum)BackGroundSelectData.backGroundGameRegistry.m_BackGrounds.Length - 1);
             if (Nextleft && BackGroundSelectData.BackGroundNumber.Value == 0){
-                BackGroundSelectData.BackGroundNumber.Value = BackGroundSelectData.backGroundGameRegistry.m_BackGrounds.Length - 1;   
+                BackGroundSelectData.BackGroundNumber.Value =(BackGroundEnum)BackGroundSelectData.backGroundGameRegistry.m_BackGrounds.Length - 1;   
 
             }else if (Nextleft && BackGroundSelectData.BackGroundNumber.Value > 0 ){
-                BackGroundSelectData.BackGroundNumber.Value = BackGroundSelectData.BackGroundNumber.Value - 1;
+                BackGroundSelectData.BackGroundNumber.Value = (BackGroundEnum)(BackGroundSelectData.BackGroundNumber.Value - 1);
             }
-            else if (!Nextleft && BackGroundSelectData.BackGroundNumber.Value >= BackGroundSelectData.backGroundGameRegistry.m_BackGrounds.Length - 1){
+            else if (!Nextleft && (int)BackGroundSelectData.BackGroundNumber.Value >= BackGroundSelectData.backGroundGameRegistry.m_BackGrounds.Length - 1){
                 BackGroundSelectData.BackGroundNumber.Value = 0;
             } 
             else {
@@ -295,6 +300,7 @@ namespace LF2.Server
             CharSelectData.IsLobbyClosed.Value = false;
         }
 
+        // this is run in server (but not cost the bandwithd) 
         private void SaveLobbyResults()
         {
             foreach (CharSelectData.LobbyPlayerState playerInfo in CharSelectData.LobbyPlayers)
@@ -315,7 +321,7 @@ namespace LF2.Server
                         persistentPlayer.NetworkAvatarGuidState.AvatarGuid.Value = avatar.Guid.ToNetworkGuid();
                         persistentPlayer.NetworkNameState.Team.Value = playerInfo.PlayerTeam;
                         // Save result Background 
-                        persistentPlayer.PersistentBackGround.NetworkBackGroundGuid = BackGroundSelectData.backGroundGameRegistry.m_BackGrounds[BackGroundSelectData.BackGroundNumber.Value].Guid.ToNetworkGuid() ;
+                        persistentPlayer.PersistentBackGround.NetworkBackGround.Value = BackGroundSelectData.backGroundGameRegistry.TryGetBackGround(BackGroundSelectData.BackGroundNumber.Value).NameBackGround ;
                 }
             }
 

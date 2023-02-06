@@ -44,12 +44,12 @@ namespace LF2.Client{
 
         public override void LogicUpdate() {
             
-            if (Time.time - TimeStarted_Animation > 0.2f){
+            if (Time.time - TimeStarted_Animation > 0.3f){
                 if (stateMachineFX.CoreMovement.IsGounded()){
                     stateMachineFX.ChangeState(StateType.Land);
                 }
+                stateMachineFX.CoreMovement.SetFallingDown();
             }
-            stateMachineFX.CoreMovement.SetFallingDown();
         }
 
         public override void End(){

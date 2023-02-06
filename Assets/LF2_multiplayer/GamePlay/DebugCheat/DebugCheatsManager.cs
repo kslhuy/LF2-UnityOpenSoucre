@@ -8,6 +8,10 @@ using LF2.Server;
 using UnityEngine.Assertions;
 using LF2.Client;
 using LF2.Utils;
+using System;
+using LF2.ConnectionManagement;
+using Unity.Multiplayer.Infrastructure;
+using VContainer;
 
 namespace Unity.BossRoom.DebugCheats
 {
@@ -48,8 +52,8 @@ namespace Unity.BossRoom.DebugCheats
 
 
 
-        // [Inject]
-        // IPublisher<CheatUsedMessage> m_CheatUsedMessagePublisher;
+        [Inject]
+        IPublisher<CheatUsedMessage> m_CheatUsedMessagePublisher;
 
         // void Update()
         // {
@@ -60,17 +64,17 @@ namespace Unity.BossRoom.DebugCheats
         //     }
         // }
 
-        static bool AnyTouchDown()
-        {
-            foreach (var touch in Input.touches)
-            {
-                if (touch.phase == TouchPhase.Began)
-                {
-                    return true;
-                }
-            }
-            return false;
-        }
+        // static bool AnyTouchDown()
+        // {
+        //     foreach (var touch in Input.touches)
+        //     {
+        //         if (touch.phase == TouchPhase.Began)
+        //         {
+        //             return true;
+        //         }
+        //     }
+        //     return false;
+        // }
 
         public void SpawnEnemy()
         {
@@ -97,15 +101,35 @@ namespace Unity.BossRoom.DebugCheats
             KillAllEnemiesServerRpc();
         }
 
-        // public void ToggleGodMode()
-        // {
-        //     ToggleGodModeServerRpc();
-        // }
+        public void ToggleGodMode()
+        {
+            ToggleGodModeServerRpc();
+        }
 
-        // public void HealPlayer()
-        // {
-        //     HealPlayerServerRpc();
-        // }
+
+
+        public void NoManaMode()
+        {
+            ToggleNoManaModeServerRpc();
+        }
+
+        [ServerRpc(RequireOwnership = false)]
+        private void ToggleNoManaModeServerRpc()
+        {
+            
+        }
+
+        public void HealPlayer()
+        {
+            HealPlayerServerRpc();
+        }
+
+        [ServerRpc(RequireOwnership = false)]
+
+        private void HealPlayerServerRpc()
+        {
+            throw new NotImplementedException();
+        }
 
         public void ToggleAIBrain()
         {
@@ -115,9 +139,7 @@ namespace Unity.BossRoom.DebugCheats
         public void ToggleSpawnWaves()
         {
             ToggleSpawnWavesServerRpc();
-            
         }
-
 
 
 
@@ -254,40 +276,40 @@ namespace Unity.BossRoom.DebugCheats
             // PublishCheatUsedMessage(serverRpcParams.Receive.SenderClientId, "KillAllEnemies");
         }
 
-        // [ServerRpc(RequireOwnership = false)]
-        // void ToggleGodModeServerRpc(ServerRpcParams serverRpcParams = default)
-        // {
-        //     var clientId = serverRpcParams.Receive.SenderClientId;
-        //     var playerServerCharacter = PlayerServerCharacter.GetPlayerServerCharacter(clientId);
-        //     if (playerServerCharacter != null)
-        //     {
-        //         playerServerCharacter.NetLifeState.IsGodMode.Value = !playerServerCharacter.NetLifeState.IsGodMode.Value;
-        //         PublishCheatUsedMessage(clientId, "ToggleGodMode");
-        //     }
-        // }
+        [ServerRpc(RequireOwnership = false)]
+        void ToggleGodModeServerRpc(ServerRpcParams serverRpcParams = default)
+        {
+            var clientId = serverRpcParams.Receive.SenderClientId;
+            var playerServerCharacter = PlayerServerCharacter.GetPlayerServerCharacter(clientId);
+            if (playerServerCharacter != null)
+            {
+                playerServerCharacter.NetState.NetworkLifeState.IsGodMode.Value = !playerServerCharacter.NetState.NetworkLifeState.IsGodMode.Value;
+                PublishCheatUsedMessage(clientId, "ToggleGodMode");
+            }
+        }
 
-        // [ServerRpc(RequireOwnership = false)]
-        // void HealPlayerServerRpc(ServerRpcParams serverRpcParams = default)
-        // {
-        //     var clientId = serverRpcParams.Receive.SenderClientId;
-        //     var playerServerCharacter = PlayerServerCharacter.GetPlayerServerCharacter(clientId);
-        //     if (playerServerCharacter != null)
-        //     {
-        //         var baseHp = playerServerCharacter.CharacterClass.BaseHP.Value;
-        //         if (playerServerCharacter.LifeState == LifeState.Fainted)
-        //         {
-        //             playerServerCharacter.Revive(null, baseHp);
-        //         }
-        //         else
-        //         {
-        //             if (playerServerCharacter.gameObject.TryGetComponent(out IDamageable damageable))
-        //             {
-        //                 damageable.ReceiveHP(null, baseHp);
-        //             }
-        //         }
-        //         PublishCheatUsedMessage(serverRpcParams.Receive.SenderClientId, "HealPlayer");
-        //     }
-        // }
+        [ServerRpc(RequireOwnership = false)]
+        void HealPlayerServerRpc(ServerRpcParams serverRpcParams = default)
+        {
+            var clientId = serverRpcParams.Receive.SenderClientId;
+            var playerServerCharacter = PlayerServerCharacter.GetPlayerServerCharacter(clientId);
+            if (playerServerCharacter != null)
+            {
+                var baseHp = playerServerCharacter.CharacterClass.BaseHP.Value;
+                if (playerServerCharacter.NetState.LifeState == LifeState.Dead)
+                {
+                    playerServerCharacter.Revive(null, baseHp);
+                }
+                else
+                {
+                    AttackDataSend attackDataSend = new AttackDataSend();
+                    attackDataSend.Amount_injury = 30;
+                    playerServerCharacter.ReceiveHP( attackDataSend);
+                    
+                }
+                PublishCheatUsedMessage(serverRpcParams.Receive.SenderClientId, "HealPlayer");
+            }
+        }
 
         [ServerRpc(RequireOwnership = false)]
         void ToggleAIBrainServerRpc(ServerRpcParams serverRpcParams = default)
@@ -371,14 +393,14 @@ namespace Unity.BossRoom.DebugCheats
             // PublishCheatUsedMessage(serverRpcParams.Receive.SenderClientId, "GoToPostGame");
         }
 
-        // void PublishCheatUsedMessage(ulong clientId, string cheatUsed)
-        // {
-        //     var playerData = SessionManager<SessionPlayerData>.Instance.GetPlayerData(clientId);
-        //     if (playerData.HasValue)
-        //     {
-        //         m_CheatUsedMessagePublisher.Publish(new CheatUsedMessage(cheatUsed, playerData.Value.PlayerName));
-        //     }
-        // }
+        void PublishCheatUsedMessage(ulong clientId, string cheatUsed)
+        {
+            var playerData = SessionManager<SessionPlayerData>.Instance.GetPlayerData(clientId);
+            if (playerData.HasValue)
+            {
+                m_CheatUsedMessagePublisher.Publish(new CheatUsedMessage(cheatUsed, playerData.Value.PlayerName));
+            }
+        }
 
         static void LogCheatNotImplemented(string cheat)
         {

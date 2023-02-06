@@ -15,7 +15,7 @@ namespace LF2
 
 
         [HideInInspector]
-        public NetworkVariable<int> BackGroundNumber = new NetworkVariable<int>(0);
+        public NetworkVariable<BackGroundEnum> BackGroundNumber = new NetworkVariable<BackGroundEnum>(0);
         public NetworkVariable<bool> IsStateChooseBackGround { get; } = new NetworkVariable<bool>(false);
 
             // Huy Add new here 

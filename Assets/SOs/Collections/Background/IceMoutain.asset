@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: IceMoutain
   m_EditorClassIdentifier: 
   m_Guid: 9e81c449ffe4c14eb9b8f6a708163758
-  NameBackGround: Ice Mountain
+  NameBackGround: 3
   BackGroundPreFab:
-    m_AssetGUID: 5e6c85291559a2e4b99aac6e16056253
+    m_AssetGUID: 79e49d86458e02a48a5cf11c3b79e79a
     m_SubObjectName: 
     m_SubObjectType: 
     m_EditorAssetChanged: 0

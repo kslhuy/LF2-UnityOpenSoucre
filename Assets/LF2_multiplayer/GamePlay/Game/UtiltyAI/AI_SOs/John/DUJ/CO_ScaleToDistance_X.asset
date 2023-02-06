@@ -12,27 +12,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf073bb35c2692345ab14f67b77b48a0, type: 3}
   m_Name: CO_ScaleToDistance_X
   m_EditorClassIdentifier: 
-  Name: 
+  Owner: A_DUJ_John
+  isSubConsideration: 0
   responseCurve:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
-      time: 0
+      time: -2.2067413
       value: 0
-      inSlope: 0.0021934952
-      outSlope: 0.0021934952
+      inSlope: 0.0051959385
+      outSlope: 0.0051959385
       tangentMode: 0
       weightedMode: 0
       inWeight: 0
-      outWeight: 0.021814259
+      outWeight: 0.029153721
+    - serializedVersion: 3
+      time: 820.32465
+      value: 0.85431457
+      inSlope: -0.000029284696
+      outSlope: -0.000029284696
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.144523
+      outWeight: 0.33333334
     - serializedVersion: 3
       time: 2500
       value: 1
-      inSlope: 0.0004720821
-      outSlope: 0.0004720821
+      inSlope: 0.00018415974
+      outSlope: 0.00018415974
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.07370166
+      inWeight: 0.10164643
       outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2

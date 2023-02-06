@@ -26,6 +26,9 @@ MonoBehaviour:
   - A_Availlable: {fileID: 11400000, guid: 72b63f52fde75de409e99bd2df5e031a, type: 2}
     Disable: 0
     ShowScore: 0
+  - A_Availlable: {fileID: 11400000, guid: ff116df9f0887b44a9c777ade8348e61, type: 2}
+    Disable: 0
+    ShowScore: 0
   A_MoveAvaillable:
   - A_Availlable: {fileID: 11400000, guid: 25287faa375609a4aa7fd81ed6aab0d0, type: 2}
     Disable: 0
@@ -40,5 +43,8 @@ MonoBehaviour:
     Disable: 0
     ShowScore: 0
   - A_Availlable: {fileID: 11400000, guid: 040c18c2f725b7349bd1a15b600331a1, type: 2}
+    Disable: 0
+    ShowScore: 0
+  - A_Availlable: {fileID: 11400000, guid: 02baa01c79add674bb6bdf282e00b18f, type: 2}
     Disable: 0
     ShowScore: 0

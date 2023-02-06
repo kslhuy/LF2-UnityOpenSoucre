@@ -18,6 +18,12 @@ MonoBehaviour:
   ManaCost: 0
   DamageDetails:
   - {fileID: 11400000, guid: b0034418b70bc7b4e81144b490a05e79, type: 2}
+  Interactions:
+  - damageAmount: -35
+    Effect: 1
+    fall: 10
+    Bdefend: 30
+    Dirxyz: {x: 1, y: 0, z: 0}
   Dx: 0
   Dy: 0
   Dz: 0

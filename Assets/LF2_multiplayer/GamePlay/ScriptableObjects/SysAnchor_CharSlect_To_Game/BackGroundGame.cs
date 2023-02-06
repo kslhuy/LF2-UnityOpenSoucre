@@ -7,11 +7,20 @@ namespace LF2
     /// This ScriptableObject defines a Player Character for BossRoom. It defines its CharacterClass field for
     /// associated game-specific properties, as well as its graphics representation.
     /// </summary>
+    public enum BackGroundEnum : byte{
+        QueenIcelance ,
+        ForbiedenTower ,
+        Coliseum ,
+        IceMoutain,
+        TheGreatWall,
+
+    }
+
     [CreateAssetMenu(menuName = "Collection/BackGround")]
     [Serializable]
     public class BackGroundGame : GuidScriptableObject
     {
-        public string NameBackGround;
+        public BackGroundEnum NameBackGround;
 
         public AssetReference BackGroundPreFab;
 

@@ -18,6 +18,7 @@ MonoBehaviour:
   ManaCost: 0
   DamageDetails:
   - {fileID: 11400000, guid: ed256d8f033d3894899d9c058d919b5c, type: 2}
+  Interactions: []
   Dx: 0
   Dy: 0
   Dz: 0
@@ -34,46 +35,93 @@ MonoBehaviour:
   expirable: 1
   ReuseTimeSeconds: 0
   ActionInterruptible: 0
-  Sounds: {fileID: 11400000, guid: 662024a57477849428abf4d317d8cdb5, type: 2}
+  Sounds: {fileID: 0}
   delayLoopSound: 0
   Start_Sounds:
+  - {fileID: 11400000, guid: 6526dae477648f549b73c00e20eda240, type: 2}
   - {fileID: 11400000, guid: 7b1fbacf195eaf0458d806eb8e58a702, type: 2}
+  - {fileID: 11400000, guid: 662024a57477849428abf4d317d8cdb5, type: 2}
   SpawnsFX: []
   frameChecker:
     clip: {fileID: 7400000, guid: 251c4c278470afa488a8a5e3405b31b9, type: 2}
     totalFrames: 4
-    length: 0.33333334
+    arest: 0
+    vrest: 0
     _frameStruct:
-    - UseThisFrame: 0
+    - sprite: {fileID: 0}
+      time: 0
       dvx: 0
       dvy: 0
       dvz: 0
-      damageDetails: {fileID: 0}
+      pressed_A: 0
+      pressed_J: 0
+      pressed_D: 0
+      haveInteraction: 0
+      interaction:
+        damageAmount: 0
+        Effect: 0
+        fall: 0
+        Bdefend: 0
+        Dirxyz: {x: 0, y: 0, z: 0}
       SpwanObject: {fileID: 0}
       Sound: {fileID: 0}
-      ReturnToFrame: 0
-    - UseThisFrame: 0
+      NextFrame: 0
+      wait: 0
+    - sprite: {fileID: 0}
+      time: 0
       dvx: 0
       dvy: 0
       dvz: 0
-      damageDetails: {fileID: 0}
+      pressed_A: 0
+      pressed_J: 0
+      pressed_D: 0
+      haveInteraction: 0
+      interaction:
+        damageAmount: 0
+        Effect: 0
+        fall: 0
+        Bdefend: 0
+        Dirxyz: {x: 0, y: 0, z: 0}
       SpwanObject: {fileID: 0}
       Sound: {fileID: 0}
-      ReturnToFrame: 0
-    - UseThisFrame: 0
+      NextFrame: 0
+      wait: 0
+    - sprite: {fileID: 0}
+      time: 0
       dvx: 0
       dvy: 0
       dvz: 0
-      damageDetails: {fileID: 0}
+      pressed_A: 0
+      pressed_J: 0
+      pressed_D: 0
+      haveInteraction: 0
+      interaction:
+        damageAmount: 0
+        Effect: 0
+        fall: 0
+        Bdefend: 0
+        Dirxyz: {x: 0, y: 0, z: 0}
       SpwanObject: {fileID: 0}
       Sound: {fileID: 0}
-      ReturnToFrame: 0
-    - UseThisFrame: 0
+      NextFrame: 0
+      wait: 0
+    - sprite: {fileID: 0}
+      time: 0
       dvx: 0
       dvy: 0
       dvz: 0
-      damageDetails: {fileID: 0}
+      pressed_A: 0
+      pressed_J: 0
+      pressed_D: 0
+      haveInteraction: 0
+      interaction:
+        damageAmount: 0
+        Effect: 0
+        fall: 0
+        Bdefend: 0
+        Dirxyz: {x: 0, y: 0, z: 0}
       SpwanObject: {fileID: 0}
       Sound: {fileID: 0}
-      ReturnToFrame: 0
+      NextFrame: 0
+      wait: 0
     layerNumber: 0

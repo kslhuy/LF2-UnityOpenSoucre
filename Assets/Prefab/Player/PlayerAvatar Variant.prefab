@@ -242,11 +242,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1557173061463671463, guid: 687160c7cfd6cd748877c28fe515d9c6, type: 3}
       propertyPath: m_Size.x
-      value: 39
+      value: 80
       objectReference: {fileID: 0}
     - target: {fileID: 1557173061463671463, guid: 687160c7cfd6cd748877c28fe515d9c6, type: 3}
       propertyPath: m_Size.y
-      value: 76
+      value: 74
       objectReference: {fileID: 0}
     - target: {fileID: 1557173061463671463, guid: 687160c7cfd6cd748877c28fe515d9c6, type: 3}
       propertyPath: m_Sprite
@@ -372,6 +372,10 @@ PrefabInstance:
       propertyPath: extraYCheckGround
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4264360441126654028, guid: 687160c7cfd6cd748877c28fe515d9c6, type: 3}
+      propertyPath: ClientNetTransform
+      value: 
+      objectReference: {fileID: 1064626412387933776}
     - target: {fileID: 4264360441126654028, guid: 687160c7cfd6cd748877c28fe515d9c6, type: 3}
       propertyPath: _distanceFromGround
       value: 20

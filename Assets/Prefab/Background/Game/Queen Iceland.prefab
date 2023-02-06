@@ -1321,8 +1321,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6731362302118793187}
-  - component: {fileID: 2189468391494060460}
-  - component: {fileID: 7012008382033993399}
   m_Layer: 0
   m_Name: Queen Iceland
   m_TagString: Untagged
@@ -1348,48 +1346,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2189468391494060460
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6731362302118793186}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f75d72a44dc244e4c87958505d505824, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  stageModeData: {fileID: 11400000, guid: 00e7b6f73d6a49444a3bf4691cf9cfd0, type: 2}
-  Tf_BordRight: {fileID: 7487212323310561157}
-  m_SpawnPositions_Left:
-  - m_Transform: {fileID: 8035751102908870659}
-  - m_Transform: {fileID: 4986821951543415277}
-  m_SpawnPositions_Right:
-  - m_Transform: {fileID: 5680595037893798411}
-  - m_Transform: {fileID: 486590973282806713}
-  m_NetworkedPrefabs:
-  - BotType: 0
-    m_NetworkedPrefab: {fileID: 6930547048514179167, guid: fc1acf3827a15714e8642104777f8c5a, type: 3}
-  m_PlayerProximityValidationTimestep: 2
-  lifeStateEventChannelSO: {fileID: 11400000, guid: 7959b6e781a04fd4b816463502e9d45b, type: 2}
-  Debug_SpawnWave_Active: 0
---- !u!114 &7012008382033993399
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6731362302118793186}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 951099334
-  AlwaysReplicateAsRoot: 0
-  DontDestroyWithOwner: 0
-  AutoObjectParentSync: 1
 --- !u!1 &6731362302220961437
 GameObject:
   m_ObjectHideFlags: 0

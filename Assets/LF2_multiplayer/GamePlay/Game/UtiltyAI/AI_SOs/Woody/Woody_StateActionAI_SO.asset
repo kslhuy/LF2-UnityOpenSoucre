@@ -1,0 +1,47 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5da57d5c92610174a8ea60d5342ab4c1, type: 3}
+  m_Name: Woody_StateActionAI_SO
+  m_EditorClassIdentifier: 
+  CharacterType: 3
+  A_AttackAvaillable:
+  - A_Availlable: {fileID: 11400000, guid: f73648d107dd27e44bcd15fd5a8f1a75, type: 2}
+    Disable: 0
+    ShowScore: 0
+  - A_Availlable: {fileID: 11400000, guid: 0b422f40228d28549b260dca7f716dcf, type: 2}
+    Disable: 0
+    ShowScore: 0
+  - A_Availlable: {fileID: 11400000, guid: 9ef531e753570114ca00ace548ebc3bb, type: 2}
+    Disable: 0
+    ShowScore: 0
+  - A_Availlable: {fileID: 11400000, guid: 35718b12865196044878bce251eefd58, type: 2}
+    Disable: 0
+    ShowScore: 0
+  - A_Availlable: {fileID: 11400000, guid: 0d8190ca3b4035446aa1eeba82acaa44, type: 2}
+    Disable: 0
+    ShowScore: 0
+  A_MoveAvaillable:
+  - A_Availlable: {fileID: 11400000, guid: 0d34a5809ae45524aa1df55edb663842, type: 2}
+    Disable: 0
+    ShowScore: 0
+  - A_Availlable: {fileID: 11400000, guid: 39c6d6e034c313a46b0f84f37aa9d287, type: 2}
+    Disable: 0
+    ShowScore: 0
+  - A_Availlable: {fileID: 11400000, guid: fd1a8015a3acc6f4e94e1471a34900e9, type: 2}
+    Disable: 0
+    ShowScore: 0
+  - A_Availlable: {fileID: 11400000, guid: 4ce703fd8b1296d47b89119967bc1576, type: 2}
+    Disable: 0
+    ShowScore: 0
+  - A_Availlable: {fileID: 11400000, guid: 543fb141e018cd14c9ef7cc08acbfd64, type: 2}
+    Disable: 0
+    ShowScore: 0

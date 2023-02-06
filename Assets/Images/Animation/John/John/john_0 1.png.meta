@@ -360,7 +360,7 @@ TextureImporter:
         y: 480
         width: 80
         height: 80
-      alignment: 9
+      alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
@@ -381,7 +381,7 @@ TextureImporter:
         y: 480
         width: 80
         height: 80
-      alignment: 9
+      alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
@@ -402,7 +402,7 @@ TextureImporter:
         y: 480
         width: 80
         height: 80
-      alignment: 9
+      alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
@@ -423,7 +423,7 @@ TextureImporter:
         y: 480
         width: 80
         height: 80
-      alignment: 9
+      alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
@@ -444,7 +444,7 @@ TextureImporter:
         y: 480
         width: 80
         height: 80
-      alignment: 9
+      alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
@@ -465,7 +465,7 @@ TextureImporter:
         y: 480
         width: 80
         height: 80
-      alignment: 9
+      alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
@@ -486,7 +486,7 @@ TextureImporter:
         y: 480
         width: 80
         height: 80
-      alignment: 9
+      alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
@@ -507,7 +507,7 @@ TextureImporter:
         y: 480
         width: 80
         height: 80
-      alignment: 9
+      alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
@@ -528,7 +528,7 @@ TextureImporter:
         y: 480
         width: 80
         height: 80
-      alignment: 9
+      alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
@@ -549,7 +549,7 @@ TextureImporter:
         y: 480
         width: 80
         height: 80
-      alignment: 9
+      alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
@@ -570,8 +570,8 @@ TextureImporter:
         y: 400
         width: 80
         height: 80
-      alignment: 9
-      pivot: {x: 0.55, y: 0}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -587,7 +587,7 @@ TextureImporter:
       name: john_0 1_11
       rect:
         serializedVersion: 2
-        x: 81
+        x: 80
         y: 400
         width: 80
         height: 80
@@ -612,8 +612,8 @@ TextureImporter:
         y: 400
         width: 80
         height: 80
-      alignment: 9
-      pivot: {x: 0.4, y: 0}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -633,8 +633,8 @@ TextureImporter:
         y: 400
         width: 80
         height: 80
-      alignment: 9
-      pivot: {x: 0.35, y: 0}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -653,8 +653,8 @@ TextureImporter:
         x: 320
         y: 400
         width: 80
-        height: 80
-      alignment: 9
+        height: 78
+      alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
@@ -674,8 +674,8 @@ TextureImporter:
         x: 400
         y: 400
         width: 80
-        height: 80
-      alignment: 9
+        height: 78
+      alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
@@ -695,8 +695,8 @@ TextureImporter:
         x: 480
         y: 400
         width: 80
-        height: 80
-      alignment: 9
+        height: 79
+      alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
@@ -715,9 +715,9 @@ TextureImporter:
         serializedVersion: 2
         x: 560
         y: 400
-        width: 76
-        height: 77
-      alignment: 9
+        width: 80
+        height: 78
+      alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
@@ -734,11 +734,11 @@ TextureImporter:
       name: john_0 1_18
       rect:
         serializedVersion: 2
-        x: 638
+        x: 640
         y: 400
-        width: 78
+        width: 80
         height: 80
-      alignment: 9
+      alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
@@ -755,11 +755,11 @@ TextureImporter:
       name: john_0 1_19
       rect:
         serializedVersion: 2
-        x: 718
+        x: 720
         y: 400
-        width: 82
+        width: 80
         height: 80
-      alignment: 9
+      alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
@@ -780,7 +780,7 @@ TextureImporter:
         y: 320
         width: 80
         height: 80
-      alignment: 9
+      alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
@@ -801,7 +801,7 @@ TextureImporter:
         y: 320
         width: 80
         height: 80
-      alignment: 9
+      alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
@@ -820,10 +820,10 @@ TextureImporter:
         serializedVersion: 2
         x: 160
         y: 320
-        width: 73
+        width: 80
         height: 80
-      alignment: 9
-      pivot: {x: 0.45, y: 0}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -843,7 +843,7 @@ TextureImporter:
         y: 320
         width: 80
         height: 80
-      alignment: 9
+      alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
@@ -864,7 +864,7 @@ TextureImporter:
         y: 320
         width: 80
         height: 80
-      alignment: 9
+      alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
@@ -885,7 +885,7 @@ TextureImporter:
         y: 320
         width: 80
         height: 80
-      alignment: 9
+      alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
@@ -906,7 +906,7 @@ TextureImporter:
         y: 320
         width: 80
         height: 80
-      alignment: 9
+      alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
@@ -924,10 +924,10 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 560
-        y: 319
+        y: 320
         width: 80
-        height: 81
-      alignment: 9
+        height: 80
+      alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
@@ -948,7 +948,7 @@ TextureImporter:
         y: 320
         width: 80
         height: 80
-      alignment: 9
+      alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
@@ -966,10 +966,10 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 720
-        y: 319
+        y: 320
         width: 80
-        height: 81
-      alignment: 9
+        height: 80
+      alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
@@ -989,8 +989,8 @@ TextureImporter:
         x: 0
         y: 240
         width: 80
-        height: 80
-      alignment: 9
+        height: 79
+      alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
@@ -1010,8 +1010,8 @@ TextureImporter:
         x: 80
         y: 240
         width: 80
-        height: 80
-      alignment: 9
+        height: 79
+      alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
@@ -1031,8 +1031,8 @@ TextureImporter:
         x: 160
         y: 240
         width: 80
-        height: 80
-      alignment: 9
+        height: 79
+      alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
@@ -1052,8 +1052,8 @@ TextureImporter:
         x: 240
         y: 240
         width: 80
-        height: 80
-      alignment: 9
+        height: 77
+      alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
@@ -1074,7 +1074,7 @@ TextureImporter:
         y: 240
         width: 80
         height: 80
-      alignment: 9
+      alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
@@ -1095,7 +1095,7 @@ TextureImporter:
         y: 240
         width: 80
         height: 80
-      alignment: 9
+      alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
@@ -1114,9 +1114,9 @@ TextureImporter:
         serializedVersion: 2
         x: 480
         y: 240
-        width: 79
+        width: 80
         height: 80
-      alignment: 9
+      alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
@@ -1133,11 +1133,11 @@ TextureImporter:
       name: john_0 1_37
       rect:
         serializedVersion: 2
-        x: 559
+        x: 560
         y: 240
-        width: 79
+        width: 80
         height: 80
-      alignment: 9
+      alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
@@ -1154,12 +1154,12 @@ TextureImporter:
       name: john_0 1_38
       rect:
         serializedVersion: 2
-        x: 638
+        x: 640
         y: 240
-        width: 82
-        height: 79
+        width: 80
+        height: 80
       alignment: 9
-      pivot: {x: 0.5, y: 0}
+      pivot: {x: 0.45, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1178,7 +1178,7 @@ TextureImporter:
         x: 720
         y: 240
         width: 80
-        height: 78
+        height: 80
       alignment: 9
       pivot: {x: 0.6, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1200,7 +1200,7 @@ TextureImporter:
         y: 160
         width: 80
         height: 80
-      alignment: 9
+      alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
@@ -1221,7 +1221,7 @@ TextureImporter:
         y: 160
         width: 80
         height: 80
-      alignment: 9
+      alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
@@ -1242,7 +1242,7 @@ TextureImporter:
         y: 160
         width: 80
         height: 80
-      alignment: 9
+      alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
@@ -1263,7 +1263,7 @@ TextureImporter:
         y: 160
         width: 80
         height: 80
-      alignment: 9
+      alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
@@ -1284,7 +1284,7 @@ TextureImporter:
         y: 160
         width: 80
         height: 80
-      alignment: 9
+      alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
@@ -1305,7 +1305,7 @@ TextureImporter:
         y: 160
         width: 80
         height: 80
-      alignment: 9
+      alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
@@ -1325,8 +1325,8 @@ TextureImporter:
         x: 560
         y: 160
         width: 80
-        height: 80
-      alignment: 9
+        height: 77
+      alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
@@ -1346,8 +1346,8 @@ TextureImporter:
         x: 640
         y: 160
         width: 80
-        height: 80
-      alignment: 9
+        height: 77
+      alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
@@ -1367,8 +1367,8 @@ TextureImporter:
         x: 720
         y: 160
         width: 80
-        height: 80
-      alignment: 9
+        height: 77
+      alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
@@ -1389,7 +1389,7 @@ TextureImporter:
         y: 80
         width: 80
         height: 80
-      alignment: 9
+      alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
@@ -1410,7 +1410,7 @@ TextureImporter:
         y: 80
         width: 80
         height: 80
-      alignment: 9
+      alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
@@ -1431,7 +1431,7 @@ TextureImporter:
         y: 80
         width: 80
         height: 80
-      alignment: 9
+      alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
@@ -1452,7 +1452,7 @@ TextureImporter:
         y: 80
         width: 80
         height: 80
-      alignment: 9
+      alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
@@ -1466,6 +1466,27 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
+      name: john_0 1_42
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 160
+        width: 80
+        height: 80
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5a30dc8b84fb106468f0bb810d9eb144
+      internalID: 7859765846444069671
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
       name: john_0 1_54
       rect:
         serializedVersion: 2
@@ -1473,15 +1494,15 @@ TextureImporter:
         y: 80
         width: 80
         height: 80
-      alignment: 9
+      alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ae43d564979bd4450800000000000000
-      internalID: 6074715402915362026
+      spriteID: a3feb78ebe2a5494baa403eb35a4cd24
+      internalID: -572566843
       vertices: []
       indices: 
       edges: []
@@ -1494,15 +1515,15 @@ TextureImporter:
         y: 80
         width: 80
         height: 80
-      alignment: 9
+      alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1917318733fa05df0800000000000000
-      internalID: -193462148384198255
+      spriteID: 620985d8fe3d7e94d98fc2849015b575
+      internalID: 1773973465
       vertices: []
       indices: 
       edges: []
@@ -1512,18 +1533,18 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 480
-        y: 81
+        y: 80
         width: 80
-        height: 80
-      alignment: 9
+        height: 75
+      alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2359cfafb9421dc60800000000000000
-      internalID: 7841088678578132274
+      spriteID: be14c1d1bfc567548bc9adc01f045f8e
+      internalID: 354611197
       vertices: []
       indices: 
       edges: []
@@ -1535,16 +1556,16 @@ TextureImporter:
         x: 560
         y: 80
         width: 80
-        height: 80
-      alignment: 9
+        height: 77
+      alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0de92f42d07036a00800000000000000
-      internalID: 748449716109483728
+      spriteID: 9bf5e90b646c03c4ab8e631905e7180e
+      internalID: 263248521
       vertices: []
       indices: 
       edges: []
@@ -1557,15 +1578,15 @@ TextureImporter:
         y: 80
         width: 80
         height: 80
-      alignment: 9
+      alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0483c16280bada320800000000000000
-      internalID: 2570899013785892928
+      spriteID: 6832bc1d6c608a448a33e312c2330c51
+      internalID: -1446772756
       vertices: []
       indices: 
       edges: []
@@ -1578,15 +1599,15 @@ TextureImporter:
         y: 80
         width: 80
         height: 80
-      alignment: 9
+      alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bed803887fc7ff850800000000000000
-      internalID: 6412981796982525419
+      spriteID: 6fd112b3eca694945bda3306d7d6b8a1
+      internalID: -1557207684
       vertices: []
       indices: 
       edges: []
@@ -1598,16 +1619,16 @@ TextureImporter:
         x: 0
         y: 0
         width: 80
-        height: 80
-      alignment: 9
+        height: 74
+      alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e2e4415267df46c30800000000000000
-      internalID: 4351881823816797742
+      spriteID: 1dd575b30f680354aa93d8568342bf91
+      internalID: -344570497
       vertices: []
       indices: 
       edges: []
@@ -1619,16 +1640,16 @@ TextureImporter:
         x: 80
         y: 0
         width: 80
-        height: 80
-      alignment: 9
+        height: 74
+      alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1bdfedfa8b147a780800000000000000
-      internalID: -8671890295998186063
+      spriteID: 9799c8522b1af4c458897feeb15f5086
+      internalID: 614275661
       vertices: []
       indices: 
       edges: []
@@ -1640,16 +1661,16 @@ TextureImporter:
         x: 160
         y: 0
         width: 80
-        height: 80
-      alignment: 9
+        height: 79
+      alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 18a4814a851c7c420800000000000000
-      internalID: 2650299492185164417
+      spriteID: 931b401eedf34684abab0c53c568fab5
+      internalID: 727897693
       vertices: []
       indices: 
       edges: []
@@ -1658,19 +1679,19 @@ TextureImporter:
       name: john_0 1_63
       rect:
         serializedVersion: 2
-        x: 239
+        x: 240
         y: 0
         width: 80
-        height: 80
-      alignment: 9
+        height: 79
+      alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7eade7e9bd9900210800000000000000
-      internalID: 1297205861218704103
+      spriteID: b8c99a9abca039945b93e9bcecbf07d6
+      internalID: -309895805
       vertices: []
       indices: 
       edges: []
@@ -1683,15 +1704,15 @@ TextureImporter:
         y: 0
         width: 80
         height: 80
-      alignment: 9
+      alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1f11e1e3d8d8bf550800000000000000
-      internalID: 6195701350150312433
+      spriteID: 713074b4103ee3a42939d81bf5592d4c
+      internalID: -626714577
       vertices: []
       indices: 
       edges: []
@@ -1704,15 +1725,15 @@ TextureImporter:
         y: 0
         width: 80
         height: 80
-      alignment: 9
+      alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 07e3db46a6dbc7f70800000000000000
-      internalID: 9186425604583276144
+      spriteID: 76873d8718f3b104ea0e4483ad54bc61
+      internalID: 310148726
       vertices: []
       indices: 
       edges: []
@@ -1725,15 +1746,15 @@ TextureImporter:
         y: 0
         width: 80
         height: 80
-      alignment: 9
+      alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bce7ee3458ce02850800000000000000
-      internalID: 6350335531706908363
+      spriteID: 6b4b4df737532ec489f8d5cf02aae79d
+      internalID: 2031075485
       vertices: []
       indices: 
       edges: []
@@ -1742,19 +1763,19 @@ TextureImporter:
       name: john_0 1_67
       rect:
         serializedVersion: 2
-        x: 560
+        x: 640
         y: 0
         width: 80
         height: 80
-      alignment: 9
+      alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4180c3433cc73f430800000000000000
-      internalID: 3815530487149758484
+      spriteID: 23186ae06d9381648bc2667c11e3db36
+      internalID: -1454654955
       vertices: []
       indices: 
       edges: []
@@ -1763,61 +1784,19 @@ TextureImporter:
       name: john_0 1_68
       rect:
         serializedVersion: 2
-        x: 640
-        y: 0
-        width: 80
-        height: 80
-      alignment: 9
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f60740e500ab7fd90800000000000000
-      internalID: -7063972979767218065
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: john_0 1_69
-      rect:
-        serializedVersion: 2
         x: 720
         y: 0
         width: 80
         height: 80
-      alignment: 9
+      alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a0992be94593a05b0800000000000000
-      internalID: -5401441767474947830
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: john_0 1_42
-      rect:
-        serializedVersion: 2
-        x: 162
-        y: 162
-        width: 74
-        height: 77
-      alignment: 9
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 5a30dc8b84fb106468f0bb810d9eb144
-      internalID: 7859765846444069671
+      spriteID: 9fd5b165500dafc42898fa4ddd88c75f
+      internalID: 1688060263
       vertices: []
       indices: 
       edges: []
@@ -1833,49 +1812,48 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      john_0 1_67: 3815530487149758484
-      john_0 1_21: -6565679882037820831
+      john_0 1_51: -4462107681264431653
+      john_0 1_67: -1454654955
+      john_0 1_1: 4956534834993127557
       john_0 1_16: -773546306401977258
       john_0 1_26: -2028409182969205033
       john_0 1_53: -2085956555394089608
       john_0 1_14: 4559219965074343509
       john_0 1_31: 841247979460586914
       john_0 1_23: -5771030233782833672
-      john_0 1_0: -8507426173327283993
       john_0 1_27: 3890166483223615905
-      john_0 1_60: 4351881823816797742
+      john_0 1_60: -344570497
       john_0 1_30: 4440443694229169966
-      john_0 1_61: -8671890295998186063
-      john_0 1_63: 1297205861218704103
-      john_0 1_56: 7841088678578132274
-      john_0 1_57: 748449716109483728
+      john_0 1_61: 614275661
+      john_0 1_63: -309895805
+      john_0 1_56: 354611197
+      john_0 1_57: 263248521
       john_0 1_19: 423461500393804214
       john_0 1_22: -2798234682034627918
       john_0 1_25: 8194885987211670849
-      john_0 1_54: 6074715402915362026
+      john_0 1_54: -572566843
       john_0 1_24: 7789459745368285699
       john_0 1_52: -2673841593847999828
       john_0 1_3: 9133259091123456720
       john_0 1_4: 1110809220105470201
       john_0 1_48: 5291551295798573876
-      john_0 1_59: 6412981796982525419
+      john_0 1_59: -1557207684
       john_0 1_8: -2413921593714793203
       john_0 1_40: -1180139035237407020
       john_0 1_12: 6958829010220076665
-      john_0 1_58: 2570899013785892928
+      john_0 1_58: -1446772756
       john_0 1_36: -5382958559675512971
-      john_0 1_64: 6195701350150312433
-      john_0 1_69: -5401441767474947830
+      john_0 1_64: -626714577
       john_0 1_34: -5565923743296070039
       john_0 1_39: -7952805916378204398
       john_0 1_29: -4213217534799553980
       john_0 1_45: 4466821113701971190
       john_0 1_44: 2577761717784278505
-      john_0 1_62: 2650299492185164417
+      john_0 1_62: 727897693
       john_0 1_41: 8693058125647310717
       john_0 1_13: 7485801484909369693
+      john_0 1_65: 310148726
       john_0 1_42: 7859765846444069671
-      john_0 1_65: 9186425604583276144
       john_0 1_11: -7212655814405210439
       john_0 1_47: -7434732016503358586
       john_0 1_15: -441833114433444205
@@ -1889,20 +1867,20 @@ TextureImporter:
       john_0 1_37: -4489439088391912770
       john_0 1_28: 6020168352675982315
       john_0 1_33: 4404847254930343239
-      john_0 1_55: -193462148384198255
+      john_0 1_55: 1773973465
       john_0 1_2: 2837429208061042891
       john_0 1_9: -3028790408748849835
       john_0 1_38: -2183182017179304744
-      john_0 1_66: 6350335531706908363
-      john_0 1_68: -7063972979767218065
-      john_0 1_50: 6726056546124060237
+      john_0 1_66: 2031075485
+      john_0 1_68: 1688060263
       john_0 1_17: -296938823156864606
+      john_0 1_50: 6726056546124060237
       john_0 1_46: -1962082825064717112
       john_0 1_35: -1500249946340761071
       john_0 1_7: 172147364610457665
       john_0 1_32: 1478115331528304091
-      john_0 1_1: 4956534834993127557
-      john_0 1_51: -4462107681264431653
+      john_0 1_21: -6565679882037820831
+      john_0 1_0: -8507426173327283993
   spritePackingTag: 
   pSDRemoveMatte: 0
   userData: 

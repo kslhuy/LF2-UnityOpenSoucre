@@ -7,7 +7,7 @@ AnimationClip:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Ice_John
-  serializedVersion: 6
+  serializedVersion: 7
   m_Legacy: 0
   m_Compressed: 0
   m_UseHighQualityCurve: 1
@@ -41,6 +41,7 @@ AnimationClip:
       typeID: 212
       customType: 23
       isPPtrCurve: 1
+      isIntCurve: 0
     pptrCurveMapping:
     - {fileID: -2413921593714793203, guid: 2e61782dff6ce924583b276e5c2914d1, type: 3}
     - {fileID: -3028790408748849835, guid: 2e61782dff6ce924583b276e5c2914d1, type: 3}

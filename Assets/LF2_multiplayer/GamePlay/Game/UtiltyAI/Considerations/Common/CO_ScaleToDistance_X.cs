@@ -4,7 +4,7 @@ namespace LF2.Client{
     [CreateAssetMenu(fileName = "CO_ScaleToDistance_X", menuName = "UtilityAI/Considerations/CO_ScaleToDistance/CO_ScaleToDistance_X")]
     public class CO_ScaleToDistance_X : Consideration
     {
-
+        // Score proportional to Distance
         [SerializeField] AnimationCurve responseCurve ;
         [SerializeField] int maxRang ;
         [SerializeField] int minRang ;

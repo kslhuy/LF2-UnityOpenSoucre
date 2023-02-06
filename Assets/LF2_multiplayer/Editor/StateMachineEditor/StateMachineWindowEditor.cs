@@ -64,20 +64,18 @@ public class StateMachineWindowEditor : EditorWindow {
             box.style.flexShrink = 0f;
             box.style.flexBasis = 0f;
             box.Add(new Label());
-            box.Add(new Button(() => {
-                EditorUtility.FocusProjectWindow();
-                if (m_LeftPane.selectedItem == null){
-                    aleart.text = "You need to selecte the item CharacterState first ! ";
-                    return;
-                }
-				EditorGUIUtility.PingObject(m_LeftPane.selectedItem as UnityEngine.Object);
-                aleart.text = "OK !";
-            }) {text = "Locate"});
+            box.Add(new Button() {text = "Locate"});
             return box;
         };
 
-        Action<VisualElement, int> bindItem = (e, i) => (e.ElementAt(0) as Label).text = objects[i].name;
-
+        Action<VisualElement, int> bindItem = (e, i) => {
+            (e.ElementAt(0) as Label).text = objects[i].name;
+            ((Button)e.ElementAt(1)).clicked += () => { 
+                EditorUtility.FocusProjectWindow();
+                EditorGUIUtility.PingObject(objects[i]);
+                aleart.text = " Locate OK !";
+            };
+        };
 
         // Initialize the list view with all sprites' names
         m_LeftPane.itemsSource = objects;
@@ -101,15 +99,11 @@ public class StateMachineWindowEditor : EditorWindow {
         // Clear all previous content from the pane
         m_RightPane.Clear();
         var selectedSO = selectedItems.First() as CharacterStateSOs;
-        m_LeftPane.ClearSelection();
+        // m_LeftPane.ClearSelection();
         // m_RightPane.ClearSelection();
         // Debug.Log(AssetDatabase.GetAssetPath(selectedSO.StatesSO[0].GetInstanceID()));
 
-        GetAssetStatLogicSO(selectedSO.CharacterType.ToString());
-
-
-
-
+        GetAssetStatLogicSO(selectedSO);
 
     }
     
@@ -152,22 +146,25 @@ public class StateMachineWindowEditor : EditorWindow {
             objects[i] = (ScriptableObject)AssetDatabase.LoadAssetAtPath(objectsPaths[i], typeof(ScriptableObject));
         }
     }
-    private void GetAssetStatLogicSO(string path)
+    private void GetAssetStatLogicSO(CharacterStateSOs characterStateSOs)
     {
         // Get a list of all sprites in the project
-        assetFoldersStateLogicSO[0] =   (pathHead + path);
-        StateLogicSO_GUIDs = AssetDatabase.FindAssets($"t:{nameof(StateLogicSO)}", assetFoldersStateLogicSO) ;
+        // assetFoldersStateLogicSO[0] =   (pathHead + path);
+        // StateLogicSO_GUIDs = AssetDatabase.FindAssets($"t:{nameof(StateLogicSO)}", assetFoldersStateLogicSO) ;
 
-        StateLogicSO_Paths = new string[StateLogicSO_GUIDs.Length];
-        StateLogicSO_Asset = new StateLogicSO[StateLogicSO_GUIDs.Length];
+        // StateLogicSO_Paths = new string[StateLogicSO_GUIDs.Length];
+        // StateLogicSO_Asset = new StateLogicSO[StateLogicSO_GUIDs.Length];
 
 
-        for (int i = 0; i < StateLogicSO_GUIDs.Length; i++)
-        {
-            StateLogicSO_Paths[i] = AssetDatabase.GUIDToAssetPath(StateLogicSO_GUIDs[i]);
-            StateLogicSO_Asset[i] = (StateLogicSO)AssetDatabase.LoadAssetAtPath(StateLogicSO_Paths[i], typeof(StateLogicSO));
+        // for (int i = 0; i < StateLogicSO_GUIDs.Length; i++)
+        // {
+        //     StateLogicSO_Paths[i] = AssetDatabase.GUIDToAssetPath(StateLogicSO_GUIDs[i]);
+        //     StateLogicSO_Asset[i] = (StateLogicSO)AssetDatabase.LoadAssetAtPath(StateLogicSO_Paths[i], typeof(StateLogicSO));
+        // }
+        StateLogicSO_Asset = new StateLogicSO[characterStateSOs.StatesSO.Length];
+        for (int i = 0 ; i < characterStateSOs.StatesSO.Length ; i++ ){
+            StateLogicSO_Asset[i] = characterStateSOs.StatesSO[i];
         }
-
 
 
         Func<VisualElement> makeItemStateLogic = () =>
@@ -179,20 +176,18 @@ public class StateMachineWindowEditor : EditorWindow {
             box.style.flexShrink = 0f;
             box.style.flexBasis = 0f;
             box.Add(new Label());
-            box.Add(new Button(() => {
-                EditorUtility.FocusProjectWindow();
-                if (m_RightPane.selectedItem == null){
-                    aleart.text = "You need to selecte the item StateLogic first ! ";
-                    return;
-                }
-				EditorGUIUtility.PingObject(m_RightPane.selectedItem as UnityEngine.Object);
-                aleart.text = "OK !";
-            }) {text = "Locate"});
+            box.Add(new Button() {text = "Locate"});
             return box;
         };
 
-        Action<VisualElement, int> bindItemStateLogic = (e, i) => (e.ElementAt(0) as Label).text = StateLogicSO_Asset[i].name;
-
+        Action<VisualElement, int> bindItemStateLogic = (e, i) =>{ 
+            (e.ElementAt(0) as Label).text = StateLogicSO_Asset[i].name;
+            ((Button)e.ElementAt(1)).clicked += () => { 
+                EditorUtility.FocusProjectWindow();
+                EditorGUIUtility.PingObject(StateLogicSO_Asset[i]);
+                aleart.text = " Locate OK !";
+            };
+        };
         m_RightPane.itemsSource = StateLogicSO_Asset;
         m_RightPane.makeItem = makeItemStateLogic;
         m_RightPane.bindItem = bindItemStateLogic;

@@ -25,8 +25,27 @@ namespace LF2.Server
             get { return NetState.IsNpc; }
         }
 
+        [SerializeField]
+        NetworkAvatarGuidState m_State;
 
+        // Just for debug
+        [SerializeField]
+        CharacterClass m_CharacterClass;
 
+        public CharacterClass CharacterClass
+        {
+            get
+            {
+                if (m_CharacterClass == null)
+                {
+                    m_CharacterClass = m_State.RegisteredAvatar.CharacterClass;
+                }
+
+                return m_CharacterClass;
+            }
+
+            set => m_CharacterClass = value;
+        }
 
         
         // [SerializeField]
@@ -97,31 +116,8 @@ namespace LF2.Server
 
 
 
-        // private void OnLifeStateChanged(LifeState prevLifeState, LifeState lifeState)
-        // {
-        //     if (lifeState == LifeState.Fainted)
-        //     {
-        //         StartCoroutine(FaintedTimer());
-        //     }
-        // }
-
-        // private IEnumerator FaintedTimer()
-        // {
-        //     yield return new WaitForSeconds(1);
-        //     NetState.LifeState = LifeState.Alive;
-        // }
 
 
-
-        /// <summary>
-        /// Receive an HP change from somewhere. Could be healing or damage.
-        /// </summary>
-        /// <param name="inflicter">Person dishing out this damage/healing. Can be null. </param>
-        /// <param name="HP">The HP to receive. Positive value is healing. Negative is damage.  </param>
-        public void OnGameplayActivity(InputPackage stateRequestData, int HP)
-        {
-
-        }
 
 
         // void Update()
@@ -141,32 +137,24 @@ namespace LF2.Server
         {
             // Debug.Log(attackData);
             NetState.RecvHPClientRPC(attackData);
-            if (NetState.HPPoints <= 0 ) {
-                // Set m_KilledDestroyDelaySeconds = -1 for Player , so its can not destroyed 
-                if (m_KilledDestroyDelaySeconds >= 0.0f && NetState.LifeState != LifeState.Dead)
-                {
-                    StartCoroutine(KilledDestroyProcess());
-                }
+            OnHPChange(attackData.Amount_injury);
 
-                NetState.LifeState = LifeState.Dead;
-                
-            }
             
         }
 
-        // /// <summary>
-        // /// Receive a Life State change that brings Fainted characters back to Alive state.
-        // /// </summary>
-        // /// <param name="inflicter">Person reviving the character.</param>
-        // /// <param name="HP">The HP to set to a newly revived character.</param>
-        // public void Revive(ServerCharacter inflicter, int HP)
-        // {
-        //     if (NetState.LifeState == LifeState.Fainted)
-        //     {
-        //         NetState.HPPoints = Mathf.Clamp(HP, 0, CharacterClass.BaseHP.Value);
-        //         NetState.LifeState.Value = LifeState.Alive;
-        //     }
-        // }
+        /// <summary>
+        /// Receive a Life State change that brings Fainted characters back to Alive state.
+        /// </summary>
+        /// <param name="inflicter">Person reviving the character.</param>
+        /// <param name="HP">The HP to set to a newly revived character.</param>
+        public void Revive(ServerCharacter inflicter, int HP)
+        {
+            if (NetState.LifeState == LifeState.Fainted)
+            {
+                NetState.HPPoints = Mathf.Clamp(HP, 0, CharacterClass.BaseHP.Value);
+                NetState.LifeState = LifeState.Alive;
+            }
+        }
 
         IEnumerator KilledDestroyProcess()
         {
@@ -180,20 +168,29 @@ namespace LF2.Server
 
 
         //  ( Use Client authoriza )
-        // Call by Owner client 
+        // Call by Owner client or server Projectile 
 
         private void OnHPChange(int HP)
         {
+
+#if UNITY_EDITOR || DEVELOPMENT_BUILD
+            if (HP < 0 && m_NetworkCharacterState.NetworkLifeState.IsGodMode.Value ){
+            // Don't apply damage if god mode is on
+                return;
+            }
+#endif
             m_NetworkCharacterState.HPPoints = Mathf.Min(m_NetworkCharacterState.CharacterClass.BaseHP.Value, m_NetworkCharacterState.HPPoints+ HP);
 
             //we can't currently heal a dead character back to Alive state.
             //that's handled by a separate function.
             if (m_NetworkCharacterState.HPPoints <= 0)
             {
-
-                if (m_KilledDestroyDelaySeconds >= 0.0f && NetState.LifeState != LifeState.Dead)
+                if (IsNpc)
                 {
-                    StartCoroutine(KilledDestroyProcess());
+                    if (m_KilledDestroyDelaySeconds >= 0.0f && NetState.LifeState != LifeState.Dead)
+                    {
+                        StartCoroutine(KilledDestroyProcess());
+                    }
                 }
 
                 NetState.LifeState = LifeState.Dead;            
@@ -201,7 +198,7 @@ namespace LF2.Server
         }
         private void OnMPChange(int MP)
         {
-            m_NetworkCharacterState.MPPoints = Mathf.Min(m_NetworkCharacterState.CharacterClass.BaseHP.Value, m_NetworkCharacterState.MPPoints + MP);
+            m_NetworkCharacterState.MPPoints = Mathf.Clamp(m_NetworkCharacterState.MPPoints + MP,0 ,m_NetworkCharacterState.CharacterClass.BaseHP.Value );
         }
 
 

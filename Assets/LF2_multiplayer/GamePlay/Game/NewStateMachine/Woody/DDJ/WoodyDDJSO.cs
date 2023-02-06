@@ -98,8 +98,9 @@ namespace LF2.Client{
  
         public override void OnAnimEvent(int id)
         {
-            ///// Shiled  : only spawn
-            stateMachineFX.CoreMovement.TeleportPlayer(closetFoePosition + Vector3.right*stateData.Dx*-stateMachineFX.CoreMovement.GetFacingDirection());
+            if (stateMachineFX.m_ClientVisual.Owner) {
+                stateMachineFX.CoreMovement.TeleportPlayer(closetFoePosition + Vector3.right*stateData.Dx*-stateMachineFX.CoreMovement.GetFacingDirection());
+            }
             stateMachineFX.m_ClientVisual.NormalAnimator.Play(stateMachineFX.m_ClientVisual.VizAnimation.a_DDJ_2);
 
         }

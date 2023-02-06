@@ -1,22 +1,35 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="True">
     <Style src="project://database/Assets/LF2_multiplayer/Editor/margin.uss?fileID=7433441132597879392&amp;guid=f428da7cc83e4f242b0ff60b0e74cce8&amp;type=3#margin" />
-    <ui:Label tabindex="-1" text="AI State Machine Editor" display-tooltip-when-elided="true" name="NameChar" style="-unity-text-align: upper-center; font-size: 16px; -unity-font-style: bold; color: rgb(241, 197, 40); -unity-text-outline-color: rgb(103, 31, 31);" />
-    <ui:VisualElement name="createpanel" class="section" style="flex-direction: row;">
-        <ui:EnumField label="Enum" type="UnityEngine.TextAlignment, UnityEngine.TextRenderingModule" value="Center" name="COtype" style="width: 220px; align-items: flex-start; justify-content: center; height: 16px;" />
-        <ui:Button text="Create" display-tooltip-when-elided="true" name="Create" style="-unity-text-align: middle-right;" />
+    <ui:VisualElement style="flex-direction: column; justify-content: center; height: 45px;">
+        <ui:Label tabindex="-1" text="AI State Machine Editor" display-tooltip-when-elided="true" name="NameChar" style="-unity-text-align: upper-center; font-size: 16px; -unity-font-style: bold; color: rgb(241, 197, 40); -unity-text-outline-color: rgb(103, 31, 31);" />
+        <ui:Button text="Reset" display-tooltip-when-elided="true" name="resetbtn" />
     </ui:VisualElement>
-    <ui:VisualElement name="panel1" class="section" style="margin-left: 16px; margin-right: 16px; margin-top: 16px; margin-bottom: 16px;">
-        <ui:VisualElement style="flex-direction: row; width: 100%;">
+    <ui:VisualElement name="createpanel" class="section" style="flex-direction: row; height: 70px;">
+        <ui:VisualElement class="section" style="width: 100%; height: 100%;">
+            <ui:Button text="New" display-tooltip-when-elided="true" name="creatActionAISO" style="-unity-text-align: middle-center;" />
+            <ui:Label tabindex="-1" text="State Action AI" display-tooltip-when-elided="true" style="-unity-text-align: upper-center;" />
+        </ui:VisualElement>
+        <ui:VisualElement class="section" style="width: 100%; height: 100%;">
+            <ui:Button text="Create" display-tooltip-when-elided="true" name="CreateAction" style="-unity-text-align: middle-center;" />
+            <ui:EnumField label="Action Type" type="UnityEngine.TextAlignment, UnityEngine.TextRenderingModule" value="Left" name="actionType" usage-hints="None" style="width: auto; align-items: flex-start; justify-content: center; height: auto; white-space: normal; font-size: 13px;" />
+        </ui:VisualElement>
+        <ui:VisualElement class="section" style="width: 100%; height: 100%;">
+            <ui:Button text="Create" display-tooltip-when-elided="true" name="CreateSO" style="-unity-text-align: middle-center;" />
+            <ui:EnumField label="Consideration Type" type="UnityEngine.TextAlignment, UnityEngine.TextRenderingModule" value="Center" name="COtype" style="width: auto; align-items: flex-start; justify-content: center; height: auto;" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+    <ui:VisualElement name="panel1" class="section" style="margin-left: 16px; margin-right: 16px; margin-top: 16px; margin-bottom: 16px; height: 25px;">
+        <ui:VisualElement style="flex-direction: row; width: 100%; height: 25px;">
             <ui:Label tabindex="-1" text="Log :&#10;" display-tooltip-when-elided="true" />
             <ui:Label tabindex="-1" text="Something" display-tooltip-when-elided="true" name="contentLog" />
         </ui:VisualElement>
     </ui:VisualElement>
-    <ui:VisualElement name="panel2" style="flex-direction: row; align-items: auto; justify-content: space-around; width: 100%; height: auto;">
-        <ui:ListView focusable="true" name="left" class="section" style="height: 100%; width: 100%;" />
-        <ui:ListView focusable="true" name="right" class="section" style="height: 100%; width: 100%;" />
-        <ui:ListView focusable="true" name="mid" class="section" style="height: 100%; width: 100%;" />
+    <ui:VisualElement name="panel2" style="flex-direction: row; align-items: auto; justify-content: space-around; width: 100%; height: 220px;">
+        <ui:ListView focusable="true" name="left" class="section" style="height: 220px; width: 100%;" />
+        <ui:ListView focusable="true" name="right" class="section" style="height: 220px; width: 100%;" />
+        <ui:ListView focusable="true" name="mid" class="section" style="height: 220px; width: 100%;" />
     </ui:VisualElement>
-    <ui:VisualElement name="panel3" style="flex-direction: row; align-items: auto; justify-content: space-around; width: 100%; height: auto;">
+    <ui:VisualElement name="panel3" style="flex-direction: row; align-items: auto; justify-content: space-around; width: 100%; height: 300px; min-height: 150px;">
         <ui:VisualElement name="view1" style="flex-direction: row; height: 100%; width: 100%; margin-left: 5px; margin-right: 5px; margin-top: 5px; margin-bottom: 5px; padding-left: 5px; padding-right: 5px; padding-top: 5px; padding-bottom: 5px; -unity-text-outline-color: rgb(219, 152, 152);">
             <ui:ScrollView name="midScobar" horizontal-scroller-visibility="Hidden" vertical-scroller-visibility="AlwaysVisible" style="width: 100%; height: 100%;" />
         </ui:VisualElement>

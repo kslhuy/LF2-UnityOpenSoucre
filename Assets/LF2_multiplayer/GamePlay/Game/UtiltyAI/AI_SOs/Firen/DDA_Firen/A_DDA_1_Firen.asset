@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc3fd8c47895b7f4f85421a8f8c94a5f, type: 3}
+  m_Name: A_DDA_1_Firen
+  m_EditorClassIdentifier: 
+  TypeName: 30
+  considerations:
+  - {fileID: 11400000, guid: d134d604944f4d748a6ce787cc329b84, type: 2}
+  - {fileID: 11400000, guid: dc5fca84ae7d41d438edd03f23bddaa0, type: 2}
+  - {fileID: 11400000, guid: aeffdc8208b8c9a40b2c134750d46c90, type: 2}
+  - {fileID: 11400000, guid: b63ca514ab1fc884ea88e8f5dc67cd32, type: 2}
+  - {fileID: 11400000, guid: a1631e1b3ed67ae4ca6b3d75258266fb, type: 2}

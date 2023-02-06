@@ -603,43 +603,6 @@ namespace LF2.Client
             // }
         }
  
-        // private void OnGUI() {
-        //     if (tag.Equals("Dummy")){
-        //         GUIStyle myButtonStyle = new GUIStyle(GUI.skin.button);
-        //         myButtonStyle.fontSize = fontSize;
-
-        //         // GUILayout.BeginArea(new Rect(100, 100, 250, 250));
-        //         if( GUI.Button(new Rect(400,300,200,100), "Spawn Position", myButtonStyle)){
-        //             transform.position = initPosition;
-
-        //         };
-
-        //         GUIStyle huy =new GUIStyle();
-        //         huy.fontSize = 100;
-        //         // GUI.Box(new Rect(50,50,500,500), "Test State");
-        //         textAreaString = GUI.TextField (new Rect (400, 100, 400, 100), textAreaString,2,huy);
-
-        //         if(GUI.Button(new Rect(600,500,200,100), "AI Play"))
-        //         {
-        //             int enumNB =  int.Parse(textAreaString);
-        //             stateToPlay = (StateType)((enumNB) % values.Length);
-        //             Debug.Log($"NB = {enumNB} =>  {stateToPlay} state");
-        //             // var data = new InputPackage(){
-        //             //     StateTypeEnum = stateToPlay,
-        //             // };
-        //             if (repeat){
-        //                 StartCoroutine(Coro_DoReapeatState(stateToPlay));
-        //                 return;
-        //             }
-
-        //             Do(stateToPlay);      
-        //         }
-
-        //         repeat =  GUI.Toggle(new Rect(600,300,100,100),repeat, "Repeat ");
-        //     }
-        // }
-
-
 
 
         // Loop throgh all the considerations of the action 
@@ -655,23 +618,28 @@ namespace LF2.Client
                 return 0;
                 }
 #endif
-
+            int counterNbSubConsideration = 0;  
             for (int c = 0 ; c < totalConsideraion ; c++){
                 if (action.considerations[c].isSubConsideration){
+                    counterNbSubConsideration++ ;
                     score_Sup += action.considerations[c].ScoreConsideration(this);
                     continue;
                 }
                 float considerationScore = action.considerations[c].ScoreConsideration(this);
                 // if one consideration have 0 Score , that mean multiplie by 0 is 0 
-                // So dont need to waste time more .  
+                // So dont need to waste time more . 
+                // Dont need check Sup Score also , 
+                // because Main Score = 0 that mean no chance to play the Action 
                 if (considerationScore == 0) return action.Score = 0;
 
                 score_Main *= MakeUpScore(considerationScore , totalConsideraion) ;
 
             }
-            // Add more Score_Sup  in to ScoreMain and do some normalization (0,1)
-            // Score_Sup is a bonus , they have in some Consideration ,
-            //  this consideration design for some special case (some thing like if ennemy is Davis do DDJ , so me (John) Do some thing to counter him )
+            // Add more Score_Sup in to ScoreMain and do some normalization (0,1)
+            // Score_Sup is a bonus ,
+            // this kind of "Sup Consideration" design for some special case 
+            // (some thing like if ennemy is Davis do DDJ , so me (John) Do some thing to counter him )
+            score_Sup = counterNbSubConsideration > 0 ? (score_Sup / counterNbSubConsideration) : 0;
             float score_Total = score_Main + score_Sup; 
             score_Main = score_Total/(score_Total+1); 
 

@@ -12,19 +12,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37111e55d4c47e34fad8ed39228ed15f, type: 3}
   m_Name: CO_HaveHP
   m_EditorClassIdentifier: 
-  Name: 
+  Owner: A_DUA_1_John
+  isSubConsideration: 0
   responseCurve:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
       time: 0
       value: 1
-      inSlope: 0
-      outSlope: 0
+      inSlope: -0.00021741589
+      outSlope: -0.00021741589
       tangentMode: 0
       weightedMode: 0
       inWeight: 0
-      outWeight: 0
+      outWeight: 0.054271355
     - serializedVersion: 3
       time: 500
       value: 0

@@ -521,8 +521,6 @@ MonoBehaviour:
     TypeName: LF2.ApplicationLifecycle.ApplicationController
   autoRun: 1
   autoInjectGameObjects: []
-  m_NetcodeHooks: {fileID: 274997839}
-  persistentPlayerRuntimeCollection: {fileID: 11400000, guid: 3d452f205bfe6f1458ac48ae9c9481d8, type: 2}
 --- !u!4 &274997836
 Transform:
   m_ObjectHideFlags: 0
@@ -2163,7 +2161,7 @@ MonoBehaviour:
   m_LoseGameMessage: {fileID: 465785665}
   m_ReplayButton: {fileID: 859481324}
   m_WaitOnHostMsg: {fileID: 153167955}
-  m_NetworkGameStateTransform: {fileID: 11400000, guid: 2898f414d2dfc824d94cfddc2d153e97, type: 2}
   m_WinLightColor: {r: 0, g: 0, b: 0, a: 0}
   m_LoseLightColor: {r: 0, g: 0, b: 0, a: 0}
-  clientGameState: {fileID: 274997835}
+  OnwerClientID: {fileID: 11400000, guid: 44d94fe8baecc19488e123c58d7a2812, type: 2}
+  persistentPlayerRuntimeCollection: {fileID: 11400000, guid: 3d452f205bfe6f1458ac48ae9c9481d8, type: 2}

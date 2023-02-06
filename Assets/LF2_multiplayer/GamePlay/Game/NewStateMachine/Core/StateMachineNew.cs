@@ -30,7 +30,7 @@ namespace LF2.Client
         public bool IsMove { get; private set; }
 
         // General Cache Value 
-        public int nbHit = 1;
+        // public int nbHit = 1;
         public int nbJump;
 
         //

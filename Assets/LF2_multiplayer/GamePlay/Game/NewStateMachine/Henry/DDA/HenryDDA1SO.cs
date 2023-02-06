@@ -42,7 +42,6 @@ namespace LF2.Client{
 
         public override void End(){
             if (!m_Launched){
-                stateMachineFX.m_ClientVisual.PlayAudio(stateData.Sounds);
                 if (stateMachineFX.m_ClientVisual._IsServer) {
                     SpwanProjectile(stateData.Projectiles[0], new Vector3(stateMachineFX.CoreMovement.GetFacingDirection() , 0, stateMachineFX.InputZ));
                 }
@@ -56,11 +55,7 @@ namespace LF2.Client{
         {
             base.PlayAnim();
             stateMachineFX.m_ClientVisual.NormalAnimator.Play(stateMachineFX.m_ClientVisual.VizAnimation.a_DDA_1);
-            stateMachineFX.m_ClientVisual.PlayAudio(stateData.Sounds);
-            m_Launched = true;
-            if (stateMachineFX.m_ClientVisual._IsServer) {
-                SpwanProjectile(stateData.Projectiles[0], new Vector3(stateMachineFX.CoreMovement.GetFacingDirection() , 0, stateMachineFX.InputZ));
-            }
+
         }
 
         public override void PlayPredictState( int nbanim = 1 , bool sequence = false)
@@ -69,6 +64,19 @@ namespace LF2.Client{
                 stateMachineFX.m_ClientVisual.m_NetState.AddPredictState_and_SyncServerRpc(GetId());
             }
             PlayAnim(nbanim , sequence);
+        }
+
+        public override void OnAnimEvent(int id)
+        {
+            stateMachineFX.m_ClientVisual.PlayAudio(stateData.Start_Sounds[id - 100]);
+
+            if (id == 101 && stateMachineFX.m_ClientVisual._IsServer) {
+                SpwanProjectile(stateData.Projectiles[0], new Vector3(stateMachineFX.CoreMovement.GetFacingDirection() , 0, stateMachineFX.InputZ));
+                m_Launched = true;
+            }
+
+
+
         }
 
 

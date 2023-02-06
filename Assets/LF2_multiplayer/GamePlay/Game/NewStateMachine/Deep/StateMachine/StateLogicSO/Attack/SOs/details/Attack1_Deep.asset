@@ -12,7 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2eb2663c5ade5549bd2b0822f6a4bbe, type: 3}
   m_Name: Attack1_Deep
   m_EditorClassIdentifier: 
-  m_AnimationName: 
   damageAmount: -35
   Effect: 1
   fall: 10
@@ -20,7 +19,6 @@ MonoBehaviour:
   arest: 0
   vrest: 0
   Dirxyz: {x: 1, y: 0, z: 0}
-  durration: 0
+  durration: 1
   SoundHit:
   - {fileID: 11400000, guid: 29992d9da4c4ede4c81cc7d1c96cbe08, type: 2}
-  AnimationNameHash: 0

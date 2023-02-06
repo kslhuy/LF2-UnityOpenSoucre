@@ -112,6 +112,10 @@ PrefabInstance:
       propertyPath: m_VisualsInjuryAnimator
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 8994507685575570671, guid: 687160c7cfd6cd748877c28fe515d9c6, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 22100000, guid: b7aebb1c13effd5419a69686b84e441f, type: 2}
     m_RemovedComponents:
     - {fileID: 2534825432546787825, guid: 687160c7cfd6cd748877c28fe515d9c6, type: 3}
     - {fileID: 1480621980762124376, guid: 687160c7cfd6cd748877c28fe515d9c6, type: 3}

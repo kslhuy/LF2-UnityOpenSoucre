@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc3fd8c47895b7f4f85421a8f8c94a5f, type: 3}
+  m_Name: A_DDJ_Woody
+  m_EditorClassIdentifier: 
+  TypeName: 33
+  considerations:
+  - {fileID: 11400000, guid: 2ab1be3d9cd6c5041bdf6f739d081f58, type: 2}
+  - {fileID: 11400000, guid: 3a6289b76f7df1642aa5dfb79306eb24, type: 2}
+  - {fileID: 11400000, guid: c3b414d45de61d94588e3c90d054d627, type: 2}
+  - {fileID: 11400000, guid: d9e84f44ce8058f45ae50cbf58d646e6, type: 2}
+  - {fileID: 11400000, guid: 59029fe4b4d157b4599757e1a7f736a9, type: 2}
+  - {fileID: 11400000, guid: fa4ce89ab53e853469821eb3b9102dde, type: 2}

@@ -4,6 +4,7 @@ namespace LF2.Client{
     [CreateAssetMenu(fileName = "CO_HaveMana", menuName = "UtilityAI/Considerations/CO_HaveMana")]
     public class CO_HaveMana : Consideration
     {
+        [Tooltip("Not use Boolean , use cuvre")]
         [SerializeField] AnimationCurve responseCurve ;
         [Tooltip("True if MPPoints > ManaNeeded")]
         [SerializeField] bool BooleenCondition ;
@@ -12,11 +13,16 @@ namespace LF2.Client{
         
         public override float ScoreConsideration(AIBrain brain)
         {
-            if (BooleenCondition && brain.Self.m_NetState.MPPoints > ManaNeeded ){
-                return Score = 1;
+            
+            if ( brain.Self.m_NetState.MPPoints < ManaNeeded ){
+                return 0;
             }
-            Score = responseCurve.Evaluate((int)brain.Self.m_NetState.MPPoints);
-            return Score;
+            // Here we have enough mana to perform the action  
+            if (BooleenCondition){
+                return 1 ;    
+            }else{
+                return responseCurve.Evaluate((int)brain.Self.m_NetState.MPPoints);  
+            } 
         }
     }
 

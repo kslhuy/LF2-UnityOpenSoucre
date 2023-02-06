@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c97ae767a83b71b42aeb64d0595a3cfe, type: 3}
   m_Name: Deep_HP_AI_test
   m_EditorClassIdentifier: 
-  Value: 100
+  Value: 1000

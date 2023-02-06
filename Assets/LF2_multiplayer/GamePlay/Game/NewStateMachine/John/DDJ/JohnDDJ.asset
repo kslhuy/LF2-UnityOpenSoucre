@@ -17,10 +17,17 @@ MonoBehaviour:
   UseMana: 1
   ManaCost: -80
   DamageDetails:
-  - {fileID: 0}
+  - {fileID: 11400000, guid: b4976f368245fce40907ffa09a6934a5, type: 2}
+  Interactions: []
   Dx: 0
   Dy: 0
   Dz: 0
+  curve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   Projectiles:
   - ProjectilePrefab: {fileID: 4479758005046589536, guid: 5b2074763529b4449ba680af260d96af, type: 3}
     pivot: {x: 70, y: 40, z: 0}
@@ -31,7 +38,11 @@ MonoBehaviour:
   Sounds: {fileID: 11400000, guid: df2ed7dcbf1844842a0b3313ef66494b, type: 2}
   delayLoopSound: 0
   Start_Sounds: []
-  vizAnim:
-  - AnimNames: DDJ_1_anim
-    AnimHashId: -1443893879
   SpawnsFX: []
+  frameChecker:
+    clip: {fileID: 0}
+    totalFrames: 0
+    arest: 0
+    vrest: 0
+    _frameStruct: []
+    layerNumber: 0

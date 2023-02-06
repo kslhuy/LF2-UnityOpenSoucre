@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CharacterType: 0
   A_AttackAvaillable:
-  - A_Availlable: {fileID: 11400000, guid: 724634a52ab534247bae6438f5fff115, type: 2}
+  - A_Availlable: {fileID: 11400000, guid: c96a83bf0d9c04e478e4b557745885ea, type: 2}
     Disable: 0
     ShowScore: 0
   - A_Availlable: {fileID: 11400000, guid: f3779df36bf2bf3478f89e50bf70a32a, type: 2}
@@ -24,6 +24,9 @@ MonoBehaviour:
     Disable: 0
     ShowScore: 0
   - A_Availlable: {fileID: 11400000, guid: 5d8724cb064511b48993c55f18c5ba1a, type: 2}
+    Disable: 0
+    ShowScore: 0
+  - A_Availlable: {fileID: 11400000, guid: 776e1a393a02b604ba204a411dde56e3, type: 2}
     Disable: 0
     ShowScore: 0
   A_MoveAvaillable:

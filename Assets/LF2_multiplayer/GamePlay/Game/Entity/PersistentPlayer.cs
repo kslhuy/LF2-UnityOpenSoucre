@@ -26,7 +26,9 @@ namespace LF2
         public PersistentBackGround PersistentBackGround;
         // public NetworkVariable<WinState> WinState = new NetworkVariable<WinState>();
 
+        [SerializeField] UlongVariable ownerClientID; 
         public LifeState LifeState { get; private set; }
+
 
         // [field:SerializeField] public WinState WinState { get; private set; }
 
@@ -83,6 +85,9 @@ namespace LF2
                     m_NetworkAvatarGuidState.AvatarGuid.Value = sessionPlayerData.Value.AvatarNetworkGuid;
                 }
             }
+            if (IsOwner){
+                ownerClientID.Value = OwnerClientId;
+            }
         }
 
         public void AddPersistentBotData(PersistentBOT dataBOT){
@@ -101,8 +106,8 @@ namespace LF2
 
         public override void OnNetworkDespawn()
         {
-            // RemovePersistentPlayer();
-            Debug.Log("Remove Persistent player Data");
+            RemovePersistentPlayer();
+            // Debug.Log("Remove Persistent player Data");
 
         }
 
@@ -119,13 +124,18 @@ namespace LF2
             GameWinState.Value = WinState.Invalid;
         }
 
+        public void RemoveBotCollection(){
+            m_PersistentBOTRuntimeCollection.RemoveALL();
+        }
         void RemovePersistentPlayer()
         {
-            Debug.Log("Remove Persistent player Data");
+            // Debug.Log("Remove Persistent player Data");
             m_PersistentPlayerRuntimeCollection.Remove(this);
             m_PersistentBOTRuntimeCollection.RemoveALL();
-            PersistentBackGround.NetworkBackGroundGuid = new NetworkGuid();
-            // Double Set Data for ensure we have this 
+            // PersistentBackGround.NetworkBackGroundGuid = new NetworkGuid();
+            
+            // Double Set Data for ensure we have this when one player disconenected 
+            // But have we really need that
             if (IsServer)
             {
                 var sessionPlayerData = SessionManager<SessionPlayerData>.Instance.GetPlayerData(OwnerClientId);

@@ -380,7 +380,7 @@ namespace LF2.Client
         private void StateChoseBackGround(bool previousValue, bool newValue)
         {
             ConfigureUIForLobbyMode(LobbyMode.ChooseBackGround);
-            m_BackGroundBox.ConfigureBackGround(BackGroundSelectData.backGroundGameRegistry.m_BackGrounds[BackGroundSelectData.BackGroundNumber.Value]);
+            m_BackGroundBox.ConfigureBackGround(BackGroundSelectData.backGroundGameRegistry.TryGetBackGround(BackGroundSelectData.BackGroundNumber.Value));
 
         }
 
@@ -393,9 +393,9 @@ namespace LF2.Client
             ConfigureUIForLobbyMode(nowLobbyMode);
         }
 
-        private void OnHostChangedBackground(int presValue, int newValue)
+        private void OnHostChangedBackground(BackGroundEnum presValue, BackGroundEnum newValue)
         {
-            m_BackGroundBox.ConfigureBackGround(BackGroundSelectData.backGroundGameRegistry.m_BackGrounds[BackGroundSelectData.BackGroundNumber.Value]);
+            m_BackGroundBox.ConfigureBackGround(BackGroundSelectData.backGroundGameRegistry.TryGetBackGround(BackGroundSelectData.BackGroundNumber.Value));
         }
 
         private void OnHostChangeNumberBOT(int previousValue, int newValue)

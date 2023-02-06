@@ -35,10 +35,10 @@ namespace LF2.Client{
         }
 
 
-        public override void Exit()
-        {
-            stateMachineFX.nbHit = 1;
-        }
+        // public override void Exit()
+        // {
+        //     stateMachineFX.nbHit = 1;
+        // }
 
         public override void End(){
             stateMachineFX.idle();

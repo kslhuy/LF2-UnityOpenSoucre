@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d730e41c51680c9499c842c8e6a8dfbb, type: 3}
   m_Name: CO_IsEnemyState
   m_EditorClassIdentifier: 
-  Name: 
+  Owner: A_Rolling_Bandit
   isSubConsideration: 0
-  StateDesir: 1e000000210000002400000027000000
+  StateDesir: 1e212427
   isDiffThisState: 0

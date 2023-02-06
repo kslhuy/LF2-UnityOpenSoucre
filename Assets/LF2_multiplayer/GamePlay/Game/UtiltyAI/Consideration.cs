@@ -6,8 +6,8 @@ using UnityEngine;
 //behavior NPC can do = State 
 namespace LF2.Client{
     public abstract class Consideration : ScriptableObject{
-        public string Name;
-        [Tooltip("Add score direct to total score of this action , See more in the math in AIBrain")]
+        public string Owner;
+        [Tooltip("Add score of this Consideration direct to total score of the action , See more math calulation in AIBrain")]
         public bool isSubConsideration;
         
         private float _score;

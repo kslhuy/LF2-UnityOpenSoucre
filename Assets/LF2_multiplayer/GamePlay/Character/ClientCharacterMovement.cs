@@ -24,7 +24,8 @@ namespace LF2.Client
 
         [SerializeField]
         private NetworkCharacterState m_MovementSource;
-
+        public ClientNetTransform ClientNetTransform;
+        #endregion Declare_Field
         private Vector3 moveDir;
         // TODO : Next time we can use sbyte Here istead of int  
         public int FacingDirection { get; private set; }
@@ -33,19 +34,12 @@ namespace LF2.Client
         // result = (1 - 2 * 1) = -1
         // NetworkVariable<byte> facingByte;
 
+
         private RaycastHit[] GroundHit = new RaycastHit[1];
-
-        #endregion Declare_Field
-
-
-
 
 
 
         private Transform m_Transform; // cache the transform component to reduce unnecessary bounce between managed and native
-        private NetworkManager m_CachedNetworkManager;
-
-
 
 
         private bool CanCommitToTransform;
@@ -142,7 +136,6 @@ namespace LF2.Client
 
 
             m_Transform = transform;
-            m_CachedNetworkManager = NetworkManager;
 
             CanCommitToTransform = IsServer;
 
@@ -243,7 +236,8 @@ namespace LF2.Client
 
         public void TeleportPlayer(Vector3 position)
         {
-            transform.position = position;
+            ClientNetTransform.Teleport(position);
+            // transform.position = position;
         }
 
         public void SetDoubleJump(float inputX, float inputZ)

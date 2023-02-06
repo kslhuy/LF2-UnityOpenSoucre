@@ -13,15 +13,17 @@ namespace LF2.Client{
 
     public class DeepDUA3Logic : MeleLogic
     {
-        private AttackDataSend Atk_data ;
+        // private AttackDataSend Atk_data ;
 
         private bool attackOnce;
+        private int attackDUJ3;
 
         //Component references
         // private IdleLogicSO _originSO => (IdleLogicSO)base.OriginSO; // The SO this StateAction spawned from
         public override void Awake(StateMachineNew stateMachine)
         {
             stateMachineFX = stateMachine;
+            attackDUJ3 = Animator.StringToHash("DUJ_3_sub_anim");
             // Atk_data = new AttackDataSend();
 
             // Atk_data.Direction = new Vector3 (stateData.DamageDetails[0].Dirxyz.x * stateMachineFX.CoreMovement.GetFacingDirection(),stateData.DamageDetails[0].Dirxyz.y , stateData.DamageDetails[0].Dirxyz.z ) ;
@@ -35,7 +37,7 @@ namespace LF2.Client{
             // Debug.Log(attackOnce);
             if (requestData.StateTypeEnum == StateType.Attack && !attackOnce){
                 attackOnce = true;
-                stateMachineFX.m_ClientVisual.NormalAnimator.Play(stateMachineFX.m_ClientVisual.VizAnimation.a_DUA_3);
+                stateMachineFX.m_ClientVisual.NormalAnimator.Play(attackDUJ3);
                 return true;
             }
 
@@ -79,14 +81,14 @@ namespace LF2.Client{
         }
 
 
-        public override void PlayAnim( int nbanim = 1 , bool sequence = false)
+        public override void PlayAnim(int nbanim = 1 , bool sequence = false)
         {
             base.PlayAnim();
             attackOnce =  false;
             stateMachineFX.m_ClientVisual.NormalAnimator.Play(stateMachineFX.m_ClientVisual.VizAnimation.a_DUA_3);
         }
 
-        public override void PlayPredictState( int nbanim = 1 , bool sequence = false)
+        public override void PlayPredictState(int nbanim = 1 , bool sequence = false)
         {
 
             if (stateMachineFX.m_ClientVisual.Owner) {
