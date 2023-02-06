@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea37aa6a664fc1945a4426fc432fde14, type: 3}
   m_Name: CO_HaveMana
   m_EditorClassIdentifier: 
-  Name: 
+  Owner: A_DUJ_1_Deep
+  isSubConsideration: 0
   responseCurve:
     serializedVersion: 2
     m_Curve: []
