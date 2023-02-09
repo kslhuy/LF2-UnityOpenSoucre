@@ -21,6 +21,8 @@ namespace LF2.Client
 
         private List<IHurtBox> _Listdamagable = new List<IHurtBox>();
 
+        private Collider[] _damagables = new Collider[3];
+
         // private AttackDataSend Atk_data ;
         // private float loopframePersentage;
 
@@ -138,22 +140,22 @@ namespace LF2.Client
 
 
 
-        public override void AddCollider(Collider collider)
-        {
-            IHurtBox damagable = collider.GetComponentInParent<IHurtBox>();
-            if (damagable != null)
-            {
-                _Listdamagable.Add(damagable);
-            }
-        }
-        public override void RemoveCollider(Collider collider)
-        {
-            IHurtBox damagable = collider.GetComponentInParent<IHurtBox>();
-            if (damagable != null)
-            {
-                _Listdamagable.Remove(damagable);
-            }
-        }
+        // public override void AddCollider(Collider collider)
+        // {
+        //     IHurtBox damagable = collider.GetComponentInParent<IHurtBox>();
+        //     if (damagable != null)
+        //     {
+        //         _Listdamagable.Add(damagable);
+        //     }
+        // }
+        // public override void RemoveCollider(Collider collider)
+        // {
+        //     IHurtBox damagable = collider.GetComponentInParent<IHurtBox>();
+        //     if (damagable != null)
+        //     {
+        //         _Listdamagable.Remove(damagable);
+        //     }
+        // }
 
         public void onNextFrame(int frame)
         {
@@ -173,16 +175,40 @@ namespace LF2.Client
 
         public void onAttackFrame(AttackDataSend AttkData)
         {
-            AttkData.Direction = new Vector3 (AttkData.Direction.x * stateMachineFX.CoreMovement.GetFacingDirection(),AttkData.Direction.y , AttkData.Direction.z ) ;
+            int layer1 = 0; 
+            layer1 |= 1 << LayerMask.NameToLayer("HurtBox");
+            // Debug.Log("layer bitWise Or"+ layer1);
+            // Debug.Log("layer bitWise "+ (1 << LayerMask.NameToLayer("HurtBox")));
+            // Debug.Log("Layer Mask" + LayerMask.NameToLayer("HurtBox"));
+            // Debug.Log("Layer Mask" + LayerMask.GetMask(new[] { "HurtBox" }));
 
-            foreach (IHurtBox damagable in _Listdamagable)
+            // mask |= (1 << s_PCLayer);
+
+            int res =  Physics.OverlapBoxNonAlloc(stateMachineFX.m_ClientVisual.HitBox.transform.position ,
+                                    stateMachineFX.m_ClientVisual.HitBox.bounds.extents ,
+                                    _damagables,
+                                    Quaternion.identity,
+                                    layer1 );
+                                    
+            AttkData.Direction = new Vector3 (AttkData.Direction.x * stateMachineFX.CoreMovement.GetFacingDirection(),AttkData.Direction.y , AttkData.Direction.z ) ;
+            Debug.Log(res);
+            for (int i = 0; i<res ;i++)
             {
-                if (damagable != null && damagable.IsDamageable(stateMachineFX.m_ClientVisual.teamType))
+                IHurtBox damagable = _damagables[i].GetComponentInParent<IHurtBox>();
+                if (damagable != null && damagable.NetworkObjectId != stateMachineFX.m_ClientVisual.NetworkObjectId && damagable.IsDamageable(stateMachineFX.m_ClientVisual.teamType))
                 {
                     damagable.ReceiveHP(AttkData);
                 }
             }
+            // foreach (IHurtBox damagable in _Listdamagable)
+            // {
+            //     if (damagable != null && damagable.IsDamageable(stateMachineFX.m_ClientVisual.teamType))
+            //     {
+            //         damagable.ReceiveHP(AttkData);
+            //     }
+            // }
         }
+
     }
 
 }

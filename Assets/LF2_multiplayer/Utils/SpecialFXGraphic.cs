@@ -8,6 +8,12 @@ using UnityEditor;
 
 namespace LF2.Utils
 {
+
+    public interface ParticleEffect
+    {
+        public void Shutdown();
+         
+    }
     /// <summary>
     /// Utility script attached to special-effects prefabs. These prefabs are
     /// used by various ActionFX that need to show special short-lived graphics
@@ -33,7 +39,7 @@ namespace LF2.Utils
     /// graphics, and if you're implementing object pooling (for improved mobile performance), this
     /// class can be refactored to move itself into an object pool instead of self-destructing.
     /// </remarks>
-    public class SpecialFXGraphic : MonoBehaviour
+    public class SpecialFXGraphic : MonoBehaviour , ParticleEffect
     {
         [SerializeField]
         [Tooltip("Particles that should be stopped on Shutdown")]
@@ -89,9 +95,13 @@ namespace LF2.Utils
             }
         }
 
+
+
         public void ShutDownSlow(){
             StartCoroutine(CoroWaitForParticlesToEnd());
         }
+
+        
 
 
         private IEnumerator CoroWaitForParticlesToEnd()

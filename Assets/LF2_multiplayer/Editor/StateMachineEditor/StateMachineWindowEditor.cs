@@ -10,8 +10,8 @@ using UnityEditor.UIElements;
 public class StateMachineWindowEditor : EditorWindow {
 
     private string[] assetSearchFolders =new[] {"Assets/LF2_multiplayer/GamePlay/Game/NewStateMachine/CharacterStateSOs"};
-    private string[] assetFoldersStateLogicSO=new[] {""};
-    private string pathHead =  "Assets/LF2_multiplayer/GamePlay/Game/NewStateMachine/";
+    // private string[] assetFoldersStateLogicSO=new[] {""};
+    // private string pathHead =  "Assets/LF2_multiplayer/GamePlay/Game/NewStateMachine/";
     string[] objectsGUIDs;
     string[] objectsPaths;
     ScriptableObject[] objects;

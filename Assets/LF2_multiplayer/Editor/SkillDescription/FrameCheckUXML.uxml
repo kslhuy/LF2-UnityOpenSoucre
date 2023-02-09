@@ -1,16 +1,23 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="True">
-    <ui:VisualElement>
-        <ui:Label tabindex="-1" text="FrameChecker" display-tooltip-when-elided="true" name="FrameChecker" style="-unity-text-align: upper-center;" />
-        <uie:PropertyField name="Animation" binding-path="clip" />
-        <uie:PropertyField binding-path="totalFrames" />
-        <uie:PropertyField binding-path="length" />
+    <Style src="project://database/Assets/LF2_multiplayer/Editor/margin.uss?fileID=7433441132597879392&amp;guid=f428da7cc83e4f242b0ff60b0e74cce8&amp;type=3#margin" />
+    <ui:VisualElement style="flex-direction: row;">
+        <ui:VisualElement name="left" class="section" style="flex-direction: column; width: 30%;">
+            <uie:ObjectField label="SpwanObject" binding-path="SpwanObject" allow-scene-objects="true" type="UnityEngine.GameObject, UnityEngine.CoreModule" style="flex-direction: column;" />
+            <uie:ObjectField label="Sound" binding-path="Sound" allow-scene-objects="true" type="LF2.AudioCueSO, LF2.GamePlay" style="flex-direction: column;" />
+            <ui:IntegerField label="Wait" value="42" binding-path="wait" />
+            <ui:IntegerField label="NextFrame" value="42" binding-path="NextFrame" />
+            <ui:RadioButton label="Iter" binding-path="haveInteraction" style="-unity-text-outline-color: rgb(156, 141, 141); background-color: rgb(77, 77, 77);" />
+            <ui:FloatField label="Time" value="42.2" binding-path="time" />
+        </ui:VisualElement>
+        <ui:VisualElement name="right" class="section" style="width: 30%;">
+            <uie:ObjectField label="Sprite" binding-path="sprite" type="UnityEngine.Sprite, UnityEngine.CoreModule" name="spriteImg" style="flex-direction: column;" />
+            <ui:IntegerField label="dvx" value="42" binding-path="dvx" />
+            <ui:IntegerField label="dvy" value="42" binding-path="dvy" />
+            <ui:IntegerField label="dvz" value="42" binding-path="dvz" />
+            <ui:IntegerField label="pressed_A" value="42" binding-path="pressed_A" />
+            <ui:IntegerField label="pressed_J" value="42" binding-path="pressed_J" />
+            <ui:IntegerField label="pressed_D" value="42" binding-path="pressed_D" />
+        </ui:VisualElement>
+        <ui:VisualElement name="mid" class="section" style="width: 30%; height: 150px;" />
     </ui:VisualElement>
-    <ui:MultiColumnListView name="mcDirection" fixed-item-height="20">
-    <!-- Columns and Column aren't Visual Elements or controls. They are considered attributes of MultiColumnListView. -->
-    <ui:Columns>
-        <ui:Column name="dvx" title="dvx" width="50" />
-        <ui:Column name="dvy" title="dvy ?" width="50" />
-        <ui:Column name="dvz" title="dvz ?" width="50" />
-    </ui:Columns>
-    </ui:MultiColumnListView>
 </ui:UXML>

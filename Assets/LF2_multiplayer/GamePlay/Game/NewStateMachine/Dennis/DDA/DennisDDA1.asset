@@ -18,6 +18,7 @@ MonoBehaviour:
   ManaCost: 0
   DamageDetails:
   - {fileID: 11400000, guid: 51b207f10ef7c2d48ac918d656d37fc3, type: 2}
+  Interactions: []
   Dx: 0
   Dy: 0
   Dz: 0
@@ -27,9 +28,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  Projectiles:
-  - ProjectilePrefab: {fileID: 4479758005046589536, guid: d9406af647297b645aeda487366175ee, type: 3}
-    pivot: {x: 50, y: 40, z: 0}
+  Projectiles: []
   DurationSeconds: 0.5
   expirable: 1
   ReuseTimeSeconds: 0.5

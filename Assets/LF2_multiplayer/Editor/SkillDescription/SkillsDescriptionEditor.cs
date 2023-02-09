@@ -14,7 +14,8 @@ public class SkillsDescriptionEditor : Editor
     {
         // Create a new VisualElement to be the root of our inspector UI
         VisualElement root = new VisualElement();
-    
+    //     SerializedProperty property = serializedObject.GetIterator();
+
         m_VSTree.CloneTree(root);
         var button = new Button() { text = "Reset FrameChecker" };
         root.Add(button);

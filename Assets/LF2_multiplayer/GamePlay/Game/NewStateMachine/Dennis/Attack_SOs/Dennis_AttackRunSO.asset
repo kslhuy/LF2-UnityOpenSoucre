@@ -18,6 +18,7 @@ MonoBehaviour:
   ManaCost: 0
   DamageDetails:
   - {fileID: 11400000, guid: 1ffe630b62a78184a9eafc45f174d8f6, type: 2}
+  Interactions: []
   Dx: 0
   Dy: 0
   Dz: 0
@@ -36,7 +37,7 @@ MonoBehaviour:
   delayLoopSound: 0
   Start_Sounds: []
   SpawnsFX:
-  - _Object: {fileID: 1089611201767676, guid: dc8e5d9b6b2688843ae86b46280ee93f, type: 3}
+  - _Object: {fileID: 3176774311174098334, guid: 0fb6670d298629b40ae143430ef64b22, type: 3}
     pivot: {x: 0, y: 0, z: 0}
   frameChecker:
     clip: {fileID: 0}

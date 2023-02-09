@@ -18,9 +18,16 @@ MonoBehaviour:
   ManaCost: 0
   DamageDetails:
   - {fileID: 11400000, guid: 8bd6d48ae9db48a46b38a5a483692d60, type: 2}
+  Interactions: []
   Dx: 0
   Dy: 0
   Dz: 0
+  curve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   Projectiles: []
   DurationSeconds: 0.2
   expirable: 1
@@ -29,7 +36,13 @@ MonoBehaviour:
   Sounds: {fileID: 11400000, guid: 884d9198b76b9cc4585c7a4f75831e16, type: 2}
   delayLoopSound: 0
   Start_Sounds: []
-  vizAnim: []
   SpawnsFX:
-  - _Object: {fileID: 1813412833390814, guid: c7fc0fee7fb074e4fa85455c9ff8b7fc, type: 3}
+  - _Object: {fileID: 3176774311174098334, guid: 0fb6670d298629b40ae143430ef64b22, type: 3}
     pivot: {x: 0, y: 0, z: 0}
+  frameChecker:
+    clip: {fileID: 0}
+    totalFrames: 0
+    arest: 0
+    vrest: 0
+    _frameStruct: []
+    layerNumber: 0

@@ -17,6 +17,7 @@ MonoBehaviour:
   UseMana: 0
   ManaCost: 0
   DamageDetails: []
+  Interactions: []
   Dx: 0
   Dy: 0
   Dz: 0
@@ -37,13 +38,12 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 5670ae518cbf55b41b2a335cc4e3a529, type: 2}
   - {fileID: 11400000, guid: ad505484cee0b2e40ab1e615a79063b2, type: 2}
   SpawnsFX:
-  - _Object: {fileID: 3526290567721581141, guid: d1b8fe299e2b1eb4e848448792a17a56, type: 3}
+  - _Object: {fileID: 3176774311174098334, guid: 5c11e15d00c86764c8ec1634ec1a9f4d, type: 3}
     pivot: {x: -0.22, y: 0, z: 0}
   frameChecker:
-    hitFrameStart: 0
-    hitFrameEnd: 0
-    returnFrame:
-      FrameToReturn: 0
-      ReturnToFrame: 0
+    clip: {fileID: 0}
     totalFrames: 0
+    arest: 0
+    vrest: 0
+    _frameStruct: []
     layerNumber: 0

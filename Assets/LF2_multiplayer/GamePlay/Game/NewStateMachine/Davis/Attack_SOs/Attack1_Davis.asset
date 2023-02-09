@@ -18,6 +18,7 @@ MonoBehaviour:
   ManaCost: 0
   DamageDetails:
   - {fileID: 11400000, guid: 469a4c815ad952c4eb0432eae79066a0, type: 2}
+  Interactions: []
   Dx: 0
   Dy: 0
   Dz: 0
@@ -36,7 +37,7 @@ MonoBehaviour:
   delayLoopSound: 0
   Start_Sounds: []
   SpawnsFX:
-  - _Object: {fileID: 8179895959186886897, guid: 255f00cc5495061488673f132074fa88, type: 3}
+  - _Object: {fileID: 3176774311174098334, guid: 0fb6670d298629b40ae143430ef64b22, type: 3}
     pivot: {x: 0, y: 50, z: 0}
   frameChecker:
     clip: {fileID: 7400000, guid: 33fa9107725f8c24f97f15763a1decba, type: 2}
@@ -45,4 +46,3 @@ MonoBehaviour:
     vrest: 0
     _frameStruct: []
     layerNumber: 0
-  refeshFramCheckerOnce: 1

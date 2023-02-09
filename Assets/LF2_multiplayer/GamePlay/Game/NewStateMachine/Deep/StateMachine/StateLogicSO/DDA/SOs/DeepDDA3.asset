@@ -18,20 +18,19 @@ MonoBehaviour:
   ManaCost: -75
   DamageDetails:
   - {fileID: 11400000, guid: e8304f9836ee68249aad7582b34551be, type: 2}
+  Interactions: []
   Dx: 0
   Dy: 0
   Dz: 0
+  curve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   Projectiles:
   - ProjectilePrefab: {fileID: 4477627029082403580, guid: d2c2b131f78655f45a0a014787ad8905, type: 3}
     pivot: {x: 20, y: 35, z: 0}
-    ProjectileDamage:
-    - {fileID: 11400000, guid: e8304f9836ee68249aad7582b34551be, type: 2}
-    Speed_m_s: 400
-    Range: 0
-    MaxVictims: 0
-    DestroyAfterSec: 5
-    Sounds:
-    - {fileID: 0}
   DurationSeconds: 0.5
   expirable: 1
   ReuseTimeSeconds: 0
@@ -39,7 +38,13 @@ MonoBehaviour:
   Sounds: {fileID: 11400000, guid: 0672f2e383016fe44bda20feb2e33f22, type: 2}
   delayLoopSound: 0
   Start_Sounds: []
-  vizAnim:
-  - AnimNames: DDA_3_anim
-    AnimHashId: -1186115372
-  SpawnsFX: []
+  SpawnsFX:
+  - _Object: {fileID: 3526290567721581141, guid: 4db002a752d0d224a8c1bdd5e34cd63f, type: 3}
+    pivot: {x: 0, y: 0, z: 0}
+  frameChecker:
+    clip: {fileID: 0}
+    totalFrames: 0
+    arest: 0
+    vrest: 0
+    _frameStruct: []
+    layerNumber: 0

@@ -18,9 +18,16 @@ MonoBehaviour:
   ManaCost: -150
   DamageDetails:
   - {fileID: 11400000, guid: 6dd3bc46633a40d41a41d2823e7e82c0, type: 2}
+  Interactions: []
   Dx: 200
   Dy: 0
   Dz: 50
+  curve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   Projectiles: []
   DurationSeconds: 1.4
   expirable: 1
@@ -29,9 +36,393 @@ MonoBehaviour:
   Sounds: {fileID: 11400000, guid: 2446551300a2315499c976a27afd6177, type: 2}
   delayLoopSound: 0
   Start_Sounds: []
-  vizAnim:
-  - AnimNames: DDJ_1_anim
-    AnimHashId: -1443893879
   SpawnsFX:
   - _Object: {fileID: 3526290567721581141, guid: 4db002a752d0d224a8c1bdd5e34cd63f, type: 3}
     pivot: {x: 30, y: 0, z: 0}
+  frameChecker:
+    clip: {fileID: 7400000, guid: 48f7f805955ceb54c9f12349f1cae168, type: 2}
+    totalFrames: 20
+    arest: 0
+    vrest: 0
+    _frameStruct:
+    - sprite: {fileID: 8816120288205638843, guid: 50d772d658d083946b7f9649b39e1606, type: 3}
+      time: 0
+      dvx: 102
+      dvy: 0
+      dvz: 0
+      pressed_A: 0
+      pressed_J: 0
+      pressed_D: 0
+      haveInteraction: 0
+      interaction:
+        damageAmount: 0
+        Effect: 0
+        fall: 0
+        Bdefend: 0
+        Dirxyz: {x: 0, y: 0, z: 0}
+      SpwanObject: {fileID: 0}
+      Sound: {fileID: 0}
+      NextFrame: 0
+      wait: 0
+    - sprite: {fileID: -4296138835935708497, guid: 50d772d658d083946b7f9649b39e1606, type: 3}
+      time: 0.13333334
+      dvx: 0
+      dvy: 0
+      dvz: 0
+      pressed_A: 0
+      pressed_J: 0
+      pressed_D: 0
+      haveInteraction: 0
+      interaction:
+        damageAmount: 0
+        Effect: 0
+        fall: 0
+        Bdefend: 0
+        Dirxyz: {x: 0, y: 0, z: 0}
+      SpwanObject: {fileID: 0}
+      Sound: {fileID: 0}
+      NextFrame: 0
+      wait: 0
+    - sprite: {fileID: 3100185628507192181, guid: 50d772d658d083946b7f9649b39e1606, type: 3}
+      time: 0.2
+      dvx: 0
+      dvy: 0
+      dvz: 0
+      pressed_A: 0
+      pressed_J: 0
+      pressed_D: 0
+      haveInteraction: 0
+      interaction:
+        damageAmount: 0
+        Effect: 0
+        fall: 0
+        Bdefend: 0
+        Dirxyz: {x: 0, y: 0, z: 0}
+      SpwanObject: {fileID: 0}
+      Sound: {fileID: 0}
+      NextFrame: 0
+      wait: 0
+    - sprite: {fileID: 4041829116060478547, guid: 50d772d658d083946b7f9649b39e1606, type: 3}
+      time: 0.26666668
+      dvx: 0
+      dvy: 0
+      dvz: 0
+      pressed_A: 0
+      pressed_J: 0
+      pressed_D: 0
+      haveInteraction: 0
+      interaction:
+        damageAmount: 0
+        Effect: 0
+        fall: 0
+        Bdefend: 0
+        Dirxyz: {x: 0, y: 0, z: 0}
+      SpwanObject: {fileID: 0}
+      Sound: {fileID: 0}
+      NextFrame: 0
+      wait: 0
+    - sprite: {fileID: 4503186890618113623, guid: 50d772d658d083946b7f9649b39e1606, type: 3}
+      time: 0.33333334
+      dvx: 0
+      dvy: 0
+      dvz: 0
+      pressed_A: 0
+      pressed_J: 0
+      pressed_D: 0
+      haveInteraction: 0
+      interaction:
+        damageAmount: 0
+        Effect: 0
+        fall: 0
+        Bdefend: 0
+        Dirxyz: {x: 0, y: 0, z: 0}
+      SpwanObject: {fileID: 0}
+      Sound: {fileID: 0}
+      NextFrame: 0
+      wait: 0
+    - sprite: {fileID: 5334504943880872833, guid: 50d772d658d083946b7f9649b39e1606, type: 3}
+      time: 0.4
+      dvx: 0
+      dvy: 0
+      dvz: 0
+      pressed_A: 0
+      pressed_J: 0
+      pressed_D: 0
+      haveInteraction: 0
+      interaction:
+        damageAmount: 0
+        Effect: 0
+        fall: 0
+        Bdefend: 0
+        Dirxyz: {x: 0, y: 0, z: 0}
+      SpwanObject: {fileID: 0}
+      Sound: {fileID: 0}
+      NextFrame: 0
+      wait: 0
+    - sprite: {fileID: -2964160479591083159, guid: 50d772d658d083946b7f9649b39e1606, type: 3}
+      time: 0.46666667
+      dvx: 0
+      dvy: 0
+      dvz: 0
+      pressed_A: 0
+      pressed_J: 0
+      pressed_D: 0
+      haveInteraction: 0
+      interaction:
+        damageAmount: 0
+        Effect: 0
+        fall: 0
+        Bdefend: 0
+        Dirxyz: {x: 0, y: 0, z: 0}
+      SpwanObject: {fileID: 0}
+      Sound: {fileID: 0}
+      NextFrame: 0
+      wait: 0
+    - sprite: {fileID: -7639048893276487894, guid: 50d772d658d083946b7f9649b39e1606, type: 3}
+      time: 0.53333336
+      dvx: 0
+      dvy: 0
+      dvz: 0
+      pressed_A: 0
+      pressed_J: 0
+      pressed_D: 0
+      haveInteraction: 0
+      interaction:
+        damageAmount: 0
+        Effect: 0
+        fall: 0
+        Bdefend: 0
+        Dirxyz: {x: 0, y: 0, z: 0}
+      SpwanObject: {fileID: 0}
+      Sound: {fileID: 0}
+      NextFrame: 0
+      wait: 0
+    - sprite: {fileID: -5144871884555356421, guid: 50d772d658d083946b7f9649b39e1606, type: 3}
+      time: 0.6
+      dvx: 0
+      dvy: 0
+      dvz: 0
+      pressed_A: 0
+      pressed_J: 0
+      pressed_D: 0
+      haveInteraction: 0
+      interaction:
+        damageAmount: 0
+        Effect: 0
+        fall: 0
+        Bdefend: 0
+        Dirxyz: {x: 0, y: 0, z: 0}
+      SpwanObject: {fileID: 0}
+      Sound: {fileID: 0}
+      NextFrame: 0
+      wait: 0
+    - sprite: {fileID: 3253036706295975270, guid: 50d772d658d083946b7f9649b39e1606, type: 3}
+      time: 0.6666667
+      dvx: 0
+      dvy: 0
+      dvz: 0
+      pressed_A: 0
+      pressed_J: 0
+      pressed_D: 0
+      haveInteraction: 0
+      interaction:
+        damageAmount: 0
+        Effect: 0
+        fall: 0
+        Bdefend: 0
+        Dirxyz: {x: 0, y: 0, z: 0}
+      SpwanObject: {fileID: 0}
+      Sound: {fileID: 0}
+      NextFrame: 0
+      wait: 0
+    - sprite: {fileID: -1549547644930157745, guid: 50d772d658d083946b7f9649b39e1606, type: 3}
+      time: 0.73333335
+      dvx: 0
+      dvy: 0
+      dvz: 0
+      pressed_A: 0
+      pressed_J: 0
+      pressed_D: 0
+      haveInteraction: 0
+      interaction:
+        damageAmount: 0
+        Effect: 0
+        fall: 0
+        Bdefend: 0
+        Dirxyz: {x: 0, y: 0, z: 0}
+      SpwanObject: {fileID: 0}
+      Sound: {fileID: 0}
+      NextFrame: 0
+      wait: 0
+    - sprite: {fileID: -3610632171984693758, guid: 50d772d658d083946b7f9649b39e1606, type: 3}
+      time: 0.8
+      dvx: 0
+      dvy: 0
+      dvz: 0
+      pressed_A: 0
+      pressed_J: 0
+      pressed_D: 0
+      haveInteraction: 0
+      interaction:
+        damageAmount: 0
+        Effect: 0
+        fall: 0
+        Bdefend: 0
+        Dirxyz: {x: 0, y: 0, z: 0}
+      SpwanObject: {fileID: 0}
+      Sound: {fileID: 0}
+      NextFrame: 0
+      wait: 0
+    - sprite: {fileID: 7909950824724644275, guid: 50d772d658d083946b7f9649b39e1606, type: 3}
+      time: 0.8666667
+      dvx: 0
+      dvy: 0
+      dvz: 0
+      pressed_A: 0
+      pressed_J: 0
+      pressed_D: 0
+      haveInteraction: 0
+      interaction:
+        damageAmount: 0
+        Effect: 0
+        fall: 0
+        Bdefend: 0
+        Dirxyz: {x: 0, y: 0, z: 0}
+      SpwanObject: {fileID: 0}
+      Sound: {fileID: 0}
+      NextFrame: 0
+      wait: 0
+    - sprite: {fileID: 2678212901317358866, guid: 50d772d658d083946b7f9649b39e1606, type: 3}
+      time: 0.93333334
+      dvx: 0
+      dvy: 0
+      dvz: 0
+      pressed_A: 0
+      pressed_J: 0
+      pressed_D: 0
+      haveInteraction: 0
+      interaction:
+        damageAmount: 0
+        Effect: 0
+        fall: 0
+        Bdefend: 0
+        Dirxyz: {x: 0, y: 0, z: 0}
+      SpwanObject: {fileID: 0}
+      Sound: {fileID: 0}
+      NextFrame: 0
+      wait: 0
+    - sprite: {fileID: -282980171007443733, guid: 50d772d658d083946b7f9649b39e1606, type: 3}
+      time: 1
+      dvx: 0
+      dvy: 0
+      dvz: 0
+      pressed_A: 0
+      pressed_J: 0
+      pressed_D: 0
+      haveInteraction: 0
+      interaction:
+        damageAmount: 0
+        Effect: 0
+        fall: 0
+        Bdefend: 0
+        Dirxyz: {x: 0, y: 0, z: 0}
+      SpwanObject: {fileID: 0}
+      Sound: {fileID: 0}
+      NextFrame: 0
+      wait: 0
+    - sprite: {fileID: -8222258665723892870, guid: 50d772d658d083946b7f9649b39e1606, type: 3}
+      time: 1.0666667
+      dvx: 0
+      dvy: 0
+      dvz: 0
+      pressed_A: 0
+      pressed_J: 0
+      pressed_D: 0
+      haveInteraction: 0
+      interaction:
+        damageAmount: 0
+        Effect: 0
+        fall: 0
+        Bdefend: 0
+        Dirxyz: {x: 0, y: 0, z: 0}
+      SpwanObject: {fileID: 0}
+      Sound: {fileID: 0}
+      NextFrame: 0
+      wait: 0
+    - sprite: {fileID: 126222110510126913, guid: 50d772d658d083946b7f9649b39e1606, type: 3}
+      time: 1.1333333
+      dvx: 0
+      dvy: 0
+      dvz: 0
+      pressed_A: 0
+      pressed_J: 0
+      pressed_D: 0
+      haveInteraction: 0
+      interaction:
+        damageAmount: 0
+        Effect: 0
+        fall: 0
+        Bdefend: 0
+        Dirxyz: {x: 0, y: 0, z: 0}
+      SpwanObject: {fileID: 0}
+      Sound: {fileID: 0}
+      NextFrame: 0
+      wait: 0
+    - sprite: {fileID: 3408670022775566053, guid: 50d772d658d083946b7f9649b39e1606, type: 3}
+      time: 1.2
+      dvx: 0
+      dvy: 0
+      dvz: 0
+      pressed_A: 0
+      pressed_J: 0
+      pressed_D: 0
+      haveInteraction: 0
+      interaction:
+        damageAmount: 0
+        Effect: 0
+        fall: 0
+        Bdefend: 0
+        Dirxyz: {x: 0, y: 0, z: 0}
+      SpwanObject: {fileID: 0}
+      Sound: {fileID: 0}
+      NextFrame: 0
+      wait: 0
+    - sprite: {fileID: 2872705502114225833, guid: 50d772d658d083946b7f9649b39e1606, type: 3}
+      time: 1.2666667
+      dvx: 0
+      dvy: 0
+      dvz: 0
+      pressed_A: 0
+      pressed_J: 0
+      pressed_D: 0
+      haveInteraction: 0
+      interaction:
+        damageAmount: 0
+        Effect: 0
+        fall: 0
+        Bdefend: 0
+        Dirxyz: {x: 0, y: 0, z: 0}
+      SpwanObject: {fileID: 0}
+      Sound: {fileID: 0}
+      NextFrame: 0
+      wait: 0
+    - sprite: {fileID: 2872705502114225833, guid: 50d772d658d083946b7f9649b39e1606, type: 3}
+      time: 1.2666667
+      dvx: 0
+      dvy: 0
+      dvz: 0
+      pressed_A: 0
+      pressed_J: 0
+      pressed_D: 0
+      haveInteraction: 0
+      interaction:
+        damageAmount: 0
+        Effect: 0
+        fall: 0
+        Bdefend: 0
+        Dirxyz: {x: 0, y: 0, z: 0}
+      SpwanObject: {fileID: 0}
+      Sound: {fileID: 0}
+      NextFrame: 0
+      wait: 0
+    layerNumber: 0

@@ -2742,6 +2742,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
+  m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
@@ -4054,6 +4055,7 @@ GameObject:
   - component: {fileID: 6702871171647363813}
   - component: {fileID: 6702871171647363810}
   - component: {fileID: 6889764071769254414}
+  - component: {fileID: -5121251790194123230}
   m_Layer: 5
   m_Name: LobbyUI
   m_TagString: Untagged
@@ -4159,6 +4161,19 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!114 &-5121251790194123230
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6702871171647363808}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ab0895f81f038a4dad589a93d8319d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ParallexFactor: {x: 0, y: 0, z: 0}
 --- !u!1 &6899287395706514363
 GameObject:
   m_ObjectHideFlags: 0
@@ -4217,6 +4232,7 @@ MonoBehaviour:
   m_JoinCodeField: {fileID: 8248007993983070476}
   m_CanvasGroup: {fileID: 5782144806807453527}
   m_EmptyLobbyListLabel: {fileID: 785373375347833033}
+  m_JoinLobbyButton: {fileID: 0}
 --- !u!225 &5782144806807453527
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -5768,6 +5784,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 2
     m_TransformParent: {fileID: 6702871171647363811}
     m_Modifications:
     - target: {fileID: 921942742702944666, guid: 7afdd8ad7ba8c974d8a4192c81b41206, type: 3}
@@ -5859,6 +5876,7 @@ PrefabInstance:
       value: LoadingSpinner
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 7afdd8ad7ba8c974d8a4192c81b41206, type: 3}
 --- !u!224 &2903106925399413676 stripped
 RectTransform:

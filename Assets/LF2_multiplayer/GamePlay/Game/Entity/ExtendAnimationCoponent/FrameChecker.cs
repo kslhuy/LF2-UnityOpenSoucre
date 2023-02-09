@@ -77,7 +77,7 @@ namespace LF2
         private AttackDataSend Atk_data = new AttackDataSend();
 
 
-        // For state 
+        // Call in Awake for state that use this Animation Methode  
         public void initialize(IFrameCheckHandler frameCheckHandler, Animator animator,SpriteRenderer sp)
         {
             _frameCheckHandler = frameCheckHandler;
@@ -94,7 +94,7 @@ namespace LF2
             // initCheck();
         }
 
-        // For Data 
+        // Get Data from existing Animation Clip to initialize FramStruct 
         public void initialize()
         {       
             if (!clip) return;

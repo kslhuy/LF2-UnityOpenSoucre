@@ -18,6 +18,7 @@ MonoBehaviour:
   ManaCost: 0
   DamageDetails:
   - {fileID: 11400000, guid: 8f234dcbde21f1a41b6e542faaa90083, type: 2}
+  Interactions: []
   Dx: 150
   Dy: 0
   Dz: 30
@@ -43,6 +44,7 @@ MonoBehaviour:
     vrest: 7
     _frameStruct:
     - sprite: {fileID: -5016820178922085338, guid: f154f350bbc66f34ea9122f146dbcb2b, type: 3}
+      time: 0
       dvx: 0
       dvy: 0
       dvz: 0
@@ -61,6 +63,7 @@ MonoBehaviour:
       NextFrame: 1
       wait: 1
     - sprite: {fileID: 845090251147515163, guid: f154f350bbc66f34ea9122f146dbcb2b, type: 3}
+      time: 0
       dvx: 0
       dvy: 0
       dvz: 0
@@ -79,13 +82,14 @@ MonoBehaviour:
       NextFrame: 2
       wait: 1
     - sprite: {fileID: -6515052636271574694, guid: f154f350bbc66f34ea9122f146dbcb2b, type: 3}
+      time: 0
       dvx: 20
       dvy: 0
       dvz: 0
       pressed_A: 0
       pressed_J: 0
       pressed_D: 0
-      haveInteraction: 1
+      haveInteraction: 0
       interaction:
         damageAmount: -35
         Effect: 0
@@ -97,13 +101,14 @@ MonoBehaviour:
       NextFrame: 3
       wait: 1
     - sprite: {fileID: 8809380476038766807, guid: f154f350bbc66f34ea9122f146dbcb2b, type: 3}
+      time: 0
       dvx: 40
       dvy: 0
       dvz: 0
       pressed_A: 0
       pressed_J: 0
       pressed_D: 0
-      haveInteraction: 1
+      haveInteraction: 0
       interaction:
         damageAmount: -30
         Effect: 0
@@ -115,13 +120,14 @@ MonoBehaviour:
       NextFrame: 4
       wait: 1
     - sprite: {fileID: -5293045173366671888, guid: f154f350bbc66f34ea9122f146dbcb2b, type: 3}
+      time: 0
       dvx: 150
       dvy: 0
       dvz: 0
       pressed_A: 0
       pressed_J: 8
       pressed_D: 8
-      haveInteraction: 1
+      haveInteraction: 0
       interaction:
         damageAmount: -35
         Effect: 0
@@ -133,13 +139,14 @@ MonoBehaviour:
       NextFrame: 5
       wait: 1
     - sprite: {fileID: 2734356290999097073, guid: f154f350bbc66f34ea9122f146dbcb2b, type: 3}
+      time: 0
       dvx: 150
       dvy: 0
       dvz: 0
       pressed_A: 0
       pressed_J: 8
       pressed_D: 8
-      haveInteraction: 1
+      haveInteraction: 0
       interaction:
         damageAmount: -45
         Effect: 0
@@ -151,13 +158,14 @@ MonoBehaviour:
       NextFrame: 6
       wait: 1
     - sprite: {fileID: -7017911634857248618, guid: f154f350bbc66f34ea9122f146dbcb2b, type: 3}
+      time: 0
       dvx: 150
       dvy: 0
       dvz: 0
       pressed_A: 0
       pressed_J: 8
       pressed_D: 8
-      haveInteraction: 1
+      haveInteraction: 0
       interaction:
         damageAmount: -35
         Effect: 0
@@ -169,6 +177,7 @@ MonoBehaviour:
       NextFrame: 7
       wait: 1
     - sprite: {fileID: 8809380476038766807, guid: f154f350bbc66f34ea9122f146dbcb2b, type: 3}
+      time: 0
       dvx: 75
       dvy: 0
       dvz: 0
@@ -187,6 +196,7 @@ MonoBehaviour:
       NextFrame: 4
       wait: 1
     - sprite: {fileID: 6286221438570783689, guid: f154f350bbc66f34ea9122f146dbcb2b, type: 3}
+      time: 0
       dvx: 60
       dvy: 0
       dvz: 0
@@ -205,6 +215,7 @@ MonoBehaviour:
       NextFrame: 9
       wait: 1
     - sprite: {fileID: 3631740840105371269, guid: f154f350bbc66f34ea9122f146dbcb2b, type: 3}
+      time: 0
       dvx: 40
       dvy: 0
       dvz: 0
@@ -223,6 +234,7 @@ MonoBehaviour:
       NextFrame: 10
       wait: 1
     - sprite: {fileID: -5110527611000022085, guid: f154f350bbc66f34ea9122f146dbcb2b, type: 3}
+      time: 0
       dvx: 0
       dvy: 0
       dvz: 0
@@ -241,4 +253,3 @@ MonoBehaviour:
       NextFrame: 999
       wait: 1
     layerNumber: 0
-  refeshFramCheckerOnce: 1

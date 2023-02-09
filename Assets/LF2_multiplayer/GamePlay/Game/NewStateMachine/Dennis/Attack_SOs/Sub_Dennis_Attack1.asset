@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2eb2663c5ade5549bd2b0822f6a4bbe, type: 3}
   m_Name: Sub_Dennis_Attack1
   m_EditorClassIdentifier: 
-  damageAmount: -400
+  damageAmount: -30
   Effect: 0
   fall: 20
   Bdefend: 20

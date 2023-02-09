@@ -98,6 +98,9 @@ namespace LF2.Client
         private int k_GroundLayerMask;
 
         private int k_WallLayerMask;
+
+        public int k_HurtBoxLayerMask {get ; private set ;}
+
         [SerializeField] private float extraYCheckGround = 0f;
         [SerializeField] private float m_ExtendCheckBord = 10f;
 
@@ -114,6 +117,7 @@ namespace LF2.Client
         {
             k_WallLayerMask = LayerMask.GetMask(new[] { "Wall" });
             k_GroundLayerMask = LayerMask.GetMask(new[] { "Ground" });
+            // k_HurtBoxLayerMask = LayerMask.GetMask(new[] { "HurtBox" });
 
         }
 
