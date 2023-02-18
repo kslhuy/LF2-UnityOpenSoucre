@@ -32,9 +32,9 @@ namespace LF2.Client
         [SerializeField] Button m_LobbyButton;
         [SerializeField] GameObject m_SignInSpinner;
         [SerializeField] UIProfileSelector m_UIProfileSelector;
-
         [SerializeField] UITooltipDetector m_UGSSetupTooltipDetector;
 
+        [SerializeField] UIHeroInventory m_UIHeroInventory;
         
 
 
@@ -74,7 +74,7 @@ namespace LF2.Client
 
 
 
-            async Task SignInAndLoadDataFromServices(){
+            async Task LoadDataFromServices(){
                 if (this == null) return;
                 Debug.Log($" Player id: {AuthenticationService.Instance.PlayerId}");
 
@@ -91,8 +91,7 @@ namespace LF2.Client
                 await LoadServicesData();
                 if (this == null) return;
 
-                m_LocalUser.ID = AuthenticationService.Instance.PlayerId;
-                m_LocalLobby.AddUser(m_LocalUser);
+
 
             }
 
@@ -112,7 +111,7 @@ namespace LF2.Client
             {
                 try
                 {
-                    Debug.Log("InjectDependenciesAndInitialize");
+                    // Debug.Log("InjectDependenciesAndInitialize");
 
                     // m_ProfileManager.onProfileChanged += OnProfileChanged;
                     // If have already profile in the game 
@@ -126,14 +125,21 @@ namespace LF2.Client
                         }
                         await m_AuthServiceFacade.InitializeAndSignInAsync(unityAuthenticationInitOptions);
                         
-                        await SignInAndLoadDataFromServices();
+                        m_LocalUser.ID = AuthenticationService.Instance.PlayerId;
+                        m_LocalLobby.AddUser(m_LocalUser);
+
+                        await LoadDataFromServices();
                         Debug.Log("Initialization and signin complete.");
+                        m_LobbyButton.interactable = true;
+                        m_UGSSetupTooltipDetector.enabled = false;
+                        m_SignInSpinner.SetActive(false);
+
                     }
                     // First Time play game
                     else {
-                        await m_AuthServiceFacade.InitializeAndSignInAsync(unityAuthenticationInitOptions);
-                        Debug.Log("First Time Sign In.");
-                        await SignInAndLoadDataFromServices();
+                        // await m_AuthServiceFacade.InitializeAndSignInAsync(unityAuthenticationInitOptions);
+                        // Debug.Log("First Time Sign In.");
+                        // await LoadDataFromServices();
                         m_UIProfileSelector.ShowFirstTime();
                     }
                 }
@@ -187,9 +193,7 @@ namespace LF2.Client
             m_LobbyButton.interactable = false;
             m_SignInSpinner.SetActive(true);
             await m_AuthServiceFacade.SwitchProfileAndReSignInAsync(m_ProfileManager.Profile);
-            m_UGSSetupTooltipDetector.enabled = false;
-            m_LobbyButton.interactable = true;
-            m_SignInSpinner.SetActive(false);
+
 
             Debug.Log($"Signed in. Unity Player ID {AuthenticationService.Instance.PlayerId}");
 
@@ -213,6 +217,10 @@ namespace LF2.Client
             }
             m_LocalUser.ID = AuthenticationService.Instance.PlayerId;
             m_LocalLobby.AddUser(m_LocalUser);
+
+            m_UGSSetupTooltipDetector.enabled = false;
+            m_LobbyButton.interactable = true;
+            m_SignInSpinner.SetActive(false);
         }
 
 
@@ -236,6 +244,12 @@ namespace LF2.Client
         public void OnChangeProfileClicked()
         {
             m_UIProfileSelector.Show();
+        }
+
+
+        public void OnHerosClicked()
+        {
+            m_UIHeroInventory.Show();
         }
 
 

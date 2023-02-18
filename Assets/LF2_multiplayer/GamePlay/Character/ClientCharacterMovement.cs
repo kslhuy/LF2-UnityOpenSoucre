@@ -116,7 +116,7 @@ namespace LF2.Client
         private void Awake()
         {
             k_WallLayerMask = LayerMask.GetMask(new[] { "Wall" });
-            k_GroundLayerMask = LayerMask.GetMask(new[] { "Ground" });
+            k_GroundLayerMask = LayerMask.GetMask(new[] { "Ground" , "Projectile"});
             // k_HurtBoxLayerMask = LayerMask.GetMask(new[] { "HurtBox" });
 
         }
@@ -443,6 +443,10 @@ namespace LF2.Client
             else{
                 FacingDirection = 1;
             }
+        }
+
+        public void TakeControlTransform(bool yes){
+            ClientNetTransform.KeepSyncWithOwner = !yes;
         }
 
         #endregion

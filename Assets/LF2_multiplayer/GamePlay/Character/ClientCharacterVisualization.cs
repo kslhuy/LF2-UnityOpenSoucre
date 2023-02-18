@@ -158,9 +158,9 @@ namespace LF2.Client
             MStateMachinePlayerViz = new StateMachineNew( this,characterStateSOs );
             // For Debug
             LastStateViz = StateType.Idle;
-            textMesh.text = coreMovement.GetFacingDirection().ToString()  ;
+            // textMesh.text = coreMovement.GetFacingDirection().ToString()  ;
             // LastStateViz.ToString()
-
+            textMesh.text = LastStateViz.ToString();
 
             _InitSizeHurtBox = _hurtBox.size;
             _InitCenterHurtBox = _hurtBox.center;
@@ -355,11 +355,11 @@ namespace LF2.Client
             // Debug.Log(MStateMachinePlayerViz);
             // if (m_NetState.LifeState != LifeState.Dead){    
             MStateMachinePlayerViz.OnUpdate();
-            // if (LastStateViz !=  MStateMachinePlayerViz.CurrentStateViz.GetId()){
-            //     LastStateViz = MStateMachinePlayerViz.CurrentStateViz.GetId();
-            //     // textMesh.text = LastStateViz.ToString();
-            //     textMesh.text = coreMovement.GetFacingDirection().ToString();
-            // }
+            if (LastStateViz !=  MStateMachinePlayerViz.CurrentStateViz.GetId()){
+                LastStateViz = MStateMachinePlayerViz.CurrentStateViz.GetId();
+                textMesh.text = LastStateViz.ToString();
+                // textMesh.text = coreMovement.GetFacingDirection().ToString();
+            }
             // }
             // UpdateSizeHurtBox();
         }

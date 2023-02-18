@@ -19,7 +19,8 @@ namespace LF2.Client{
 		/// <summary>
 		/// Called every frame the <see cref="StateMachine"/> is in a <see cref="State"/> with this <see cref="StateAction"/>.
 		/// </summary>
-		public virtual void LogicUpdate(){}
+		public virtual void LogicUpdate(){
+        }
 
 		/// <summary>
 		/// Awake is called when creating a new instance. Use this method to cache the components needed for the action.
@@ -48,6 +49,7 @@ namespace LF2.Client{
 
  
         public float TimeStarted_Animation ;
+        public int nbTickRender;
 
         public bool Anticipated { get; protected set; }
 
@@ -62,7 +64,9 @@ namespace LF2.Client{
         }
 
 
-        // Interrupt by somthing
+        // Interrupt by somthing 
+        // Do not change state here 
+        // change state in END() instead 
         public virtual void Exit(){
             Anticipated = false;
         }
@@ -82,12 +86,12 @@ namespace LF2.Client{
         // See in class AttackStateFX 
         // Call everyttme when we want change State in  Visual !!!! 
 
-        public virtual void  PlayAnim( int nbAniamtion = 1 , bool sequen = false ){
+        public virtual void  PlayAnim( int frameRender = 1 , bool sequen = false ){
             Anticipated = true;
             TimeStarted_Animation = Time.time;  
         }
-        public virtual void  PlayPredictState( int nbAniamtion = 1 , bool sequen = false ){
-            PlayAnim(nbAniamtion , sequen);
+        public virtual void  PlayPredictState( int frameRender = 1 , bool sequen = false ){
+            PlayAnim(frameRender , sequen);
         }
 
 
@@ -138,6 +142,17 @@ namespace LF2.Client{
             // var rotation =  flip ?  Quaternion.Euler(new Vector3(0,180,0)) : origin.transform.rotation; 
             var graphicsGO = GameObject.Instantiate(prefab, origin.transform.position + pivot, origin.transform.rotation, (parentToOrigin ? origin.transform : null));
             return graphicsGO.GetComponent<SpecialFXGraphic>();
+        }
+
+        protected void InstantiateFXGraphic(GameObject prefab, Transform origin,Vector3 pivot, bool parentToOrigin,StateType stateType)
+        {
+            // if (prefab.GetComponent<SpecialFXGraphic>() == null)
+            // {
+            //     throw new System.Exception($"One of the Spawns on action {stateData.StateType} does not have a SpecialFXGraphic component and can't be instantiated!");
+            // }
+            // var rotation =  flip ?  Quaternion.Euler(new Vector3(0,180,0)) : origin.transform.rotation; 
+
+            var graphicsGO = GameObject.Instantiate(prefab, origin.transform.position + pivot, origin.transform.rotation, (parentToOrigin ? origin.transform : null));
         }
  
 

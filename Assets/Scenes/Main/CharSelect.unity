@@ -6811,6 +6811,7 @@ MonoBehaviour:
   autoRun: 1
   autoInjectGameObjects: []
   m_NetcodeHooks: {fileID: 1038286560}
+  networkGameState: {fileID: 631951071426593979, guid: e62e45e324d80bc488d62f02a2bb6725, type: 3}
 --- !u!114 &1038286559
 MonoBehaviour:
   m_ObjectHideFlags: 0

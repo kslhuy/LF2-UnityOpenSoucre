@@ -14,23 +14,34 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   StateType: 10
   Logic: 0
+  UseMana: 0
   ManaCost: 0
   DamageDetails: []
   Dx: 0
   Dy: 0
   Dz: 0
-  DurationSeconds: 0
-  expirable: 0
-  ReuseTimeSeconds: 0
-  Range_x: 0
-  Range_y: 0
-  Range_z: 0
-  ActionInterruptible: 0
-  vizAnim:
-  - AnimNames: Air_anim
-    AnimHashId: 612195259
+  curve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   Projectiles: []
+  DurationSeconds: 0
+  Duration: 10
+  expirable: 1
+  ReuseTimeSeconds: 0
+  ActionInterruptible: 0
+  Sounds: {fileID: 0}
+  delayLoopSound: 0
+  Start_Sounds: []
   SpawnsFX:
   - _Object: {fileID: 3526290567721581141, guid: 269007dfd732b5b43941ba6984214fbd, type: 3}
     pivot: {x: 0, y: 0, z: 0}
-  Sounds: {fileID: 0}
+  frameChecker:
+    clip: {fileID: 0}
+    totalFrames: 0
+    arest: 0
+    vrest: 0
+    _frameStruct: []
+    layerNumber: 0

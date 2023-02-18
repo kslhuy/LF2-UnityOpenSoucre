@@ -27,8 +27,7 @@ namespace LF2.ConnectionManagement
 
         const string k_MainMenuSceneName = "MainMenu";
 
-        public override void Enter()
-        {
+        public override void Enter()        {
             m_LobbyServiceFacade.EndTracking();
             m_ConnectionManager.NetworkManager.Shutdown();
             if (SceneManager.GetActiveScene().name != k_MainMenuSceneName)

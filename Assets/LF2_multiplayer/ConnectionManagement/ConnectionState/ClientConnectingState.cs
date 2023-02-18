@@ -26,8 +26,7 @@ namespace LF2.ConnectionManagement
             return this;
         }
 
-        public override void Enter()
-        {
+        public override void Enter()        {
 #pragma warning disable 4014
             ConnectClientAsync();
 #pragma warning restore 4014

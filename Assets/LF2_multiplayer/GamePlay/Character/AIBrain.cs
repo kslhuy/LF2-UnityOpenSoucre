@@ -355,7 +355,9 @@ namespace LF2.Client
 #endregion
 
     
-
+    public void WalkRandomly(){
+        //TODO : Add simple pathfinding here 
+    }
 
 
 #region  GetEnemy

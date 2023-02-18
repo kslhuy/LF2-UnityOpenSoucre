@@ -6,7 +6,7 @@
             <uie:ObjectField label="Sound" binding-path="Sound" allow-scene-objects="true" type="LF2.AudioCueSO, LF2.GamePlay" style="flex-direction: column;" />
             <ui:IntegerField label="Wait" value="42" binding-path="wait" />
             <ui:IntegerField label="NextFrame" value="42" binding-path="NextFrame" />
-            <ui:RadioButton label="Iter" binding-path="haveInteraction" style="-unity-text-outline-color: rgb(156, 141, 141); background-color: rgb(77, 77, 77);" />
+            <ui:Toggle label="Toggle" binding-path="haveInteraction" style="background-color: rgba(101, 99, 99, 255);" />
             <ui:FloatField label="Time" value="42.2" binding-path="time" />
         </ui:VisualElement>
         <ui:VisualElement name="right" class="section" style="width: 30%;">

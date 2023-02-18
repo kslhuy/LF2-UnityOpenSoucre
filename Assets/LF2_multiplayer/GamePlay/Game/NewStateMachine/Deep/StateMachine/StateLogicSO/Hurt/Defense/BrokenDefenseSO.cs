@@ -20,8 +20,7 @@ namespace LF2.Client{
             stateMachineFX = stateMachine;
         }
 
-       public override void Enter()
-        {
+       public override void Enter()        {
             if(!Anticipated)
             {
                 stateMachineFX.m_ClientVisual.NormalAnimator.Play("BrokenDefense_anim");

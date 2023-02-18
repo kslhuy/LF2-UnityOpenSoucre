@@ -320,9 +320,20 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: LF2.Client.MainMenuMusicStarter, LF2.Shared
+        m_MethodName: PlaySoundOK
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 3656772510156145887}
-        m_TargetAssemblyTypeName: Unity.Multiplayer.Samples.BossRoom.Visual.UIProfileSelector,
-          Unity.Multiplayer.Samples.BossRoom.Client
+        m_TargetAssemblyTypeName: LF2.Gameplay.UI.UIProfileSelector, LF2.GamePlay
         m_MethodName: Hide
         m_Mode: 1
         m_Arguments:
@@ -1497,8 +1508,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -78}
-  m_SizeDelta: {x: 500, y: 100}
+  m_AnchoredPosition: {x: 26.309, y: -64.00003}
+  m_SizeDelta: {x: 1395.7, y: 128}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7473255022138282109
 CanvasRenderer:
@@ -1557,7 +1568,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 29.4
+  m_fontSize: 34.3
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -1593,7 +1604,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 1
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: -9.076569, y: 0, z: 40.01971, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -1639,7 +1650,7 @@ RectTransform:
   - {fileID: 6544804779893259085}
   - {fileID: 9203681094594139131}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -2050,6 +2061,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
+  m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0

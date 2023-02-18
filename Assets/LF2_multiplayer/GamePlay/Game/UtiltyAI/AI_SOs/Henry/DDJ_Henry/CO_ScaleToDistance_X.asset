@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf073bb35c2692345ab14f67b77b48a0, type: 3}
   m_Name: CO_ScaleToDistance_X
   m_EditorClassIdentifier: 
-  Owner: A_DDJ_Henry
+  Name: Deep_DDA
   isSubConsideration: 0
   responseCurve:
     serializedVersion: 2
@@ -20,32 +20,23 @@ MonoBehaviour:
     - serializedVersion: 3
       time: 0
       value: 0
-      inSlope: 0.0011980013
-      outSlope: 0.0011980013
+      inSlope: 0.0031021414
+      outSlope: 0.0031021414
       tangentMode: 0
       weightedMode: 0
       inWeight: 0
-      outWeight: 1
+      outWeight: 0.082412064
     - serializedVersion: 3
-      time: 48.56646
-      value: 0.97761023
-      inSlope: -0.003973899
-      outSlope: -0.003973899
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.12129649
-      outWeight: 0.026066326
-    - serializedVersion: 3
-      time: 1000
+      time: 300
       value: 1
-      inSlope: -0.0008968379
-      outSlope: -0.0008968379
+      inSlope: -0.00078269705
+      outSlope: -0.00078269705
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.038027782
+      inWeight: 0.05025126
       outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  maxRang: 1000
-  minRang: 0
+  maxRang: 400
+  minRang: 50

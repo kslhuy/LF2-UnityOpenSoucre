@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea37aa6a664fc1945a4426fc432fde14, type: 3}
   m_Name: CO_HaveMana
   m_EditorClassIdentifier: 
-  Name: Deep_DDA
+  Owner: A_DDA_1_Dennis
   isSubConsideration: 0
   responseCurve:
     serializedVersion: 2
@@ -21,4 +21,4 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   BooleenCondition: 1
-  ManaNeeded: 0
+  ManaNeeded: 20

@@ -26,8 +26,8 @@ namespace LF2.Client{
             DamagePopup damagePopup = _poolDamagePopup.Request();
             // Transform damagePopupTransform =  Instantiate(GameDataSourceNew.Instance.pfDamagePopup  , position + pivot, Quaternion.identity);
             // DamagePopup damagePopup = damagePopupTransform.GetComponent<DamagePopup>();
-            damagePopup.Setup(position + pivot , damageAmount);
-            damagePopup.OnFinishedPopUp += OnFinishedPopup;
+            damagePopup.Setup(position + pivot , damageAmount, OnFinishedPopup);
+            // damagePopup.OnFinishedPopUp += OnFinishedPopup;
             
         }
 

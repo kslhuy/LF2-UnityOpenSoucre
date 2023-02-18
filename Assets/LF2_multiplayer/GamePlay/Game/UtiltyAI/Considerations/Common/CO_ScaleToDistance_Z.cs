@@ -11,8 +11,8 @@ namespace LF2.Client{
         public override float ScoreConsideration(AIBrain brain)
         {
             var zdistanceAbs = Mathf.Abs(brain.variables.zdistance);
-            if (brain.range(minRang , maxRang , zdistanceAbs)) return Mathf.Clamp01(responseCurve.Evaluate((int)zdistanceAbs));
-            return 0;
+            return Mathf.Clamp01(responseCurve.Evaluate((int)zdistanceAbs));
+            
         }
     }
 

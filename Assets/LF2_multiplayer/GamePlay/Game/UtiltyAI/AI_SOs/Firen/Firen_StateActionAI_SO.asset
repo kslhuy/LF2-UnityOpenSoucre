@@ -14,37 +14,43 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CharacterType: 4
   A_AttackAvaillable:
-  - A_Availlable: {fileID: 11400000, guid: 079fd5f3dc0ae0b45a135b7a114a1225, type: 2}
+  - A_Availlable: {fileID: 11400000, guid: cb47f7e751ca7b9428f5a2158552a308, type: 2}
     Disable: 0
     ShowScore: 0
-  - A_Availlable: {fileID: 11400000, guid: 99868146a95fa9242a2a287ca401bfe2, type: 2}
+  - A_Availlable: {fileID: 11400000, guid: fdd9fbd9b51169b4ea251699a41c29bc, type: 2}
     Disable: 0
     ShowScore: 0
-  - A_Availlable: {fileID: 11400000, guid: 25fc4e57777867d46831fc285ba34eda, type: 2}
+  - A_Availlable: {fileID: 11400000, guid: 950aacc89d2ae7e46a41d08b97ab24cb, type: 2}
     Disable: 0
     ShowScore: 0
-  - A_Availlable: {fileID: 11400000, guid: 781fa1d1273ae484bb5f210b55c36f77, type: 2}
+  - A_Availlable: {fileID: 11400000, guid: 07fdfad873d0fe34cac9fbdd1f899329, type: 2}
     Disable: 0
     ShowScore: 0
-  - A_Availlable: {fileID: 11400000, guid: 66c8e6bc7694f3a4db11ed94cd7ccd45, type: 2}
+  - A_Availlable: {fileID: 11400000, guid: 6838db90f369fb340b64ed7b6823c580, type: 2}
     Disable: 0
     ShowScore: 0
-  - A_Availlable: {fileID: 11400000, guid: 4741b064d3d38064181060e159b8a7fc, type: 2}
+  - A_Availlable: {fileID: 11400000, guid: 25d22d42cf8c3ca438375fa879184085, type: 2}
+    Disable: 0
+    ShowScore: 0
+  - A_Availlable: {fileID: 11400000, guid: 3054370b7b787e14cb1652b1f9bbd464, type: 2}
+    Disable: 0
+    ShowScore: 0
+  - A_Availlable: {fileID: 11400000, guid: 4b21ffcabd6c40543a2912f2e8863f97, type: 2}
     Disable: 0
     ShowScore: 0
   A_MoveAvaillable:
-  - A_Availlable: {fileID: 11400000, guid: 9e5ce2144af091247872df72dcf2d678, type: 2}
+  - A_Availlable: {fileID: 11400000, guid: a7c47b9a23aaee147b3200f3c51f91c6, type: 2}
     Disable: 0
     ShowScore: 0
-  - A_Availlable: {fileID: 11400000, guid: a7293d61d22bdbb4b83b18fba56508c7, type: 2}
+  - A_Availlable: {fileID: 11400000, guid: a3270a2c868a48745b0c317daf66dd3a, type: 2}
     Disable: 0
     ShowScore: 0
-  - A_Availlable: {fileID: 11400000, guid: d48c5992ebf7c054f9bb2b24ecaed038, type: 2}
+  - A_Availlable: {fileID: 11400000, guid: 9c0599081eb82ff4bac7329dbe6999df, type: 2}
     Disable: 0
     ShowScore: 0
-  - A_Availlable: {fileID: 11400000, guid: 792f5f75ca01b2c46807c7358206e1ca, type: 2}
+  - A_Availlable: {fileID: 11400000, guid: 03a2556272d4219418b57916abfcdd46, type: 2}
     Disable: 0
     ShowScore: 0
-  - A_Availlable: {fileID: 11400000, guid: 793c65882877a434189ae0a0ff82add0, type: 2}
+  - A_Availlable: {fileID: 11400000, guid: 8f56dcd16bcee56448053938786b0931, type: 2}
     Disable: 0
     ShowScore: 0

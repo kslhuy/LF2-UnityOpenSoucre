@@ -21,8 +21,7 @@ namespace LF2.Client
             stateMachineFX = stateMachine;
         }
 
-        public override void Enter()
-        {
+        public override void Enter()        {
             if (!Anticipated)
             {
                 PlayAnim();

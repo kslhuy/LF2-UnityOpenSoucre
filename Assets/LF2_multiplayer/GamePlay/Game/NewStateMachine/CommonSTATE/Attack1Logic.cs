@@ -12,7 +12,7 @@ namespace LF2.Client
 
         }
 
-        public override void Enter()
+        public override void Enter()        
         {
             Debug.Log("attack not onwer");
             if(!Anticipated)

@@ -18,7 +18,12 @@ namespace LF2.Client
         private bool haveTarget;
         private float interpolationAmount;
         private Vector3 ourPosition;
-        [SerializeField] Vector3 AnchorBFromA;
+    
+        [SerializeField] float speedNormal;
+        [SerializeField] Vector3 AnchorB;
+        [SerializeField] Vector3 AnchorC;
+
+        [SerializeField] Vector3 OffsetEnemy;
 
         public override void Initialize(ulong creatorsNetworkObjectId,TeamType teamType, Vector3 dir_ToMove , Vector3 rotation = default )
         {
@@ -28,7 +33,7 @@ namespace LF2.Client
             interpolationAmount = 0f;
             foreach (ClientCharacterVisualization viz in NbPlayer.GetCharacter()){
                 if (viz.NetworkObjectId != creatorsNetworkObjectId ){
-                    Debug.Log("clientCharacter" + viz);
+                    // Debug.Log("clientCharacter" + viz);
                     nbCharacterViz.Add(viz);
                 }
             }
@@ -42,6 +47,9 @@ namespace LF2.Client
                 haveTarget = false;
             }
             ourPosition = transform.position;
+            AnchorB = new Vector3((AnchorB.x + ourPosition.x)*dir_ToMove.x ,AnchorB.y,AnchorB.z + ourPosition.z ) ;
+            AnchorC = new Vector3((AnchorC.x + enemyPosition.x)*-dir_ToMove.x ,AnchorB.y,AnchorB.z+ enemyPosition.z )  ;
+
         }
 
         public override void FixedUpdate() {
@@ -52,8 +60,8 @@ namespace LF2.Client
                     haveTarget = false;
                     return;
                 }
-                interpolationAmount = (interpolationAmount + Time.deltaTime) ;
-                transform.position = QuadraticLerp(ourPosition ,AnchorBFromA + ourPosition , enemyLock.PhysicsWrapper.transform.position , interpolationAmount );
+                interpolationAmount += Time.deltaTime * speedNormal ;
+                transform.position = QuadraticLerp(ourPosition ,AnchorB , enemyPosition+OffsetEnemy , interpolationAmount );
             } 
             else base.FixedUpdate();
         }
@@ -62,6 +70,12 @@ namespace LF2.Client
             Vector3 ab = Vector3.Lerp(a , b , t);
             Vector3 bc = Vector3.Lerp(b , c , t);
             return Vector3.Lerp(ab , bc , t);
+        }
+
+        private Vector3 CubicLerp(Vector3 a , Vector3 b , Vector3 c , Vector3 d, float t ){
+            Vector3 ab_bc = QuadraticLerp(a , b , c , t);
+            Vector3 bc_cd = QuadraticLerp(b , c , d , t);
+            return Vector3.Lerp(ab_bc , bc_cd , t);
         }
 
 

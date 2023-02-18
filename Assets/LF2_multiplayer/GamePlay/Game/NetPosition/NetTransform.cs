@@ -19,6 +19,9 @@ namespace LF2
         public delegate (Vector3 pos, byte rotYOut) OnClientRequestChangeDelegate(Vector3 pos, byte rotY);
         public OnClientRequestChangeDelegate OnClientRequestChange;
 
+        // True in normal case (sync the transform with owner) ; 
+        // false when we want non_authoriy can predict his own tranform 
+        public bool KeepSyncWithOwner = true;
         //  
         private byte lastRotaion;
 
@@ -582,7 +585,7 @@ namespace LF2
 
 
 
-
+        // Event When Network State Changed (use for authority )
         private void OnNetworkStateChanged(NetTransformState oldState, NetTransformState newState)
         {
             if (!NetworkObject.IsSpawned)
@@ -609,6 +612,7 @@ namespace LF2
             var sentTime = newState.SentTime;
             var currentPosition = transform.position;
 
+            // if teleport , apply direct the pos and rotation
             if (newState.IsTeleportingNextFrame)
             {
                 // we should clear our float interpolators
@@ -655,7 +659,7 @@ namespace LF2
                 return;
             }
 
-
+        
             if (newState.HasPositionX)
             {
                 m_PositionXInterpolator.AddMeasurement(newState.PositionX, sentTime);
@@ -819,12 +823,14 @@ namespace LF2
             }
 
             // If we are authority, update the authoritative state
+            // Huy : Can keep that run 
             if (CanCommitToTransform)
             {
                 UpdateAuthoritativeState(transform);
             }
             else // Non-Authority
             {
+                // Still need to do interpolation even when we not use that , to keep that in still sync 
                 if (Interpolate)
                 {
                     var serverTime = NetworkManager.ServerTime;
@@ -838,8 +844,11 @@ namespace LF2
 
                 }
 
-                // Apply the current authoritative state
-                ApplyAuthoritativeState();
+                // Huy here: We can uncheck this to not update the transform of remote player
+                if (KeepSyncWithOwner){
+                    // Apply the current authoritative state
+                    ApplyAuthoritativeState();
+                }
             }
         }
 

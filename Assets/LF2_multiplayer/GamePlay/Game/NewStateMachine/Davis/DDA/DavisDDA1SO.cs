@@ -38,8 +38,7 @@ namespace LF2.Client{
             return false;
         }
 
-        public override void Enter()
-        {
+        public override void Enter()        {
             if(!Anticipated)
             {
                 PlayAnim();

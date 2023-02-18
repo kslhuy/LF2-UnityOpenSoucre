@@ -38,8 +38,7 @@ namespace LF2.Client{
 
 
 
-        public override void Enter()
-        {
+        public override void Enter()        {
             if(!Anticipated)
             {
                 PlayAnim();
@@ -55,11 +54,15 @@ namespace LF2.Client{
 
         public override void LogicUpdate()
         {   
-            if (Time.time - TimeStarted_Animation > 0.15f){
-                if (stateMachineFX.CoreMovement.IsGounded()) stateMachineFX.AnticipateState(StateType.Crouch);
+            if (nbTickRender > 10 ){
+                if (stateMachineFX.CoreMovement.IsGounded()) {
+                    Debug.Log("crouch");
+                    stateMachineFX.AnticipateState(StateType.Crouch);
+                    return;
+                }
             }
             stateMachineFX.CoreMovement.SetFallingDown();
-
+            base.LogicUpdate();
 
 
         }

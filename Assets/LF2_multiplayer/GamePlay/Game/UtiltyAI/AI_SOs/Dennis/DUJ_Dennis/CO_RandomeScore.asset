@@ -12,29 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3fcb647003b264478f98bd7e5935553, type: 3}
   m_Name: CO_RandomeScore
   m_EditorClassIdentifier: 
-  Name: 
-  responseCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0.01
-      outSlope: 0.01
-      tangentMode: 34
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 100
-      value: 1
-      inSlope: 0.01
-      outSlope: 0.01
-      tangentMode: 34
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
+  Owner: A_DUJ_1_Dennis
+  isSubConsideration: 1
   PointFrequencyAddition: 0.3

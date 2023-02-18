@@ -38,14 +38,12 @@ namespace LF2.Client{
             return false;
         }
 
-        public override void Enter()
-        {
+        public override void Enter()        {
             if( !Anticipated)
             {
                 PlayAnim();
             }
             
-
             base.Enter();
         }
 
@@ -74,15 +72,12 @@ namespace LF2.Client{
 
 
         public override void LogicUpdate() {
-            if (stateMachineFX.m_ClientVisual.Owner) {
-                if (Time.time - TimeStarted_Animation > 0.1f) base.LogicUpdate();
-            }else {
-                if (Time.time - TimeStarted_Animation > 0.15f) {
-                    if (stateMachineFX.CoreMovement.IsGounded()){
-                        stateMachineFX.ChangeState(StateType.Crouch);
-                    }
-                };
+            
+            if (nbTickRender > 7 ){
+                base.LogicUpdate();  
             }
+            
+        
 
 
         }

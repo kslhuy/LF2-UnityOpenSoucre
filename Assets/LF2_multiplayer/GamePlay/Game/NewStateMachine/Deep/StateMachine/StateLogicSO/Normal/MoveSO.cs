@@ -56,7 +56,8 @@ namespace LF2.Client{
 
         public override void PlayAnim( int nbanim = 1 , bool sequence = false)
         {
-            stateMachineFX.m_ClientVisual.NormalAnimator.Play("Walk_anim");
+            stateMachineFX.m_ClientVisual.coreMovement.TakeControlTransform(false);
+            stateMachineFX.m_ClientVisual.NormalAnimator.Play(stateMachineFX.m_ClientVisual.VizAnimation.a_Walk);
             
         }
 
@@ -71,8 +72,7 @@ namespace LF2.Client{
             // stateMachineFX.m_ClientVisual.NormalAnimator.Play("Walk_anim");
         }
 
-      public override void Enter()
-        {
+      public override void Enter()        {
             if( !Anticipated)
             {
                 PlayAnim();

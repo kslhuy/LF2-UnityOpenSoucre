@@ -13,19 +13,21 @@ namespace LF2.Client{
         }
     }
 
-    public class DeepDDJLogic : MeleLogic
+    public class DeepDDJLogic : MeleLogic 
     {
         //Component references
         // private IdleLogicSO _originSO => (IdleLogicSO)base.OriginSO; // The SO this StateAction spawned from
+        bool syncTranform  = false;
         public override void Awake(StateMachineNew stateMachine)
         {
             stateMachineFX = stateMachine;
+            // stateData.frameChecker.initialize(this , stateMachineFX.m_ClientVisual.NormalAnimator,stateMachineFX.m_ClientVisual.spriteRenderer);
+
         }
 
-        private List<SpecialFXGraphic> m_SpawnedGraphics = null;
-        private bool _open;
+        // private List<SpecialFXGraphic> m_SpawnedGraphics = null;
 
-        public override void Enter()
+        public override void Enter()        
         {
             if(!Anticipated)
             {
@@ -40,12 +42,24 @@ namespace LF2.Client{
         }
 
         public override void End(){
+            // stateMachineFX.m_ClientVisual.NormalAnimator.enabled = true;
             stateMachineFX.idle();
+
         }
 
-        public override void PlayAnim( int nbanim = 1 , bool sequen = false)
+        // public override void Exit(){
+        //     // stateMachineFX.m_ClientVisual.NormalAnimator.enabled = true;
+        //     // stateMachineFX.idle();
+
+        // }
+
+        public override void PlayAnim( int frameRender = 1 , bool sequen = false)
         {
             base.PlayAnim();
+            // stateMachineFX.m_ClientVisual.NormalAnimator.enabled = false;
+
+            // stateData.frameChecker.initCheck(frameRender);
+
             stateMachineFX.m_ClientVisual.NormalAnimator.Play(stateMachineFX.m_ClientVisual.VizAnimation.a_DDJ_1);
         }
 
@@ -60,7 +74,12 @@ namespace LF2.Client{
 
         public override void LogicUpdate()
         {
+            // if (nbTickRender %2 == 0){
+            //     stateData.frameChecker.CheckFrame( ()=> stateMachineFX.idle());
+            // }
+            // base.LogicUpdate();
             stateMachineFX.CoreMovement.CustomMove_InputZ(stateData.Dx,stateData.Dz,stateMachineFX.InputZ);
+            // base.LogicUpdate();
         }
 
         public override void OnAnimEvent(int id)
@@ -75,8 +94,7 @@ namespace LF2.Client{
             base.AddCollider(collider);
         }
 
-
-
+      
     }
 
 }

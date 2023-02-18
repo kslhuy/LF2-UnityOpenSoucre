@@ -2,6 +2,6 @@ using System;
 
 [Serializable]
 public class WaveInfo {
-    public CharacterTypeEnum Bot;
+    public CharacterTypeEnum BotType;
     public int NumberSpawn;
 }

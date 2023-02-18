@@ -26,8 +26,7 @@ namespace LF2.Client{
             return false;
         }
 
-        public override void Enter()
-        {
+        public override void Enter()        {
             PlayAnim();
             base.Enter();
         }
@@ -56,7 +55,7 @@ namespace LF2.Client{
         public override void LogicUpdate() {
             
             if (stateMachineFX.m_ClientVisual.Owner){
-                if (Time.time - TimeStarted_Animation > 0.1f){
+                if (nbTickRender > 7){
                     // Debug.Log($"Time Start  Owner ={TimeStarted_Animation} ");
                     if (stateMachineFX.CoreMovement.IsGounded()){
                         stateMachineFX.ChangeState(StateType.Land);
@@ -69,15 +68,16 @@ namespace LF2.Client{
             } 
             else {
                 // Debug.Log($"Time Start Not Owner ={TimeStarted_Animation} ");
-                if (Time.time - TimeStarted_Animation > 0.15f){
+                if (nbTickRender > 7 ){
                     // Debug.Log("TIMER Ok , Check Is Grounded");
                     if (stateMachineFX.CoreMovement.IsGounded()){
-                        Debug.Log("Land Not owner");
+                        // Debug.Log("Land Not owner");
                         stateMachineFX.ChangeState(StateType.Land);
                     }
                 }
 
             }
+            base.LogicUpdate();
         }
 
 

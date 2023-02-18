@@ -1,5 +1,5 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="True">
-    <Style src="project://database/Assets/margin.uss?fileID=7433441132597879392&amp;guid=f428da7cc83e4f242b0ff60b0e74cce8&amp;type=3#margin" />
+    <Style src="project://database/Assets/LF2_multiplayer/Editor/margin.uss?fileID=7433441132597879392&amp;guid=f428da7cc83e4f242b0ff60b0e74cce8&amp;type=3#margin" />
     <ui:VisualElement class="margin">
         <ui:Vector3Field label="BoundLimit" binding-path="BoundLimit" />
     </ui:VisualElement>

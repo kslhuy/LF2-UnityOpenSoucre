@@ -125,8 +125,8 @@ namespace LF2.Client
                         PlayAudio(Sounds[0] , transform.position);
 
                         if (!IsServer) return;
-                            NetworkObject networkObject = gameObject.GetComponent<NetworkObject>();
-                            networkObject.Despawn();
+                        NetworkObject networkObject = gameObject.GetComponent<NetworkObject>();
+                        networkObject.Despawn();
                     
                     }
                 }

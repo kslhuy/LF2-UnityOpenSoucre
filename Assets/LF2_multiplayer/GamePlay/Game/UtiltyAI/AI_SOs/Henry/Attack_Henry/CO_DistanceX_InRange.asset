@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Owner: A_Attack_Henry
   isSubConsideration: 0
-  minRang: 40
-  maxRang: 150
+  description: 
+  minRang: 100
+  maxRang: 300
   invertLogic: 0

@@ -13,6 +13,9 @@ namespace LF2
         public byte fall ; 
         public byte Bdefend ; 
 
+        public int vrest ;
+
+
         [Tooltip("How far the enemy falls backwards , upwards when hit")]
         public Vector3 Dirxyz;
 
@@ -71,8 +74,8 @@ namespace LF2
         
 
         private int _frameNow;
-        private float _timeNow;
-        private float _timerAttack;
+        private float _tickNow;
+        private int _timerAttack;
 
         private AttackDataSend Atk_data = new AttackDataSend();
 
@@ -100,49 +103,50 @@ namespace LF2
             if (!clip) return;
             totalFrames = Mathf.RoundToInt(clip.length * clip.frameRate);
             length = clip.length;
-            InitializeFrameStruct(clip);
+            // InitializeFrameStruct(clip);
 
         }
 
-        public void InitializeFrameStruct(AnimationClip clip)
-        {
-            _frameStruct = new FrameStruct[totalFrames];
-            var sprites = new List<Sprite> ();
-            var times = new List<float> ();
+        // public void InitializeFrameStruct(AnimationClip clip)
+        // {
+        //     _frameStruct = new FrameStruct[totalFrames];
+        //     var sprites = new List<Sprite> ();
+        //     var times = new List<float> ();
 
 
-            foreach(var binding in AnimationUtility.GetObjectReferenceCurveBindings(clip))
-            {
-                var keyframes = AnimationUtility.GetObjectReferenceCurve (clip, binding);
-                foreach(var frame in keyframes)
-                {
-                    sprites.Add((Sprite) frame.value);
-                    times.Add(frame.time);
-                }
-            }
-            for (int i=0 ; i<totalFrames ; i++){
-                _frameStruct[i].sprite = sprites[i]; 
-                _frameStruct[i].time = times[i]; 
+        //     foreach(var binding in AnimationUtility.GetObjectReferenceCurveBindings(clip))
+        //     {
+        //         var keyframes = AnimationUtility.GetObjectReferenceCurve (clip, binding);
+        //         foreach(var frame in keyframes)
+        //         {
+        //             sprites.Add((Sprite) frame.value);
+        //             times.Add(frame.time);
+        //         }
+        //     }
+        //     for (int i=0 ; i<totalFrames ; i++){
+        //         _frameStruct[i].sprite = sprites[i]; 
+        //         _frameStruct[i].time = times[i]; 
                 
-            }
+        //     }
             
-        }
+        // }
         
         //First Frame 
-        public void initCheck()
+        public void initCheck(int renderFrame)
         {
-            _timeNow = Time.time;
-            _timerAttack = _timeNow;
-            _frameNow = 0;
-            _spriteRenderer.sprite =_frameStruct[0].sprite;
+            _tickNow = 0;
+            _frameNow = renderFrame - 1;
+            _timerAttack = _frameNow;
+            _spriteRenderer.sprite =_frameStruct[_frameNow].sprite;
 
         }
 
 
-        public void CheckFrame(Action endState){
+        public void CheckFrame(Action endState ){
 
-            if (_frameNow != 999 && Time.time >= _timeNow + ((_frameStruct[_frameNow].wait + 1) * 0.034f)+0.0067f ){
-                _timeNow = Time.time ;
+            if (_frameNow != 999 && (_tickNow % (_frameStruct[_frameNow].wait + 1)) == 0) {
+                // _timeNow = Time.time ;
+                _tickNow = 0;
                 _frameNow = _frameStruct[_frameNow].NextFrame;
                 if(_frameNow == 999) {
                     endState.Invoke();
@@ -152,19 +156,34 @@ namespace LF2
                 if (_frameStruct[_frameNow].Sound){
                     _frameCheckHandler.playSound(_frameStruct[_frameNow].Sound);
                 }
-                _frameCheckHandler.onNextFrame(_frameNow);
+                _frameCheckHandler.onMoveFrame(_frameNow);
             }
-            if (_frameStruct[_frameNow].haveInteraction && Time.time >= _timerAttack + vrest*0.034 ){
-                _timerAttack = Time.time;
+            // increment timer attack 
+            _timerAttack ++;
+            _tickNow++;
+            // The values of these tags are the duration in TU that the object must wait before hitting the character again.
+            if (_frameStruct[_frameNow].haveInteraction) {
+                if (arest){
+                    Atk_data.Amount_injury = _frameStruct[_frameNow].interaction.damageAmount;
+                    Atk_data.Direction = _frameStruct[_frameNow].interaction.Dirxyz;
+                    Atk_data.BDefense_p = _frameStruct[_frameNow].interaction.Bdefend;
+                    Atk_data.Fall_p = _frameStruct[_frameNow].interaction.fall;
+                    Atk_data.Effect = (byte)_frameStruct[_frameNow].interaction.Effect;
+                    // Debug.Log("ON attack frame");
+                    _frameCheckHandler.onAttackFrame(Atk_data);    
+                }else if (_timerAttack >= vrest){      
+                    _timerAttack = 0;
 
-                Atk_data.Amount_injury = _frameStruct[_frameNow].interaction.damageAmount;
-                Atk_data.Direction = _frameStruct[_frameNow].interaction.Dirxyz;
-                Atk_data.BDefense_p = _frameStruct[_frameNow].interaction.Bdefend;
-                Atk_data.Fall_p = _frameStruct[_frameNow].interaction.fall;
-                Atk_data.Effect = (byte)_frameStruct[_frameNow].interaction.Effect;
-                // Debug.Log("ON attack frame");
-                _frameCheckHandler.onAttackFrame(Atk_data);
+                    Atk_data.Amount_injury = _frameStruct[_frameNow].interaction.damageAmount;
+                    Atk_data.Direction = _frameStruct[_frameNow].interaction.Dirxyz;
+                    Atk_data.BDefense_p = _frameStruct[_frameNow].interaction.Bdefend;
+                    Atk_data.Fall_p = _frameStruct[_frameNow].interaction.fall;
+                    Atk_data.Effect = (byte)_frameStruct[_frameNow].interaction.Effect;
+                    // Debug.Log("ON attack frame");
+                    _frameCheckHandler.onAttackFrame(Atk_data);
+                }
             }
+            
         }
 
         public void CheckTransition(StateType stateType ){
@@ -180,9 +199,9 @@ namespace LF2
                 return;
             }
             // Debug.Log(_frameNow);
-            _timeNow = Time.time ;
+            // _timeNow = Time.time ;
             _spriteRenderer.sprite =_frameStruct[_frameNow].sprite;
-            _frameCheckHandler.onNextFrame(_frameNow);
+            _frameCheckHandler.onMoveFrame(_frameNow);
 
         }
 

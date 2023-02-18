@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 751bc33bd5512ee40b0d29b3638d8152, type: 3}
   m_Name: CO_DistanceZ
   m_EditorClassIdentifier: 
-  Owner: A_DUA_1_Henry
+  Owner: A_DUA_1_Freeze
   isSubConsideration: 0
-  comparator: 20
+  description: 
+  comparator: 30
   IsSuperior: 0

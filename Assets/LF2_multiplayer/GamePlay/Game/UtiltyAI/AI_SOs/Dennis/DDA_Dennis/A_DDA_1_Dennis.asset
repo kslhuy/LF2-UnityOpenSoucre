@@ -14,9 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TypeName: 30
   considerations:
-  - {fileID: 11400000, guid: baf4253644295de488f397a463e82c61, type: 2}
   - {fileID: 11400000, guid: 3f9932641c504b94796018337d1e77f5, type: 2}
-  - {fileID: 11400000, guid: 080215b2bfa06e44995789afa052a5fc, type: 2}
   - {fileID: 11400000, guid: 7e88c32753da7ef4686542a83ca62d37, type: 2}
   - {fileID: 11400000, guid: 366127a13a958a74f87ac4f8c6090ed2, type: 2}
   - {fileID: 11400000, guid: eea07ea859d40444cb3e0ac6ee75b208, type: 2}

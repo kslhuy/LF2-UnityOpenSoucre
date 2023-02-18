@@ -19,7 +19,7 @@ namespace LF2.Client{
 		public Action<DamagePopup> OnFinishedPopUp;
         private bool startMove;
 
-        public void Setup(Vector3 position , int damageAmount){
+        public void Setup(Vector3 position , int damageAmount , Action<DamagePopup> finshPopup){
             transform.position = position;
             textMeshPro.SetText(damageAmount.ToString());
             if (damageAmount > 0) textMeshPro.color = textColorHeal;
@@ -27,6 +27,7 @@ namespace LF2.Client{
             textColorNow = textMeshPro.color;
             disappearTimer = 1f;
             startMove = true;
+            OnFinishedPopUp = finshPopup;
         }
 
 
@@ -45,7 +46,9 @@ namespace LF2.Client{
                     if (textColorNow.a < 0){
                         // Destroy(gameObject);
                         startMove = false;
-                        OnFinishedPopUp?.Invoke(this);
+                        // OnFinishedPopUp?.Invoke(this);
+                        OnFinishedPopUp(this);
+
                     }
                 }
             }

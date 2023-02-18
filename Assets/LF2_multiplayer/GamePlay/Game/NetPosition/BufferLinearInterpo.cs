@@ -100,7 +100,9 @@ namespace LF2
             Update(0, serverTime, serverTime);
         }
 
-        // todo if I have value 1, 2, 3 and I'm treating 1 to 3, I shouldn't interpolate between 1 and 3, I should interpolate from 1 to 2, then from 2 to 3 to get the best path
+        // todo if I have value 1, 2, 3 and I'm treating 1 to 3, 
+        // I shouldn't interpolate between 1 and 3, 
+        // I should interpolate from 1 to 2, then from 2 to 3 to get the best path
         private void TryConsumeFromBuffer(double renderTime, double serverTime)
         {
             int consumedCount = 0;

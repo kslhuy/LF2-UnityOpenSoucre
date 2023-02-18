@@ -24,7 +24,7 @@ namespace LF2{
         [Header("----- DAmage ------")]
         // [ExtendEditorSOs]
         public DamageDetails[] DamageDetails;
-        public Interaction[] Interactions;
+        // public Interaction[] Interactions;
 
         [Header("----- Range ------")]
 
@@ -40,6 +40,10 @@ namespace LF2{
         // public AnimationCurve animationCurve;
         [Header("----- Timer ------")]
         public float DurationSeconds;
+        
+        [Tooltip("mesure by total frame in the animation ")]
+        public int Duration;
+
 
         public bool expirable;
         [Tooltip("After this Action is successfully started, the server will discard any attempts to perform it again until this amount of time has elapsed.")]
@@ -95,6 +99,7 @@ namespace LF2{
             if (Logic != StateLogic.Movement && DurationSeconds == 0){
                 Debug.LogWarning($"You may forgot setting DurationSeconds in  {StateType} SOs ");
             }
+            Duration = (int)(Math.Round(DurationSeconds / 0.016667f));
 
             // if (DamageDetails.Length > 0 ){
             //     Debug.Log(Logic);

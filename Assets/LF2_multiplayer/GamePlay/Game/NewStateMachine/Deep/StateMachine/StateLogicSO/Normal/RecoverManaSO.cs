@@ -14,8 +14,6 @@ namespace LF2.Client{
     public class RecoverManaLogic : StateActionLogic
     {
 
-        private float timerMPrecover = 0.5f;
-        private float timeNow;
         InteractionZone itr ;
 
         //Component references
@@ -42,7 +40,6 @@ namespace LF2.Client{
         public override void PlayAnim( int nbanim = 1 , bool sequence = false)
         {
             base.PlayAnim();
-            timeNow = Time.time;
             stateMachineFX.m_ClientVisual.NormalAnimator.Play(stateMachineFX.m_ClientVisual.VizAnimation.a_RecoverMana);
             // stateMachineFX.m_ClientVisual.UpdateSizeHurtBox();
         }
@@ -62,8 +59,7 @@ namespace LF2.Client{
             return stateData.StateType;
         }
 
-        public override void Enter()
-        {
+        public override void Enter()        {
         
             if( !Anticipated)
             {
@@ -77,15 +73,11 @@ namespace LF2.Client{
         {
             if (stateMachineFX.m_ClientVisual._IsServer){
                 if (stateMachineFX.m_ClientVisual.m_NetState.MPPoints >= 500 ) return;
-                if ( Time.time - timeNow > timerMPrecover ){
-                    timeNow = Time.time;
+                if ( nbTickRender % 6 == 0 ){
                     stateMachineFX.m_ClientVisual.m_NetState.MPPoints += 15; 
                 }
             }
-            // if (Time.time - timeNowSendtoServer > TimerSendMPToServer){
-            //     timeNowSendtoServer = Time.time;
-            //     cacheMPChange += 1; 
-            // }
+            base.LogicUpdate();
         }
 
 

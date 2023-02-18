@@ -14,8 +14,7 @@ namespace LF2.ConnectionManagement
         [Inject]
         protected LobbyServiceFacade m_LobbyServiceFacade;
 
-        public override void Enter()
-        {
+        public override void Enter()        {
             if (m_LobbyServiceFacade.CurrentUnityLobby != null)
             {
                 m_LobbyServiceFacade.BeginTracking();

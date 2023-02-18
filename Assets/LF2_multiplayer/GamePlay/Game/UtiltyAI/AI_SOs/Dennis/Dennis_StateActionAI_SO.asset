@@ -26,7 +26,13 @@ MonoBehaviour:
   - A_Availlable: {fileID: 11400000, guid: 1797a6d917e29134095ff71bd4c9ea99, type: 2}
     Disable: 0
     ShowScore: 0
+  - A_Availlable: {fileID: 11400000, guid: dfb6072bb9529224694f1c52697ca05a, type: 2}
+    Disable: 0
+    ShowScore: 0
   - A_Availlable: {fileID: 11400000, guid: 25c5a75039535d94398f4fafc33b5ad8, type: 2}
+    Disable: 0
+    ShowScore: 0
+  - A_Availlable: {fileID: 11400000, guid: 96263ca6d2ea4414d8f24c0edaa64cb7, type: 2}
     Disable: 0
     ShowScore: 0
   A_MoveAvaillable:
@@ -36,12 +42,15 @@ MonoBehaviour:
   - A_Availlable: {fileID: 11400000, guid: 9f302d56c92b224448a663b279c6fbab, type: 2}
     Disable: 0
     ShowScore: 0
-  - A_Availlable: {fileID: 11400000, guid: 9f302d56c92b224448a663b279c6fbab, type: 2}
+  - A_Availlable: {fileID: 11400000, guid: 63d34d4575d283441b0849e888fdc7ac, type: 2}
     Disable: 0
     ShowScore: 0
   - A_Availlable: {fileID: 11400000, guid: 0ae54031d19a879499c86912369ebc5a, type: 2}
     Disable: 0
     ShowScore: 0
   - A_Availlable: {fileID: 11400000, guid: b48568909c1aa474cbacbc6a0bb0f0ec, type: 2}
+    Disable: 0
+    ShowScore: 0
+  - A_Availlable: {fileID: 11400000, guid: dfb6072bb9529224694f1c52697ca05a, type: 2}
     Disable: 0
     ShowScore: 0

@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d1e60f5b43268946a79268a0d532e3a, type: 3}
   m_Name: CO_DistanceX_InRang
   m_EditorClassIdentifier: 
-  Owner: A_DUJ_1_Henry
+  Owner: A_DUJ_1_Freeze
   isSubConsideration: 0
-  minRang: 0
-  maxRang: 190
+  description: 
+  minRang: 20
+  maxRang: 300
   invertLogic: 0

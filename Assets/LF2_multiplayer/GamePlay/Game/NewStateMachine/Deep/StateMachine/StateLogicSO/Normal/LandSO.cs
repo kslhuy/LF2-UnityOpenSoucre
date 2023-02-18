@@ -35,8 +35,7 @@ namespace LF2.Client{
             return false;
         }
 
-        public override void Enter( )
-        {
+        public override void Enter()        {
             if( !Anticipated)
             {
                 PlayAnim();
@@ -60,12 +59,14 @@ namespace LF2.Client{
             // }
             PlayAnim(nbanim , sequence);
         }
-
         public override void End(){
             if (stateMachineFX.CoreMovement.IsGounded()){
                 stateMachineFX.idle();
             }
         }
+
+
+        
 
 
         // public void ResetAmountOfJumpsLeft()=> amountOfJumpLeft = playerData.amountOfJumpLeft;

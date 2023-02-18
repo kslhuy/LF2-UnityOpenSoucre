@@ -162,7 +162,7 @@ namespace LF2.Client
         public virtual void Rebound()
         {
             // canHitCreator = true;
-            Debug.Log("Rebound");
+            // Debug.Log("Rebound");
             m_facing = m_facing*-1;
             transform.Rotate(0.0f,180.0f,0.0f);
         }

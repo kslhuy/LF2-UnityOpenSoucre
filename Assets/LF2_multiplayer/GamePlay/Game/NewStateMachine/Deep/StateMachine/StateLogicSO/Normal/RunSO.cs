@@ -15,7 +15,7 @@ namespace LF2.Client{
 
     public class RunLogic : StateActionLogic
     {
-        private bool flip;
+        // private bool flip;
         private List<SpecialFXGraphic> m_SpawnedGraphics = null;
         private float startTime;
         
@@ -46,8 +46,7 @@ namespace LF2.Client{
         }
 
 
-        public override void Enter()
-        {
+        public override void Enter()        {
             if(!Anticipated)
             {
                 PlayAnim();
@@ -82,8 +81,8 @@ namespace LF2.Client{
 
             base.PlayAnim();
             stateMachineFX.m_ClientVisual.NormalAnimator.Play(stateMachineFX.m_ClientVisual.VizAnimation.a_Run);
-            flip =  stateMachineFX.CoreMovement.GetFacingDirection() == 1 ? false : true ;
-            m_SpawnedGraphics = InstantiateSpecialFXGraphics(stateMachineFX.CoreMovement.transform , true,flip, GetId()); 
+            // flip =  stateMachineFX.CoreMovement.GetFacingDirection() == 1 ? false : true ;
+            // m_SpawnedGraphics = InstantiateSpecialFXGraphics(stateMachineFX.CoreMovement.transform , true,flip, GetId()); 
             // m_SpawnedGraphics[0].m_ParticleSystemsToTurnOffOnShutdown[0].fli
             startTime = Time.time;
 
@@ -110,15 +109,17 @@ namespace LF2.Client{
             //     m_SpawnedGraphics = InstantiateSpecialFXGraphics(stateMachineFX.CoreMovement.transform, true, GetId()); 
             // }
 
-             if (startTime > 0){
-                float end  = startTime + 0.5f;
-                if (Time.time > end){
-                    m_SpawnedGraphics = InstantiateSpecialFXGraphics(stateMachineFX.CoreMovement.transform, true,flip, GetId()); 
-                    startTime = Time.time;
+            if (nbTickRender % 30 == 0){
+                // float end  = startTime + 0.5f;
+                // if (Time.time > end){
+                    var pf = stateData.SpawnsFX[0];
+                    Vector3 pivot = new Vector3(pf.pivot.x*stateMachineFX.CoreMovement.GetFacingDirection() ,pf.pivot.y,pf.pivot.z );
+
+                    InstantiateFXGraphic(pf._Object, stateMachineFX.CoreMovement.transform,pivot, true, GetId()); 
+                    // startTime = Time.time;
 
                 }
-            }
-
+            base.LogicUpdate();
         }
     }
 

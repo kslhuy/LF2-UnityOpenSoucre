@@ -25,6 +25,15 @@ namespace LF2.Client{
             itr = stateMachine.itr;
         }
 
+        public override void Enter()
+        {
+            if( !Anticipated)
+            {
+                PlayAnim();
+            }
+            base.Enter();
+        }
+
         public override bool ShouldAnticipate(ref InputPackage data)
         {
             if (data.StateTypeEnum == StateType.Idle){
@@ -74,28 +83,22 @@ namespace LF2.Client{
             return stateData.StateType;
         }
 
-        public override void Enter()
-        {
-        
-            if( !Anticipated)
-            {
-                PlayAnim();
-            }
-            base.Enter();
-        
-        }
+
 
         public override void LogicUpdate()
         {
             
             //
-            if (stateMachineFX.m_ClientVisual.Owner){
+            if (nbTickRender > 4 ){
+                stateMachineFX.m_ClientVisual.coreMovement.TakeControlTransform(false);
+            }             
+            if (nbTickRender > 8 && stateMachineFX.m_ClientVisual.Owner){
                 if(!stateMachineFX.CoreMovement.IsGounded()){
                     // Debug.Log("Air Owner");
                     stateMachineFX.ChangeState(StateType.Air);
                 } 
             }else{
-                if( Time.time - TimeStarted_Animation > 0.2f && !stateMachineFX.CoreMovement.CheckGoundedClose(15)){
+                if( nbTickRender > 12 && !stateMachineFX.CoreMovement.CheckGoundedClose(15f)){
                     // Debug.Log("Air Not Owner");
                     stateMachineFX.ChangeState(StateType.Air);
                 } 

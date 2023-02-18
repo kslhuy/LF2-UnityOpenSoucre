@@ -21,24 +21,30 @@ namespace LF2.Client
 
         private List<IHurtBox> _Listdamagable = new List<IHurtBox>();
 
-        private Collider[] _damagables = new Collider[3];
+        // private Collider[] _damagables = new Collider[3];
 
         // private AttackDataSend Atk_data ;
-        // private float loopframePersentage;
+        // private float stoploopPersentage;
+        private bool stoploop;
 
         public override void Awake(StateMachineNew stateMachine)
         {
             stateMachineFX = stateMachine;
-            // loopframePersentage = stateData.frameChecker.percentageOnFrame(10);
-            stateData.frameChecker.initialize(this , stateMachineFX.m_ClientVisual.NormalAnimator,stateMachineFX.m_ClientVisual.spriteRenderer);
+            // stoploopPersentage = stateData.frameChecker.percentageOnFrame(10);
+            // stateData.frameChecker.initialize(this , stateMachineFX.m_ClientVisual.NormalAnimator,stateMachineFX.m_ClientVisual.spriteRenderer);
         }
 
         public override bool ShouldAnticipate(ref InputPackage requestData)
         {
-            stateData.frameChecker.CheckTransition(requestData.StateTypeEnum);
+            if (requestData.StateTypeEnum.Equals(StateType.Defense) ){
+                // specialFX.ShutDownSlow();
+                stoploop = true;
+                stateMachineFX.idle();
+            }
+            // stateData.frameChecker.CheckTransition(requestData.StateTypeEnum);
             return true;
         }
-        public override void Enter()
+        public override void Enter()        
         {
             if (!Anticipated)
             {
@@ -58,42 +64,49 @@ namespace LF2.Client
         {
             // stateMachineFX.m_ClientVisual.NormalAnimator.Play(stateMachineFX.m_ClientVisual.VizAnimation.a_DUJ_1);
             _Listdamagable = new List<IHurtBox>();
+            stoploop = false;
             stateMachineFX.idle();
 
         }
         public override void Exit()
         {
             _Listdamagable = new List<IHurtBox>();
-            stateMachineFX.m_ClientVisual.NormalAnimator.enabled = true;
+            stoploop = false;
+            // stateMachineFX.m_ClientVisual.NormalAnimator.enabled = true;
 
         }
 
 
-        public override void PlayAnim(int nbAniamtion = 1, bool sequence = false)
+        public override void PlayAnim(int frameRender = 1, bool sequence = false)
         {
             base.PlayAnim();
             // timeNow = TimeStarted_Animation;
-            stateMachineFX.m_ClientVisual.NormalAnimator.enabled = false;
-            stateData.frameChecker.initCheck();
-            stateMachineFX.m_ClientVisual.SetHitBox(true);
+            // stateMachineFX.m_ClientVisual.NormalAnimator.enabled = false;
+            // stateData.frameChecker.initCheck(frameRender);
+            // stateMachineFX.m_ClientVisual.SetHitBox(true);
 
-            // stateMachineFX.m_ClientVisual.NormalAnimator.Play(stateMachineFX.m_ClientVisual.VizAnimation.a_DUJ_1);
+            stateMachineFX.m_ClientVisual.NormalAnimator.Play(stateMachineFX.m_ClientVisual.VizAnimation.a_DUJ_1);
         }
 
         public override void LogicUpdate()
         {
-
-            stateData.frameChecker.CheckFrame(()=> stateMachineFX.idle());
+            stateMachineFX.CoreMovement.CustomMove_InputZ(stateData.Dx,stateData.Dz,stateMachineFX.InputZ);
+            
             // if (Time.time - timeNow > stateData.DamageDetails[0].vrest){
   
             //     timeNow = Time.time;
             // }
-            // if (loopframePersentage <= stateMachineFX.m_ClientVisual.NormalAnimator.normalizedTime(0)){
-            //     stateMachineFX.m_ClientVisual.NormalAnimator.Play(stateMachineFX.m_ClientVisual.VizAnimation.a_DUJ_1 , 0,stateData.frameChecker.percentageOnFrame(2));
-            // }
+            if (nbTickRender %16 == 0 && !stoploop){
+                stateMachineFX.m_ClientVisual.NormalAnimator.Play(stateMachineFX.m_ClientVisual.VizAnimation.a_DUJ_1 , 0,0.333f);
+            }
+            if (stoploop && nbTickRender % 8 == 0 ){
+                stateMachineFX.idle();
+                // stoploop = true;
+            }
         }
 
         public override void OnAnimEvent(int id){
+            // if (id == 999) stoploop = true;
             stateMachineFX.m_ClientVisual.PlayAudio(stateData.Sounds);
         }
 
@@ -140,24 +153,24 @@ namespace LF2.Client
 
 
 
-        // public override void AddCollider(Collider collider)
-        // {
-        //     IHurtBox damagable = collider.GetComponentInParent<IHurtBox>();
-        //     if (damagable != null)
-        //     {
-        //         _Listdamagable.Add(damagable);
-        //     }
-        // }
-        // public override void RemoveCollider(Collider collider)
-        // {
-        //     IHurtBox damagable = collider.GetComponentInParent<IHurtBox>();
-        //     if (damagable != null)
-        //     {
-        //         _Listdamagable.Remove(damagable);
-        //     }
-        // }
+        public override void AddCollider(Collider collider)
+        {
+            IHurtBox damagable = collider.GetComponentInParent<IHurtBox>();
+            if (damagable != null)
+            {
+                _Listdamagable.Add(damagable);
+            }
+        }
+        public override void RemoveCollider(Collider collider)
+        {
+            IHurtBox damagable = collider.GetComponentInParent<IHurtBox>();
+            if (damagable != null)
+            {
+                _Listdamagable.Remove(damagable);
+            }
+        }
 
-        public void onNextFrame(int frame)
+        public void onMoveFrame(int frame)
         {
             stateMachineFX.CoreMovement.CustomMove_InputZ(stateData.frameChecker._frameStruct[frame].dvx, stateData.frameChecker._frameStruct[frame].dvz);
         }
@@ -175,38 +188,43 @@ namespace LF2.Client
 
         public void onAttackFrame(AttackDataSend AttkData)
         {
-            int layer1 = 0; 
-            layer1 |= 1 << LayerMask.NameToLayer("HurtBox");
-            // Debug.Log("layer bitWise Or"+ layer1);
-            // Debug.Log("layer bitWise "+ (1 << LayerMask.NameToLayer("HurtBox")));
-            // Debug.Log("Layer Mask" + LayerMask.NameToLayer("HurtBox"));
-            // Debug.Log("Layer Mask" + LayerMask.GetMask(new[] { "HurtBox" }));
+            // int layer1 = 0; 
+            // layer1 |= 1 << LayerMask.NameToLayer("HurtBox");
+            // // Debug.Log("layer bitWise Or"+ layer1);
+            // // Debug.Log("layer bitWise "+ (1 << LayerMask.NameToLayer("HurtBox")));
+            // // Debug.Log("Layer Mask" + LayerMask.NameToLayer("HurtBox"));
+            // // Debug.Log("Layer Mask" + LayerMask.GetMask(new[] { "HurtBox" }));
 
-            // mask |= (1 << s_PCLayer);
+            // // mask |= (1 << s_PCLayer);
+            // Vector3 center = stateMachineFX.m_ClientVisual.HitBox.transform.TransformPoint(stateMachineFX.m_ClientVisual.HitBox.bounds.center);
+            // Debug.Log("local position center hit box" + stateMachineFX.m_ClientVisual.HitBox.bounds.center);
+            // Debug.Log("world position center hit box" + center);
+            // Debug.Log("position of the hit box" + stateMachineFX.m_ClientVisual.HitBox.transform.position);
 
-            int res =  Physics.OverlapBoxNonAlloc(stateMachineFX.m_ClientVisual.HitBox.transform.position ,
-                                    stateMachineFX.m_ClientVisual.HitBox.bounds.extents ,
-                                    _damagables,
-                                    Quaternion.identity,
-                                    layer1 );
+            
+            // int res =  Physics.OverlapBoxNonAlloc(stateMachineFX.m_ClientVisual.HitBox.transform.position ,
+            //                         stateMachineFX.m_ClientVisual.HitBox.bounds.extents ,
+            //                         _damagables,
+            //                         Quaternion.identity,
+            //                         layer1 );
                                     
-            AttkData.Direction = new Vector3 (AttkData.Direction.x * stateMachineFX.CoreMovement.GetFacingDirection(),AttkData.Direction.y , AttkData.Direction.z ) ;
-            Debug.Log(res);
-            for (int i = 0; i<res ;i++)
-            {
-                IHurtBox damagable = _damagables[i].GetComponentInParent<IHurtBox>();
-                if (damagable != null && damagable.NetworkObjectId != stateMachineFX.m_ClientVisual.NetworkObjectId && damagable.IsDamageable(stateMachineFX.m_ClientVisual.teamType))
-                {
-                    damagable.ReceiveHP(AttkData);
-                }
-            }
-            // foreach (IHurtBox damagable in _Listdamagable)
+            // AttkData.Direction = new Vector3 (AttkData.Direction.x * stateMachineFX.CoreMovement.GetFacingDirection(),AttkData.Direction.y , AttkData.Direction.z ) ;
+            // Debug.Log(res);
+            // for (int i = 0; i<res ;i++)
             // {
-            //     if (damagable != null && damagable.IsDamageable(stateMachineFX.m_ClientVisual.teamType))
+            //     IHurtBox damagable = _damagables[i].GetComponentInParent<IHurtBox>();
+            //     if (damagable != null && damagable.NetworkObjectId != stateMachineFX.m_ClientVisual.NetworkObjectId && damagable.IsDamageable(stateMachineFX.m_ClientVisual.teamType))
             //     {
             //         damagable.ReceiveHP(AttkData);
             //     }
             // }
+            foreach (IHurtBox damagable in _Listdamagable)
+            {
+                if (damagable != null && damagable.IsDamageable(stateMachineFX.m_ClientVisual.teamType))
+                {
+                    damagable.ReceiveHP(AttkData);
+                }
+            }
         }
 
     }

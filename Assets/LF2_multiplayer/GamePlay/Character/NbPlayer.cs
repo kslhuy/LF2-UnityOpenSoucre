@@ -40,7 +40,7 @@ namespace LF2.Client
         {
             s_ActiveCharacter.Remove(m_CachedClientCharacter);
             if (!m_CachedClientCharacter.IsNPC){
-                s_ActivePlayers.Add(m_CachedClientCharacter);
+                s_ActivePlayers.Remove(m_CachedClientCharacter);
             }
         }
 

@@ -20,8 +20,7 @@ namespace LF2.Client{
             stateMachineFX = stateMachine;
         }
 
-      public override void Enter()
-        {
+      public override void Enter()        {
             if( !Anticipated)
             {
                 PlayAnim() ;
@@ -68,6 +67,7 @@ namespace LF2.Client{
 
         public override void HurtResponder(Vector3 dirToRespond)
         {
+            // stateMachineFX.CoreMovement.TakeControlTransform(true);
             stateMachineFX.CoreMovement.ResetVelocity();
             stateMachineFX.CoreMovement.SetHurtMovement(dirToRespond);
         }

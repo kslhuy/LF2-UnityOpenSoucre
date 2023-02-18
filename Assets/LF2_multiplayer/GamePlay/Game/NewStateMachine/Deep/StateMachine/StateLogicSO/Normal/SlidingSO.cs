@@ -18,8 +18,7 @@ namespace LF2.Client{
             stateMachineFX = stateMachine;
         }
 
-        public override void Enter()
-        {
+        public override void Enter()        {
             if(!Anticipated)
             {
                 PlayAnim();    
@@ -46,6 +45,7 @@ namespace LF2.Client{
         public override void LogicUpdate()
         {
             if (stateMachineFX.m_ClientVisual.Owner) stateMachineFX.m_ClientVisual.coreMovement.SetSliding(stateData.Dx);
+            base.LogicUpdate();
         }
 
 

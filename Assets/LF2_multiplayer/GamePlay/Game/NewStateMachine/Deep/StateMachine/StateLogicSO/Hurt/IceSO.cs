@@ -20,8 +20,7 @@ namespace LF2.Client{
             stateMachineFX = stateMachine;
         }
 
-        public override void Enter()
-        {
+        public override void Enter()        {
             if( !Anticipated)
             {
                 PlayAnim() ;
@@ -57,6 +56,7 @@ namespace LF2.Client{
             if (!stateMachineFX.CoreMovement.IsGounded()){
                 stateMachineFX.CoreMovement.SetFallingDown();
             }
+            base.LogicUpdate();
         }
     }
 

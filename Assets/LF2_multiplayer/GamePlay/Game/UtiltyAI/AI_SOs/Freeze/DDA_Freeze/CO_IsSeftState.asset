@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06994f09079001e48ae560ee6977132d, type: 3}
   m_Name: CO_IsSeftState
   m_EditorClassIdentifier: 
-  Name: Deep_DDA
+  Owner: A_DDA_1_Freeze
   isSubConsideration: 0
-  StateDesir: 0001
+  description: 
+  StateDesir: 00070d
   isDiffThisState: 0

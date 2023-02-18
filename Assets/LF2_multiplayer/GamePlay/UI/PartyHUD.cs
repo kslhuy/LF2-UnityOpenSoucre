@@ -148,7 +148,7 @@ namespace LF2.Gameplay.UI
 
             ulong id = networkCharacterState.NetworkObjectId;
             int slot = FindOrAddAlly(id);
-            Debug.Log("SetAllyData slot " + slot );
+            // Debug.Log("SetAllyData slot " + slot );
 
             // do nothing if not in a slot
             if (slot == -1)

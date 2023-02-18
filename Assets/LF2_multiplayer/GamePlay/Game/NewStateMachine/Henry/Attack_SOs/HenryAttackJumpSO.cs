@@ -22,8 +22,7 @@ namespace LF2.Client{
 
         }
 
-        public override void Enter()
-        {
+        public override void Enter()        {
             if(!Anticipated)
             {
                 PlayAnim();
@@ -68,7 +67,7 @@ namespace LF2.Client{
 
             if (stateMachineFX.m_ClientVisual._IsServer) {
                 Vector3 rotationArrow = (facing == 1)? new Vector3(0,0,-30) : new Vector3(0,180,-30)  ;
-                    SpwanProjectileObjectPooling(stateData.Projectiles[0], Vector3.right*stateMachineFX.CoreMovement.GetFacingDirection() , rotationArrow);
+                SpwanProjectileObjectPooling(stateData.Projectiles[0], Vector3.right*stateMachineFX.CoreMovement.GetFacingDirection() , rotationArrow);
             }
         }
         public override void LogicUpdate()

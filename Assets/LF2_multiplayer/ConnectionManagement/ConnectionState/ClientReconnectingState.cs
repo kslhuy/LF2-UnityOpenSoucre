@@ -23,8 +23,7 @@ namespace LF2.ConnectionManagement
 
         const float k_TimeBetweenAttempts = 5;
 
-        public override void Enter()
-        {
+        public override void Enter()        {
             m_LobbyCode = m_LobbyServiceFacade.CurrentUnityLobby != null ? m_LobbyServiceFacade.CurrentUnityLobby.LobbyCode : "";
             m_ReconnectCoroutine = m_ConnectionManager.StartCoroutine(ReconnectCoroutine());
             m_NbAttempts = 0;

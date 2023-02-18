@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6645315194473663252}
-  - component: {fileID: 6645315194473663253}
   m_Layer: 0
   m_Name: PhotonTransport
   m_TagString: Untagged
@@ -27,31 +26,11 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6645315196104918101}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6645315194473663253
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6645315194473663255}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 52c005b32a68a254cbe502a4e5cb8eb6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_NickName: huy
-  m_RoomName: 
-  m_MaxPlayers: 16
-  m_NetworkDeliveryEventCodesStartRange: 0
-  m_AttachSupportLogger: 0
-  m_BatchMode: 1
-  m_SendQueueBatchSize: 4096
-  m_BatchedTransportEventCode: 129
-  m_KickEventCode: 130
 --- !u!1 &6645315194865035790
 GameObject:
   m_ObjectHideFlags: 0
@@ -79,6 +58,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6645315196104918101}
   m_RootOrder: 1
@@ -130,6 +110,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1.456223, y: -1.4466981, z: -11.078214}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6645315194473663252}
   - {fileID: 6645315194865035791}
@@ -148,7 +129,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 593a2fe42fa9d37498c96f9a383b6521, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DontDestroy: 1
   RunInBackground: 1
   LogLevel: 1
   NetworkConfig:
@@ -184,7 +164,7 @@ MonoBehaviour:
     NetworkIdRecycleDelay: 120
     RpcHashSize: 0
     LoadSceneTimeOut: 120
-    MessageBufferTimeout: 20
+    SpawnTimeout: 1
     EnableNetworkLogs: 1
 --- !u!114 &6645315196104918103
 MonoBehaviour:
@@ -199,5 +179,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_IpHostTransport: {fileID: 6645315194865035788}
-  m_RelayTransport: {fileID: 6645315194473663253}
-  m_UnityRelayTransport: {fileID: 0}
+  m_RelayTransport: {fileID: 0}

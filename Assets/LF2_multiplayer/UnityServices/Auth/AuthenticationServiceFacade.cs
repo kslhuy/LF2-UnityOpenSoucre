@@ -42,7 +42,10 @@ namespace LF2.UnityServices.Auth
 
             try
             {
-                await AuthenticationService.Instance.SignInAnonymouslyAsync();
+                if (!AuthenticationService.Instance.IsSignedIn){
+                    await AuthenticationService.Instance.SignInAnonymouslyAsync();
+                }
+
             }
             catch (Exception e)
             {

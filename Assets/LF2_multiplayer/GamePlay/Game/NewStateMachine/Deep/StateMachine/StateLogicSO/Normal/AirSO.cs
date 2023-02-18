@@ -41,6 +41,7 @@ namespace LF2.Client{
                 stateMachineFX.ChangeState(StateType.Crouch);
             }
             stateMachineFX.CoreMovement.SetFallingDown();
+            // base.LogicUpdate();
             // if (stateMachineFX.m_ClientVisual.Owner) {
             //     // Debug.Log(stateMachineFX.InputX);
             //     stateMachineFX.CoreMovement.SetXZ(0.1f*stateMachineFX.InputX,0.1f*stateMachineFX.InputZ);

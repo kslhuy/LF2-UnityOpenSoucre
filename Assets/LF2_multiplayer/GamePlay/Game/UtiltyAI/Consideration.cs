@@ -12,6 +12,8 @@ namespace LF2.Client{
         
         private float _score;
 
+        [TextArea] public string description;
+
 
 
         public float Score {

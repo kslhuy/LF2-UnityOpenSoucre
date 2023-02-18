@@ -74,7 +74,8 @@ namespace LF2.Server
         [Inject] ConnectionManager m_ConnectionManager;
         [SerializeField] PersistentPlayerRuntimeCollection m_PersistentPlayerCollection;
 
-        private int _nbPlayer;
+        [SerializeField] EventChannelSO EndGameEventLisener;
+        // private int _nbPlayer;
 
 
         // [SerializeField]
@@ -100,9 +101,11 @@ namespace LF2.Server
             {
                 enabled = false;
             }
-            // m_PersistentGameState.Reset();
-            lifeStateEventChannelSO.LifeStateEvent_AI += OnLifeStateChangedEventMessage_NPC;
-            lifeStateEventChannelSO.LifeStateEvent_Player += OnLifeStateChangedEventMessage_Player;
+            // // m_PersistentGameState.Reset();
+            // lifeStateEventChannelSO.LifeStateEvent_AI += OnLifeStateChangedEventMessage_NPC;
+            // lifeStateEventChannelSO.LifeStateEvent_Player += OnLifeStateChangedEventMessage_Player;
+
+            EndGameEventLisener.EventAction += EndGame;
 
             NetworkManager.Singleton.OnClientDisconnectCallback += OnClientDisconnect;
             NetworkManager.Singleton.SceneManager.OnLoadEventCompleted += OnLoadEventCompleted;
@@ -116,8 +119,8 @@ namespace LF2.Server
         void OnNetworkDespawn()
         {
             // m_PersistentPlayerCollection.RemoveALL();
-            lifeStateEventChannelSO.LifeStateEvent_AI -= OnLifeStateChangedEventMessage_NPC;
-            lifeStateEventChannelSO.LifeStateEvent_Player += OnLifeStateChangedEventMessage_Player;
+            // lifeStateEventChannelSO.LifeStateEvent_AI -= OnLifeStateChangedEventMessage_NPC;
+            // lifeStateEventChannelSO.LifeStateEvent_Player -= OnLifeStateChangedEventMessage_Player;
 
             NetworkManager.Singleton.OnClientDisconnectCallback -= OnClientDisconnect;
             NetworkManager.Singleton.SceneManager.OnLoadEventCompleted -= OnLoadEventCompleted;
@@ -128,7 +131,7 @@ namespace LF2.Server
         protected override void OnDestroy()
         {
             lifeStateEventChannelSO.LifeStateEvent_AI -= OnLifeStateChangedEventMessage_NPC;
-            lifeStateEventChannelSO.LifeStateEvent_Player += OnLifeStateChangedEventMessage_Player;
+            lifeStateEventChannelSO.LifeStateEvent_Player -= OnLifeStateChangedEventMessage_Player;
 
             if (m_NetcodeHooks)
             {
@@ -268,14 +271,9 @@ namespace LF2.Server
         public void SpawnBOTandBackGround(ulong serverId, bool spawnBackGround){
             Transform spawnPoint = null;
 
-            if (m_PlayerSpawnPointsList == null || m_PlayerSpawnPointsList.Count == 0)
-            {
-                m_PlayerSpawnPointsList = new List<Transform>(m_PlayerSpawnPoints);
-            }
 
             Debug.Assert(m_PlayerSpawnPointsList.Count > 0,
                 $"PlayerSpawnPoints array should have at least 1 spawn points.");
-
 
 
 
@@ -288,8 +286,8 @@ namespace LF2.Server
 
             for (int b = 0; b < persistentPlayer.HowManyBOTData(); b++){
                 // Find a spawn point 
-                int index = Random.Range(0, m_PlayerSpawnPointsList.Count);
-                spawnPoint = m_PlayerSpawnPointsList[index];
+                int index = Random.Range(0, m_PlayerSpawnPoints.Length);
+                spawnPoint = m_PlayerSpawnPoints[index];
                 // Instaite a Bot Object
                 var newBOT = Instantiate(m_BOTPrefab, Vector3.zero, Quaternion.identity);
                 var newBOTCharacter = newBOT.GetComponent<ServerCharacter>();
@@ -329,10 +327,21 @@ namespace LF2.Server
             // Reset Bot Collection (Avoid case bot spwan even not select)
             persistentPlayer.RemoveBotCollection();
 
-            if (spawnBackGround)
-            {
-                _ClientLF2State.SpawnBackGroundServerRPC(persistentPlayer.PersistentBackGround.NetworkBackGround.Value);
-            }
+
+            // _ClientLF2State.SpawnBackGroundClientRpc(persistentPlayer.PersistentBackGround.NetworkBackGround);
+            // if (spawnBackGround)
+            // {
+            //     m_BackGroundResigtry.TryGetBackGround(persistentPlayer.PersistentBackGround.NetworkBackGround).BackGroundPreFab.InstantiateAsync(BackGroundSpwanPoint).Completed += (handle) =>
+            //     {
+            //         var backgroundOBject = handle.Result;
+            //         // Debug.Log(backgroundOBject);
+            //         backgroundOBject.GetComponent<NetworkObject>().Spawn(true);
+            //         // if (m_NetworkGameState.NetworkGameMode.gameMode.Value == GameMode.Stage){
+            //         //     stageManager = backgroundOBject.GetComponent<StageManager>();
+            //         //     stageManager.StageFinishEvent += OnStageEndEventMessage;
+            //         // }
+            //     };            
+        // }
         
         }
 
@@ -503,7 +512,11 @@ namespace LF2.Server
 
 
 
+        private void EndGame(){
+            if (Coro_GameEnd != null) return;
+            Coro_GameEnd = StartCoroutine(CoroGameOver(k_LoseDelay, true));
 
+        }
         IEnumerator CoroGameOver(float wait, bool gameWon)
         {
             // wait 5 seconds for game animations to finish

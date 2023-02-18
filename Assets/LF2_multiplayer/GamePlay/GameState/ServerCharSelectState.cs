@@ -30,6 +30,8 @@ namespace LF2.Server
         Coroutine m_WaitToEndLobbyCoroutine;
 
         [Inject] ConnectionManager m_ConnectionManager;
+
+        [SerializeField] NetworkObject networkGameState;
         
 
 
@@ -59,15 +61,15 @@ namespace LF2.Server
             }
             else
             {
+
                 NetworkManager.Singleton.OnClientDisconnectCallback += OnClientDisconnectCallback;
                 // Client request choose this seat or lock or unlock  
                 CharSelectData.OnClientChangedSomeThing += OnClientChangedSomething;
                 BackGroundSelectData.OnHostChangedBackGround += OnHostChangedBackGround;
                 BackGroundSelectData.OnHostClickedReady += OnHostReady;
 
-
-
                 NetworkManager.Singleton.SceneManager.OnSceneEvent += OnSceneEvent;
+                Debug.Log("huy");
             }
         }
         public void OnNetworkDespawn()
@@ -321,7 +323,7 @@ namespace LF2.Server
                         persistentPlayer.NetworkAvatarGuidState.AvatarGuid.Value = avatar.Guid.ToNetworkGuid();
                         persistentPlayer.NetworkNameState.Team.Value = playerInfo.PlayerTeam;
                         // Save result Background 
-                        persistentPlayer.PersistentBackGround.NetworkBackGround.Value = BackGroundSelectData.backGroundGameRegistry.TryGetBackGround(BackGroundSelectData.BackGroundNumber.Value).NameBackGround ;
+                        persistentPlayer.PersistentBackGround.NetworkBackGround = BackGroundSelectData.backGroundGameRegistry.TryGetBackGround(BackGroundSelectData.BackGroundNumber.Value).NameBackGround ;
                 }
             }
 
@@ -343,6 +345,8 @@ namespace LF2.Server
                         ));
                 }
             }
+
+            
   
         }
 
@@ -352,7 +356,7 @@ namespace LF2.Server
         private IEnumerator WaitToEndLobby()
         {
             yield return new WaitForSeconds(3);
-            SceneLoaderWrapper.Instance.LoadScene("LF2_Net", useNetworkSceneManager: true);
+            SceneLoaderWrapper.Instance.LoadScene("LF2_Net_2", useNetworkSceneManager: true);
         }
 
 

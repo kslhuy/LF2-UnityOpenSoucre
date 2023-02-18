@@ -6,14 +6,12 @@ using System;
 public class SpwanPostion {
     
     [SerializeField] public Transform m_Transform;
-    [HideInInspector]
     public Vector3 Position {
         get  => m_Transform.position;
         set {
             m_Transform.position = value ;
         } 
     } 
-    [HideInInspector]
     public Quaternion Rotation {
         get  => m_Transform.rotation;
         set {

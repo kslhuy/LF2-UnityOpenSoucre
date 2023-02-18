@@ -20,8 +20,7 @@ namespace LF2.Client{
             return false;
         }
 
-        public override void Enter()
-        {
+        public override void Enter()        {
             PlayAnim();
             base.Enter();
         }
@@ -44,8 +43,9 @@ namespace LF2.Client{
 
 
         public override void LogicUpdate() {
-
-            if (Time.time - TimeStarted_Animation > 0.15f) base.LogicUpdate();
+            if (nbTickRender > 7 ){
+                base.LogicUpdate();  
+            }        
         }
 
 

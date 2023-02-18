@@ -39,7 +39,7 @@ namespace LF2.Client
 
         public CalculStatics calculStatics;
         private float TU = 0.04f;
-        private float currentTimerTU = 0f;
+        // private float currentTimerTU = 0f;
 
         private Dictionary<StateType, StateActionLogic> m_StateLogicaMap ;
 
@@ -47,11 +47,13 @@ namespace LF2.Client
 
 
         // Stats 
-        private ClientInputSender inputSender;
+        // private ClientInputSender inputSender;
 
 
 
-        private bool IsPlayAnimation_once;
+        // private bool IsPlayAnimation_once;
+
+        private int currentFrameNumber;
 
         private bool _onceEnd;
         public List<StateActionLogic> QueueStateFX = new List<StateActionLogic>();
@@ -73,7 +75,8 @@ namespace LF2.Client
             m_StateLogicaMap = new Dictionary<StateType, StateActionLogic>();
 
             ///
-            currentTimerTU = Time.time;
+            currentFrameNumber = 0;
+            // currentTimerTU = Time.time;
   
             CurrentStateViz = m_StateLogicaMap[StateType.Idle] = CharacterAllStateSOs.StateLogicSOsByType[StateType.Idle].GetAction(this);
         }
@@ -154,13 +157,14 @@ namespace LF2.Client
 
         public void OnUpdate() {
             // // Update Status of player
-            if (Time.time > currentTimerTU + TU){
-                currentTimerTU = Time.time;
+            
+            if (currentFrameNumber % 2 == 0){
+                // currentTimerTU = Time.time;
                 calculStatics.FixedUpdate();
 
             }
 
-            m_ClientVisual.textMesh.text = calculStatics.Current_Fall.ToString();
+            // m_ClientVisual.textMesh.text = calculStatics.Current_Fall.ToString();
 
             // Check ALL State that have actual Action correspond ( See in Game Data Soucre Objet )
             // Debug.Log(CurrentStateViz);
@@ -168,10 +172,12 @@ namespace LF2.Client
 
                     // Cast Skill in queue first when we just arrive in Idle State   
                 if (QueueStateFX.Count > 0 ) {
-                    ChangeState(QueueStateFX[0].GetId(),true);
+                    ChangeState(QueueStateFX[0].GetId(),1,true);
                     QueueStateFX.RemoveAt(0);
                 } 
                 CurrentStateViz.LogicUpdate();
+                CurrentStateViz.nbTickRender++;
+
                 return;
                 // if (IsMove) AnticipateState(StateType.Move) ;
             }
@@ -204,7 +210,9 @@ namespace LF2.Client
                 if ( CurrentStateViz.stateData.expirable)
                 {
                     // Debug.Log($"Sub_TimeAnimation = {Time.time -  CurrentStateViz.TimeStarted_Animation} "); 
-                    bool timeExpired = Time.time -  CurrentStateViz.TimeStarted_Animation >= CurrentStateViz.stateData.DurationSeconds;
+                    // bool timeExpired = Time.time -  CurrentStateViz.TimeStarted_Animation >= CurrentStateViz.stateData.DurationSeconds;
+                    bool timeExpired =  CurrentStateViz.nbTickRender >= CurrentStateViz.stateData.Duration;
+                    
                     // Check if this State Can End Naturally (== time Expired )
                     if ( timeExpired ){
                         if (CurrentStateViz.GetId() == StateType.Land){
@@ -223,6 +231,8 @@ namespace LF2.Client
                 }
             }
             CurrentStateViz?.LogicUpdate();
+            CurrentStateViz.nbTickRender++;
+            currentFrameNumber++;
 
             // if (m_ClientVisual.CanCommit)
             // Debug.Log($"nbHit = {nbHit}");  
@@ -242,7 +252,7 @@ namespace LF2.Client
 
         // Switch to Another State , (we force to Change State , so that mean this State may be not End naturally , be interruped by some logic  ) 
         ///  Only exucute when server call !!!!
-        public void ChangeState( StateType state , bool combo = false ){
+        public void ChangeState( StateType state , int frameRender = 1,bool combo = false ){
             _onceEnd = false;
             var stateAction = GetState(state);
 
@@ -257,18 +267,18 @@ namespace LF2.Client
                     m_ClientVisual.MPChange(stateAction.stateData.ManaCost);
                     CurrentStateViz.Exit();
                     CurrentStateViz = combo? QueueStateFX[0]: GetState(state);
-        
+                    CurrentStateViz.nbTickRender = frameRender;
                     CurrentStateViz.Enter();
                 }
             }else{
                 CurrentStateViz.Exit();
                 CurrentStateViz = combo? QueueStateFX[0]: GetState(state);
-    
+                CurrentStateViz.nbTickRender = frameRender;
                 CurrentStateViz.Enter();
             }
         }
 
-        public void AnticipateState( StateType state ,int nbAniamtion = 1, bool combo = false ){
+        public void AnticipateState( StateType state ,int frameRender = 1, bool combo = false ){
             _onceEnd = false;
             var stateAction = GetState(state);
 
@@ -285,7 +295,8 @@ namespace LF2.Client
                         CurrentStateViz.Exit();
                         // assigne new stat to CurrentState
                         CurrentStateViz = combo? QueueStateFX[0]: GetState(state);
-                        CurrentStateViz.PlayPredictState(nbAniamtion);
+                        CurrentStateViz.nbTickRender = frameRender;
+                        CurrentStateViz.PlayPredictState();
                         // Debug.Log($"You have {m_ClientVisual.MPRemain()} remain");
 
                     }
@@ -293,7 +304,8 @@ namespace LF2.Client
             }else {
                 CurrentStateViz.Exit();
                 CurrentStateViz = combo? QueueStateFX[0]: GetState(state);
-                CurrentStateViz.PlayPredictState(nbAniamtion);
+                CurrentStateViz.nbTickRender = frameRender;
+                CurrentStateViz.PlayPredictState(frameRender);
             }
 
             
@@ -342,10 +354,12 @@ namespace LF2.Client
 
             AnticipateState(nextState);
             // owner apply direct
-            if (m_ClientVisual.Owner)  {
-                if (attkdata.Direction != Vector3.zero) 
+            // if (m_ClientVisual.Owner)  {
+            // }
+            if (attkdata.Direction != Vector3.zero) {
                 // Debug.Log(attkdata.Direction);
-                    CurrentStateViz.HurtResponder(attkdata.Direction);
+                m_ClientVisual.coreMovement.TakeControlTransform(true);
+                CurrentStateViz.HurtResponder(attkdata.Direction);
             }
 
             // if (m_ClientVisual.Owner){

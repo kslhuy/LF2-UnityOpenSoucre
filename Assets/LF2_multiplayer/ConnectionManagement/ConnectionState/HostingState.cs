@@ -24,8 +24,7 @@ namespace LF2.ConnectionManagement
         // used in ApprovalCheck. This is intended as a bit of light protection against DOS attacks that rely on sending silly big buffers of garbage.
         const int k_MaxConnectPayload = 1024;
 
-        public override void Enter()
-        {
+        public override void Enter()        {
             SceneLoaderWrapper.Instance.AddOnSceneEventCallback();
 
             //The "BossRoom" server always advances to CharSelect immediately on start. Different games

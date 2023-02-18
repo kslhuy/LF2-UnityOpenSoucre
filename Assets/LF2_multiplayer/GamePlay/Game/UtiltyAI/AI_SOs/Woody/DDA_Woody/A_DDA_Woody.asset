@@ -13,4 +13,9 @@ MonoBehaviour:
   m_Name: A_DDA_Woody
   m_EditorClassIdentifier: 
   TypeName: 33
-  considerations: []
+  considerations:
+  - {fileID: 11400000, guid: 2b0cf5ffc41f3f84589c5e90d14b140f, type: 2}
+  - {fileID: 11400000, guid: f820ee927296d6f4a9a98e475c500459, type: 2}
+  - {fileID: 11400000, guid: 70e6bb6eb2bedf44d8707b388247af58, type: 2}
+  - {fileID: 11400000, guid: 640615fb5f6ba194c9a9245fae7d8284, type: 2}
+  - {fileID: 11400000, guid: 2e68859ae1574ac44b5c7111d58511ec, type: 2}

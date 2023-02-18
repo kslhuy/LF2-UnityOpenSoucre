@@ -81,6 +81,10 @@ PrefabInstance:
       value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4264360441126654028, guid: 687160c7cfd6cd748877c28fe515d9c6, type: 3}
+      propertyPath: ClientNetTransform
+      value: 
+      objectReference: {fileID: 5939681629731178777}
+    - target: {fileID: 4264360441126654028, guid: 687160c7cfd6cd748877c28fe515d9c6, type: 3}
       propertyPath: _distanceFromGround
       value: 20
       objectReference: {fileID: 0}
@@ -211,6 +215,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06d771e568d41fb44b5d5352b0192b0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  KeepSyncWithOwner: 1
   clientCharaterMovement: {fileID: 8813640699579336914}
   distanceY: 0
   SyncPositionX: 1

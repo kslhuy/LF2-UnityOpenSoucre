@@ -24,11 +24,13 @@ namespace LF2
         public PersistentBOTRuntimeCollection PersistentBOT => m_PersistentBOTRuntimeCollection;
 
         public PersistentBackGround PersistentBackGround;
+
         // public NetworkVariable<WinState> WinState = new NetworkVariable<WinState>();
 
         [SerializeField] UlongVariable ownerClientID; 
         public LifeState LifeState { get; private set; }
 
+        public GameMode gameMode;
 
         // [field:SerializeField] public WinState WinState { get; private set; }
 

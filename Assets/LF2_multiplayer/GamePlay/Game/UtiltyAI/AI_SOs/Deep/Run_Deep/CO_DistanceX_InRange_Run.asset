@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d1e60f5b43268946a79268a0d532e3a, type: 3}
   m_Name: CO_DistanceX_InRange_Run
   m_EditorClassIdentifier: 
-  Name: Deep Run
+  Owner: A_Run
+  isSubConsideration: 0
   minRang: 300
   maxRang: 700
   invertLogic: 0

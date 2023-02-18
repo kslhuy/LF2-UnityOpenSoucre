@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06994f09079001e48ae560ee6977132d, type: 3}
   m_Name: CO_IsSeftState
   m_EditorClassIdentifier: 
-  Name: 
+  Owner: A_DDJ_Freeze
   isSubConsideration: 0
-  StateDesir: 00010d07
+  description: 
+  StateDesir: 000d07
   isDiffThisState: 0

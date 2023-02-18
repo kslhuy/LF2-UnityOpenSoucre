@@ -23,7 +23,7 @@ namespace LF2.Client{
                 if (SupConsiderations[c].ScoreConsideration(brain) > threshold ){
                     scoreSup += SupConsiderations[c].ScoreConsideration(brain);
                 }
-            return scoreSup/(scoreSup + 1);
+            return scoreSup/SupConsiderations.Length;
         }
     }
 

@@ -12,7 +12,7 @@ namespace LF2
 
     public class PersistentBackGround : ScriptableObject {
         // public NetworkGuid NetworkBackGroundGuid ;
-        public NetworkVariable<BackGroundEnum> NetworkBackGround = new NetworkVariable<BackGroundEnum>(); 
+        public BackGroundEnum NetworkBackGround; 
 
     }
 }

@@ -21,8 +21,15 @@ MonoBehaviour:
   Dx: 0
   Dy: 0
   Dz: 0
+  curve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   Projectiles: []
   DurationSeconds: 0.5
+  Duration: 30
   expirable: 1
   ReuseTimeSeconds: 0.5
   ActionInterruptible: 0
@@ -30,9 +37,13 @@ MonoBehaviour:
   delayLoopSound: 0
   Start_Sounds:
   - {fileID: 11400000, guid: 29992d9da4c4ede4c81cc7d1c96cbe08, type: 2}
-  vizAnim:
-  - AnimNames: Attack3_anim
-    AnimHashId: -2084207203
   SpawnsFX:
   - _Object: {fileID: 3526290567721581141, guid: 4db002a752d0d224a8c1bdd5e34cd63f, type: 3}
     pivot: {x: 0, y: 80, z: 0}
+  frameChecker:
+    clip: {fileID: 0}
+    totalFrames: 0
+    arest: 0
+    vrest: 0
+    _frameStruct: []
+    layerNumber: 0
