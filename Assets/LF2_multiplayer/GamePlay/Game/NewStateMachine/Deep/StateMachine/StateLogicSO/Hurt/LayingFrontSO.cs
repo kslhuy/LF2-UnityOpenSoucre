@@ -45,6 +45,8 @@ namespace LF2.Client{
 
         public override void PlayAnim( int nbanim = 1 , bool sequence = false)
         {
+            
+
             if (stateMachineFX.m_ClientVisual.Owner) stateMachineFX.m_ClientVisual.m_NetState.LifeStateChangeServerRpc(LifeState.Fainted);
 
             base.PlayAnim();
@@ -55,10 +57,13 @@ namespace LF2.Client{
             stateMachineFX.calculStatics.ResetAll();
 
         }
-        // public override void LogicUpdate()
-        // {
-        //     stateMachineFX.m_ClientVisual.UpdateSizeHurtBox();
-        // }
+
+        public override void LogicUpdate()
+        
+        {
+            // stateMachineFX.m_ClientVisual.SetHitBox(false);
+            stateMachineFX.CoreMovement.SetFallingDown();
+        }
 
         public override StateType GetId()
         {

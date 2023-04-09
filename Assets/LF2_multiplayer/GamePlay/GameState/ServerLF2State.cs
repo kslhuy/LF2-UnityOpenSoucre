@@ -56,8 +56,7 @@ namespace LF2.Server
 
 
         // Wait time constants for switching to post game after the game is won or lost
-        private const float k_WinDelay = 5f;
-        private const float k_LoseDelay = 5f;
+        private const float k_Delay = 5f;
 
         /// <summary>
         /// Has the ServerBossRoomState already hit its initial spawn? (i.e. spawned players following load from character select).
@@ -75,17 +74,7 @@ namespace LF2.Server
         [SerializeField] PersistentPlayerRuntimeCollection m_PersistentPlayerCollection;
 
         [SerializeField] EventChannelSO EndGameEventLisener;
-        // private int _nbPlayer;
 
-
-        // [SerializeField]
-        // private BackGroundGameRegistry m_BackGroundResigtry;
-
-        // [SerializeField]
-        // private Transform BackGroundSpwanPoint;
-
-        // private Dictionary<TeamType, List<ServerCharacter>> _allPlayerByTeam = new Dictionary<TeamType, List<ServerCharacter>>();
-        // List<ServerCharacter> _allPlayer;
         private Coroutine Coro_GameEnd;
 
         protected override void Awake()
@@ -105,7 +94,7 @@ namespace LF2.Server
             // lifeStateEventChannelSO.LifeStateEvent_AI += OnLifeStateChangedEventMessage_NPC;
             // lifeStateEventChannelSO.LifeStateEvent_Player += OnLifeStateChangedEventMessage_Player;
 
-            EndGameEventLisener.EventAction += EndGame;
+            EndGameEventLisener.OnEventRaised += EndGame;
 
             NetworkManager.Singleton.OnClientDisconnectCallback += OnClientDisconnect;
             NetworkManager.Singleton.SceneManager.OnLoadEventCompleted += OnLoadEventCompleted;
@@ -121,6 +110,8 @@ namespace LF2.Server
             // m_PersistentPlayerCollection.RemoveALL();
             // lifeStateEventChannelSO.LifeStateEvent_AI -= OnLifeStateChangedEventMessage_NPC;
             // lifeStateEventChannelSO.LifeStateEvent_Player -= OnLifeStateChangedEventMessage_Player;
+
+            EndGameEventLisener.OnEventRaised -= EndGame;
 
             NetworkManager.Singleton.OnClientDisconnectCallback -= OnClientDisconnect;
             NetworkManager.Singleton.SceneManager.OnLoadEventCompleted -= OnLoadEventCompleted;
@@ -186,7 +177,7 @@ namespace LF2.Server
 
         private void SpawnPlayer(ulong clientId, bool lateJoin)
         {
-            Debug.Log("local Client Id : " + clientId );
+            // Debug.Log("local Client Id : " + clientId );
             Transform spawnPoint = null;
 
             if (m_PlayerSpawnPointsList == null || m_PlayerSpawnPointsList.Count == 0)
@@ -238,8 +229,8 @@ namespace LF2.Server
             }
             // pass character type from persistent player to avatar
 
-            networkAvatarGuidState.AvatarGuid.Value =
-                persistentPlayer.NetworkAvatarGuidState.AvatarGuid.Value;
+            networkAvatarGuidState.AvatarType.Value =
+                persistentPlayer.NetworkAvatarGuidState.AvatarType.Value;
 
             // pass name from persistent player to avatar
             if (newPlayer.TryGetComponent(out NetworkNameState networkNameState))
@@ -248,17 +239,6 @@ namespace LF2.Server
                 networkNameState.Name.Value = persistentPlayer.NetworkNameState.Name.Value;
                 // Debug.Log("Network Team " + persistentPlayer.NetworkNameState.Team.Value);
                 networkNameState.Team.Value = persistentPlayer.NetworkNameState.Team.Value;
-
-                // List<ServerCharacter> listPlayerByTeam;
-                // _allPlayerByTeam[networkNameState.Team.Value].Add(newPlayerCharacter);
-                // if (!_allPlayerByTeam.TryGetValue(persistentPlayer.NetworkNameState.Team.Value, out listPlayerByTeam))
-                // {
-                //     listPlayerByTeam = new List<ServerCharacter>();
-
-                // }
-                // // At this point we know that "existing" refers to the relevant list in the 
-                // // dictionary, one way or another.
-                // _allPlayerByTeam[persistentPlayer.NetworkNameState.Team.Value].Add(newPlayerCharacter) ;
 
             }
 
@@ -307,8 +287,8 @@ namespace LF2.Server
                     $"NetworkCharacterGuidState not found on player avatar!");
 
                 // assign the Avatar value to the component NetworkAvatarGuidState from Selection Scene 
-                networkAvatarGuidState.AvatarGuid.Value =
-                    persistentPlayer.PersistentBOT.Items[b].NetworkAvatarGuid;
+                networkAvatarGuidState.AvatarType.Value =
+                    persistentPlayer.PersistentBOT.Items[b].CharacterType;
 
                 // pass name , team type from persistent player to avatar
                 if (newBOT.TryGetComponent(out NetworkNameState networkNameState))
@@ -325,7 +305,7 @@ namespace LF2.Server
             }
 
             // Reset Bot Collection (Avoid case bot spwan even not select)
-            persistentPlayer.RemoveBotCollection();
+            // persistentPlayer.RemoveBotCollection();
 
 
             // _ClientLF2State.SpawnBackGroundClientRpc(persistentPlayer.PersistentBackGround.NetworkBackGround);
@@ -365,22 +345,19 @@ namespace LF2.Server
         {
 
             // Logic below for versus mode only
-            CheckGameOverVsMode(lifeState);
+            // CheckGameOverVsMode(lifeState);
             // CheckGameOverStageMode(true);
             
         }
         void OnLifeStateChangedEventMessage_Player(LifeState lifeState , ulong playerID)
         {
-            
             // Logic below for versus mode only
-            CheckGameOverVsMode(lifeState);
+            // CheckGameOverVsMode(lifeState);
             // CheckGameOverStageMode(false);
-            
-            
         }
 
 
-
+        // Not Use here 
         void CheckGameOverVsMode(LifeState lifeState , ulong playerID = default)
         {
             // Logic end game 
@@ -445,14 +422,9 @@ namespace LF2.Server
 
             // If we made it this far, all players are down! switch to post game
             
-            Coro_GameEnd = StartCoroutine(CoroGameOver(k_LoseDelay, true));
+            Coro_GameEnd = StartCoroutine(CoroGameOver(k_Delay));
         }
 
-        void CheckGameOverStageMode(bool checkAI){
-            if (checkAI){
-
-            }
-        }
 
         // private void SaveSummaryResults()
         // {
@@ -471,7 +443,7 @@ namespace LF2.Server
         //                     return ; 
         //                 }
         //                 // Debug.Log("Character Type " + avatar.CharacterClass.CharacterType); 
-        //                 persistentPlayer.NetworkAvatarGuidState.AvatarGuid.Value = avatar.Guid.ToNetworkGuid();
+        //                 persistentPlayer.NetworkAvatarGuidState.AvatarType.Value = avatar.Guid.ToNetworkGuid();
         //                 persistentPlayer.NetworkNameState.Team.Value = playerInfo.PlayerTeam;
         //                 // Save result Background 
         //                 persistentPlayer.PersistentBackGround.NetworkBackGroundGuid = BackGroundSelectData.backGroundGameRegistry.m_BackGrounds[BackGroundSelectData.BackGroundNumber.Value].Guid.ToNetworkGuid() ;
@@ -511,23 +483,19 @@ namespace LF2.Server
 
 
 
-
+        [ClientRpc]
+        public void EndGameClientRPC(){
+            _ClientLF2State.EndGame();
+        }
         private void EndGame(){
             if (Coro_GameEnd != null) return;
-            Coro_GameEnd = StartCoroutine(CoroGameOver(k_LoseDelay, true));
-
+            EndGameClientRPC();
+            Coro_GameEnd = StartCoroutine(CoroGameOver(k_Delay));
         }
-        IEnumerator CoroGameOver(float wait, bool gameWon)
+
+        IEnumerator CoroGameOver(float wait)
         {
-            // wait 5 seconds for game animations to finish
-            // _ClientLF2State.EndGameServerRPC();
-            
-            // m_PersistentGameState.SetWinState(gameWon ? WinState.Win : WinState.Loss);
-
-
             yield return new WaitForSeconds(wait);
-
-
             SceneLoaderWrapper.Instance.LoadScene("PostGame", useNetworkSceneManager: true);
         }
 

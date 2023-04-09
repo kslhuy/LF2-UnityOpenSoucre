@@ -51,6 +51,7 @@ public class FrameStructPropertiDraw: PropertyDrawer {
         // Add a new Image control and display the sprite
         // mid.Add(new PropertyField(sprite));
         
+
         var spriteImage = new Image();
         spriteImage.scaleMode = ScaleMode.ScaleToFit;
         spriteImage.sprite = (Sprite)sprite.objectReferenceValue ;
@@ -66,8 +67,8 @@ public class FrameStructPropertiDraw: PropertyDrawer {
         return root;
     }
 
-    private void ImageChanged(ChangeEvent<UnityEngine.Object> evt, VisualElement midPanel)
-    {
+    private void ImageChanged(ChangeEvent<UnityEngine.Object> evt, VisualElement midPanel){
+
         midPanel.Clear();
         var t = evt.newValue;
         // Debug.Log(t);
@@ -82,4 +83,8 @@ public class FrameStructPropertiDraw: PropertyDrawer {
         midPanel.Add(spriteImage);
         
     }
+
+
 }
+
+

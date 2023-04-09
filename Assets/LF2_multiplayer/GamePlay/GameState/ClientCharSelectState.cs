@@ -170,7 +170,7 @@ namespace LF2.Client
                     
                 }
                 m_UIAvatarInfoBox[i].Initialize(CharSelectData.LobbyPlayers[i].PlayerName , i );
-                Avatar newChamp =  CharSelectData.AvatarByHero[CharSelectData.LobbyPlayers[i].PlayerChamp];
+                Avatar newChamp =  CharSelectData.AvatarRegistry.GetAvatar(CharSelectData.LobbyPlayers[i].PlayerChamp);
                 ShowCharacterGraphic(i,newChamp);            
             }
             for (int i = 0; i < 4 ; ++i){
@@ -358,7 +358,7 @@ namespace LF2.Client
 
                 // Lay thong tin champion
 
-                Avatar newChamp =  CharSelectData.AvatarByHero[champ];
+                Avatar newChamp =  CharSelectData.AvatarRegistry.GetAvatar(champ);
 
                 ShowCharacterGraphic(playerNumber,newChamp);
 
@@ -466,7 +466,7 @@ namespace LF2.Client
                     for (int i = 0; i < CharSelectData.LobbyBOTs.Count; ++i)
                     {
                         //  Avatar UI + ( name , team of the BOT ) (visual)
-                        Avatar newChamp =  CharSelectData.AvatarByHero[CharSelectData.LobbyBOTs[i].PlayerChamp];
+                        Avatar newChamp =  CharSelectData.AvatarRegistry.GetAvatar(CharSelectData.LobbyBOTs[i].PlayerChamp);
                         ShowCharacterGraphic(i,newChamp);     
                         m_UIAvatarInfoBox[i].SetAvatarData(CharSelectData.LobbyBOTs[i].PlayerName , i );
                         m_UIAvatarInfoBox[i].DisableChangeTeamInClient(true);

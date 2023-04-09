@@ -12,7 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2eb2663c5ade5549bd2b0822f6a4bbe, type: 3}
   m_Name: Sub_DDA1_Firen
   m_EditorClassIdentifier: 
-  m_AnimationName: 
   damageAmount: 0
   Effect: 2
   fall: 20
@@ -22,4 +21,3 @@ MonoBehaviour:
   Dirxyz: {x: 80, y: 300, z: 0}
   durration: 0
   SoundHit: []
-  AnimationNameHash: 0

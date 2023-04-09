@@ -1,10 +1,11 @@
 using System;
+using LF2.Client;
 using UnityEngine;
 
 namespace LF2
 {
     /// <summary>
-    /// This ScriptableObject defines a Player Character for BossRoom. It defines its CharacterClass field for
+    /// This ScriptableObject defines a Player Character for LF2. It defines its CharacterClass field for
     /// associated game-specific properties, as well as its graphics representation.
     /// </summary>
     [CreateAssetMenu(menuName = "Collection/Avatar", order = 1)]
@@ -13,12 +14,15 @@ namespace LF2
     {
         public CharacterClass CharacterClass;
         public CharacterClass CharacterClassNPC;
+        public CharacterStateSOs CharacterStateSOs;
 
         public GameObject Graphics;
 
         public GameObject GraphicsCharacterSelect;
 
         public Sprite Portrait;
+
+        public bool Own ;
 
         // private void OnValidate() {
         //     if (CharacterClassNPC){

@@ -20,11 +20,6 @@ namespace LF2.Client{
             stateMachineFX = stateMachine;
         }
 
-        public override bool ShouldAnticipate(ref InputPackage data)
-        {            
-
-            return false;
-        }
 
         public override void Enter()        {
             PlayAnim();

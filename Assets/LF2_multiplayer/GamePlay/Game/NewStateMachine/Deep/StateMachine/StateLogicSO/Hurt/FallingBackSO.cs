@@ -20,12 +20,12 @@ namespace LF2.Client{
             stateMachineFX = stateMachine;
         }
 
-        public override bool ShouldAnticipate(ref InputPackage data){
-            if (data.StateTypeEnum == StateType.Jump){
-                stateMachineFX.AnticipateState(StateType.JumpBack1);
-            }
-            return true;
-        }
+        // public override bool ShouldAnticipate(ref StateType data){
+        //     if (data == StateType.Jump){
+        //         stateMachineFX.AnticipateState(StateType.JumpBack1);
+        //     }
+        //     return true;
+        // }
 
 
         public override void Enter()        {
@@ -61,6 +61,8 @@ namespace LF2.Client{
 
         public override void PlayAnim( int nbanim = 1 , bool sequence = false)
         {
+            stateMachineFX.m_ClientVisual.SetHitBox(false);
+
             base.PlayAnim();
             // Debug.Log("play");
             stateMachineFX.m_ClientVisual.NormalAnimator.Play(stateMachineFX.m_ClientVisual.VizAnimation.a_Fall_Back , 0 , 0);

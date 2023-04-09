@@ -23,7 +23,7 @@ namespace LF2.Client
 
         // private Collider[] _damagables = new Collider[3];
 
-        // private AttackDataSend Atk_data ;
+        private AttackDataSend Atk_data ;
         // private float stoploopPersentage;
         private bool stoploop;
 
@@ -34,14 +34,12 @@ namespace LF2.Client
             // stateData.frameChecker.initialize(this , stateMachineFX.m_ClientVisual.NormalAnimator,stateMachineFX.m_ClientVisual.spriteRenderer);
         }
 
-        public override bool ShouldAnticipate(ref InputPackage requestData)
-        {
-            if (requestData.StateTypeEnum.Equals(StateType.Defense) ){
+        public override bool ShouldAnticipate(ref StateType requestData)        {
+            if (requestData.Equals(StateType.Defense) ){
                 // specialFX.ShutDownSlow();
-                stoploop = true;
-                stateMachineFX.idle();
+                SendEndAnimation();
             }
-            // stateData.frameChecker.CheckTransition(requestData.StateTypeEnum);
+            // stateData.frameChecker.CheckTransition(requestData);
             return true;
         }
         public override void Enter()        
@@ -90,24 +88,32 @@ namespace LF2.Client
 
         public override void LogicUpdate()
         {
-            stateMachineFX.CoreMovement.CustomMove_InputZ(stateData.Dx,stateData.Dz,stateMachineFX.InputZ);
+            if ( !stoploop && nbTickRender % stateData.DamageDetails[0].vrest == 0){
+                foreach (IHurtBox damagable in _Listdamagable){
+                    if (damagable != null && damagable.IsDamageable(stateMachineFX.m_ClientVisual.teamType)) {
+                        damagable.ReceiveHP(Atk_data);
+                    }
+                }
+            }
+            if (nbTickRender > 4){
+                stateMachineFX.CoreMovement.CustomMove_InputZ(stateData.Dx,stateData.Dz,stateMachineFX.InputZ);
+            }
             
-            // if (Time.time - timeNow > stateData.DamageDetails[0].vrest){
-  
-            //     timeNow = Time.time;
-            // }
             if (nbTickRender %16 == 0 && !stoploop){
                 stateMachineFX.m_ClientVisual.NormalAnimator.Play(stateMachineFX.m_ClientVisual.VizAnimation.a_DUJ_1 , 0,0.333f);
             }
-            if (stoploop && nbTickRender % 8 == 0 ){
-                stateMachineFX.idle();
-                // stoploop = true;
+            if (stoploop){
+                if (IsAnimationEnd()){
+                    End();
+                }
             }
+
         }
 
         public override void OnAnimEvent(int id){
-            // if (id == 999) stoploop = true;
+
             stateMachineFX.m_ClientVisual.PlayAudio(stateData.Sounds);
+            
         }
 
 
@@ -138,17 +144,20 @@ namespace LF2.Client
 
 
 
-        public override void PlayPredictState(int nbanim = 1, bool sequence = false)
+        public override void PlayEndAnimation()
         {
+            stoploop = true;
+        }
 
+        private void SendEndAnimation()
+        {
             if (stateMachineFX.m_ClientVisual.Owner)
             {
-                stateMachineFX.m_ClientVisual.m_NetState.AddPredictState_and_SyncServerRpc(GetId());
+                stateMachineFX.m_ClientVisual.m_NetState.PlayEndAniamtion_SyncServerRpc(GetId());
             }
-            // stateMachineFX.CoreMovement.TurnONGravity(false);
-            // stateMachineFX.CoreMovement.TeleportPlayer(stateMachineFX.CoreMovement.transform.position + new Vector3(0f,stateData.Dy,0f) );
-            PlayAnim(nbanim, sequence);
+            stoploop = true;
         }
+
 
 
 
@@ -158,6 +167,11 @@ namespace LF2.Client
             IHurtBox damagable = collider.GetComponentInParent<IHurtBox>();
             if (damagable != null)
             {
+                Atk_data.Amount_injury = stateData.DamageDetails[0].damageAmount;
+                Atk_data.Direction = new Vector3 (stateData.DamageDetails[0].Dirxyz.x * stateMachineFX.CoreMovement.GetFacingDirection(),stateData.DamageDetails[0].Dirxyz.y , stateData.DamageDetails[0].Dirxyz.z ) ;
+                Atk_data.BDefense_p = stateData.DamageDetails[0].Bdefend;
+                Atk_data.Fall_p = stateData.DamageDetails[0].fall;
+                Atk_data.Effect = (byte)stateData.DamageDetails[0].Effect;  
                 _Listdamagable.Add(damagable);
             }
         }

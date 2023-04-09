@@ -17,7 +17,6 @@ namespace LF2.Client{
     {
         //Component references
         // private IdleLogicSO _originSO => (IdleLogicSO)base.OriginSO; // The SO this StateAction spawned from
-        bool syncTranform  = false;
         public override void Awake(StateMachineNew stateMachine)
         {
             stateMachineFX = stateMachine;
@@ -59,6 +58,7 @@ namespace LF2.Client{
             // stateMachineFX.m_ClientVisual.NormalAnimator.enabled = false;
 
             // stateData.frameChecker.initCheck(frameRender);
+            stateMachineFX.m_ClientVisual.coreMovement.TakeControlTransform(true);
 
             stateMachineFX.m_ClientVisual.NormalAnimator.Play(stateMachineFX.m_ClientVisual.VizAnimation.a_DDJ_1);
         }
@@ -68,17 +68,25 @@ namespace LF2.Client{
             if (stateMachineFX.m_ClientVisual.Owner) {
                 stateMachineFX.m_ClientVisual.m_NetState.AddPredictState_and_SyncServerRpc(GetId());
             }
+
             PlayAnim(nbanim , sequence);
         }
 
 
         public override void LogicUpdate()
         {
-            // if (nbTickRender %2 == 0){
-            //     stateData.frameChecker.CheckFrame( ()=> stateMachineFX.idle());
-            // }
+            // Dont move 2 firt frame 
+            if (stateMachineFX.m_ClientVisual.Owner){
+                // stateData.frameChecker.CheckFrame( ()=> stateMachineFX.idle());
+                if (nbTickRender > 4 ){
+                    stateMachineFX.CoreMovement.CustomMove_InputZ(stateData.Dx,stateData.Dz,stateMachineFX.InputZ);
+                }
+            }
+            else{
+                stateMachineFX.CoreMovement.CustomMove_InputZ(stateData.Dx,stateData.Dz,stateMachineFX.InputZ);
+            }
+            
             // base.LogicUpdate();
-            stateMachineFX.CoreMovement.CustomMove_InputZ(stateData.Dx,stateData.Dz,stateMachineFX.InputZ);
             // base.LogicUpdate();
         }
 

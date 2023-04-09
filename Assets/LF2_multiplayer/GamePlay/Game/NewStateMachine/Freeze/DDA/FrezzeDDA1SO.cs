@@ -37,14 +37,11 @@ namespace LF2.Client{
             return StateType.DDA1;
         }
 
-        public override void LogicUpdate()
-        {   
-        }
 
         public override void OnAnimEvent(int id)
         {
             stateMachineFX.m_ClientVisual.PlayAudio(stateData.Sounds);
-            stateMachineFX.m_ClientVisual.coreMovement.SetHurtMovement(new Vector3 (-stateData.Dx*stateMachineFX.m_ClientVisual.coreMovement.GetFacingDirection(),0 ,0 ));
+            stateMachineFX.m_ClientVisual.coreMovement.InstanceVelocity(stateData.Dx);
 
             if (stateMachineFX.m_ClientVisual._IsServer) {
                 SpwanProjectile(stateData.Projectiles[0], new Vector3(stateMachineFX.CoreMovement.GetFacingDirection() ,0,stateMachineFX.InputZ));

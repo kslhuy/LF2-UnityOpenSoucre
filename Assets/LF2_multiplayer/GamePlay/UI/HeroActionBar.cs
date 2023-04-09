@@ -57,9 +57,6 @@ namespace LF2.Gameplay.UI
 
 
 
-        public float AttackPressedStartTime { get; private set; }
-        public bool AttackPressed { get; private set; }
-
         public float JumpPressedStartTime { get; private set; }
         public bool JumpPressed { get; private set; }
 
@@ -136,22 +133,7 @@ namespace LF2.Gameplay.UI
         
         void OnAtack(StateType attackState)
         {
-            if (AttackPressed){
-                if ( Time.time >= AttackPressedStartTime + m_InputHoldTime){
-                    AttackPressed = false;
-                }
-            } 
-            if (!AttackPressed) {
-                int nbAimation = UnityEngine.Random.Range(1,3);
-                // Debug.Log((nbAimation)); 
-                AttackPressed = true;
-                AttackPressedStartTime = Time.time;                
-
-                m_InputSender.RequestAction(attackState,0,0,nbAimation);
-
-            }
-
-
+            m_InputSender.RequestAction(attackState);
         }
 
 

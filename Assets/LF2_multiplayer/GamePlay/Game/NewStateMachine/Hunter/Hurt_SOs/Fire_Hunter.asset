@@ -1,0 +1,46 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08dc0d3b17f483c49bbf3200be0c8f9f, type: 3}
+  m_Name: Fire_Hunter
+  m_EditorClassIdentifier: 
+  StateType: 45
+  Logic: 0
+  NextStateLogicSO: []
+  UseMana: 0
+  ManaCost: 0
+  DamageDetails: []
+  Dx: 0
+  Dy: 0
+  Dz: 0
+  curve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  Projectiles: []
+  DurationSeconds: 1
+  Duration: 60
+  expirable: 0
+  ReuseTimeSeconds: 0
+  ActionInterruptible: 1
+  Sounds: {fileID: 0}
+  delayLoopSound: 0
+  Start_Sounds: []
+  SpawnsFX: []
+  frameChecker:
+    clip: {fileID: 0}
+    totalFrames: 0
+    arest: 0
+    vrest: 0
+    _frameStruct: []
+    layerNumber: 0

@@ -34,25 +34,25 @@ namespace LF2.Client{
             base.Enter();
         }
 
-        public override bool ShouldAnticipate(ref InputPackage data)
+        public override bool ShouldAnticipate(ref StateType data)
         {
-            if (data.StateTypeEnum == StateType.Idle){
+            if (data == StateType.Idle){
                 return false;
             }
-            if (data.StateTypeEnum == StateType.Jump){
+            else if (data == StateType.Jump){
                 stateMachineFX.AnticipateState(StateType.Jump);
             }
-
-            else if ( data.StateTypeEnum == StateType.Attack ){
+            else if ( data == StateType.Attack || data == StateType.Attack2  ){
                 // Debug.Log($"NB Animation{data.NbAnimation}");
                 if (itr.TriggerAttack3 ) {
-                    stateMachineFX.AnticipateState(StateType.Attack3, 1);
-
-                    }
-                else if (data.NbAnimation == 1) stateMachineFX.AnticipateState(StateType.Attack, 1);
-                else if (data.NbAnimation == 2) stateMachineFX.AnticipateState(StateType.Attack2, 1);
-            }else{
-                stateMachineFX.AnticipateState(data.StateTypeEnum);
+                    stateMachineFX.AnticipateState(StateType.Attack3);
+                }
+                else {
+                    stateMachineFX.AnticipateState(data);
+                }
+            }
+            else{
+                stateMachineFX.AnticipateState(data);
             }
             return true;
             
@@ -61,9 +61,11 @@ namespace LF2.Client{
         
         public override void PlayAnim( int nbanim = 1 , bool sequence = false)
         {
+            stateMachineFX.m_ClientVisual.SetHitBox(false);
             base.PlayAnim();
             stateMachineFX.m_ClientVisual.NormalAnimator.Play(stateMachineFX.m_ClientVisual.VizAnimation.a_Idle);
             // stateMachineFX.m_ClientVisual.UpdateSizeHurtBox();
+
             stateMachineFX.m_ClientVisual.InitializeSizeHurtBox();  
         }
 
@@ -104,24 +106,13 @@ namespace LF2.Client{
                 } 
             }
 
-            if (!isPlayAnimation){
-                isPlayAnimation = IsAnimating();
-            }
+            // if (!isPlayAnimation){
+            //     isPlayAnimation = IsAnimating(stateMachineFX.m_ClientVisual.VizAnimation.Idle);
+            // }
             stateMachineFX.CoreMovement.SetFallingDown();
-
-
-
         }
 
-        public bool IsAnimating()
-        {
-            if (stateMachineFX.m_ClientVisual.NormalAnimator.GetCurrentAnimatorStateInfo(0).IsName("Idle_anim")) {
-                return true;
-            }
-            stateMachineFX.m_ClientVisual.NormalAnimator.Play(stateMachineFX.m_ClientVisual.VizAnimation.a_Idle);
-            return false;
 
-        }
     }
 
 }

@@ -8,11 +8,6 @@ namespace LF2.Client
     {
 
 
-        public override bool ShouldAnticipate(ref InputPackage requestData){
-
-            return false;
-        }
-
 
         public override StateType GetId(){
             return StateType.NONE;

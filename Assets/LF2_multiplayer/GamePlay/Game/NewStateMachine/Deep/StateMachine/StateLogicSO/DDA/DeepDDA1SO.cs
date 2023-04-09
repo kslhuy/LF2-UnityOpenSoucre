@@ -28,9 +28,8 @@ namespace LF2.Client{
             // Atk_data.Fall_p = stateData.DamageDetails[0].fall;
         }
 
-         public override bool ShouldAnticipate(ref InputPackage requestData)
-        {
-            if (inputEnable && (requestData.StateTypeEnum == StateType.Attack || requestData.StateTypeEnum == StateType.DDA1)){
+         public override bool ShouldAnticipate(ref StateType requestData)        {
+            if (inputEnable && (requestData is  StateType.Attack or StateType.Attack2 or  StateType.DDA1)){
                 cantransition_ToNextAnimation = true;
                 return true;
             }
@@ -38,7 +37,7 @@ namespace LF2.Client{
             
 
             // For Debug Only
-            if (requestData.StateTypeEnum == StateType.Defense){
+            if (requestData == StateType.Defense){
                 stateMachineFX.idle();
             }
             return false;

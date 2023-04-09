@@ -168,7 +168,7 @@ MonoBehaviour:
   Speed_m_s: 550
   Range: 0
   MaxVictims: 1
-  m_OnHitParticlePrefab: {fileID: 0}
+  m_OnHitParticlePrefab: {fileID: 3526290567721581141, guid: aa7c018c3d9d88940ba4167160987046, type: 3}
   _sfxEventChannel: {fileID: 11400000, guid: 1981ab6cbad46e54ca529e09ba189c16, type: 2}
   _audioConfig: {fileID: 11400000, guid: e8a6884befaa7e544b61747452adc267, type: 2}
   Sounds: []

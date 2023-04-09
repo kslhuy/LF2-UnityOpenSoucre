@@ -285,6 +285,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2808402712987922597, guid: 687160c7cfd6cd748877c28fe515d9c6, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2808402712987922597, guid: 687160c7cfd6cd748877c28fe515d9c6, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -353,48 +357,12 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4264360441126654028, guid: 687160c7cfd6cd748877c28fe515d9c6, type: 3}
-      propertyPath: Drag
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 4264360441126654028, guid: 687160c7cfd6cd748877c28fe515d9c6, type: 3}
-      propertyPath: m_Rigidbody
-      value: 
-      objectReference: {fileID: 2722046729680021483}
-    - target: {fileID: 4264360441126654028, guid: 687160c7cfd6cd748877c28fe515d9c6, type: 3}
-      propertyPath: m_BoxCollider
-      value: 
-      objectReference: {fileID: 797402435724825589}
-    - target: {fileID: 4264360441126654028, guid: 687160c7cfd6cd748877c28fe515d9c6, type: 3}
-      propertyPath: m_MovementSource
-      value: 
-      objectReference: {fileID: 7919260112464046542}
-    - target: {fileID: 4264360441126654028, guid: 687160c7cfd6cd748877c28fe515d9c6, type: 3}
-      propertyPath: extraYCheckGround
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4264360441126654028, guid: 687160c7cfd6cd748877c28fe515d9c6, type: 3}
       propertyPath: ClientNetTransform
       value: 
       objectReference: {fileID: 1064626412387933776}
     - target: {fileID: 4264360441126654028, guid: 687160c7cfd6cd748877c28fe515d9c6, type: 3}
-      propertyPath: _distanceFromGround
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 4264360441126654028, guid: 687160c7cfd6cd748877c28fe515d9c6, type: 3}
-      propertyPath: _fallMultiplierQuick
-      value: 120
-      objectReference: {fileID: 0}
-    - target: {fileID: 4264360441126654028, guid: 687160c7cfd6cd748877c28fe515d9c6, type: 3}
-      propertyPath: _fallMultiplierNormal
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4264360441126654028, guid: 687160c7cfd6cd748877c28fe515d9c6, type: 3}
-      propertyPath: UseFallMultiplierNormal
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4264360441126654028, guid: 687160c7cfd6cd748877c28fe515d9c6, type: 3}
-      propertyPath: _jumpVelocityFalloffLimit
-      value: -250
+      propertyPath: m_ExtendCheckCollision
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 4264360441126654028, guid: 687160c7cfd6cd748877c28fe515d9c6, type: 3}
       propertyPath: _jumpVelocityFalloffNormal
@@ -420,6 +388,10 @@ PrefabInstance:
       propertyPath: characterStateSOs
       value: 
       objectReference: {fileID: 11400000, guid: 125334c544ac912418ff021ae999f08d, type: 2}
+    - target: {fileID: 5306942716750395604, guid: 687160c7cfd6cd748877c28fe515d9c6, type: 3}
+      propertyPath: timerMPrecover
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5643315254683082127, guid: 687160c7cfd6cd748877c28fe515d9c6, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -449,41 +421,13 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 3850709906999120282}
     - target: {fileID: 7234482614249149150, guid: 687160c7cfd6cd748877c28fe515d9c6, type: 3}
-      propertyPath: _hitBox
-      value: 
-      objectReference: {fileID: 3850709906999120282}
-    - target: {fileID: 7234482614249149150, guid: 687160c7cfd6cd748877c28fe515d9c6, type: 3}
-      propertyPath: _hurtBox
-      value: 
-      objectReference: {fileID: 469210087280635172}
-    - target: {fileID: 7234482614249149150, guid: 687160c7cfd6cd748877c28fe515d9c6, type: 3}
-      propertyPath: _audioHits
-      value: 
-      objectReference: {fileID: 11400000, guid: 74c2f01c7727ed746b86edba7b8ad16c, type: 2}
-    - target: {fileID: 7234482614249149150, guid: 687160c7cfd6cd748877c28fe515d9c6, type: 3}
-      propertyPath: m_StateToPlay
+      propertyPath: debugUseMana
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7234482614249149150, guid: 687160c7cfd6cd748877c28fe515d9c6, type: 3}
-      propertyPath: _damagePopUpChannel
-      value: 
-      objectReference: {fileID: 11400000, guid: 74dabfeb73cf1c14fb30bc1aca1aeab2, type: 2}
-    - target: {fileID: 7234482614249149150, guid: 687160c7cfd6cd748877c28fe515d9c6, type: 3}
-      propertyPath: StateChange_After_Timer
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7234482614249149150, guid: 687160c7cfd6cd748877c28fe515d9c6, type: 3}
       propertyPath: m_VisualsInjuryAnimator
       value: 
       objectReference: {fileID: 0}
-    - target: {fileID: 7234482614249149150, guid: 687160c7cfd6cd748877c28fe515d9c6, type: 3}
-      propertyPath: m_VisualsNormalAnimator
-      value: 
-      objectReference: {fileID: 8762920458361828402}
-    - target: {fileID: 7234482614249149150, guid: 687160c7cfd6cd748877c28fe515d9c6, type: 3}
-      propertyPath: <spriteRenderer>k__BackingField
-      value: 
-      objectReference: {fileID: 1212308367409791610}
     - target: {fileID: 7901046818739658897, guid: 687160c7cfd6cd748877c28fe515d9c6, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -511,7 +455,7 @@ PrefabInstance:
     - target: {fileID: 8994507685575570671, guid: 687160c7cfd6cd748877c28fe515d9c6, type: 3}
       propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 22100000, guid: 87d405ab7c9396c4fb50ea980f73426c, type: 2}
+      objectReference: {fileID: 22100000, guid: b7aebb1c13effd5419a69686b84e441f, type: 2}
     m_RemovedComponents:
     - {fileID: 0}
     - {fileID: 2534825432546787825, guid: 687160c7cfd6cd748877c28fe515d9c6, type: 3}
@@ -520,21 +464,6 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 3402910809805449493}
   m_SourcePrefab: {fileID: 100100000, guid: 687160c7cfd6cd748877c28fe515d9c6, type: 3}
---- !u!65 &469210087280635172 stripped
-BoxCollider:
-  m_CorrespondingSourceObject: {fileID: 273651650605624825, guid: 687160c7cfd6cd748877c28fe515d9c6, type: 3}
-  m_PrefabInstance: {fileID: 382468071772143837}
-  m_PrefabAsset: {fileID: 0}
---- !u!65 &797402435724825589 stripped
-BoxCollider:
-  m_CorrespondingSourceObject: {fileID: 1035333018358682408, guid: 687160c7cfd6cd748877c28fe515d9c6, type: 3}
-  m_PrefabInstance: {fileID: 382468071772143837}
-  m_PrefabAsset: {fileID: 0}
---- !u!212 &1212308367409791610 stripped
-SpriteRenderer:
-  m_CorrespondingSourceObject: {fileID: 1557173061463671463, guid: 687160c7cfd6cd748877c28fe515d9c6, type: 3}
-  m_PrefabInstance: {fileID: 382468071772143837}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2573736595463811192 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2808402712987922597, guid: 687160c7cfd6cd748877c28fe515d9c6, type: 3}
@@ -659,11 +588,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 5410a6cd6ace05f40965e07d62d67ed6, type: 2}
   - {fileID: 11400000, guid: d33e5a175ffabc94aadf7c757dd30fae, type: 2}
   controlsTestText: {fileID: 8014969042782629330}
---- !u!54 &2722046729680021483 stripped
-Rigidbody:
-  m_CorrespondingSourceObject: {fileID: 2344242058887112502, guid: 687160c7cfd6cd748877c28fe515d9c6, type: 3}
-  m_PrefabInstance: {fileID: 382468071772143837}
-  m_PrefabAsset: {fileID: 0}
 --- !u!65 &3850709906999120282 stripped
 BoxCollider:
   m_CorrespondingSourceObject: {fileID: 3476414894392922439, guid: 687160c7cfd6cd748877c28fe515d9c6, type: 3}
@@ -718,8 +642,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 911d5fcb2881eeb4187bcc91aa5303f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!95 &8762920458361828402 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 8994507685575570671, guid: 687160c7cfd6cd748877c28fe515d9c6, type: 3}
-  m_PrefabInstance: {fileID: 382468071772143837}
-  m_PrefabAsset: {fileID: 0}

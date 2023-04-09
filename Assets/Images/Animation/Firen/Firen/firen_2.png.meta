@@ -111,7 +111,7 @@ TextureImporter:
       213: -8080793660310011096
     second: firen_2_35
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -128,6 +128,7 @@ TextureImporter:
     externalNormalMap: 0
     heightScale: 0.25
     normalMapFilter: 0
+    flipGreenChannel: 0
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
@@ -171,6 +172,8 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -298,7 +301,7 @@ TextureImporter:
         width: 80
         height: 80
       alignment: 9
-      pivot: {x: 0.5, y: 0}
+      pivot: {x: 0.4, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -319,7 +322,7 @@ TextureImporter:
         width: 80
         height: 80
       alignment: 9
-      pivot: {x: 0.5, y: 0}
+      pivot: {x: 0.4, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -340,7 +343,7 @@ TextureImporter:
         width: 80
         height: 80
       alignment: 9
-      pivot: {x: 0.5, y: 0}
+      pivot: {x: 0.4, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -361,7 +364,7 @@ TextureImporter:
         width: 80
         height: 80
       alignment: 9
-      pivot: {x: 0.5, y: 0}
+      pivot: {x: 0.4, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -672,9 +675,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 160
-        y: 190
+        y: 189
         width: 75
-        height: 75
+        height: 76
       alignment: 9
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1014,7 +1017,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      firen_2_15: -8497586352659832414
+      firen_2_2: -3398313425449308294
       firen_2_19: 3347059658467550703
       firen_2_20: 5981798901896498869
       firen_2_12: -5866184993987353322
@@ -1041,18 +1044,17 @@ TextureImporter:
       firen_2_21: -1294405869271010668
       firen_2_6: -4630720248354615291
       firen_2_32: -7111165582098000356
-      firen_2_26: -6726898031554333795
       firen_2_0: -5479613141615900208
-      firen_2_10: 305932588071666557
-      firen_2_24: -7733080375188717423
-      firen_2_27: -6984586305420093894
-      firen_2_29: 1741533338246707278
       firen_2_9: -4221643393076479911
+      firen_2_10: 305932588071666557
+      firen_2_26: -6726898031554333795
+      firen_2_24: -7733080375188717423
+      firen_2_29: 1741533338246707278
+      firen_2_27: -6984586305420093894
       firen_2_31: -4031853113642717097
-      firen_2_2: -3398313425449308294
+      firen_2_15: -8497586352659832414
   spritePackingTag: 
   pSDRemoveMatte: 0
-  pSDShowRemoveMatteOption: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 

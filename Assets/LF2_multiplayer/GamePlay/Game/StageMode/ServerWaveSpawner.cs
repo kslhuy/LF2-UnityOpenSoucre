@@ -49,17 +49,9 @@ namespace Unity.BossRoom.Gameplay.GameplayObjects
         [Tooltip("A player must be within this distance to commence first wave spawn.")]
         [SerializeField]
         float m_ProximityDistance = 30;
-        [SerializeField]
-        [Tooltip("When looking for players within proximity distance, should we count players in stealth mode?")]
-        bool m_DetectStealthyPlayers = true;
 
-        [Header("Spawn Cap (i.e. number of simultaneously spawned entities)")]
-        [SerializeField]
-        [Tooltip("The minimum number of entities this spawner will try to maintain (regardless of player count)")]
-        int m_MinSpawnCap = 2;
-        [SerializeField]
-        [Tooltip("The maximum number of entities this spawner will try to maintain (regardless of player count)")]
-        int m_MaxSpawnCap = 10;
+
+
         [SerializeField]
         [Tooltip("For each player in the game, the Spawn Cap is raised above the minimum by this amount. (Rounds up to nearest whole number.)")]
         float m_SpawnCapIncreasePerPlayer = 1;

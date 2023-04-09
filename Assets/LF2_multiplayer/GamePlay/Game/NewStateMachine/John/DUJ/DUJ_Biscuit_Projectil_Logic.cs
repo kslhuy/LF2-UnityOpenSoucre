@@ -180,29 +180,34 @@ namespace LF2.Client{
 
             yield return new WaitForSeconds(delayToChase);
 
-            Vector3 startPosition = transform.position;
-            Vector3 endPosition = enemyTransform.position + new Vector3(m_facing*xOffset, yOffset, 0);;
-
-            float NoisePositionChase = 0;
-            float time = 0;
-            while (time < 1)
-            {
-                
-                NoisePositionChase = _NoiseCurveChase.Evaluate(time);
-                transform.position = Vector3.Lerp(startPosition,endPosition , time) +new Vector3(0, -yOffset*NoisePositionChase, 0) ;
-
-                time += Time.deltaTime * SpeedChase;
-
-                yield return null;
-            }
-
-
-            if (NbTentativeChase <= NbLimiteToStopChase){
-                
-                StartCoroutine(BiscuitFly());
-            }else{
+            if(enemyTransform == null) {
                 StartCoroutine(BiscuitFinish(timeToFinish));
+                yield return null;
+            }else{
+                Vector3 startPosition = transform.position;
+                Vector3 endPosition = enemyTransform.position + new Vector3(m_facing*xOffset, yOffset, 0);;
 
+                float NoisePositionChase = 0;
+                float time = 0;
+                while (time < 1)
+                {
+                    
+                    NoisePositionChase = _NoiseCurveChase.Evaluate(time);
+                    transform.position = Vector3.Lerp(startPosition,endPosition , time) +new Vector3(0, -yOffset*NoisePositionChase, 0) ;
+
+                    time += Time.deltaTime * SpeedChase;
+
+                    yield return null;
+                }
+
+
+                if (NbTentativeChase <= NbLimiteToStopChase){
+                    
+                    StartCoroutine(BiscuitFly());
+                }else{
+                    StartCoroutine(BiscuitFinish(timeToFinish));
+
+                }
             }
 
   

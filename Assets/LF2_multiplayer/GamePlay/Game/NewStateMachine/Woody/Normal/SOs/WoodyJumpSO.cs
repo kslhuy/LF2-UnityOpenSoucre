@@ -20,14 +20,14 @@ namespace LF2.Client{
             stateMachineFX = stateMachine;
         }
 
-        public override bool ShouldAnticipate(ref InputPackage data)
+        public override bool ShouldAnticipate(ref StateType data)
         {            
-            if (data.StateTypeEnum == StateType.Attack ){
+            if (data == StateType.Attack ){
                 stateMachineFX.AnticipateState(StateType.AttackJump);
                 return true;
             }
-            else if(data.StateTypeEnum == StateType.DDJ1){
-                stateMachineFX.AnticipateState(data.StateTypeEnum);
+            else if(data == StateType.DDJ1){
+                stateMachineFX.AnticipateState(data);
                 return true;
             }
             return false;
@@ -40,6 +40,9 @@ namespace LF2.Client{
 
         public override void PlayAnim( int nbanim = 1 , bool sequence = false)
         {
+            stateMachineFX.CoreMovement.CheckIfShouldFlip((int)stateMachineFX.InputX);
+            stateMachineFX.CoreMovement.SetJump(stateMachineFX.InputX,stateMachineFX.InputZ);
+
             base.PlayAnim();
             GameObject.Instantiate(stateData.SpawnsFX[0]._Object,stateMachineFX.m_ClientVisual.transform.position, Quaternion.identity);
             stateMachineFX.m_ClientVisual.SetHitBox(false);
@@ -52,9 +55,6 @@ namespace LF2.Client{
 
         public override void PlayPredictState( int nbanim = 1 , bool sequence = false)
         {
-            stateMachineFX.CoreMovement.CheckIfShouldFlip((int)stateMachineFX.InputX);
-
-            stateMachineFX.CoreMovement.SetJump(stateMachineFX.InputX,stateMachineFX.InputZ);
 
             if (stateMachineFX.m_ClientVisual.Owner) {
                 stateMachineFX.m_ClientVisual.m_NetState.AddPredictState_and_SyncServerRpc(GetId());

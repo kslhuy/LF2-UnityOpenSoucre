@@ -43,8 +43,14 @@ namespace LF2.Client{
             stateMachineFX.ChangeState(StateType.Crouch);
         }
 
+        public override void LogicUpdate()
+        {
+            stateMachineFX.CoreMovement.SetFallingDown();
+        }
+
         public override void PlayAnim( int nbanim = 1 , bool sequence = false)
         {
+            stateMachineFX.m_ClientVisual.SetHitBox(false);
 
             if (stateMachineFX.m_ClientVisual.Owner) stateMachineFX.m_ClientVisual.m_NetState.LifeStateChangeServerRpc(LifeState.Fainted);
             base.PlayAnim();

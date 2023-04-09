@@ -30,10 +30,9 @@ namespace LF2.Client{
             // Atk_data.Fall_p = stateData.DamageDetails[0].fall;
         }
 
-        public override bool ShouldAnticipate(ref InputPackage requestData)
-        {
+        public override bool ShouldAnticipate(ref StateType requestData)        {
 
-            if (inputEnable && requestData.StateTypeEnum == StateType.Jump){
+            if (inputEnable && requestData == StateType.Jump){
                 cantransition_ToNextAnimation = true;
                 _stateToPlay = StateType.DUA3;
                 return true;
@@ -42,7 +41,7 @@ namespace LF2.Client{
             
 
             // For Debug Only
-            if (requestData.StateTypeEnum == StateType.Defense){
+            if (requestData == StateType.Defense){
                 stateMachineFX.idle();
             }
             return false;

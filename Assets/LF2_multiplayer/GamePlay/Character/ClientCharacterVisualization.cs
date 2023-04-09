@@ -183,7 +183,6 @@ namespace LF2.Client
                 if (Parent.TryGetComponent(out ClientAvatarGuidHandler clientAvatarGuidHandler))
                 {
                     m_VisualsNormalAnimator = clientAvatarGuidHandler.graphicsAnimator;
-                    // m_VisualsInjuryAnimator = clientAvatarGuidHandler.graphicsAnimator;
                 }
 
 
@@ -191,31 +190,11 @@ namespace LF2.Client
                 {
                     gameObject.AddComponent<CameraController>();
                     
-                        // Debug.Log("h");
-                    // inputSender = GetComponentInParent<ClientInputSender>();
-                    
-                    // TriangleUI.color = Color.green;
-                                        
+                   
                 }
 
             }
-            // AI stuff
-            // else{
 
-                
-            //         m_aiBrain = GetComponentInParent<AIBrain>();
-            //         m_aiBrain.ActionInputEvent += OnActionInput;
-            //         m_aiBrain.PerformStateEvent += PerformSyncStateFX;
-                    
-            //         m_aiBrain.ActionMoveInputEvent += PerformInputMove;
-            //         // TriangleUI.gameObject.SetActive(false);
-
-
-            // }
-            // if (!m_NetState.IsOwner){
-            //     m_NetState.StateDataSync += PerformSyncStateFX;
-            //     // TriangleUI.color = Color.red;
-            // }
 
             // ...and visualize the current char-select value that we know about
             m_CharacterSwapper = GetComponentInChildren<CharacterSwap>();
@@ -236,10 +215,15 @@ namespace LF2.Client
                     inputSender.ActionInputEvent += OnActionInput;
                     inputSender.ActionMoveInputEvent += PerformInputMove;
                 }
+                // else {
+                //     m_NetState.InputSendServer += PerformInput;
+                // }
             }
 
             if (!m_NetState.IsOwner){
                 m_NetState.StateDataSync += PerformSyncStateFX;
+                // m_NetState.InnerStateDataSync += 
+                m_NetState.SyncEndAnimation += PlayEndAnimationFX;
                 // TriangleUI.color = Color.red;
             }
             else{
@@ -260,16 +244,42 @@ namespace LF2.Client
 
 
         }
+
+
+        private void OnNetworkDeswpan()
+        {
+            if (m_NetState)
+            {
+ 
+                if (m_NetState.IsOwner)
+                {
+                    
+                        inputSender.ActionInputEvent -= OnActionInput;
+
+                }else{
+                        // m_NetState.InputSendServer -= PerformInput;
+                        // m_NetState.InputSendBack -= PerformInput;
+                        m_NetState.StateDataSync -= PerformSyncStateFX;
+                        m_NetState.SyncEndAnimation -= PlayEndAnimationFX;
+
+                }
+                m_NetState.RecvHPClient -= ReceiveHP;
+
+            }
+
+        }
         
 
 
 
 
         // Remote Client Receive Input So Do Aniticipate like the true player
-        private void PerformInput(InputPackage data)
-        {
-            MStateMachinePlayerViz.DoAnticipate(ref data);
-        }
+        
+        // private void PerformInput(StateType data)
+        // {
+        //     MStateMachinePlayerViz.DoAnticipate(ref data);
+        // }
+        
         // Remote Client Receive Input So Do Aniticipate like the true player
         private void PerformInputMove(float inputX, float inputZ)
         {
@@ -291,19 +301,34 @@ namespace LF2.Client
 
         // Do anticipate State :  play Animation first ,  change state but not call Enter()
         // Owner Only
-        private void OnActionInput(InputPackage data)
+        private void OnActionInput(StateType data)
         {
             // Debug.Log("perform");
             MStateMachinePlayerViz.DoAnticipate(ref data);
         }
 
-        
+
+        public void PerformInnerSyncStateFX(byte stateIndex)
+        {
+            // That event do State receive from Server .
+            // Debug.Log($"data  = {data}" );
+
+            // MStateMachinePlayerViz.PerformInnerSyncStateFX(ref stateData);
+        }
+
         public void PerformSyncStateFX(StateType stateData)
         {
             // That event do State receive from Server .
             // Debug.Log($"data  = {data}" );
 
             MStateMachinePlayerViz.PerformSyncStateFX(ref stateData);
+        }
+
+        
+        private void PlayEndAnimationFX(StateType stateType)
+        {
+            MStateMachinePlayerViz.PlayEndAnimationFX(ref stateType);
+
         }
 
         #region TriggerEventSO
@@ -326,25 +351,7 @@ namespace LF2.Client
 
 
 
-        private void OnNetworkDeswpan()
-        {
-            if (m_NetState)
-            {
- 
-                if (m_NetState.IsOwner)
-                {
-                    
-                        inputSender.ActionInputEvent -= OnActionInput;
 
-                }else{
-                        m_NetState.InputSendBack -= PerformInput;
-                        m_NetState.StateDataSync -= PerformSyncStateFX;
-                }
-                m_NetState.RecvHPClient -= ReceiveHP;
-
-            }
-
-        }
 
 
 
@@ -446,6 +453,7 @@ namespace LF2.Client
                 _hurtBox.enabled = false;
                 return;
             }
+            _hurtBox.enabled = true;
             Vector3 newSize = new Vector3(spriteRenderer.sprite.bounds.size.x , spriteRenderer.sprite.bounds.size.y , 18 ); 
             _hurtBox.size = newSize;
             _hurtBox.center = spriteRenderer.sprite.bounds.center;
@@ -467,6 +475,7 @@ namespace LF2.Client
 
         public void SetHitBox(bool setting){
             _hitBox.enabled = setting;
+            // Debug.Log("hitbox now is enable " + _hitBox.enabled);
             // Debug.Log(spriteRenderer.sprite.bounds.size);
         }
     #endregion

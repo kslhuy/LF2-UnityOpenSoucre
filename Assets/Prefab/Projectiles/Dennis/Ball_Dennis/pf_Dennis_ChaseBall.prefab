@@ -111,6 +111,11 @@ PrefabInstance:
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: e1e6fa40b644751498970cb113c8b0a1, type: 3}
+--- !u!212 &651476940700171912 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 2075974051578360440, guid: e1e6fa40b644751498970cb113c8b0a1, type: 3}
+  m_PrefabInstance: {fileID: 1568895022039502064}
+  m_PrefabAsset: {fileID: 0}
 --- !u!95 &2824757819236973845 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 3672223636655927781, guid: e1e6fa40b644751498970cb113c8b0a1, type: 3}
@@ -137,21 +142,22 @@ MonoBehaviour:
   k_GroundLayerMask: 0
   ProjectileDamage:
   - {fileID: 11400000, guid: 6a69a589152cda04696b850a3b5ceb2c, type: 2}
-  Speed_m_s: 150
+  Speed_m_s: 300
   Range: 0
   MaxVictims: 1
-  m_OnHitParticlePrefab: {fileID: 0}
+  m_OnHitParticlePrefab: {fileID: 6039890342455417878, guid: 09168d3208ca45640937b1022be5cb7d, type: 3}
   _sfxEventChannel: {fileID: 11400000, guid: 1981ab6cbad46e54ca529e09ba189c16, type: 2}
   _audioConfig: {fileID: 11400000, guid: e8a6884befaa7e544b61747452adc267, type: 2}
   Sounds: []
   EndAnimation: DDA_Hit_Jonh_anim
   DestroyAfterSec: 3
-  DestroyAfterHit: 0.2
+  DestroyAfterHit: 0.1
   m_BoxType: 0
   animator: {fileID: 2824757819236973845}
-  speedNormal: 0.4
-  AnchorB: {x: 200, y: 0, z: 200}
-  AnchorC: {x: 0, y: 0, z: 300}
+  spriteRenderer: {fileID: 651476940700171912}
+  speedNormal: 1
+  AnchorB: {x: 300, y: 0, z: -300}
+  AnchorC: {x: 0, y: 0, z: 0}
   OffsetEnemy: {x: 0, y: 50, z: 0}
 --- !u!65 &7058080987340510452 stripped
 BoxCollider:

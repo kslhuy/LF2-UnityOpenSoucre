@@ -112,16 +112,7 @@ namespace LF2.Client
                     if( ( targetNetObj.NetworkObjectId != m_SpawnerId) )
                     {
                         // Debug.Log(targetNetObj);
-
-                        AttackDataSend Atk_data = new AttackDataSend();
-                        Atk_data.Direction = new Vector3(ProjectileDamage[0].Dirxyz.x * transform.right.x , ProjectileDamage[0].Dirxyz.y,ProjectileDamage[0].Dirxyz.z) ;
-                        Atk_data.Amount_injury = ProjectileDamage[0].damageAmount;
-                        Atk_data.BDefense_p = ProjectileDamage[0].Bdefend;
-                        Atk_data.Fall_p = ProjectileDamage[0].fall;
-                        Atk_data.Effect = (byte)ProjectileDamage[0].Effect;
-
-                        targetNetObj.ReceiveHP(Atk_data);
-                        
+                        SendHitData(targetNetObj);
                         PlayAudio(Sounds[0] , transform.position);
 
                         if (!IsServer) return;

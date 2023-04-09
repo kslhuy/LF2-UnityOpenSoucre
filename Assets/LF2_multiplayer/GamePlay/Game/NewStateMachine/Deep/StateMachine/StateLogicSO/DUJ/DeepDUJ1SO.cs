@@ -19,26 +19,17 @@ namespace LF2.Client{
         public override void Awake(StateMachineNew stateMachine)
         {
             stateMachineFX = stateMachine;
-            // Atk_data = new AttackDataSend{
-            //     Amount_injury = stateData.DamageDetails[0].damageAmount,
-            //     Direction = stateData.DamageDetails[0].Dirxyz,
-            //     BDefense_p = stateData.DamageDetails[0].Bdefend,
-            //     Fall_p = stateData.DamageDetails[0].fall,
-            // };
         }
 
-         float attack12distance;
-        private bool m_ImpactPlayed;
 
-        float _timeDealDamage;
-        float _deltaTime = 0.1f;
 
         private List<IHurtBox> AllTargets = new List<IHurtBox>();
 
 
 
 
-        public override void Enter()        {
+        public override void Enter()        
+        {
             if(!Anticipated)
             {
                 PlayAnim();
@@ -54,9 +45,9 @@ namespace LF2.Client{
 
         public override void LogicUpdate()
         {   
-            if (nbTickRender > 10 ){
+            if (nbTickRender > 12 ){
                 if (stateMachineFX.CoreMovement.IsGounded()) {
-                    Debug.Log("crouch");
+                    // Debug.Log("crouch");
                     stateMachineFX.AnticipateState(StateType.Crouch);
                     return;
                 }
@@ -80,6 +71,7 @@ namespace LF2.Client{
 
         public override void PlayAnim(int nbAniamtion = 1 , bool sequence = false)
         {
+            stateMachineFX.CoreMovement.CustomJump(stateData.Dy, stateData.Dx);
             base.PlayAnim();
             stateMachineFX.m_ClientVisual.NormalAnimator.Play(stateMachineFX.m_ClientVisual.VizAnimation.a_DUJ_1);
         }
@@ -89,7 +81,6 @@ namespace LF2.Client{
             if (stateMachineFX.m_ClientVisual.Owner) {
                 stateMachineFX.m_ClientVisual.m_NetState.AddPredictState_and_SyncServerRpc(GetId());
             }
-            stateMachineFX.CoreMovement.CustomJump(stateData.Dy, stateData.Dx);
             PlayAnim(nbanim , sequence);
         }
 

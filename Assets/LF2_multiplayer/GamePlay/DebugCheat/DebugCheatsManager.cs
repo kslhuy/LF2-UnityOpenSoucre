@@ -41,9 +41,9 @@ namespace Unity.BossRoom.DebugCheats
         private CharacterTypeEnum BotTypeToSpawn = CharacterTypeEnum.Deep;
         private TeamType BotTeamTypeToSpawn = TeamType.INDEPENDANT;
 
-        const int k_NbTouchesToOpenWindow = 4;
+        // const int k_NbTouchesToOpenWindow = 4;
 
-        bool m_DestroyPortalsOnNextToggle = true;
+        // bool m_DestroyPortalsOnNextToggle = true;
 
         [Header(" DEBUG ")]
         [SerializeField] BoolEventChannelSO Debug_Toggle_SpwanWave;
@@ -178,14 +178,15 @@ namespace Unity.BossRoom.DebugCheats
             Assert.IsTrue(networkAvatarGuidStateExists,
                 $"NetworkCharacterGuidState not found on player avatar!");
 
-            LF2.Avatar _botavatarValue;
-            avatarRegistry.TryGetAvatar(BotTypeToSpawn, out _botavatarValue);
-            networkAvatarGuidState.RegisterAvatar(_botavatarValue);
+            // LF2.Avatar _botavatarValue;
+            // avatarRegistry.TryGetAvatar(BotTypeToSpawn, out _botavatarValue);
+            networkAvatarGuidState.AvatarType.Value = BotTypeToSpawn;
+            // networkAvatarGuidState.RegisterAvatar(_botavatarValue);
 
             // pass name , team type from persistent player to avatar
             if (newBOT.TryGetComponent(out NetworkNameState networkNameState))
             {
-                networkNameState.Name.Value = _botavatarValue.CharacterClass.CharacterType.ToString();
+                networkNameState.Name.Value = BotTypeToSpawn.ToString();
                 networkNameState.Team.Value = BotTeamTypeToSpawn;
             }
 
@@ -295,7 +296,7 @@ namespace Unity.BossRoom.DebugCheats
             var playerServerCharacter = PlayerServerCharacter.GetPlayerServerCharacter(clientId);
             if (playerServerCharacter != null)
             {
-                var baseHp = playerServerCharacter.CharacterClass.BaseHP.Value;
+                var baseHp = 500;
                 if (playerServerCharacter.NetState.LifeState == LifeState.Dead)
                 {
                     playerServerCharacter.Revive(null, baseHp);

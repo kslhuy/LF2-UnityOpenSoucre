@@ -1,6 +1,7 @@
 
 using System;
 using System.Collections.Generic;
+using LF2.Client;
 using UnityEngine;
 
 namespace LF2{
@@ -18,7 +19,9 @@ namespace LF2{
         public StateType StateType; 
         public StateLogic Logic;
 
-        public bool UseMana;
+        public StateLogicSO[] SubStateLogicSO;
+
+        // public bool UseMana;
         public int ManaCost;
 
         [Header("----- DAmage ------")]

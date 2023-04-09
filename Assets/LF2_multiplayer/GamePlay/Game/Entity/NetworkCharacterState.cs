@@ -114,26 +114,16 @@ namespace LF2
 
         // ACTION SYSTEM
 
-
         public event Action<StateType> StateDataSync;
-        
-        public event Action<InputPackage> InputSendBack;      
-        // public event Action<float , float> InputMoveSendBack;
+        public event Action<byte> InnerStateDataSync;
 
+        public event Action<StateType> SyncEndAnimation;      
 
-        // public event Action<NetStatePackage> SyncStateEvent;
         public event Action<AttackDataSend> RecvHPClient;
 
 
 
 
-
-
-        [ClientRpc]
-        public void AddPredictState_and_SyncClientRPC(StateType state)
-        {
-            StateDataSync?.Invoke(state);
-        }
 
         [ClientRpc]
         public void RecvHPClientRPC(AttackDataSend attackDataSend)
@@ -141,12 +131,54 @@ namespace LF2
             RecvHPClient?.Invoke(attackDataSend);
         }
 
-        
+
+
+        // Play Sync State 
         [ServerRpc]
         public void AddPredictState_and_SyncServerRpc(StateType state)
         {
             AddPredictState_and_SyncClientRPC(state);
         }
+
+        [ClientRpc]
+        public void AddPredictState_and_SyncClientRPC(StateType state)
+        {
+            StateDataSync?.Invoke(state);
+        }
+        // Play Sync State 
+
+
+        // Play Sync Inner State , that for old systeme
+        // [ServerRpc]
+        // public void AddPredict_InnerStateServerRpc(byte indexState)
+        // {
+        //     AddPredict_InnerStateClientRPC(indexState);
+        // }
+
+
+        // [ClientRpc]
+        // public void AddPredict_InnerStateClientRPC(byte indexState)
+        // {
+        //     InnerStateDataSync.Invoke(indexState);
+        // }
+        // Play Sync Inner State , that for old systeme
+
+
+        // Play Sync Animation End  , that for some state that have animation loop
+
+        [ServerRpc]
+        public void PlayEndAniamtion_SyncServerRpc(StateType state)
+        {
+            PlayEndAniamtion_SyncClientRPC(state);
+        }
+
+
+        [ClientRpc]
+        public void PlayEndAniamtion_SyncClientRPC(StateType state)
+        {
+            SyncEndAnimation?.Invoke(state);
+        }
+        // Play Sync Animation End  , that for some state that have animation loop
 
 
 
@@ -180,29 +212,6 @@ namespace LF2
 
 
 
-
-        /// <summary>
-        /// Called on server when the character's client decides they have stopped "charging up" an attack.
-        /// </summary>
-        public event Action OnStopChargingUpServer;
-
-        /// <summary>
-        /// Called on all clients when this character has stopped "charging up" an attack.
-        /// Provides a value between 0 and 1 inclusive which indicates how "charged up" the attack ended up being.
-        /// </summary>
-        public event Action<float> OnStopChargingUpClient;
-
-        [ServerRpc]
-        public void RecvStopChargingUpServerRpc()
-        {
-            OnStopChargingUpServer?.Invoke();
-        }
-
-        [ClientRpc]
-        public void RecvStopChargingUpClientRpc(float percentCharged)
-        {
-            OnStopChargingUpClient?.Invoke(percentCharged);
-        }
 
 
     }

@@ -19,7 +19,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: d346172bab03bbe4a9970dfb1793dc03, type: 2}
   - {fileID: 11400000, guid: 123e3784eb38b3b4686d6c5e93fd8a50, type: 2}
   - {fileID: 11400000, guid: 059388472f8401d4696f34e0219b81dc, type: 2}
-  - {fileID: 11400000, guid: 4333b84a7efec4d4384f1e7acdf8c077, type: 2}
+  - {fileID: 11400000, guid: d4d83eff6a56c5f46affb9b4d2122c11, type: 2}
   - {fileID: 11400000, guid: 02e861184ece50745ad43b70b460cc40, type: 2}
   - {fileID: 11400000, guid: 8b4dda282c3872143952384d78bb7395, type: 2}
   - {fileID: 11400000, guid: 58d8176f1f17496409a2afb8b870ba1f, type: 2}
@@ -40,3 +40,18 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 8534f09b46084ee41ba81036be7b0384, type: 2}
   - {fileID: 11400000, guid: 2fd63d52a4069cc449533c050b4bf8e9, type: 2}
   - {fileID: 11400000, guid: 49256a7941f30df44a980284c2897e90, type: 2}
+  - {fileID: 11400000, guid: a97684cb815dc5341bb19a85231bc041, type: 2}
+  - {fileID: 11400000, guid: c066d7b265ea47145b8c6e90519f70d3, type: 2}
+  ListAllComboSkills: []
+  RunTimeDDA:
+    RunTimeStateType: 0
+    InputToConvert: 0
+  RunTimeDDJ:
+    RunTimeStateType: 0
+    InputToConvert: 0
+  RunTimeDUA:
+    RunTimeStateType: 0
+    InputToConvert: 0
+  RunTimeDUJ:
+    RunTimeStateType: 0
+    InputToConvert: 0

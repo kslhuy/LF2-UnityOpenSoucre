@@ -1,26 +1,26 @@
-using UnityEditor;
-using UnityEngine.UIElements;
-using UnityEditor.UIElements;
+// using UnityEditor;
+// using UnityEngine.UIElements;
+// using UnityEditor.UIElements;
 
-[CustomEditor(typeof(StageModeData))]
-public class StageModeDataEditor: Editor {
+// [CustomEditor(typeof(StageModeData))]
+// public class StageModeDataEditor: Editor {
 
-    public VisualTreeAsset m_UXML;
-    public override VisualElement CreateInspectorGUI()
-    {
+//     public VisualTreeAsset m_UXML;
+//     public override VisualElement CreateInspectorGUI()
+//     {
         
-        var root = new VisualElement();
+//         var root = new VisualElement();
 
-        m_UXML.CloneTree(root);
+//         m_UXML.CloneTree(root);
 
-        // Draw defaut inspector
+//         // Draw defaut inspector
         
-        // var folout = new Foldout() {
-        //     viewDataKey = "SpwanManagerFullView" , text = "Full Inspector"
-        // };
-        // InspectorElement.FillDefaultInspector(folout , serializedObject , this);
-        // root.Add(folout);
-        return root;
-    }
+//         // var folout = new Foldout() {
+//         //     viewDataKey = "SpwanManagerFullView" , text = "Full Inspector"
+//         // };
+//         // InspectorElement.FillDefaultInspector(folout , serializedObject , this);
+//         // root.Add(folout);
+//         return root;
+//     }
 
-}
+// }

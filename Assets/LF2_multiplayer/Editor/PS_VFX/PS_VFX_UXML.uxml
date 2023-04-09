@@ -1,0 +1,10 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="True">
+    <ui:VisualElement>
+        <uie:PropertyField binding-path="m_Script" />
+        <ui:VisualElement style="flex-direction: row;">
+            <ui:FloatField label="AutoShutdownTime" value="42.2" binding-path="m_AutoShutdownTime" style="flex-direction: column;" />
+            <ui:FloatField label="AutoPlay" value="42.2" binding-path="m_AutoPlay" style="flex-direction: column;" />
+        </ui:VisualElement>
+        <uie:PropertyField binding-path="frameChecker" />
+    </ui:VisualElement>
+</ui:UXML>

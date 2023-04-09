@@ -16,7 +16,12 @@ MonoBehaviour:
   m_Data:
     m_SerializedData: []
   m_GUID: 66c6c2ab891c19943b56b82972c03679
-  m_SerializeEntries: []
+  m_SerializeEntries:
+  - m_GUID: 01fe1c990e708794a9fb7cf7172f274c
+    m_Address: Assets/Prefab/Background/Game/Coliseum.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: a52442f761726754ab01f493b225eb43, type: 2}
   m_SchemaSet:

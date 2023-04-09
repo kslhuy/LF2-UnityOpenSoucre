@@ -39,7 +39,7 @@ namespace LF2.Client
         [HideInInspector]
         public int k_GroundLayerMask;    //physics mask for things that block the arrow's flight.
 
-        private bool canHitCreator;
+        // private bool canHitCreator;
         private int hitNumer;
 
         protected Vector3 _DirToMove;
@@ -102,7 +102,7 @@ namespace LF2.Client
             m_facing = (int)dir_ToMove.x;
             // Debug.Log("m_facing" + m_facing);
             CanMove = true;
-            canHitCreator = false;
+            // canHitCreator = false;
             teamAttacker =  team;
             m_SpawnerId = creatorsNetworkObjectId;
             if (rotation != default){
@@ -144,20 +144,23 @@ namespace LF2.Client
                 return;
             }
             
-            if (CanMove){
-                
-                Vector3 displacement = Speed_m_s*Time.deltaTime*(transform.right + new Vector3(0,0,0.5f*_DirToMove.z));
-                // m_Rigidbody.MovePosition(transform.position + displacement);
-                // var displacement = transform.forward * (m_ProjectileInfo.Speed_m_s * Time.fixedDeltaTime);
-                transform.position += displacement;
+            if (CanMove)
+            {
+                MoveLinearX();
             }
-            
+
+        }
+        
+        // use parameter Speed_m_s 
+        private void MoveLinearX()
+        {
+            Vector3 displacement = Speed_m_s * Time.deltaTime * (transform.right + new Vector3(0, 0, 0.5f * _DirToMove.z));
+            transform.position += displacement;
+            // m_Rigidbody.MovePosition(transform.position + displacement);
+            // var displacement = transform.forward * (m_ProjectileInfo.Speed_m_s * Time.fixedDeltaTime);
         }
 
 
-        public void PlayAudio(AudioCueSO audioCueSO , Vector3 pos = default){
-            _sfxEventChannel.RaisePlayEvent(audioCueSO , _audioConfig,pos);
-        }
     
         public virtual void Rebound()
         {
@@ -171,56 +174,76 @@ namespace LF2.Client
 
         protected virtual void OnTriggerEnter(Collider collider) {
             // Debug.Log(collider);
-            if (!m_cachedIsServer) return; 
+            // if (!m_cachedIsServer) return; 
 
-            if (collider.CompareTag("HitBox")){
-                // canHitCreator = true;
-                
-                m_SpawnerId = collider.GetComponentInParent<ServerCharacter>().NetworkObjectId;
-                // transform.position =  collider.bounds.center; 
+            if (collider.CompareTag("HitBox"))
+            {
+                // Change Spawne Id mean can hit Creator ;
+                ChangeSpawnerID(collider);
                 Rebound();
                 return;
             }
 
             if (collider.CompareTag("BlockToRebound")){
-                m_SpawnerId = collider.GetComponent<ProjectileLogic>().NetworkObjectId;
-                // transform.position =  collider.bounds.center; 
+                ChangeSpawnerID(collider);
                 Rebound();
                 return;
             }
         
-            if (collider.CompareTag("HurtBox")){
-
-                var targetNetObj = collider.GetComponentInParent<ServerCharacter>();
-                // Debug.Log("Hit ID " + targetNetObj.NetworkObjectId);
-                // Debug.Log("spawner ID " + m_SpawnerId);
-                if (targetNetObj != null ){
-                    if( ( targetNetObj.NetworkObjectId != m_SpawnerId) &&  targetNetObj.IsDamageable(teamAttacker) )
+            if (collider.CompareTag("HurtBox"))
+            {
+                IHurtBox targetNetObj = GetTargetObject(collider , out bool isOKtoUse);
+                if (isOKtoUse){
+                    // Debug.Log("Hit ID " + targetNetObj.NetworkObjectId);
+                    // Debug.Log("spawner ID " + m_SpawnerId);
+                    SendHitData(targetNetObj);
+                    if (isNbsHitsReached())
                     {
-                        // Debug.Log("Hit ID " + targetNetObj.NetworkObjectId);
-                        // Debug.Log("spawner ID " + m_SpawnerId);
-                        AttackDataSend Atk_data = new AttackDataSend();
-                        // Debug.Log("Projecile Dirxyz" + ProjectileDamage[0].Dirxyz);
-                        Atk_data.Direction = new Vector3(ProjectileDamage[0].Dirxyz.x * transform.right.x , ProjectileDamage[0].Dirxyz.y,ProjectileDamage[0].Dirxyz.z) ;
-                        Atk_data.Amount_injury = ProjectileDamage[0].damageAmount;
-                        Atk_data.BDefense_p = ProjectileDamage[0].Bdefend;
-                        Atk_data.Fall_p = ProjectileDamage[0].fall;
-                        Atk_data.Effect = ((byte)ProjectileDamage[0].Effect);
-
-                        targetNetObj.ReceiveHP(Atk_data);
-                                        
-                        hitNumer += 1;
-                        if (hitNumer >= MaxVictims){
-                            StartCoroutine(RunAfterEffet(DestroyAfterHit));                  
-
-                        // PlayAudio(Sounds[0], transform.position);
-
+                        if (m_OnHitParticlePrefab != null){
+                            Instantiate(m_OnHitParticlePrefab , transform.position ,Quaternion.identity);
                         }
+                        StartCoroutine(RunAfterEffet(DestroyAfterHit));
                     }
                 }
             }
 
         }
+
+        public IHurtBox GetTargetObject(Collider collider , out bool isOKtoUse)
+        {
+            var targetNetObj = collider.GetComponentInParent<IHurtBox>();
+            isOKtoUse = false;
+            if (targetNetObj != null && (targetNetObj.NetworkObjectId != m_SpawnerId) && targetNetObj.IsDamageable(teamAttacker)){
+                isOKtoUse = true;
+            }
+            return targetNetObj;
+        }
+
+        private void ChangeSpawnerID(Collider collider){
+            m_SpawnerId = 01;
+        }
+
+        public bool isNbsHitsReached(){
+            hitNumer += 1;
+            if (hitNumer < MaxVictims) return false;
+            CanMove = false;
+            return true;
+        }
+
+        public void SendHitData(IHurtBox targetNetObj)
+        {
+            AttackDataSend Atk_data = new AttackDataSend();
+            // Debug.Log("Projecile Dirxyz" + ProjectileDamage[0].Dirxyz);
+            Atk_data.Direction = new Vector3(ProjectileDamage[0].Dirxyz.x * m_facing, ProjectileDamage[0].Dirxyz.y, ProjectileDamage[0].Dirxyz.z);
+            Atk_data.Amount_injury = ProjectileDamage[0].damageAmount;
+            Atk_data.BDefense_p = ProjectileDamage[0].Bdefend;
+            Atk_data.Fall_p = ProjectileDamage[0].fall;
+            Atk_data.Effect = ((byte)ProjectileDamage[0].Effect);
+            targetNetObj.ReceiveHP(Atk_data);
+            
+        }
+
+        
 
 
         protected virtual void OnTriggerExit(Collider collider) {}
@@ -289,6 +312,30 @@ namespace LF2.Client
             
             return true;
         }
+
+
+
+        public void SpawnHitParticle(){
+            Instantiate(m_OnHitParticlePrefab , transform.position ,Quaternion.identity);
+
+        }
+#region Audio    
+        public void PlayAudio(int indexSound = 0 , Vector3 pos = default){
+            if (ProjectileDamage.Length > 0){
+                if (ProjectileDamage[0].SoundHit.Length > 0){
+                    _sfxEventChannel.RaisePlayEvent(ProjectileDamage[indexSound].SoundHit[indexSound] , _audioConfig,pos);
+                }else{
+                    Debug.Log("NotFound AudioSO ");
+                }
+            }
+            else{
+                Debug.Log("NotFound ProjectileDamage !! ");
+            }
+        }
+        public void PlayAudio(AudioCueSO sound , Vector3 pos = default){
+            _sfxEventChannel.RaisePlayEvent(sound , _audioConfig,pos);
+        }
+#endregion
 
 
     }

@@ -17,7 +17,6 @@ namespace LF2.Client{
     public class DennisDDJLogic : StateActionLogic 
     {
         private List<IHurtBox> _Listdamagable = new List<IHurtBox>();
-        private float timeNow ;
         AttackDataSend Atk_data ;
 
         public override void Awake(StateMachineNew stateMachine)
@@ -44,16 +43,21 @@ namespace LF2.Client{
 
         }
         public override void LogicUpdate() {
-            if (Time.time - timeNow >  stateData.DamageDetails[0].vrest){
+            if (nbTickRender % stateData.DamageDetails[0].vrest == 0){
                 foreach (IHurtBox damagable in _Listdamagable){
                     if (damagable != null && damagable.IsDamageable(stateMachineFX.m_ClientVisual.teamType)) {
                         damagable.ReceiveHP(Atk_data);
                     }
                 }
-                timeNow = Time.time;
             }
-            stateMachineFX.CoreMovement.CustomMove_InputX(stateData.Dx);
-
+            if (stateMachineFX.m_ClientVisual.Owner){
+                if (nbTickRender > 4 ){
+                    stateMachineFX.CoreMovement.CustomMove_InputX(stateData.Dx);
+                }
+            }else{
+                stateMachineFX.CoreMovement.CustomMove_InputX(stateData.Dx);
+            }
+            
 
         }
 
@@ -62,7 +66,6 @@ namespace LF2.Client{
         {
             // stateData.frameChecker.initCheck();
             base.PlayAnim();
-            timeNow = TimeStarted_Animation;
             stateMachineFX.m_ClientVisual.NormalAnimator.Play(stateMachineFX.m_ClientVisual.VizAnimation.a_DDJ_1);
         }
 

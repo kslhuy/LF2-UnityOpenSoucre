@@ -55,7 +55,7 @@ public class DamageDetails : ScriptableObject{
 
     public bool arest;
     [Tooltip("For multiple enemies, you need vrest. The values of these tags are the duration in TU that the object must wait before hitting the character again.")]
-    public float vrest ;
+    public int vrest ;
 
     [Tooltip("How far the enemy falls backwards , upwards when hit")]
     public Vector3 Dirxyz;

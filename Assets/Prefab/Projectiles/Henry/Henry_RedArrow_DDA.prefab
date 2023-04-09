@@ -112,6 +112,10 @@ PrefabInstance:
       propertyPath: m_Center.y
       value: -1.008894
       objectReference: {fileID: 0}
+    - target: {fileID: 8374024554256111620, guid: e1e6fa40b644751498970cb113c8b0a1, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: e1e6fa40b644751498970cb113c8b0a1, type: 3}

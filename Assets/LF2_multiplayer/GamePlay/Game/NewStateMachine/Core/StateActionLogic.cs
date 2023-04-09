@@ -43,7 +43,7 @@ namespace LF2.Client{
 
         protected StateMachineNew stateMachineFX;
 
-        public InputPackage Data = new InputPackage();
+        // public InputPackage Data = new InputPackage();
 
 
 
@@ -104,11 +104,14 @@ namespace LF2.Client{
         // current state of the state machine and the input that it is receiving. The method returns a bool
         // value indicating whether the state should anticipate the transition or action.
 
-        public virtual bool ShouldAnticipate(ref InputPackage requestData){
+        public virtual bool ShouldAnticipate(ref StateType requestData){
             return false;
         }
 
         public virtual void HurtResponder(Vector3 dirToRespond){
+        }
+
+        public virtual void PlayEndAnimation(){
         }
 
         /// <summary>
@@ -140,11 +143,11 @@ namespace LF2.Client{
                 throw new System.Exception($"One of the Spawns on action {stateData.StateType} does not have a SpecialFXGraphic component and can't be instantiated!");
             }
             // var rotation =  flip ?  Quaternion.Euler(new Vector3(0,180,0)) : origin.transform.rotation; 
-            var graphicsGO = GameObject.Instantiate(prefab, origin.transform.position + pivot, origin.transform.rotation, (parentToOrigin ? origin.transform : null));
+            var graphicsGO = GameObject.Instantiate(prefab, origin.transform.position + new Vector3(pivot.x*stateMachineFX.CoreMovement.GetFacingDirection(),pivot.y,pivot.z) ,origin.transform.rotation, (parentToOrigin ? origin.transform : null));
             return graphicsGO.GetComponent<SpecialFXGraphic>();
         }
 
-        protected void InstantiateFXGraphic(GameObject prefab, Transform origin,Vector3 pivot, bool parentToOrigin,StateType stateType)
+        protected void InstantiateFXGraphic(GameObject prefab, Transform origin,Vector3 pivot, bool parentToOrigin)
         {
             // if (prefab.GetComponent<SpecialFXGraphic>() == null)
             // {
@@ -154,8 +157,37 @@ namespace LF2.Client{
 
             var graphicsGO = GameObject.Instantiate(prefab, origin.transform.position + pivot, origin.transform.rotation, (parentToOrigin ? origin.transform : null));
         }
+
+        protected void InstantiateFXGraphic(SkillsDescription.SpawnsObject prefab, Transform origin,Vector3 pivot, bool parentToOrigin)
+        {
+            // if (prefab.GetComponent<SpecialFXGraphic>() == null)
+            // {
+            //     throw new System.Exception($"One of the Spawns on action {stateData.StateType} does not have a SpecialFXGraphic component and can't be instantiated!");
+            // }
+            // var rotation =  flip ?  Quaternion.Euler(new Vector3(0,180,0)) : origin.transform.rotation; 
+
+            var graphicsGO = GameObject.Instantiate(prefab._Object, origin.transform.position + pivot, origin.transform.rotation, (parentToOrigin ? origin.transform : null));
+        }
  
 
+        protected bool IsAnimationEnd()
+        {
+            if (stateMachineFX.m_ClientVisual.NormalAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.99f) {
+                return true;
+            }
+            return false;
+
+        }
+
+        public bool IsAnimating(string nameAnimation)
+        {
+            if (stateMachineFX.m_ClientVisual.NormalAnimator.GetCurrentAnimatorStateInfo(0).IsName(nameAnimation)) {
+                return true;
+            }
+            stateMachineFX.m_ClientVisual.NormalAnimator.Play(nameAnimation);
+            return false;
+
+        }
         public virtual void End()
         {
             stateMachineFX.idle();

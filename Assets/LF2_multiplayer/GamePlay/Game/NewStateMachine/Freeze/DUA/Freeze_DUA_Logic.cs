@@ -43,7 +43,7 @@ namespace LF2.Client
                     targetNetObj.ReceiveHP(Atk_data);
                     
                     if (ProjectileDamage[0].SoundHit.Length > 0 )PlayAudio(ProjectileDamage[0].SoundHit[0], transform.position);
-                    m_Started = false;
+                    CanMove = false;
                 
                 }
             }

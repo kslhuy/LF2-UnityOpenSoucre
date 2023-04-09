@@ -87,8 +87,9 @@ namespace LF2
         /// <summary>
         /// Teleports current interpolation value to targetValue.
         /// </summary>
-        public void ResetTo(T targetValue, double serverTime)
+        public void ResetTo(T targetValue, float serverTime)
         {
+            
             m_LifetimeConsumedCount = 1;
             m_InterpStartValue = targetValue;
             m_InterpEndValue = targetValue;
@@ -226,7 +227,7 @@ namespace LF2
         /// <summary>
         /// Add measurements to be used during interpolation. These will be buffered before being made available to be displayed as "latest value".
         /// </summary>
-        public void AddMeasurement(T newMeasurement, double sentTime)
+        public void AddMeasurement(T newMeasurement, float sentTime)
         {
             m_NbItemsReceivedThisFrame++;
 

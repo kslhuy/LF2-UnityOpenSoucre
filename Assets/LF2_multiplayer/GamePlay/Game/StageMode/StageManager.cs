@@ -16,23 +16,15 @@ public class StageManager : NetworkBehaviour
 
 
 
-    // [SerializeField]
-    // List<Transform> m_SpawnPositions_Right;
-
-    // [SerializeField] List<Transform> m_SpawnPositions_Test;
-    // [Tooltip("Each spawned enemy appears at one of the points in this list")]
-
     [SerializeField] SpwanPostion[] m_SpawnPositions_Left;
     [SerializeField] SpwanPostion[] m_SpawnPositions_Right;
 
     [SerializeField]
     [Tooltip("Enemy to spawn. Make sure this is included in the NetworkManager's list of prefabs!")]
     NetworkObject m_AIPrefab;
-    // [SerializeField] List<BotObject> m_NetworkedPrefabs;
     [SerializeField] AvatarRegistry avatarRegistry;
     [SerializeField] PersistentPlayerRuntimeCollection m_PersistentPlayerCollection;
 
-    [SerializeField] EventChannelSO EndGameEventPubliser;
 
 
     private PersistentPlayer m_persistentPlayer;
@@ -49,14 +41,12 @@ public class StageManager : NetworkBehaviour
     // int waveIndex;
 
     // a running tally of spawned entities, used in determining which spawn-point to use next
-    int m_SpawnedCount;
+
 
     // the currently-spawned entities. We only bother to track these if m_MaxActiveSpawns is non-zero
     List<NetworkObject> m_ActiveSpawnsPhase = new List<NetworkObject>();
 
-    // [Tooltip("Time between player distance & visibility scans, in seconds.")]
-    // public float m_PlayerProximityValidationTimestep = 2;
-
+    private float timerCheckGameOver;
     int m_PhaseIndex;
     private Coroutine m_PhaseSpwaning;
 
@@ -69,15 +59,11 @@ public class StageManager : NetworkBehaviour
 
 
     public bool Debug_SpawnWave_Active;
-// #endif 
+    private bool m_FinishGame;
 
-    [Serializable]
-    public class BotObject
-    {
-        // networked object that will be spawned in waves
-        public CharacterTypeEnum BotType;
-        public NetworkObject m_NetworkedPrefab;
-    }
+    // #endif 
+
+
 
     public override void OnNetworkSpawn()
     {
@@ -120,7 +106,6 @@ public class StageManager : NetworkBehaviour
 
     public override void OnNetworkDespawn()
     {
-        // if (lifeStateEventChannelSO != null) lifeStateEventChannelSO.LifeStateEvent_AI -= LifeStateChange;
         if (lifeStateEventChannelSO != null){
             lifeStateEventChannelSO.LifeStateEvent_AI -= OnLifeStateChangedEventMessage_NPC;
             lifeStateEventChannelSO.LifeStateEvent_Player -= OnLifeStateChangedEventMessage_Player;
@@ -152,19 +137,19 @@ public class StageManager : NetworkBehaviour
     }
 
     // wait for delay timer , to ensure bot destroy correctly after check 
-
+    // Not Work Yet 
     private IEnumerator CheckGameOverStoryMode(float delay)
     {
         yield return new WaitForSeconds(delay);
-        // Check , in the game ,  how many bot left  
+        // Check , in the game ,  how many bot left
+        // But is not a good way to check 
+        // Need to chance 
         m_ActiveSpawnsPhase.RemoveAll(spawnedNetworkObject => { return spawnedNetworkObject == null; });
-        if ((m_ActiveSpawnsPhase.Count == 0))
+        if ((m_ActiveSpawnsPhase.Count == 0 ) && m_PhaseIndex >= stageModeData.Phases.Count)
         {
-            if (m_PhaseIndex >= stageModeData.Phases.Count){
                 Debug.Log("EndGame CheckGameOverStoryMode function");
                 SetWinStateStoryMode(WinState.Win);
                 // EndGameEventPubliser.RaiseEvent();
-            }
         }
     }
 
@@ -180,14 +165,10 @@ public class StageManager : NetworkBehaviour
 
 
 
-    IEnumerator CallSpwanPhase_Coro(float delayBetweenPhases)
-    {
-
-        while (m_PhaseIndex < stageModeData.Phases.Count)
-        {
+    IEnumerator CallSpwanPhase_Coro(float delayBetweenPhases){
+        while (m_PhaseIndex < stageModeData.Phases.Count){
             Debug.Log($"New Phase  {m_PhaseIndex}");
-            if (Debug_SpawnWave_Active)
-            {
+            if (Debug_SpawnWave_Active){
                 // Check if current Phase is finish , 
                 // If yes , spwan new Phase 
                 if ((m_ActiveSpawnsPhase.Count == 0))
@@ -198,7 +179,7 @@ public class StageManager : NetworkBehaviour
                     {
                         m_SpawnPositions_Right[i].Position += stageModeData.Phases[m_PhaseIndex].BoundLimit;
                     }
-                    for (int i = 0; i < m_SpawnPositions_Right.Length; i++)
+                    for (int i = 0; i < m_SpawnPositions_Left.Length; i++)
                     {
                         m_SpawnPositions_Left[i].Position += 0.5f * stageModeData.Phases[m_PhaseIndex].BoundLimit;
                     }
@@ -212,6 +193,8 @@ public class StageManager : NetworkBehaviour
                         m_WaveSpawning = StartCoroutine(Waves(m_PhaseIndex));
                         yield return m_WaveSpawning;
                     }
+
+                    Debug.Log("Increment Phase number");
                     // Increment Phase number 
                     m_PhaseIndex++;
                 }
@@ -219,37 +202,38 @@ public class StageManager : NetworkBehaviour
             }
             yield return new WaitForSeconds(delayBetweenPhases);
 
-            // Clean the list that contain number of bot currenly active (alive) in a phase
-            if (Debug_SpawnWave_Active) 
-                m_ActiveSpawnsPhase.RemoveAll(spawnedNetworkObject => { return spawnedNetworkObject == null; });
         }
         
-        StartCoroutine(CallCheckEndStoryMode_Coro(delayBetweenPhases));
 
     }
 
-    IEnumerator CallCheckEndStoryMode_Coro(float delayBetweenPhases){
 
-        while (m_ActiveSpawnsPhase.Count != 0){
-            yield return new WaitForSeconds(delayBetweenPhases);
+    private void FixedUpdate() {
+        if  (Time.time - timerCheckGameOver > 5f){
+            if ( m_PhaseIndex >= stageModeData.Phases.Count  && !m_FinishGame && m_ActiveSpawnsPhase.Count == 0 ){
+                m_FinishGame = true;
+                SetWinStateStoryMode(WinState.Win);
+            }
+
+            // Clean the list that contain number of bot currenly active (alive) in a phase
+            if (Debug_SpawnWave_Active && !m_FinishGame ) 
+                m_ActiveSpawnsPhase.RemoveAll(spawnedNetworkObject => { return spawnedNetworkObject == null; });
         }
-        Debug.Log("EndGame CallCheckEndStoryMode_Coro function");
-        SetWinStateStoryMode(WinState.Win);
     }
-
 
     private void SetWinStateStoryMode(WinState winState){
-
+        Debug.Log( "Set Win State Story Mode ");
         foreach (ClientCharacterVisualization player in NbPlayer.GetPlayers()){
             PersistentPlayer persistentPlayer;
             // Debug.Log("player Owner ID server" + player.OwnerClientId);
-            // if (player.m_NetState.TryGetTeamType() != teamType_left){
                 
             m_PersistentPlayerCollection.TryGetPlayer(player.OwnerClientId , out persistentPlayer);
             persistentPlayer.SetWinState(winState);
-                // continue;
         }
-        EndGameEventPubliser.RaiseEvent();
+
+        Debug.Log("Raise EndGame Event ");
+        m_PersistentPlayerCollection.TryGetPlayer(NetworkManager.ServerClientId  , out PersistentPlayer persitentPlayer0);
+        persitentPlayer0.RaiseEndGameClientRPC();
 
 
     }
@@ -262,7 +246,7 @@ public class StageManager : NetworkBehaviour
     // Dont know much : 
     // May be when the all player died , Wave Still spwan 
     // So call that to Stop , 
-    // call when end Game 
+    // Also call when end Game  
     void StopWaveSpawning()
     {
         if (m_WaveSpawning != null)
@@ -285,20 +269,13 @@ public class StageManager : NetworkBehaviour
     /// <returns></returns>
     IEnumerator Waves(int phaseIndex)
     {
-
-        // int waveIndex = 0;
-
-        for (int waveIndex = 0 ; waveIndex < stageModeData.Phases[phaseIndex].spwanWaves.Count ; waveIndex++)
-        {
+        for (int waveIndex = 0 ; waveIndex < stageModeData.Phases[phaseIndex].spwanWaves.Count ; waveIndex++){
             Debug.Log($"Waves {waveIndex} of phaseIndex : {phaseIndex}");
 
             yield return SpawnWave(phaseIndex, waveIndex);
 
             yield return new WaitForSeconds(stageModeData.Phases[phaseIndex].m_TimeBetweenWaves);
-            // waveIndex++;
         }
-
-        // yield return new WaitForSeconds(stageModeData.Phases[phaseIndex].m_RestartDelay);
 
         m_WaveSpawning = null;
     }
@@ -320,12 +297,10 @@ public class StageManager : NetworkBehaviour
             if (stageModeData.Phases[phaseIndex].spwanWaves[waveIndex].m_SpawnLeft)
             {
                 posIdx = UnityEngine.Random.Range(0, m_SpawnPositions_Left.Length);
-                // posIdx = m_SpawnedCount++ % m_SpawnPositions_Left.Length;
             }
             else
             {
                 posIdx = UnityEngine.Random.Range(0, m_SpawnPositions_Right.Length);
-                // posIdx = m_SpawnedCount++ % m_SpawnPositions_Right.Length;
             }
             // Debug.Log($"Phase : {phaseIndex} -> SpwanWave : {waveIndex} -> Bot type : {stageModeData.Phases[phaseIndex].spwanWaves[waveIndex].waveInfo.BotType}"  );
 
@@ -334,9 +309,9 @@ public class StageManager : NetworkBehaviour
                                      Quaternion.identity);
 
             m_ActiveSpawnsPhase.Add(newSpawn);
-
+            
             yield return new WaitForSeconds(stageModeData.Phases[phaseIndex].m_TimeBetweenSpawns);
-            // waveIndex++;
+
         }
 
     }
@@ -350,12 +325,6 @@ public class StageManager : NetworkBehaviour
     /// </summary>
     NetworkObject SpawnPrefab(CharacterTypeEnum characterType, Vector3 position, Quaternion rotation)
     {
-        // var botNetworkObject = NetworkManager.Singleton.SpawnManager.GetLocalPlayerObject();
-
-        // var persistentPlayerExists = m_AIPrefab.TryGetComponent(out PersistentPlayer persistentPlayer);
-        // Assert.IsTrue(persistentPlayerExists,
-        //     $"Matching persistent PersistentPlayer for Bot not found!");
-
         // Find a spawn point 
         // Instaite a Bot Object
         var newBOT = Instantiate(m_AIPrefab);
@@ -373,26 +342,25 @@ public class StageManager : NetworkBehaviour
         Assert.IsTrue(networkAvatarGuidStateExists,
             $"NetworkCharacterGuidState not found on player avatar!");
 
-        LF2.Avatar _botavatarValue;
-        avatarRegistry.TryGetAvatar(characterType, out _botavatarValue);
-        networkAvatarGuidState.RegisterAvatar(_botavatarValue);
+        // LF2.Avatar _botavatarValue;
+        // avatarRegistry.TryGetAvatar(characterType, out _botavatarValue);
+        // networkAvatarGuidState.RegisterAvatar(_botavatarValue);
+        networkAvatarGuidState.AvatarType.Value = characterType;
 
         // pass name , team type from persistent player to avatar
         if (newBOT.TryGetComponent(out NetworkNameState networkNameState))
         {
-            networkNameState.Name.Value = _botavatarValue.CharacterClass.CharacterType.ToString();
+            networkNameState.Name.Value = characterType.ToString();
             networkNameState.Team.Value = TeamType.COM;
         }
-
     
-        // newBOT.SpawnWithOwnership(NetworkManager.Singleton.LocalClientId, true);
         newBOT.Spawn( true);
 
         return newBOT;
     }
 
 
-            // Every time a player's life state changes we check to see if game is over
+    // Every time a player's life state changes we check to see if game is over
     void OnLifeStateChangedEventMessage_NPC(LifeState lifeState)
     {
 
@@ -404,9 +372,7 @@ public class StageManager : NetworkBehaviour
                 StartCoroutine(CheckGameOverStoryMode(2f));
             } 
         }
-        
-        // CheckGameOverStageMode(true);
-        
+                
     }
 
     // Make sur this event triger when one character died
@@ -428,11 +394,8 @@ public class StageManager : NetworkBehaviour
             StopWaveSpawning();
             Debug.Log("EndGame OnLifeStateChangedEventMessage_Player function");
             SetWinStateStoryMode(WinState.Loss);
-            // EndGameEventPubliser.RaiseEvent();
-            // StartCoroutine(CheckGameOverStoryMode(2f));
-        
+
         }
-        // CheckGameOverStageMode(false);
         
         
     }
@@ -451,12 +414,13 @@ public class StageManager : NetworkBehaviour
         List<TeamType> listTeamNow = new List<TeamType>();
         int i = 0;
 
-        // FiXBug : here we may be can't check Bot 
+        // TODO FiXBug : 2 player With the same Team Type  (Independant + Independant) still End the game
+
         // Check the life state of all characters ( Player and Bot ) in the scene
         foreach (var serverCharacter in PlayerServerCharacter.GetPlayerServerCharacters())
         {
-            // Because a BOT will destroyed when died , ( Player Not ) 
-            // so they dont have Component NetStat , that reasone why we check NetState first
+            // Because a BOT will destroyed when died after few seconds , ( Player Not ) 
+            // so they  dont have Component NetStat  , that reasone why we check NetState first
             if (serverCharacter.NetState && serverCharacter.NetState.LifeState == LifeState.Alive)
             {
                 i++;
@@ -502,7 +466,8 @@ public class StageManager : NetworkBehaviour
         // TODO : trigger event for ServerLF2State to End the game
         Debug.Log("EndGame Vesus Mode function");
 
-        EndGameEventPubliser.RaiseEvent();
+        m_PersistentPlayerCollection.TryGetPlayer(NetworkManager.ServerClientId  , out PersistentPlayer persitentPlayer0);
+        persitentPlayer0.RaiseEndGameClientRPC();
 
 
     }
@@ -512,26 +477,5 @@ public class StageManager : NetworkBehaviour
 
 
 
-
-
-
-    // // / <summary>
-    // // / Returns the current max number of entities we should try to maintain.
-    // // / This can change based on the current number of living players; if the cap goes below
-    // // / our current number of active spawns, we don't spawn anything new until we're below the cap.
-    // // / </summary>
-    // int GetCurrentSpawnCap()
-    // {
-    //     int numPlayers = 0;
-    //     foreach (var clientCharacter in NbPlayer.GetCharacter())
-    //     {
-    //         if (clientCharacter.m_NetState.LifeState == LifeState.Alive)
-    //         {
-    //             ++numPlayers;
-    //         }
-    //     }
-
-    //     return Mathf.CeilToInt(Mathf.Min(stageModeData.m_MinSpawnCap + (numPlayers * stageModeData.m_SpawnCapIncreasePerPlayer), stageModeData.m_MaxSpawnCap));
-    // }
 
 }

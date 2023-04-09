@@ -8,8 +8,15 @@ namespace LF2.Client{
         public override void Execute(AIBrain npc)
         {
             Vector2 dir = new Vector2(npc.variables.xdistance , npc.variables.zdistance).normalized;
+            dir = npc.Self.coreMovement.SenseCheck(dir);
             // Debug.Log( dir); 
             npc.ActionMoveInputEvent?.Invoke(dir.x , dir.y);        
+            
+
+            
+        
         }
+
+        
     }
 }

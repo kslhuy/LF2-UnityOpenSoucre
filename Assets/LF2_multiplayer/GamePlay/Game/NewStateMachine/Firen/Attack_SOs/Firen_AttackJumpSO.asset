@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   StateType: 9
   Logic: 1
+  NextStateLogicSO: []
   UseMana: 0
   ManaCost: 0
   DamageDetails:
@@ -28,7 +29,8 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   Projectiles: []
-  DurationSeconds: 0
+  DurationSeconds: 0.333
+  Duration: 20
   expirable: 0
   ReuseTimeSeconds: 0
   ActionInterruptible: 0
@@ -37,10 +39,9 @@ MonoBehaviour:
   Start_Sounds: []
   SpawnsFX: []
   frameChecker:
-    hitFrameStart: 0
-    hitFrameEnd: 0
-    returnFrame:
-      FrameToReturn: 0
-      ReturnToFrame: 0
+    clip: {fileID: 0}
     totalFrames: 0
+    arest: 0
+    vrest: 0
+    _frameStruct: []
     layerNumber: 0

@@ -44,6 +44,7 @@ namespace LF2.Client{
 // // Dam xoay len troi 
         public override void PlayAnim(int nbAniamtion = 1 , bool sequence = false)
         {
+            stateMachineFX.CoreMovement.CustomJump(stateData.Dy, stateData.Dx);
             base.PlayAnim();
             stateMachineFX.m_ClientVisual.NormalAnimator.Play(stateMachineFX.m_ClientVisual.VizAnimation.a_DUJ_1);
             stateMachineFX.m_ClientVisual.PlayAudio(stateData.Sounds);
@@ -57,7 +58,6 @@ namespace LF2.Client{
             if (stateMachineFX.m_ClientVisual.Owner) {
                 stateMachineFX.m_ClientVisual.m_NetState.AddPredictState_and_SyncServerRpc(GetId());
             }
-            stateMachineFX.CoreMovement.CustomJump(stateData.Dy, stateData.Dx);
             PlayAnim(nbanim , sequence);
         }
 

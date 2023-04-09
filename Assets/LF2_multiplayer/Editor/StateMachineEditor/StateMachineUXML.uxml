@@ -10,6 +10,6 @@
     </ui:VisualElement>
     <ui:VisualElement style="align-items: auto; flex-direction: row; justify-content: space-between;">
         <ui:Label tabindex="-1" text="dqsdqsdqsdqsdq" display-tooltip-when-elided="true" name="Avertissement" />
-        <ui:Button text="Button" display-tooltip-when-elided="true" />
+        <ui:Button text="Button" display-tooltip-when-elided="true" name="button_test" />
     </ui:VisualElement>
 </ui:UXML>

@@ -25,7 +25,7 @@ namespace LF2
                         m_CharacterClass = m_State.RegisteredAvatar.CharacterClass;
                         // Debug.Log(m_CharacterClass);
                     }else{
-                        // Debug.Log("NPCs");
+                        // Debug.Log("get CharacterClass");
                         // Debug.Log(gameObject.layer +" != "+ LayerMask.NameToLayer("PCs"));
 
                         m_CharacterClass = m_State.RegisteredAvatar.CharacterClassNPC;
@@ -44,8 +44,11 @@ namespace LF2
             // Debug.Log(m_State);
         }
 
+        // set only in Server side 
+        // so if want to work propety need to set NetworkVaribale also 
         public void SetCharacterClass(CharacterClass characterClass)
         {
+            // Debug.Log("Set already");
             m_CharacterClass = characterClass;
             // Debug.Log(m_CharacterClass);
         }

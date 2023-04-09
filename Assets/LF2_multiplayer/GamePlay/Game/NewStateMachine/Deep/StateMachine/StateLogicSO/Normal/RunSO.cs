@@ -16,7 +16,6 @@ namespace LF2.Client{
     public class RunLogic : StateActionLogic
     {
         // private bool flip;
-        private List<SpecialFXGraphic> m_SpawnedGraphics = null;
         private float startTime;
         
         public override void Awake(StateMachineNew stateMachine)
@@ -24,19 +23,18 @@ namespace LF2.Client{
             stateMachineFX = stateMachine;
         }
 
-         public override bool ShouldAnticipate(ref InputPackage requestData)
-        {
-            if (requestData.StateTypeEnum == StateType.Jump){
+         public override bool ShouldAnticipate(ref StateType requestData)        {
+            if (requestData == StateType.Jump){
                 stateMachineFX.nbJump += 1 ; 
                 stateMachineFX.AnticipateState(StateType.DoubleJump);
                 return true;
 
             }
-            else if (requestData.StateTypeEnum == StateType.Defense){
+            else if (requestData == StateType.Defense){
                 stateMachineFX.AnticipateState(StateType.Rolling);
                 return true;
             }
-            else if (requestData.StateTypeEnum == StateType.Attack)
+            else if (requestData is StateType.Attack or StateType.Attack2)
             {
                 stateMachineFX.AnticipateState(StateType.AttackRun);
                 return true;
@@ -115,7 +113,7 @@ namespace LF2.Client{
                     var pf = stateData.SpawnsFX[0];
                     Vector3 pivot = new Vector3(pf.pivot.x*stateMachineFX.CoreMovement.GetFacingDirection() ,pf.pivot.y,pf.pivot.z );
 
-                    InstantiateFXGraphic(pf._Object, stateMachineFX.CoreMovement.transform,pivot, true, GetId()); 
+                    InstantiateFXGraphic(pf._Object, stateMachineFX.CoreMovement.transform,pivot, true); 
                     // startTime = Time.time;
 
                 }

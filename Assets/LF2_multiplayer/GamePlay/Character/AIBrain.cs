@@ -22,7 +22,7 @@ namespace LF2.Client
         // Event Send to ClientCharacterVisualiztion
         public Action<float, float> ActionMoveInputEvent { get; internal set; }
 
-        public Action<InputPackage> ActionInputEvent { get; internal set; }
+        public Action<StateType> ActionInputEvent { get; internal set; }
         public Action<StateType> PerformStateEvent { get; internal set; }
 
         private bool CollectEnemy ;
@@ -40,6 +40,10 @@ namespace LF2.Client
         private List<ClientCharacterVisualization> m_HatedEnemies= new List<ClientCharacterVisualization>();
 
         private Transform self_transform;
+
+        [SerializeField] Transform m_SenseTf;
+
+        private int m_ExtendCheckBord;
 
         
 
@@ -66,6 +70,9 @@ namespace LF2.Client
         [Tooltip("If one enemy (PCs) is below this theshorld , so play mode chase enemy lowest HP ")]
         private int LowHP_Threshold = 250;
         [SerializeField] [Range(1,3)] private int _MethodeChoseFoe = 1;
+
+
+
 
 
 
@@ -111,11 +118,13 @@ namespace LF2.Client
 
             stateActionAI_SO = Self.m_NetState.CharacterClass.StateAI ;
             timerCollectEnemy = Time.time; 
+
+
         }
 
         private void ToggleAIBrain(bool toggle)
         {
-            m_BrainEnabled = toggle;
+            m_BrainEnabled = !m_BrainEnabled;
         }
 
         private void Update() {
@@ -272,7 +281,7 @@ namespace LF2.Client
     
         public void Do(StateType state)
         {
-            if (CheckReusable(state)) {
+            if (IsReusable(state)) {
                 SendInput(state);
                 m_LastUsedTimestamps[state] = Time.time;
             }
@@ -280,7 +289,7 @@ namespace LF2.Client
 
         }
 
-        private bool CheckReusable( StateType state){
+        public bool IsReusable( StateType state){
             var _stateQueue = Self.MStateMachinePlayerViz.GetState(state);
             float reuseTime = _stateQueue.stateData.ReuseTimeSeconds;
 
@@ -295,11 +304,11 @@ namespace LF2.Client
         }
 
         public void PerformStateDirect(StateType state){
-            if (CheckReusable(state)) {
-                PerformStateEvent?.Invoke(state);
-                // SendInput(state);
-                m_LastUsedTimestamps[state] = Time.time;
-            }
+            // if (IsReusable(state)) {
+            // }
+            PerformStateEvent?.Invoke(state);
+            // SendInput(state);
+            m_LastUsedTimestamps[state] = Time.time;
         }
 
         // NEed to split it out => Do it in separate Action State (A_Attack1 , A_Attack2 , etc ..  )
@@ -308,18 +317,11 @@ namespace LF2.Client
             if (state == StateType.Attack)
             {
                 int nbAimation = UnityEngine.Random.Range(1, 3);
-                ActionInputEvent?.Invoke(new InputPackage
-                {
-                    StateTypeEnum = state,
-                    NbAnimation = (byte)nbAimation,
-                });
+                ActionInputEvent?.Invoke(state);
             }
             else
             {
-                ActionInputEvent?.Invoke(new InputPackage
-                {
-                    StateTypeEnum = state,
-                });
+                ActionInputEvent?.Invoke(state);
 
             }
         }
@@ -493,7 +495,10 @@ namespace LF2.Client
         
 #endregion
 
+    
 
+#region CalculAIPoint
+    
 
         // Loop Throgh all the availlable actions
         // Give me the highest scoring action
@@ -576,6 +581,7 @@ namespace LF2.Client
         }
 
         // Debug Only
+        // if Diable all Action , So the return always is the first action of Move (see in AI editor) 
         public StateAction DecideBestMove(StateActionDebug[] actions ){
             float score = 0f;
             int nextBestActionIndex = 0;
@@ -622,6 +628,7 @@ namespace LF2.Client
 #endif
             int counterNbSubConsideration = 0;  
             for (int c = 0 ; c < totalConsideraion ; c++){
+                if (!IsReusable(action.TypeName)) return action.Score = 0;
                 if (action.considerations[c].isSubConsideration){
                     counterNbSubConsideration++ ;
                     score_Sup += action.considerations[c].ScoreConsideration(this);
@@ -659,6 +666,7 @@ namespace LF2.Client
             return originalScore + (makeupValue * originalScore);
         } 
 
+#endregion
 
 //                 // Loop throgh all the considerations of the action 
 //         // Score all the consideration 

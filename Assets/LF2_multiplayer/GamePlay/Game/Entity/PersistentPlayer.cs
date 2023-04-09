@@ -32,11 +32,6 @@ namespace LF2
 
         public GameMode gameMode;
 
-        // [field:SerializeField] public WinState WinState { get; private set; }
-
-
-        // [SerializeField] PersistentWinStateRuntimeCollection persistentWinStateRuntimeCollection;
-
 
         
         [SerializeField]
@@ -45,18 +40,14 @@ namespace LF2
         [SerializeField]
         NetworkAvatarGuidState m_NetworkAvatarGuidState;
 
-        // NetworkManager.Singleton.LocalClientId
+        [SerializeField] EventChannelSO EndGameEventPubliser;
 
-        // [SerializeField]
-        // NetworkBackGroundGuidState m_NetworkBackGroundGuidState;
 
 
         public NetworkNameState NetworkNameState => m_NetworkNameState;
 
         public NetworkAvatarGuidState NetworkAvatarGuidState => m_NetworkAvatarGuidState;
-        // public NetworkBackGroundGuidState NetworkBackGroundGuidState => m_NetworkBackGroundGuidState;
 
-        // [SerializeField] LifeStateEventChannelSO lifeStateEventChannelSO;
         public NetworkVariable<WinState> GameWinState = new NetworkVariable<WinState>();
 
         void Awake()
@@ -84,7 +75,7 @@ namespace LF2
                     m_NetworkNameState.Name.Value = sessionPlayerData.Value.PlayerName;
                     // Debug.Log("sessionPlayerData Name :" + sessionPlayerData.Value.PlayerName);
                     m_NetworkNameState.Team.Value = sessionPlayerData.Value.PlayerTeam;
-                    m_NetworkAvatarGuidState.AvatarGuid.Value = sessionPlayerData.Value.AvatarNetworkGuid;
+                    // m_NetworkAvatarGuidState.AvatarType.Value = sessionPlayerData.Value.AvatarNetworkGuid.;
                 }
             }
             if (IsOwner){
@@ -119,6 +110,12 @@ namespace LF2
             GameWinState.Value = winState; // 
         }
 
+        [ClientRpc]
+        public void RaiseEndGameClientRPC(){
+            EndGameEventPubliser.RaiseEvent();
+
+        }
+
         public void Reset()
         {
             LifeState = LifeState.Alive;
@@ -146,7 +143,7 @@ namespace LF2
                     var playerData = sessionPlayerData.Value;
                     playerData.PlayerName = m_NetworkNameState.Name.Value;
                     // playerData.PlayerTeam = m_NetworkNameState.Team.Value;
-                    playerData.AvatarNetworkGuid = m_NetworkAvatarGuidState.AvatarGuid.Value;
+                    // playerData.AvatarNetworkGuid = m_NetworkAvatarGuidState.AvatarType.Value;
                     SessionManager<SessionPlayerData>.Instance.SetPlayerData(OwnerClientId, playerData);
                 }
             }

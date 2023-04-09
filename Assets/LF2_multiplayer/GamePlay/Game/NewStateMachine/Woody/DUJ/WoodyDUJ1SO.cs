@@ -12,8 +12,10 @@ namespace LF2.Client{
     }
 
 // fly_crash 
-    public class WoodyDUJ1Logic : StateActionLogic
+    public class WoodyDUJ1Logic : MeleLogic
     {
+
+        AttackDataSend Atk_data;
 
         public override void Awake(StateMachineNew stateMachine)
         {
@@ -69,10 +71,26 @@ namespace LF2.Client{
         public override void OnAnimEvent(int id)
         {
 
-            if (id == 0)  stateMachineFX.CoreMovement.CustomJump(stateData.Dy , stateData.Dx , 0 ,stateMachineFX.InputZ );
+            if (id == 0)  stateMachineFX.CoreMovement.CustomJump(stateData.Dy , stateData.Dx , stateMachineFX.CoreMovement.GetFacingDirection() ,stateMachineFX.InputZ );
             else if (id == 100) stateMachineFX.m_ClientVisual.PlayAudio(stateData.Start_Sounds[0]);
             else if (id == 101) stateMachineFX.m_ClientVisual.PlayAudio(stateData.Start_Sounds[1]);
         }
+
+        public override void AddCollider(Collider collider)
+        {
+            base.AddCollider(collider);
+            // IHurtBox damagable = collider.GetComponentInParent<IHurtBox>();
+            // if (damagable != null)
+            // {
+            //     Atk_data.Amount_injury = stateData.DamageDetails[0].damageAmount;
+            //     Atk_data.Direction = new Vector3(stateData.DamageDetails[0].Dirxyz.x * stateMachineFX.CoreMovement.GetFacingDirection(), stateData.DamageDetails[0].Dirxyz.y, stateData.DamageDetails[0].Dirxyz.z);
+            //     Atk_data.BDefense_p = stateData.DamageDetails[0].Bdefend;
+            //     Atk_data.Fall_p = stateData.DamageDetails[0].fall;
+            //     Atk_data.Effect = (byte)stateData.DamageDetails[0].Effect;
+            //     _Listdamagable.Add(damagable);
+            // }
+        }
+
 
     }
 

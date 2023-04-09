@@ -14,24 +14,35 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   StateType: 40
   Logic: 3
-  UseMana: 1
-  ManaCost: -75
+  NextStateLogicSO: []
+  ManaCost: 50
   DamageDetails:
   - {fileID: 11400000, guid: 4b54e4bd1d63d1645b38039d05ee14b8, type: 2}
   Dx: 15
   Dy: 0
   Dz: 0
+  curve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   Projectiles: []
   DurationSeconds: 0.6
+  Duration: 36
   expirable: 1
   ReuseTimeSeconds: 0
   ActionInterruptible: 0
   Sounds: {fileID: 11400000, guid: 2446551300a2315499c976a27afd6177, type: 2}
   delayLoopSound: 0
   Start_Sounds: []
-  vizAnim:
-  - AnimNames: DUA_2_anim
-    AnimHashId: -911551165
   SpawnsFX:
   - _Object: {fileID: 3526290567721581141, guid: 4db002a752d0d224a8c1bdd5e34cd63f, type: 3}
     pivot: {x: 0, y: 50, z: 0}
+  frameChecker:
+    clip: {fileID: 0}
+    totalFrames: 0
+    arest: 0
+    vrest: 0
+    _frameStruct: []
+    layerNumber: 0

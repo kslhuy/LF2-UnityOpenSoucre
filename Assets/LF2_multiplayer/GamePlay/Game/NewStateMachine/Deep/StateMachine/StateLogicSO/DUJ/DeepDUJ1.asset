@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   StateType: 36
   Logic: 3
-  UseMana: 0
-  ManaCost: 0
+  NextStateLogicSO: []
+  ManaCost: 200
   DamageDetails:
   - {fileID: 11400000, guid: a4c1f8af89efd8a4fb8539efca0bb0be, type: 2}
   Dx: 100

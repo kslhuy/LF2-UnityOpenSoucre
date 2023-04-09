@@ -49,6 +49,7 @@ namespace LF2.Client{
 
         public override void PlayAnim( int nbanim = 1 , bool sequence = false)
         {
+            stateMachineFX.m_ClientVisual.SetHitBox(false);
 
             base.PlayAnim();
             // Debug.Log("play");

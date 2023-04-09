@@ -20,16 +20,16 @@ namespace LF2.Client{
             stateMachineFX = stateMachine;
         }
 
-       public override bool ShouldAnticipate(ref InputPackage data)
+       public override bool ShouldAnticipate(ref StateType data)
         {
-            if (data.StateTypeEnum == StateType.Jump && stateMachineFX.nbJump == 0 ){
+            if (data == StateType.Jump && stateMachineFX.nbJump == 0 ){
                 stateMachineFX.nbJump += 1 ; 
                 stateMachineFX.CoreMovement.SetDoubleJump(stateMachineFX.InputX , stateMachineFX.InputZ);
                 stateMachineFX.CoreMovement.CheckIfShouldFlip((int)stateMachineFX.InputX);
                 stateMachineFX.AnticipateState(StateType.DoubleJump);
                 return true;
             }
-            if (data.StateTypeEnum == StateType.Defense){
+            if (data == StateType.Defense){
                 stateMachineFX.AnticipateState(StateType.Rolling);
             }
             return false;

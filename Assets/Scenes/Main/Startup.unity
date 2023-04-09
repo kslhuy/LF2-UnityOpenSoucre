@@ -186,17 +186,6 @@ PrefabInstance:
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: a886ff0fdc9744d7f9c49444bd8cff7f, type: 3}
---- !u!114 &90211843 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4856421738389065051, guid: dc0b581fedf80664cbb292c656417dfc, type: 3}
-  m_PrefabInstance: {fileID: 573165395}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &228659053
 GameObject:
   m_ObjectHideFlags: 0
@@ -359,21 +348,9 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 970083949}
     - target: {fileID: 573165397, guid: dc0b581fedf80664cbb292c656417dfc, type: 3}
-      propertyPath: m_OtherPlayerNamesTexts.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 573165397, guid: dc0b581fedf80664cbb292c656417dfc, type: 3}
-      propertyPath: m_OtherPlayerNamesTexts.Array.data[1]
+      propertyPath: m_OtherPlayersProgressBars.Array.data[4]
       value: 
-      objectReference: {fileID: 595370541}
-    - target: {fileID: 573165397, guid: dc0b581fedf80664cbb292c656417dfc, type: 3}
-      propertyPath: m_OtherPlayersProgressBars.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 573165397, guid: dc0b581fedf80664cbb292c656417dfc, type: 3}
-      propertyPath: m_OtherPlayersProgressBars.Array.data[1]
-      value: 
-      objectReference: {fileID: 90211843}
+      objectReference: {fileID: 1164314157}
     - target: {fileID: 948382310089859896, guid: dc0b581fedf80664cbb292c656417dfc, type: 3}
       propertyPath: m_Name
       value: LoadingScreen
@@ -502,17 +479,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a8a772721fe6d7d4fbab713e223ec7e9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &595370541 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7181139381873902389, guid: dc0b581fedf80664cbb292c656417dfc, type: 3}
-  m_PrefabInstance: {fileID: 573165395}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &676739760
@@ -1217,6 +1183,17 @@ MonoBehaviour:
     PacketDelayMS: 0
     PacketJitterMS: 0
     PacketDropRate: 0
+--- !u!114 &1164314157 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4521164827095775794, guid: dc0b581fedf80664cbb292c656417dfc, type: 3}
+  m_PrefabInstance: {fileID: 573165395}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1195804911
 GameObject:
   m_ObjectHideFlags: 0
@@ -1629,15 +1606,15 @@ PrefabInstance:
     - target: {fileID: 7481482793067872686, guid: 1c48a030e68b6154dab0f5aae564ea41, type: 3}
       propertyPath: m_CharacterStateSOs.Array.data[0]
       value: 
-      objectReference: {fileID: 11400000, guid: 125334c544ac912418ff021ae999f08d, type: 2}
+      objectReference: {fileID: 11400000, guid: ac6e22767e25de541bb0e9d6693e3e30, type: 2}
     - target: {fileID: 7481482793067872686, guid: 1c48a030e68b6154dab0f5aae564ea41, type: 3}
       propertyPath: m_CharacterStateSOs.Array.data[1]
       value: 
-      objectReference: {fileID: 11400000, guid: dbd69427aa1c5b349bb527fb2445a6d2, type: 2}
+      objectReference: {fileID: 11400000, guid: 125334c544ac912418ff021ae999f08d, type: 2}
     - target: {fileID: 7481482793067872686, guid: 1c48a030e68b6154dab0f5aae564ea41, type: 3}
       propertyPath: m_CharacterStateSOs.Array.data[2]
       value: 
-      objectReference: {fileID: 11400000, guid: ac6e22767e25de541bb0e9d6693e3e30, type: 2}
+      objectReference: {fileID: 11400000, guid: dbd69427aa1c5b349bb527fb2445a6d2, type: 2}
     - target: {fileID: 7481482793067872686, guid: 1c48a030e68b6154dab0f5aae564ea41, type: 3}
       propertyPath: m_CharacterStateSOs.Array.data[3]
       value: 

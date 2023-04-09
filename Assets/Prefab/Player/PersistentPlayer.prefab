@@ -61,6 +61,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f156150d8f0802e4eae4de97e12eca31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AvatarType:
+    m_InternalValue: 0
   m_AvatarRegistry: {fileID: 11400000, guid: cd92c35a99fc45748b8c2d6c8259f45e, type: 2}
 --- !u!114 &8023896976046165540
 MonoBehaviour:
@@ -94,7 +96,9 @@ MonoBehaviour:
   m_PersistentBOTRuntimeCollection: {fileID: 11400000, guid: 7fbb79751fb7c834eb6ca7b335f0ab61, type: 2}
   PersistentBackGround: {fileID: 11400000, guid: a4f0fae3c5dfb5a498ce0a9172bddcde, type: 2}
   ownerClientID: {fileID: 11400000, guid: 44d94fe8baecc19488e123c58d7a2812, type: 2}
+  gameMode: 0
   m_NetworkNameState: {fileID: 3231833055606599433}
   m_NetworkAvatarGuidState: {fileID: 3348652876444193386}
+  EndGameEventPubliser: {fileID: 11400000, guid: da7595508afd2ab4592dcd1d81954c57, type: 2}
   GameWinState:
     m_InternalValue: 0

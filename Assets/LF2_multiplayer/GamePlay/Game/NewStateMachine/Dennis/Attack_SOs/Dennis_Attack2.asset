@@ -14,11 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   StateType: 17
   Logic: 1
+  NextStateLogicSO: []
   UseMana: 0
   ManaCost: 0
   DamageDetails:
   - {fileID: 11400000, guid: 9cf39699c4d20f940a57b65405ae2845, type: 2}
-  Interactions: []
   Dx: 0
   Dy: 0
   Dz: 0
@@ -30,6 +30,7 @@ MonoBehaviour:
     m_RotationOrder: 4
   Projectiles: []
   DurationSeconds: 0.333
+  Duration: 20
   expirable: 1
   ReuseTimeSeconds: 0
   ActionInterruptible: 0
@@ -37,7 +38,7 @@ MonoBehaviour:
   delayLoopSound: 0
   Start_Sounds: []
   SpawnsFX:
-  - _Object: {fileID: 3176774311174098334, guid: 0fb6670d298629b40ae143430ef64b22, type: 3}
+  - _Object: {fileID: 3176774311174098334, guid: ba81269cf115a4742ba61dc0d72ecc13, type: 3}
     pivot: {x: 0, y: 0, z: 0}
   frameChecker:
     clip: {fileID: 0}

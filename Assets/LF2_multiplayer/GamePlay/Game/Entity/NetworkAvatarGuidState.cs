@@ -15,7 +15,7 @@ namespace LF2
         [HideInInspector]
         // Use full , for save GUID and Use in between scene 
         //  From that GUID , we can extrait data from SessionPlayerData 
-        public NetworkVariable<NetworkGuid> AvatarGuid = new NetworkVariable<NetworkGuid>();        
+        public NetworkVariable<CharacterTypeEnum> AvatarType = new NetworkVariable<CharacterTypeEnum>();        
             
 
         CharacterClassContainer m_CharacterClassContainer;
@@ -32,7 +32,7 @@ namespace LF2
                 if (m_Avatar == null)
                 {
 
-                    RegisterAvatar(AvatarGuid.Value.ToGuid());
+                    RegisterAvatar(AvatarType.Value);
                 }
 
                 return m_Avatar;
@@ -57,6 +57,29 @@ namespace LF2
 
             // based on the Guid received, Avatar is fetched from AvatarRegistry
             if (!m_AvatarRegistry.TryGetAvatar(guid, out Avatar avatar))
+            {
+                Debug.LogError("Avatar not found!");
+                return;
+            }
+
+            if (m_Avatar != null)
+            {
+                // already set, this is an idempotent call, we don't want to Instantiate twice
+                return;
+            }
+            // Debug.Log("avatar NetWorkdGuidState" + avatar);
+            m_Avatar = avatar;
+            if (gameObject.layer == LayerMask.NameToLayer("PCs"))   m_CharacterClassContainer.SetCharacterClass(avatar.CharacterClass);
+            else m_CharacterClassContainer.SetCharacterClass(avatar.CharacterClassNPC);
+        }
+
+        public void RegisterAvatar(CharacterTypeEnum characterType)
+        {
+            // Debug.Log("RegisteredAvatar");
+
+
+            // based on the Guid received, Avatar is fetched from AvatarRegistry
+            if (!m_AvatarRegistry.TryGetAvatar(characterType, out Avatar avatar))
             {
                 Debug.LogError("Avatar not found!");
                 return;

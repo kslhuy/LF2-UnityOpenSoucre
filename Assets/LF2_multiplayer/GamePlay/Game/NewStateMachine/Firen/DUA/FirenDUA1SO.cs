@@ -23,9 +23,8 @@ namespace LF2.Client{
             stateMachineFX = stateMachine;
         }
 
-        public override bool ShouldAnticipate(ref InputPackage requestData)
-        {
-            if (requestData.StateTypeEnum.Equals(StateType.Defense) ){
+        public override bool ShouldAnticipate(ref StateType requestData)        {
+            if (requestData.Equals(StateType.Defense) ){
                 specialFX.ShutDownSlow();
                 stateMachineFX.idle();
             }

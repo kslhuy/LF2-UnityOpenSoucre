@@ -14,10 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   StateType: 8
   Logic: 1
-  UseMana: 1
-  ManaCost: -12
+  NextStateLogicSO: []
+  ManaCost: 12
   DamageDetails: []
-  Interactions: []
   Dx: 0
   Dy: 0
   Dz: 0
@@ -30,9 +29,10 @@ MonoBehaviour:
   Projectiles:
   - ProjectilePrefab: {fileID: 4477627029082403580, guid: 272adf7066160184a983b3c644f0e6cd, type: 3}
     pivot: {x: 48, y: 50, z: 0}
-  DurationSeconds: 0.4
+  DurationSeconds: 0.5
+  Duration: 30
   expirable: 1
-  ReuseTimeSeconds: 0
+  ReuseTimeSeconds: 0.4
   ActionInterruptible: 0
   Sounds: {fileID: 11400000, guid: 6526dae477648f549b73c00e20eda240, type: 2}
   delayLoopSound: 0

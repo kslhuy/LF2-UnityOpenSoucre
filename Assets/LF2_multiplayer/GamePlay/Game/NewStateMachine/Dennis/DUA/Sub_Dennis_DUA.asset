@@ -12,14 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2eb2663c5ade5549bd2b0822f6a4bbe, type: 3}
   m_Name: Sub_Dennis_DUA
   m_EditorClassIdentifier: 
-  m_AnimationName: 
   damageAmount: 20
   Effect: 0
-  fall: 0
-  Bdefend: 0
+  fall: 20
+  Bdefend: 20
   arest: 0
-  vrest: 0
-  Dirxyz: {x: 0, y: 0, z: 0}
+  vrest: 12
+  Dirxyz: {x: 50, y: 0, z: 0}
   durration: 0
   SoundHit: []
-  AnimationNameHash: 0

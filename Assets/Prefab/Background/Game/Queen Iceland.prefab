@@ -1360,16 +1360,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f75d72a44dc244e4c87958505d505824, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stageModeData: {fileID: 0}
-  Tf_BordRight: {fileID: 0}
-  m_SpawnPositions_Left: []
-  m_SpawnPositions_Right: []
+  stageModeData: {fileID: 11400000, guid: 00e7b6f73d6a49444a3bf4691cf9cfd0, type: 2}
+  Tf_BordRight: {fileID: 7487212323310561157}
+  m_SpawnPositions_Left:
+  - m_Transform: {fileID: 8035751102908870659}
+  - m_Transform: {fileID: 4986821951543415277}
+  m_SpawnPositions_Right:
+  - m_Transform: {fileID: 5680595037893798411}
+  - m_Transform: {fileID: 486590973282806713}
   m_AIPrefab: {fileID: 6930547048514179167, guid: 291667ebdc9681440b478639d69455eb, type: 3}
   avatarRegistry: {fileID: 11400000, guid: cd92c35a99fc45748b8c2d6c8259f45e, type: 2}
   m_PersistentPlayerCollection: {fileID: 11400000, guid: 3d452f205bfe6f1458ac48ae9c9481d8, type: 2}
   EndGameEventPubliser: {fileID: 11400000, guid: da7595508afd2ab4592dcd1d81954c57, type: 2}
   lifeStateEventChannelSO: {fileID: 11400000, guid: 7959b6e781a04fd4b816463502e9d45b, type: 2}
-  m_DebugSpwanWaves: {fileID: 11400000, guid: d6d0ffb4c07562244b3c2d4f92b6f343, type: 2}
+  m_DebugStoryMode: {fileID: 11400000, guid: d6d0ffb4c07562244b3c2d4f92b6f343, type: 2}
   Debug_SpawnWave_Active: 0
 --- !u!114 &4175921735025965569
 MonoBehaviour:

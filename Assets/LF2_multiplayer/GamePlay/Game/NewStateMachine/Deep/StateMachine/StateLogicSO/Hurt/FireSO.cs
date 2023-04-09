@@ -64,6 +64,24 @@ namespace LF2.Client{
         {
             base.AddCollider(collider);
         }
+
+        public override void HurtResponder(Vector3 dirToRespond)
+        {
+            // stateMachineFX.CoreMovement.ResetVelocity();
+            stateMachineFX.CoreMovement.SetHurtMovement(dirToRespond);
+
+            // nbHitInIce++;
+            // // Debug.Log(nbHitInIce);
+            // if (nbHitInIce % 2 == 0 ){
+            //     Debug.Log("22222");
+            //     stateMachineFX.CoreMovement.SetHurtMovement(dirToRespond);
+            //     End();
+            // }else{
+            //     stateMachineFX.CoreMovement.SetHurtMovement(dirToRespond);
+            // }
+            // stateMachineFX.CoreMovement.TakeControlTransform(true);
+            // stateMachineFX.CoreMovement.ResetVelocity();
+        }
     }
 
 }

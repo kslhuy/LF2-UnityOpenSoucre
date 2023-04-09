@@ -8,6 +8,8 @@ using VContainer;
 using LF2.Client;
 using LF2.Server;
 using System;
+using System.Threading.Tasks;
+using Unity.Services.Samples.RewardedAds;
 
 namespace LF2.Gameplay.UI
 {
@@ -107,7 +109,7 @@ namespace LF2.Gameplay.UI
 
         void SetPostGameUI(WinState winState)
         {
-            Debug.Log(winState);
+            Debug.Log("Game Win State" + winState);
             // Set end message and background color based last game outcome
             if (winState == WinState.Win)
             {
@@ -134,6 +136,32 @@ namespace LF2.Gameplay.UI
         public void OnMainMenuClicked()
         {
             m_PostGameState.GoToMainMenu();
+        }
+
+        public async void OnClaimLevelEndRewardsButtonPressed()
+        {
+            try
+            {
+                // sceneView.SetInteractable(false);
+                await DistributeBaseRewards(false);
+                if (this == null) return;
+
+                // TODO : disable reward Button 
+                // sceneView.CloseCompleteLevelPopup();
+            }
+            catch (Exception e)
+            {
+                Debug.Log("A problem occurred while trying to distribute level end rewards: " + e);
+            }
+            finally
+            {
+                // sceneView.SetInteractable(true);
+            }
+        }
+
+        async Task DistributeBaseRewards(bool waitForSecondRewardDistribution)
+        {
+            await CloudCodeManager.instance.CallGrantLevelEndRewardsEndpoint(waitForSecondRewardDistribution);
         }
     }
 }

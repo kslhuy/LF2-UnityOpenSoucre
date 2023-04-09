@@ -19,9 +19,9 @@ namespace LF2.Client{
             stateMachineFX = stateMachine;
         }
 
-        public override bool ShouldAnticipate(ref InputPackage data)
+        public override bool ShouldAnticipate(ref StateType data)
         {
-            if ( data.StateTypeEnum == StateType.Move ){
+            if ( data == StateType.Move ){
                 stateMachineFX.CoreMovement.SetXZ(0.1f*stateMachineFX.InputX,0.1f*stateMachineFX.InputZ);
             }
             return true;

@@ -56,21 +56,17 @@ namespace LF2.Client
                 if (targetNetObj != null && ( targetNetObj.NetworkObjectId != m_SpawnerId) && targetNetObj.IsDamageable(teamAttacker)){
                     
                     // Debug.Log(targetNetObj);
-
-                    AttackDataSend Atk_data = new AttackDataSend();
+                    SendHitData(targetNetObj);
                     
-                    Atk_data.Amount_injury = ProjectileDamage[0].damageAmount;
-                    Atk_data.Effect = (byte)ProjectileDamage[0].Effect;
-                    Atk_data.Direction = new Vector3(ProjectileDamage[0].Dirxyz.x * transform.right.x , ProjectileDamage[0].Dirxyz.y,ProjectileDamage[0].Dirxyz.z) ;
-                    Atk_data.BDefense_p = ProjectileDamage[0].Bdefend;
-                    Atk_data.Fall_p = ProjectileDamage[0].fall;
-                    
-                    targetNetObj.ReceiveHP(Atk_data);
                     CanMove = false;
-                    animator.Play(EndAnimation);
-                    if (ProjectileDamage[0].SoundHit.Length > 0 )PlayAudio(ProjectileDamage[0].SoundHit[0], transform.position);
-                    m_Started = false;
-                    Coro_Balldp(DestroyAfterHit);
+                    Instantiate(m_OnHitParticlePrefab , transform.position ,Quaternion.identity);
+                    // animator.Play(EndAnimation);
+                    
+                    PlayAudio();
+                    
+                    if (!IsServer) return;
+                    NetworkObject networkObject = gameObject.GetComponent<NetworkObject>();
+                    networkObject.Despawn();
 
                     
                 }

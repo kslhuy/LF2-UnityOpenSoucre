@@ -19,13 +19,13 @@ namespace LF2.Client{
         {
             stateMachineFX = stateMachine;
         }
-        public override bool ShouldAnticipate(ref InputPackage data)
+        public override bool ShouldAnticipate(ref StateType data)
         {
-            if (data.StateTypeEnum == StateType.DDA1 ||
-                data.StateTypeEnum == StateType.DDJ1 ||
-                data.StateTypeEnum == StateType.DUA1 ||
-                data.StateTypeEnum == StateType.DUJ1  ){
-                stateMachineFX.AnticipateState(data.StateTypeEnum);
+            if (data == StateType.DDA1 ||
+                data == StateType.DDJ1 ||
+                data == StateType.DUA1 ||
+                data == StateType.DUJ1  ){
+                stateMachineFX.AnticipateState(data);
             }
             return true;
             

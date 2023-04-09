@@ -16,14 +16,14 @@ namespace LF2
     {
         public const float PositionThresholdDefault = 0.5f;
         public const float RotAngleThresholdDefault = 1f;
-        public delegate (Vector3 pos, byte rotYOut) OnClientRequestChangeDelegate(Vector3 pos, byte rotY);
+        public delegate (Vector3 pos, sbyte rotYOut) OnClientRequestChangeDelegate(Vector3 pos, sbyte rotY);
         public OnClientRequestChangeDelegate OnClientRequestChange;
 
         // True in normal case (sync the transform with owner) ; 
         // false when we want non_authoriy can predict his own tranform 
         public bool KeepSyncWithOwner = true;
         //  
-        private byte lastRotaion;
+        private sbyte _lastRotY;
 
 
         [SerializeField] ClientCharacterMovement clientCharaterMovement;
@@ -109,8 +109,8 @@ namespace LF2
             }
 
             internal float PositionX, PositionY, PositionZ;
-            internal byte RotAngleY; // can use sbyte Here
-            internal double SentTime;
+            internal sbyte RotY; // can use sbyte Here
+            internal float SentTime;
 
             // Authoritative and non-authoritative sides use this to determine if a NetworkTransformState is
             // dirty or not.
@@ -153,7 +153,7 @@ namespace LF2
 
                 if (HasRotAngleY)
                 {
-                    serializer.SerializeValue(ref RotAngleY);
+                    serializer.SerializeValue(ref RotY);
                 }
 
                 // Only if we are receiving state
@@ -294,18 +294,21 @@ namespace LF2
             // This assures the initial spawning of the object synchronizes all connected clients
             // with the current transform values. This should not be placed within Initialize since
             // that can be invoked when ownership changes.
+            _lastRotY = (sbyte)clientCharaterMovement.GetFacingDirection(); 
             if (CanCommitToTransform)
             {
                 var currentPosition = transform.position;
-                var currentRotation = transform.rotation;
+                // var currentRotation = transform.rotation;
                 
                 // Teleport to current position
-                SetStateInternal(currentPosition, (byte)currentRotation.y, true);
+                SetStateInternal(currentPosition, _lastRotY, true);
 
                 // Force the state update to be sent
-                TryCommitTransform(transform, m_CachedNetworkManager.LocalTime.Time);
+                // TryCommitTransform(transform, m_CachedNetworkManager.LocalTime.TimeAsFloat);
             }
-            lastRotaion = (byte)transform.rotation.eulerAngles.y;
+            
+            
+            
             m_LocalAuthoritativeNetworkState.IsTeleportingNextFrame = false;
 
         }
@@ -388,11 +391,11 @@ namespace LF2
                 // We are an owner requesting to update our state
                 if (!m_CachedIsServer)
                 {
-                    SetStateServerRpc(transformToCommit.position, (byte)transformToCommit.rotation.y, false);
+                    SetStateServerRpc(transformToCommit.position, (sbyte)transformToCommit.rotation.y, false);
                 }
                 else // Server is always authoritative (including owner authoritative)
                 {
-                    SetStateClientRpc(transformToCommit.position, (byte)transformToCommit.rotation.y, false);
+                    SetStateClientRpc(transformToCommit.position, (sbyte)transformToCommit.rotation.y, false);
                 }
             }
         }
@@ -402,7 +405,7 @@ namespace LF2
         /// If there are any transform delta states, this method will synchronize the
         /// state with all non-authority instances.
         /// </summary>
-        private void TryCommitTransform(Transform transformToCommit, double dirtyTime)
+        private void TryCommitTransform(Transform transformToCommit, float dirtyTime)
         {
             if (!CanCommitToTransform && !IsOwner)
             {
@@ -423,7 +426,7 @@ namespace LF2
 
         private void ResetInterpolatedStateToCurrentAuthoritativeState()
         {
-            var serverTime = NetworkManager.ServerTime.Time;
+            float serverTime = NetworkManager.ServerTime.TimeAsFloat;
             var position = transform.position;
             m_PositionXInterpolator.ResetTo(position.x, serverTime);
             m_PositionYInterpolator.ResetTo(position.y, serverTime);
@@ -446,7 +449,7 @@ namespace LF2
             m_LocalAuthoritativeNetworkState.ClearBitSetForNextTick();
 
             // Now check the transform for any threshold value changes
-            ApplyTransformToNetworkStateWithInfo(ref m_LocalAuthoritativeNetworkState, m_CachedNetworkManager.LocalTime.Time, transform);
+            ApplyTransformToNetworkStateWithInfo(ref m_LocalAuthoritativeNetworkState, m_CachedNetworkManager.LocalTime.TimeAsFloat, transform);
 
             // Return the entire state to be used by the integration test
             return m_LocalAuthoritativeNetworkState;
@@ -456,11 +459,11 @@ namespace LF2
         /// <summary>
         /// Used for integration testing
         /// </summary>
-        internal bool ApplyTransformToNetworkState(ref NetTransformState networkState, double dirtyTime, Transform transformToUse)
+        internal bool ApplyTransformToNetworkState(ref NetTransformState networkState, float dirtyTime, Transform transformToUse)
         {
             return ApplyTransformToNetworkStateWithInfo(ref networkState, dirtyTime, transformToUse);
         }
-        private bool ApplyTransformToNetworkStateWithInfo(ref NetTransformState networkState, double dirtyTime, Transform transformToUse)
+        private bool ApplyTransformToNetworkStateWithInfo(ref NetTransformState networkState, float dirtyTime, Transform transformToUse)
         {
 
             var isDirty = false;
@@ -468,7 +471,7 @@ namespace LF2
             var isRotationDirty = false;
 
             var position = transformToUse.position;
-            var rotAnglesY = (byte)transformToUse.eulerAngles.y;
+
 
             // hasPositionZ set to false when it should be true?
 
@@ -501,14 +504,15 @@ namespace LF2
                 isPositionDirty = true;
             }
 
+            _lastRotY = (sbyte)clientCharaterMovement.GetFacingDirection();
 
-            if (SyncRotAngleY && networkState.RotAngleY != rotAnglesY || networkState.IsTeleportingNextFrame)
+            if (SyncRotAngleY && networkState.RotY != _lastRotY || networkState.IsTeleportingNextFrame)
             {
-                // Debug.Log(Mathf.Abs((networkState.RotAngleY - rotAnglesY))); 
+                // Debug.Log(Mathf.Abs((networkState.RotY - rotAnglesY))); 
                 // Debug.Log((" isTeleporNextFrame " + networkState.IsTeleportingNextFrame));
                 
-                // Debug.Log((" networkState.RotAngleY " + networkState.RotAngleY  + "  vs  "+ " rotAnglesY " +  rotAnglesY)); 
-                networkState.RotAngleY = rotAnglesY;
+                // Debug.Log((" networkState.RotY " + networkState.RotY  + "  vs  "+ " rotAnglesY " +  rotAnglesY)); 
+                networkState.RotY = _lastRotY;
                 networkState.HasRotAngleY = true;
                 isRotationDirty = true;
             }
@@ -567,16 +571,19 @@ namespace LF2
             // RotAngles Apply
 
             // Dont Need This code below but i keep that 
-            if (lastRotaion != networkState.RotAngleY)
-            {
-                // Debug.Log("last" +  lastRotaion + " vs " + " networkState.RotAngleY " + networkState.RotAngleY  );
-                // Debug.Log(networkState.RotAngleY);
+            // if (_lastRotY != networkState.RotY)
+            // {
+            //     // Debug.Log("last" +  _lastRotY + " vs " + " networkState.RotY " + networkState.RotY  );
+            //     // Debug.Log(networkState.RotY);
+            //     clientCharaterMovement.ChangeValueFacingDirection();
 
-                transform.Rotate(new Vector3(0, 180, 0));
-                // if (networkState.Rotation <= 0 )  transformToUpdate.rotation = new Quaternion(0,0,0,1);
-                // else if (networkState.Rotation >= 170 ) transformToUpdate.rotation = new Quaternion(0,1,0,0);
-                lastRotaion = networkState.RotAngleY;
-            }
+            //     // transform.Rotate(new Vector3(0, 180, 0));
+            //     // if (networkState.Rotation <= 0 )  transformToUpdate.rotation = new Quaternion(0,0,0,1);
+            //     // else if (networkState.Rotation >= 170 ) transformToUpdate.rotation = new Quaternion(0,1,0,0);
+            //     // _lastRotY = networkState.RotY;
+            //     _lastRotY = (sbyte)clientCharaterMovement.GetFacingDirection() ;
+
+            // }
 
 
         }
@@ -650,11 +657,12 @@ namespace LF2
 
                 transform.position = currentPosition;
 
-                if (newState.HasRotAngleY) {
-                    transform.Rotate(0, 180, 0);
-                    lastRotaion = (byte)transform.eulerAngles.y;
-                    clientCharaterMovement.ChangeValueFacingDirection(lastRotaion);
-
+                if ( newState.RotY != _lastRotY  ) {
+                    // transform.Rotate(0, 180, 0);
+                    // _lastRotY = (byte)transform.eulerAngles.y;
+                    clientCharaterMovement.ChangeValueFacingDirection();
+                    _lastRotY = (sbyte)clientCharaterMovement.GetFacingDirection() ;
+                    
                 }
                 return;
             }
@@ -675,11 +683,12 @@ namespace LF2
                 m_PositionZInterpolator.AddMeasurement(newState.PositionZ, sentTime);
             }
             
-            
+            // Apply direct Rotation here (Not interpolate)
             if (newState.HasRotAngleY) {
-                transform.Rotate(0, 180, 0);
-                lastRotaion = (byte)transform.eulerAngles.y;
-                clientCharaterMovement.ChangeValueFacingDirection(lastRotaion);
+                // transform.Rotate(0, 180, 0);
+
+                clientCharaterMovement.ChangeValueFacingDirection();
+                _lastRotY = (sbyte)clientCharaterMovement.GetFacingDirection() ;
             }
 
             // Debug.Log( " Has Position X" + newState.HasPositionX);
@@ -725,7 +734,7 @@ namespace LF2
 
             Vector3 pos = posIn == null ? transform.position : posIn.Value;
             Quaternion rot = rotIn == null ? transform.rotation : rotIn.Value;
-            var rotY = (byte)rot.eulerAngles.y;
+            var rotY = (sbyte)rot.eulerAngles.y;
 
             if (!CanCommitToTransform)
             {
@@ -752,18 +761,18 @@ namespace LF2
         /// Sets the internal state (teleporting or just set state) of the authoritative
         /// transform directly.
         /// </summary>
-        private void SetStateInternal(Vector3 pos, byte rotY , bool shouldTeleport)
+        private void SetStateInternal(Vector3 pos, sbyte rotY , bool shouldTeleport)
         {
             transform.position = pos;
-            if (rotY != 0) transform.rotation = Quaternion.Euler(0, rotY, 0);
+            // if (rotY != 0) transform.rotation = Quaternion.Euler(0, rotY, 0);
+            if (_lastRotY != rotY) transform.rotation = Quaternion.Euler(0, rotY, 0);
 
             m_LocalAuthoritativeNetworkState.IsTeleportingNextFrame = shouldTeleport;
-
-            TryCommitTransform(transform, m_CachedNetworkManager.LocalTime.Time);
+            TryCommitTransform(transform, m_CachedNetworkManager.LocalTime.TimeAsFloat);
         }
 
         [ServerRpc]
-        private void SetStateServerRpc(Vector3 pos, byte rotY, bool shouldTeleport)
+        private void SetStateServerRpc(Vector3 pos, sbyte rotY, bool shouldTeleport)
         {
             // server has received this RPC request to move change transform.  Give the server a chance to modify or
             //  even reject the move
@@ -783,13 +792,13 @@ namespace LF2
         /// Continued support for client-driven server authority model
         /// </remarks>
         [ClientRpc]
-        private void SetStateClientRpc(Vector3 pos, byte rotY, bool shouldTeleport, ClientRpcParams clientRpcParams = default)
+        private void SetStateClientRpc(Vector3 pos, sbyte rotY, bool shouldTeleport, ClientRpcParams clientRpcParams = default)
         {
             // Server dictated state is always applied
             transform.position = pos;
             transform.rotation = Quaternion.Euler(0, rotY, 0);
             m_LocalAuthoritativeNetworkState.IsTeleportingNextFrame = shouldTeleport;
-            TryCommitTransform(transform, m_CachedNetworkManager.LocalTime.Time);
+            TryCommitTransform(transform, m_CachedNetworkManager.LocalTime.TimeAsFloat);
         }
 
         /// <summary>
@@ -808,7 +817,7 @@ namespace LF2
                 m_LocalAuthoritativeNetworkState.ClearBitSetForNextTick();
             }
 
-            TryCommitTransform(transformSource, m_CachedNetworkManager.LocalTime.Time);
+            TryCommitTransform(transformSource, m_CachedNetworkManager.LocalTime.TimeAsFloat);
         }
 
 
@@ -859,7 +868,7 @@ namespace LF2
         /// <param name="newRotation"></param> new rotation to rotate to.
         /// <param name="newScale">new scale to scale to.</param>
         /// <exception cref="Exception"></exception>
-        public void Teleport(Vector3 newPosition, byte newRotationY = 0)
+        public void Teleport(Vector3 newPosition, sbyte newRotationY = 0)
         {
             if (!CanCommitToTransform)
             {

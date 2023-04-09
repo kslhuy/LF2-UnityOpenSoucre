@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   StateType: 36
   Logic: 3
-  UseMana: 0
-  ManaCost: 0
+  NextStateLogicSO: []
+  ManaCost: 15
   DamageDetails:
   - {fileID: 11400000, guid: 8f234dcbde21f1a41b6e542faaa90083, type: 2}
   Dx: 150
@@ -31,7 +31,7 @@ MonoBehaviour:
   DurationSeconds: 0.6666667
   Duration: 40
   expirable: 0
-  ReuseTimeSeconds: 0
+  ReuseTimeSeconds: 1
   ActionInterruptible: 0
   Sounds: {fileID: 11400000, guid: 469d7230b06a56f46bafae5b183372ef, type: 2}
   delayLoopSound: 0

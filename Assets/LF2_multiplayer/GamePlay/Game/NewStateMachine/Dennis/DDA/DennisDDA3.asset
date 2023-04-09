@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   StateType: 32
   Logic: 3
-  UseMana: 0
-  ManaCost: 0
+  NextStateLogicSO: []
+  ManaCost: 20
   DamageDetails:
   - {fileID: 11400000, guid: 6ace49f220f05ea4e9abbe6e9c82dcbb, type: 2}
   Dx: 0
@@ -31,6 +31,7 @@ MonoBehaviour:
   - ProjectilePrefab: {fileID: 4479758005046589536, guid: d9406af647297b645aeda487366175ee, type: 3}
     pivot: {x: 50, y: 30, z: 0}
   DurationSeconds: 0.9
+  Duration: 54
   expirable: 1
   ReuseTimeSeconds: 0.9
   ActionInterruptible: 1
@@ -42,6 +43,7 @@ MonoBehaviour:
   frameChecker:
     clip: {fileID: 0}
     totalFrames: 0
-    length: 0
+    arest: 0
+    vrest: 0
     _frameStruct: []
     layerNumber: 0

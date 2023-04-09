@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   StateType: 39
   Logic: 3
-  UseMana: 1
-  ManaCost: -150
+  NextStateLogicSO: []
+  ManaCost: 200
   DamageDetails:
   - {fileID: 11400000, guid: 52b7967320bf8714d923b889fa292841, type: 2}
   Dx: 0
@@ -31,8 +31,9 @@ MonoBehaviour:
   - ProjectilePrefab: {fileID: 4477627029082403580, guid: f9a8022e39618ea47bb305dd819d59c2, type: 3}
     pivot: {x: 0, y: 200, z: 0}
   DurationSeconds: 0.4
+  Duration: 24
   expirable: 1
-  ReuseTimeSeconds: 0
+  ReuseTimeSeconds: 0.5
   ActionInterruptible: 0
   Sounds: {fileID: 0}
   delayLoopSound: 0
@@ -42,22 +43,47 @@ MonoBehaviour:
   frameChecker:
     clip: {fileID: 7400000, guid: f3f0fd3450986fd449af2c495e9b9560, type: 2}
     totalFrames: 2
-    length: 0.2
+    arest: 0
+    vrest: 0
     _frameStruct:
-    - UseThisFrame: 0
+    - sprite: {fileID: 0}
+      time: 0
       dvx: 0
       dvy: 0
       dvz: 0
-      damageDetails: {fileID: 0}
+      pressed_A: 0
+      pressed_J: 0
+      pressed_D: 0
+      haveInteraction: 0
+      interaction:
+        damageAmount: 0
+        Effect: 0
+        fall: 0
+        Bdefend: 0
+        vrest: 0
+        Dirxyz: {x: 0, y: 0, z: 0}
       SpwanObject: {fileID: 0}
       Sound: {fileID: 0}
-      ReturnToFrame: 0
-    - UseThisFrame: 0
+      NextFrame: 0
+      wait: 0
+    - sprite: {fileID: 0}
+      time: 0
       dvx: 0
       dvy: 0
       dvz: 0
-      damageDetails: {fileID: 0}
+      pressed_A: 0
+      pressed_J: 0
+      pressed_D: 0
+      haveInteraction: 0
+      interaction:
+        damageAmount: 0
+        Effect: 0
+        fall: 0
+        Bdefend: 0
+        vrest: 0
+        Dirxyz: {x: 0, y: 0, z: 0}
       SpwanObject: {fileID: 0}
       Sound: {fileID: 0}
-      ReturnToFrame: 0
+      NextFrame: 0
+      wait: 0
     layerNumber: 0

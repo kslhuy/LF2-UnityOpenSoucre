@@ -4,10 +4,10 @@ using LF2;
 [CreateAssetMenu(menuName = "Events/Event Channel Basic")]
 public class EventChannelSO : EventChannelBaseSO
 {
-    public Action EventAction;
+    public Action OnEventRaised;
 
     public void RaiseEvent(){
-        EventAction?.Invoke();
+        OnEventRaised?.Invoke();
     }
 
 }

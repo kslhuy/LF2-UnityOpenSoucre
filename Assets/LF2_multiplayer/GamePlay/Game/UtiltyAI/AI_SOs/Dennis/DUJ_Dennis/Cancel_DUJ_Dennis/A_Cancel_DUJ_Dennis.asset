@@ -15,3 +15,4 @@ MonoBehaviour:
   TypeName: 7
   considerations:
   - {fileID: 11400000, guid: 0e371cd517f504840964cf4ca25850dc, type: 2}
+  - {fileID: 11400000, guid: 3a36f4e28f72692479a4606994a5fce4, type: 2}

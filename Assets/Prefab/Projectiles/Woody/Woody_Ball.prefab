@@ -107,17 +107,6 @@ PrefabInstance:
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: e1e6fa40b644751498970cb113c8b0a1, type: 3}
---- !u!114 &4098277249547642324 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3255296454070526904, guid: e1e6fa40b644751498970cb113c8b0a1, type: 3}
-  m_PrefabInstance: {fileID: 1570950951994148460}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4477627029082403580}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 39975f2fa809f7d44883789ef7323259, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &4477627029082403580 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3165636493918647440, guid: e1e6fa40b644751498970cb113c8b0a1, type: 3}
@@ -135,28 +124,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e860179bd5ce8648a79524ec148191c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_NetState: {fileID: 4098277249547642324}
   m_OurCollider: {fileID: 7060414307774357096}
-  m_Rigidbody: {fileID: 6894385322031071044}
   k_GroundLayerMask: 0
   ProjectileDamage:
   - {fileID: 11400000, guid: 060dabe58cc597449933920479fd1b93, type: 2}
   Speed_m_s: 400
   Range: 0
   MaxVictims: 1
-  SpawnFX: {fileID: 0}
+  m_OnHitParticlePrefab: {fileID: 629805804833587473, guid: 59f2b6edcd87d404dac9e4c90a7f9f7a, type: 3}
   _sfxEventChannel: {fileID: 11400000, guid: 1981ab6cbad46e54ca529e09ba189c16, type: 2}
   _audioConfig: {fileID: 11400000, guid: e8a6884befaa7e544b61747452adc267, type: 2}
   Sounds: []
   EndAnimation: Davis_Ball_DDA_Hit
   DestroyAfterSec: 5
-  DestroyAfterHit: 0.3
+  DestroyAfterHit: 0.1
   m_BoxType: 0
---- !u!54 &6894385322031071044 stripped
-Rigidbody:
-  m_CorrespondingSourceObject: {fileID: 5359535883441174824, guid: e1e6fa40b644751498970cb113c8b0a1, type: 3}
-  m_PrefabInstance: {fileID: 1570950951994148460}
-  m_PrefabAsset: {fileID: 0}
 --- !u!65 &7060414307774357096 stripped
 BoxCollider:
   m_CorrespondingSourceObject: {fileID: 8374024554256111620, guid: e1e6fa40b644751498970cb113c8b0a1, type: 3}

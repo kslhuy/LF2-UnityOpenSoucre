@@ -20,28 +20,26 @@ namespace LF2.Client{
             stateMachineFX = stateMachine;
         }
 
-       public override bool ShouldAnticipate(ref InputPackage data)
+       public override bool ShouldAnticipate(ref StateType data)
         {            
                    
-            if (data.StateTypeEnum == StateType.DDA1 ||
-                data.StateTypeEnum == StateType.DDJ1||
-                data.StateTypeEnum == StateType.DUA1||
-                data.StateTypeEnum == StateType.DUJ1 ){
+            if (data == StateType.DDA1 ||
+                data == StateType.DDJ1||
+                data == StateType.DUA1||
+                data == StateType.DUJ1 ){
                 // Make Queue State so we can perform later 
                 // That can feel more responsibe , and can thing like a trick to cast skills 
-                stateMachineFX.QueueStateFX.Add(stateMachineFX.GetState(data.StateTypeEnum));
+                stateMachineFX.QueueStateFX.Add(stateMachineFX.GetState(data));
                 return true;
 
             }
             return false;        
         }
 
-        public override void End()
-        {
-            base.End();
-        }
 
-        public override void Enter()        {
+
+        public override void Enter()        
+        {
             if(!Anticipated)
             {
                 PlayAnim();  
@@ -59,10 +57,7 @@ namespace LF2.Client{
 
         public override void LogicUpdate()
         {
-            if (stateMachineFX.m_ClientVisual.Owner) {
-                stateMachineFX.m_ClientVisual.coreMovement.SetRoll();
-            }
-            base.LogicUpdate();
+            stateMachineFX.m_ClientVisual.coreMovement.SetRoll();
         }
 
 
@@ -71,7 +66,7 @@ namespace LF2.Client{
             base.PlayAnim();
             stateMachineFX.m_ClientVisual.NormalAnimator.Play("Rolling_anim");
             stateMachineFX.m_ClientVisual.SetHitBox(false);
-            stateMachineFX.m_ClientVisual.UpdateSizeHurtBox();
+            stateMachineFX.m_ClientVisual.UpdateSizeHurtBox(true);
             if (stateData.Sounds) stateMachineFX.m_ClientVisual.PlayAudio(stateData.Sounds);
         }
 
@@ -81,6 +76,13 @@ namespace LF2.Client{
                 stateMachineFX.m_ClientVisual.m_NetState.AddPredictState_and_SyncServerRpc(GetId());
             }
             PlayAnim(nbanim , sequence);
+        }
+
+        public override void End()
+        {
+            stateMachineFX.m_ClientVisual.UpdateSizeHurtBox();
+            stateMachineFX.CoreMovement.ResetVelocity();
+            base.End();
         }
 
     }

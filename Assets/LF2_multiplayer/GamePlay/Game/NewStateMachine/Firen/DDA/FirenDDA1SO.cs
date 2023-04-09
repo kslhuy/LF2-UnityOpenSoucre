@@ -13,11 +13,29 @@ namespace LF2.Client{
 // Projectle normal == REd Arrow , Critical Shot , 30 MP
     public class FirenDDA1Logic : LaunchProjectileLogic
     {
+
+        private bool cantransition_ToNextAnimation; // Or mean Next State
         private bool m_Launched;
+        
+        private bool frameTransitionAnim;
+        
 
         public override void Awake(StateMachineNew stateMachine)
         {
             stateMachineFX = stateMachine;
+        }
+
+        public override bool ShouldAnticipate(ref StateType requestData)        
+        {
+            if ( requestData is StateType.Attack or StateType.Attack2){
+                cantransition_ToNextAnimation = true;
+                return true;
+            }
+            // For Debug Only
+            if (requestData == StateType.Defense){
+                stateMachineFX.idle();
+            }
+            return false;
         }
 
 
@@ -37,13 +55,32 @@ namespace LF2.Client{
             return StateType.DDA1;
         }
 
+        public override void LogicUpdate()
+        {   
+            if (cantransition_ToNextAnimation && frameTransitionAnim){
+                m_Launched = true;
+                frameTransitionAnim = false;
+                cantransition_ToNextAnimation = false;
+                stateMachineFX.AnticipateState(StateType.DDA2);
+            }
+        }
         public override void OnAnimEvent(int id)
         {
-
-            if (stateMachineFX.m_ClientVisual._IsServer) {
-                SpwanProjectile(stateData.Projectiles[0], new Vector3(stateMachineFX.CoreMovement.GetFacingDirection(),0 ,stateMachineFX.InputZ));
-                m_Launched = true;
+            if (id == 2 ) frameTransitionAnim = true;
+            else if (id == 0 ){
+                if (stateMachineFX.m_ClientVisual._IsServer) {
+                    SpwanProjectile(stateData.Projectiles[0], new Vector3 (stateMachineFX.CoreMovement.GetFacingDirection(),0,stateMachineFX.InputZ));
+                    m_Launched = true;
                 }
+            }
+            else if(id == 100) {
+                stateMachineFX.m_ClientVisual.PlayAudio(stateData.Sounds);
+            }
+            else if (id == 101)
+            {
+                stateMachineFX.m_ClientVisual.PlayAudio(stateData.Start_Sounds[0]);
+            }
+
         }
 
 

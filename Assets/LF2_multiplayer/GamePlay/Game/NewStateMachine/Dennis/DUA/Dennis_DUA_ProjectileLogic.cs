@@ -10,20 +10,24 @@ namespace LF2.Client
     public class Dennis_DUA_ProjectileLogic :  ProjectileLogic
     {
         [SerializeField] private Animator animator;
+        [SerializeField] private SpriteRenderer spriteRenderer; 
+        
         private int Hit = Animator.StringToHash("DDA_Hit_Jonh_anim");
         List<ClientCharacterVisualization> nbCharacterViz = new List<ClientCharacterVisualization>();
 
         ClientCharacterVisualization enemyLock;
-        private Vector3 enemyPosition;
+        private Transform enemyTransform;
         private bool haveTarget;
         private float interpolationAmount;
         private Vector3 ourPosition;
+        Vector3 drection;
     
         [SerializeField] float speedNormal;
         [SerializeField] Vector3 AnchorB;
         [SerializeField] Vector3 AnchorC;
 
         [SerializeField] Vector3 OffsetEnemy;
+        private bool flip;
 
         public override void Initialize(ulong creatorsNetworkObjectId,TeamType teamType, Vector3 dir_ToMove , Vector3 rotation = default )
         {
@@ -41,15 +45,26 @@ namespace LF2.Client
                 int nbRamdom = UnityEngine.Random.Range(0, nbCharacterViz.Count);
 
                 enemyLock = nbCharacterViz[nbRamdom];
-                enemyPosition = enemyLock.PhysicsWrapper.transform.position;
+                enemyTransform = enemyLock.PhysicsWrapper.transform;
                 haveTarget = true;
             }else{
                 haveTarget = false;
             }
             ourPosition = transform.position;
-            AnchorB = new Vector3((AnchorB.x + ourPosition.x)*dir_ToMove.x ,AnchorB.y,AnchorB.z + ourPosition.z ) ;
-            AnchorC = new Vector3((AnchorC.x + enemyPosition.x)*-dir_ToMove.x ,AnchorB.y,AnchorB.z+ enemyPosition.z )  ;
-
+            Vector3 enemyPos = enemyTransform.position;
+            // Debug.Log("facing " + dir_ToMove.x);
+            // Debug.Log("Start pos " + ourPosition);
+            // Debug.Log("Enemy pos" + enemyPos);
+            Vector3 dir = (enemyPos - ourPosition);
+            if (enemyPos.z > ourPosition.z){
+                AnchorB =  ourPosition + new Vector3(m_facing * AnchorB.x ,0,-AnchorB.z ) ;
+                AnchorC =  enemyPos + new Vector3(m_facing * AnchorC.x ,0,-AnchorC.z)  ;
+            } else {
+                AnchorB =  ourPosition + new Vector3(m_facing * AnchorB.x ,0,AnchorB.z ) ;
+                AnchorC =  enemyPos + new Vector3(m_facing * AnchorC.x ,0,AnchorC.z)  ;
+            }
+            drection = Vector3.right;
+            //  AnchorB = enemyTransform.position + new Vector3(m_facing*xOffset, yOffset, 0);;
         }
 
         public override void FixedUpdate() {
@@ -61,9 +76,20 @@ namespace LF2.Client
                     return;
                 }
                 interpolationAmount += Time.deltaTime * speedNormal ;
-                transform.position = QuadraticLerp(ourPosition ,AnchorB , enemyPosition+OffsetEnemy , interpolationAmount );
+                drection = (QuadraticLerp(ourPosition ,AnchorB , enemyTransform.position+OffsetEnemy , interpolationAmount) - transform.position).normalized;
+                // Debug.Log("Direction" + drection);
+                // Debug.Log("Direction * facing " + drection.x*m_facing   );
+                if (!flip && drection.x*m_facing < 0){
+                    spriteRenderer.flipX = true;
+                    flip = true;
+                    m_facing = m_facing*-1;
+                }
+                // transform.position = CubicLerp(ourPosition ,AnchorB , AnchorC,enemyTransform.position+OffsetEnemy , interpolationAmount );
             } 
-            else base.FixedUpdate();
+            if (CanMove){
+                transform.position += drection*Time.deltaTime*Speed_m_s; 
+            }
+            // else base.FixedUpdate();
         }
 
         private Vector3 QuadraticLerp(Vector3 a , Vector3 b , Vector3 c , float t ){

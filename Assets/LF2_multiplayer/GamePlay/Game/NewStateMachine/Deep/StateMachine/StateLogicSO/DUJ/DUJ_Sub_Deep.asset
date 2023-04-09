@@ -12,8 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2eb2663c5ade5549bd2b0822f6a4bbe, type: 3}
   m_Name: DUJ_Sub_Deep
   m_EditorClassIdentifier: 
-  m_AnimationName: 
-  damageAmount: -50
+  damageAmount: -15
   Effect: 1
   fall: 70
   Bdefend: 30
@@ -22,4 +21,3 @@ MonoBehaviour:
   Dirxyz: {x: 100, y: 300, z: 0}
   durration: 0
   SoundHit: []
-  AnimationNameHash: 0

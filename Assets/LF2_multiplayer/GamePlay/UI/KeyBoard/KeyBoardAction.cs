@@ -167,11 +167,13 @@ namespace LF2.Client
                 if (!AttackPressed) {
                     int nbAimation = UnityEngine.Random.Range(1,3);
                     // Debug.Log((nbAimation)); 
+                    if (nbAimation == 1 ){
+                        clientInputSender.RequestAction(StateType.Attack);
+                    }else{
+                        clientInputSender.RequestAction(StateType.Attack2);
+                    }
                     AttackPressed = true;
                     AttackPressedStartTime = Time.time;                
-
-                    clientInputSender.RequestAction(StateType.Attack,0,0,nbAimation);
-
                 }
                 keyPresseds.Add(KeyPressedType.Attack);
             }
@@ -183,6 +185,7 @@ namespace LF2.Client
             if (context.started){
                 // DefenseInput = true;
                 keyPresseds.isButtonDefensePressed = true;
+                keyPresseds.Clear();
                 keyPresseds.Add(KeyPressedType.Defense);
                 clientInputSender.RequestAction(StateType.Defense);
             }

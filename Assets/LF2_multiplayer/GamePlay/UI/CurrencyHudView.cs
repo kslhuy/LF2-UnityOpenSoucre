@@ -34,6 +34,7 @@ namespace UnityGamingServicesUseCases
                 {
                     if (string.Equals(balance.CurrencyId, currencyItemView.definitionId))
                     {
+                        
                         currencyItemView.SetBalance(balance.Balance);
                     }
                 }

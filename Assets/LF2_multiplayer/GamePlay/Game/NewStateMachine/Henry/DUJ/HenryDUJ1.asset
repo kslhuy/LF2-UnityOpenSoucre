@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   StateType: 36
   Logic: 3
-  UseMana: 1
-  ManaCost: -350
+  NextStateLogicSO: []
+  ManaCost: 320
   DamageDetails:
   - {fileID: 11400000, guid: d97510cfa78a3c349993f16f152eac0a, type: 2}
   Dx: 0
@@ -29,8 +29,9 @@ MonoBehaviour:
     m_RotationOrder: 4
   Projectiles: []
   DurationSeconds: 3.5
+  Duration: 210
   expirable: 1
-  ReuseTimeSeconds: 0
+  ReuseTimeSeconds: 1
   ActionInterruptible: 0
   Sounds: {fileID: 0}
   delayLoopSound: 0
@@ -44,11 +45,9 @@ MonoBehaviour:
   - _Object: {fileID: 3320546580206075607, guid: 22babe6022c68ba4fa0b990f08afa359, type: 3}
     pivot: {x: 0, y: 0, z: 0}
   frameChecker:
-    hitFrameStart: 0
-    hitFrameEnd: 0
-    returnFrame:
-      FrameToReturn: 0
-      ReturnToFrame: 0
+    clip: {fileID: 0}
     totalFrames: 0
+    arest: 0
+    vrest: 0
+    _frameStruct: []
     layerNumber: 0
-  TickRate: 0.2

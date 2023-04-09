@@ -14,12 +14,13 @@ namespace LF2.Client{
         public override float ScoreConsideration(AIBrain brain)
         {
             
-            if ( brain.Self.m_NetState.MPPoints < ManaNeeded ){
-                return 0;
-            }
             // Here we have enough mana to perform the action  
             if (BooleenCondition){
-                return 1 ;    
+                if ( brain.Self.m_NetState.MPPoints < ManaNeeded ){
+                    return 0;
+                }
+                else return 1 ;    
+                
             }else{
                 return responseCurve.Evaluate((int)brain.Self.m_NetState.MPPoints);  
             } 

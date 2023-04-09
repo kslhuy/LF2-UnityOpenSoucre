@@ -37,6 +37,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 10b2a6bf7a063a04fbce48cd3e2cc3a6, type: 2}
   - {fileID: 11400000, guid: 33799097fdce90c46b65d7ee30ab009c, type: 2}
   - {fileID: 11400000, guid: 4af9d772c710dd3428adee2a6fbe130e, type: 2}
+  - {fileID: 11400000, guid: 82c7a2bb1b7c9064598f70821365f1ff, type: 2}
+  - {fileID: 11400000, guid: 3780033cdd7f4014abcb25f9038f3820, type: 2}
   - {fileID: 11400000, guid: 038a1d93782a837489494242c21c1ce6, type: 2}
   - {fileID: 11400000, guid: 919e76f66370c044098f0355eaf2309f, type: 2}
   - {fileID: 11400000, guid: 08a06cd96e96a724d923503cabb03ba2, type: 2}
@@ -44,5 +46,18 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 054ec605c3ff41d4c8bbf05bdc990718, type: 2}
   - {fileID: 11400000, guid: 8fbe557e4f3895443aa8f5a855306c60, type: 2}
   - {fileID: 11400000, guid: 361b98f4a5bd77347903bfed4c04cf99, type: 2}
-  - {fileID: 11400000, guid: 37980d8d80c74e0458c3ab652bdb40db, type: 2}
-  - {fileID: 11400000, guid: 56baa03d6fc404b498f14fedb9d2035c, type: 2}
+  - {fileID: 11400000, guid: 920915d9ad78da24a9f2368c6e9ea607, type: 2}
+  - {fileID: 11400000, guid: 2a0297fda725d53488c01150f05be220, type: 2}
+  ListAllComboSkills: []
+  RunTimeDDA:
+    RunTimeStateType: 30
+    InputToConvert: 0
+  RunTimeDDJ:
+    RunTimeStateType: 33
+    InputToConvert: 0
+  RunTimeDUA:
+    RunTimeStateType: 39
+    InputToConvert: 0
+  RunTimeDUJ:
+    RunTimeStateType: 36
+    InputToConvert: 0

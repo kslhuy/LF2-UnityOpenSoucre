@@ -25,12 +25,15 @@ namespace LF2.Client{
         }
 
 
+
+
         public override void End(){
             stateMachineFX.idle();
         }
 
         public override void PlayAnim( int nbanim = 1 , bool sequence = false)
         {
+            stateMachineFX.CoreMovement.InstanceVelocity(stateData.Dx);
             base.PlayAnim();
             stateMachineFX.m_ClientVisual.PlayAudio(stateData.Sounds);
             stateMachineFX.m_ClientVisual.NormalAnimator.Play(stateMachineFX.m_ClientVisual.VizAnimation.a_Run_Attack);
@@ -42,7 +45,6 @@ namespace LF2.Client{
             if (stateMachineFX.m_ClientVisual.Owner) {
                 stateMachineFX.m_ClientVisual.m_NetState.AddPredictState_and_SyncServerRpc(GetId());
             }
-            stateMachineFX.CoreMovement.InstanceVelocity(stateData.Dx);
 
             base.PlayPredictState(nbAniamtion, sequen);
         }

@@ -13,6 +13,7 @@ using VContainer;
 using VContainer.Unity;
 using LF2.Gameplay.UI;
 using LF2.Utils;
+using TMPro;
 
 namespace LF2.Client
 {
@@ -26,7 +27,7 @@ namespace LF2.Client
     public class ClientMainMenuState : GameStateBehaviour
     {
         public override GameState ActiveState { get { return GameState.MainMenu; } }
-
+        [Header("----------UI Component---------")]
         [SerializeField] LobbyUIMediator m_LobbyUIMediator;
         [SerializeField] IPUIMediator m_IPUIMediator;
         [SerializeField] Button m_LobbyButton;
@@ -35,13 +36,23 @@ namespace LF2.Client
         [SerializeField] UITooltipDetector m_UGSSetupTooltipDetector;
 
         [SerializeField] UIHeroInventory m_UIHeroInventory;
-        
 
+        [SerializeField] MainMenuView m_MainMenuView;
+
+        [Header("-------Unity Game Services Component----------")]
+
+        [SerializeField] EconomyManager economyManager;
+        
+        //
+        // public
+
+        // 
 
         [Inject] AuthenticationServiceFacade m_AuthServiceFacade;
         [Inject] LocalLobbyUser m_LocalUser;
         [Inject] LocalLobby m_LocalLobby;
         [Inject] ProfileManager m_ProfileManager;
+
 
         protected override void Awake()
         {
@@ -73,6 +84,53 @@ namespace LF2.Client
             await SignIn();
 
 
+            async Task SignIn()
+            {
+                try
+                {
+                    // Debug.Log("InjectDependenciesAndInitialize");
+
+                    // m_ProfileManager.onProfileChanged += OnProfileChanged;
+                    // If have already profile in the game 
+                    var unityAuthenticationInitOptions = new InitializationOptions();
+                    Debug.Log("Initialization and signin processing ....");
+
+                    if (ProfileAvailable()) {
+                        var profile = m_ProfileManager.Profile;
+                        Debug.Log("SetProfile : " + profile);
+                        if (profile.Length > 0)
+                        {
+                            unityAuthenticationInitOptions.SetProfile(profile);
+                        }
+                        await m_AuthServiceFacade.InitializeAndSignInAsync(unityAuthenticationInitOptions);
+                        Debug.Log("Initialization and signin Complet !!! ");
+
+                        m_LocalUser.ID = AuthenticationService.Instance.PlayerId;
+                        m_LocalLobby.AddUser(m_LocalUser);
+                        Debug.Log("Load Data processing ...");
+                        await LoadDataFromServices();
+                        Debug.Log("Load Data Complet !!!");
+                        m_LobbyButton.interactable = true;
+                        m_UGSSetupTooltipDetector.enabled = false;
+                        m_SignInSpinner.SetActive(false);
+
+                    }
+                    // First Time play game
+                    else {
+                        Debug.Log("First Time play + Initialization and signin processing ....");
+
+                        // await m_AuthServiceFacade.InitializeAndSignInAsync(unityAuthenticationInitOptions);
+                        // Debug.Log("First Time Sign In.");
+                        // await LoadDataFromServices();
+                        m_UIProfileSelector.ShowFirstTime();
+                    }
+                }
+                catch (Exception)
+                {
+                    Debug.Log("error");
+                    OnSignInFailed();
+                }
+
 
             async Task LoadDataFromServices(){
                 if (this == null) return;
@@ -85,13 +143,16 @@ namespace LF2.Client
                 // It's important to do this update before making any other calls to the Economy or Remote Config
                 // APIs as both use the cached data list. (Though it wouldn't be necessary to do if only using Remote
                 // Config in your project and not Economy.)
-                await EconomyManager.instance.RefreshEconomyConfiguration();
-                if (this == null) return;
+                // Debug.Log("RefreshEconomyConfiguration");
+                if (economyManager == null ) return;
+                // await economyManager.RefreshEconomyConfiguration(); // Uncomment that if some day need use cached data
+                // Debug.Log("RefreshEconomyConfiguration Compleyt !!!!!");
+
+                // Debug.Log("LoadServicesData processing  ....");
 
                 await LoadServicesData();
-                if (this == null) return;
-
-
+                // Debug.Log("LoadServicesData Compleyt !!!!!");
+                UpdateSceneViewAfterSignIn();
 
             }
 
@@ -106,56 +167,14 @@ namespace LF2.Client
                 }
                 return true;
             }
-
-            async Task SignIn()
-            {
-                try
-                {
-                    // Debug.Log("InjectDependenciesAndInitialize");
-
-                    // m_ProfileManager.onProfileChanged += OnProfileChanged;
-                    // If have already profile in the game 
-                    var unityAuthenticationInitOptions = new InitializationOptions();
-                    if (ProfileAvailable()) {
-                        var profile = m_ProfileManager.Profile;
-                        Debug.Log("SetProfile : " + profile);
-                        if (profile.Length > 0)
-                        {
-                            unityAuthenticationInitOptions.SetProfile(profile);
-                        }
-                        await m_AuthServiceFacade.InitializeAndSignInAsync(unityAuthenticationInitOptions);
-                        
-                        m_LocalUser.ID = AuthenticationService.Instance.PlayerId;
-                        m_LocalLobby.AddUser(m_LocalUser);
-
-                        await LoadDataFromServices();
-                        Debug.Log("Initialization and signin complete.");
-                        m_LobbyButton.interactable = true;
-                        m_UGSSetupTooltipDetector.enabled = false;
-                        m_SignInSpinner.SetActive(false);
-
-                    }
-                    // First Time play game
-                    else {
-                        // await m_AuthServiceFacade.InitializeAndSignInAsync(unityAuthenticationInitOptions);
-                        // Debug.Log("First Time Sign In.");
-                        // await LoadDataFromServices();
-                        m_UIProfileSelector.ShowFirstTime();
-                    }
-                }
-                catch (Exception)
-                {
-                    Debug.Log("error");
-                    OnSignInFailed();
-                }
             }
         }
 
         async Task LoadServicesData()
         {
             await Task.WhenAll(
-                // CloudSaveManager.instance.LoadAndCacheData(),
-                EconomyManager.instance.RefreshCurrencyBalances()
+                CloudSaveManager.instance.LoadAndCacheData(),
+                economyManager.RefreshCurrencyBalances()
                 // RemoteConfigManager.instance.FetchConfigs()
             );
         }
@@ -186,6 +205,12 @@ namespace LF2.Client
             await OnProfileChanged_Asyn();
         }
 
+        void UpdateSceneViewAfterSignIn()
+        {
+            m_MainMenuView.OnSignedIn();
+            m_MainMenuView.EnableAndUpdate();
+        }
+
 
 
         async Task OnProfileChanged_Asyn()
@@ -204,7 +229,7 @@ namespace LF2.Client
             // It's important to do this update before making any other calls to the Economy or Remote Config
             // APIs as both use the cached data list. (Though it wouldn't be necessary to do if only using Remote
             // Config in your project and not Economy.)
-            await EconomyManager.instance.RefreshEconomyConfiguration();
+            await economyManager.RefreshEconomyConfiguration();
             if (this == null) return;
 
             await LoadServicesData();
@@ -223,6 +248,19 @@ namespace LF2.Client
             m_SignInSpinner.SetActive(false);
         }
 
+
+
+
+        // void UpdatePlayerLevel()
+        // {
+        //     playerLevel.text = CloudSaveManager.instance.playerLevel.ToString();
+        // }
+        // void UpdateProgressBar()
+        // {
+        //     progressBar.maxValue = RemoteConfigManager.instance.levelUpXPNeeded;
+        //     progressBar.value = CloudSaveManager.instance.playerXP;
+        //     playerXPProgressText.text = $"{CloudSaveManager.instance.playerXP}/{RemoteConfigManager.instance.levelUpXPNeeded}";
+        // }
 
 
 

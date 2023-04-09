@@ -103,10 +103,13 @@ namespace LF2.Client
 
         [SerializeField] private float extraYCheckGround = 0f;
         [SerializeField] private float m_ExtendCheckBord = 10f;
+        [SerializeField] private float m_ExtendCheckCollision = 10f;
+
 
         private Vector3 _boundExtents => m_BoxCollider.bounds.extents;
         private Vector3 _boundCenter => m_BoxCollider.bounds.center;
 
+        [SerializeField] private LayerMask k_ObstactLayerMask;
 
 
 
@@ -116,7 +119,9 @@ namespace LF2.Client
         private void Awake()
         {
             k_WallLayerMask = LayerMask.GetMask(new[] { "Wall" });
-            k_GroundLayerMask = LayerMask.GetMask(new[] { "Ground" , "Projectile"});
+            k_GroundLayerMask = LayerMask.GetMask(new[] { "Ground" });
+            // k_ObstactLayerMask = LayerMask.GetMask(new[] { "PCs" });
+
             // k_HurtBoxLayerMask = LayerMask.GetMask(new[] { "HurtBox" });
 
         }
@@ -217,7 +222,7 @@ namespace LF2.Client
         }
         public void CustomMove_InputZ(float speedx, float speedz = 0, float inputZ = 0)
         {
-            moveDir = IsBorder(new Vector3(FacingDirection * speedx, 0, 0.75f * inputZ * speedz));
+            moveDir = IsBorder(new Vector3(FacingDirection * speedx, 0, 0.75f * inputZ ));
             m_Rigidbody.velocity = moveDir;
             // transform.position +=  Time.deltaTime*moveDir;
         }
@@ -353,7 +358,74 @@ namespace LF2.Client
 
         }
 
+        public Vector2 SenseCheck(Vector2 dirToTarget)
+        {
+            // Wall detection x , z
+            var center = transform.position + new Vector3(0,20,0);
+            var x = Mathf.RoundToInt(dirToTarget.x);
+            var z = Mathf.RoundToInt(dirToTarget.y);
+            // Debug.Log( "x" + x :  );
+            dirToTarget.x = x;
+            dirToTarget.y = z;
 
+            // Debug.Log(dirToTarget);
+
+            bool _colRight = Physics.Raycast(center, Vector3.right*FacingDirection,  m_ExtendCheckCollision, k_ObstactLayerMask);
+
+            // bool _colLeft = Physics.Raycast(center, Vector3.left, m_ExtendCheckBord, k_ObstactLayerMask);
+            bool _col_Up_Down = Physics.Raycast(center, Vector3.forward*z,  m_ExtendCheckCollision, k_ObstactLayerMask);
+
+
+            // bool _colUp = Physics.Raycast(center, Vector3.forward, m_ExtendCheckBord, k_ObstactLayerMask);
+            // bool _colDown = Physics.Raycast(center, Vector3.back, m_ExtendCheckBord, k_ObstactLayerMask);
+
+            bool _col_right_down = Physics.Raycast(center, new Vector3(1*FacingDirection,0,-1) , m_ExtendCheckCollision, k_ObstactLayerMask);
+            bool _col_right_up = Physics.Raycast(center, new Vector3(1*FacingDirection,0,1) , m_ExtendCheckCollision, k_ObstactLayerMask);
+
+            
+            if ((x != 0  && z > 0)){
+                // bool _col_right_up = Physics.Raycast(center, new Vector3(1*FacingDirection,0,1) , m_ExtendCheckCollision, k_ObstactLayerMask);
+            
+                if (_col_right_up ){
+                    dirToTarget.x = x;
+                    dirToTarget.y = 0;
+                }
+                
+            }else if(( x != 0  && z < 0)){
+                // bool _col_right_down = Physics.Raycast(center, new Vector3(1*FacingDirection,0,-1) , m_ExtendCheckCollision, k_ObstactLayerMask);
+            
+                if (_col_right_down ){
+                    dirToTarget.x = x;
+                    dirToTarget.y = 0;
+                }
+            }else if (( x != 0 && z == 0)){            
+                // bool _colRight = Physics.Raycast(center, Vector3.right*FacingDirection,  m_ExtendCheckCollision, k_ObstactLayerMask);
+                
+                if (_colRight ){
+                    dirToTarget.x = 0;
+                    dirToTarget.y = 1*Math.Sign(x) ;
+                }
+            }else if (( x == 0 && z != 0)){            
+                // bool _col_Up_Down = Physics.Raycast(center, Vector3.forward*z,  m_ExtendCheckCollision, k_ObstactLayerMask);
+                if (_col_Up_Down ){
+                    dirToTarget.x = 1*Math.Sign(z);
+                    dirToTarget.y = 0;
+                }
+            }
+
+            // Debug.Log(hitInfon.collider);
+            // Debug.Log(_col_right_up);
+
+            Debug.DrawRay(center , new Vector3(1*FacingDirection,0,1)*m_ExtendCheckCollision,_col_right_up ?  Color.red : Color.green );
+            Debug.DrawRay(center , new Vector3(1*FacingDirection,0,-1)*m_ExtendCheckCollision,_col_right_down ?  Color.red : Color.green );
+            Debug.DrawRay(center , Vector3.right*FacingDirection*m_ExtendCheckCollision,_colRight ?  Color.red : Color.green );
+            Debug.DrawRay(center , Vector3.forward*z*m_ExtendCheckCollision,_col_Up_Down ?  Color.red : Color.green );
+
+
+
+            return dirToTarget;
+
+        }
         public bool IsGounded()
         {
             // var _isGround = Physics.OverlapSphereNonAlloc(transform.position + new Vector3(0, _grounderOffset), _grounderRadius, _ground, k_GroundLayerMask) > 0;
@@ -436,13 +508,15 @@ namespace LF2.Client
 
 
         // That should only trigger in non_authorit
-        public void ChangeValueFacingDirection(byte lastRotaion){
+        public void ChangeValueFacingDirection(){
             // Debug.Log(gameObject.name + "Change value Facing ");
-            if (lastRotaion == 180) 
-                FacingDirection = -1;
-            else{
-                FacingDirection = 1;
-            }
+            transform.Rotate(0, 180, 0);
+            FacingDirection *= -1;
+            // if (lastRotaion == 180) 
+            //     FacingDirection = -1;
+            // else{
+            //     FacingDirection = 1;
+            // }
         }
 
         public void TakeControlTransform(bool yes){

@@ -6,7 +6,7 @@
             <uie:ObjectField label="Sound" binding-path="Sound" allow-scene-objects="true" type="LF2.AudioCueSO, LF2.GamePlay" style="flex-direction: column;" />
             <ui:IntegerField label="Wait" value="42" binding-path="wait" />
             <ui:IntegerField label="NextFrame" value="42" binding-path="NextFrame" />
-            <ui:Toggle label="Toggle" binding-path="haveInteraction" style="background-color: rgba(101, 99, 99, 255);" />
+            <ui:Toggle label="Toggle" binding-path="haveInteraction" style="background-color: rgb(101, 99, 99);" />
             <ui:FloatField label="Time" value="42.2" binding-path="time" />
         </ui:VisualElement>
         <ui:VisualElement name="right" class="section" style="width: 30%;">
@@ -18,6 +18,12 @@
             <ui:IntegerField label="pressed_J" value="42" binding-path="pressed_J" />
             <ui:IntegerField label="pressed_D" value="42" binding-path="pressed_D" />
         </ui:VisualElement>
-        <ui:VisualElement name="mid" class="section" style="width: 30%; height: 150px;" />
+        <ui:VisualElement style="width: 30%;">
+            <ui:VisualElement>
+                <ui:Vector3Field label="Center" binding-path="center" style="flex-direction: column;" />
+                <ui:Vector3Field label="Size" binding-path="size" style="flex-direction: column;" />
+            </ui:VisualElement>
+            <ui:VisualElement name="mid" class="section" style="width: auto; height: auto;" />
+        </ui:VisualElement>
     </ui:VisualElement>
 </ui:UXML>

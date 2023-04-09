@@ -24,12 +24,12 @@ namespace LF2.Client{
             itr = stateMachine.itr;
         }
 
-        public override bool ShouldAnticipate(ref InputPackage data)
+        public override bool ShouldAnticipate(ref StateType data)
         {
-            if (data.StateTypeEnum == StateType.Defense){
+            if (data == StateType.Defense){
                 stateMachineFX.AnticipateState(StateType.Idle);
             }
-            else if (data.StateTypeEnum == StateType.Move){
+            else if (data == StateType.Move){
                 stateMachineFX.AnticipateState(StateType.Move);
             }
             return true;

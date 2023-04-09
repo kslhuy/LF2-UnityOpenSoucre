@@ -15,9 +15,10 @@ namespace LF2
         [HideInInspector]
         public NetworkVariable<int> MPPoints = new NetworkVariable<int>();
 
-        public float timerMPrecover = 1f;
+        [Tooltip("Timer in Tick to regenerate MP")]
+        public int timerMPrecover = 60;
         // public float TimerSendMPToServer = 2f;
-        private float timeNow ;
+        private float nbTick ;
         private int cacheMPChange = 500 ;
         private int cacheHPChange = 500;
 
@@ -74,10 +75,11 @@ namespace LF2
         }
 
         private void FixedUpdate() {
+            nbTick ++;
             if (IsServer){
                 if (MPPoints.Value >= 500 ) return;
-                if ( Time.time - timeNow > timerMPrecover ){
-                    timeNow = Time.time;
+                if ( nbTick % timerMPrecover == 0  ){
+                    // timeNow = Time.time;
                     MPPoints.Value += 10; 
                 }
             }

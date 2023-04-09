@@ -350,12 +350,13 @@ MonoBehaviour:
   m_Rigidbody: {fileID: 2344242058887112502}
   m_BoxCollider: {fileID: 1035333018358682408}
   m_MovementSource: {fileID: 7541297034058180883}
-  Drag: 1
+  ClientNetTransform: {fileID: 0}
+  Drag: 15
   _jumpVelocityFalloffQuick: 1
-  _jumpVelocityFalloffLimit: -200
-  _fallMultiplierNormal: 10
-  _fallMultiplierQuick: 50
-  _distanceFromGround: 50
+  _jumpVelocityFalloffLimit: -250
+  _fallMultiplierNormal: 0
+  _fallMultiplierQuick: 120
+  _distanceFromGround: 20
   UseFallMultiplierNormal: 1
   extraYCheckGround: 1
   m_ExtendCheckBord: 10
@@ -431,6 +432,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_NetworkCharacterState: {fileID: 7541297034058180883}
+  m_State: {fileID: 0}
+  m_CharacterClass: {fileID: 0}
   m_PhysicsWrapper: {fileID: 4344797016811615346}
   textMesh: {fileID: 2580333590150333618}
   m_KilledDestroyDelaySeconds: 3

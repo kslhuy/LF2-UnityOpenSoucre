@@ -25,15 +25,14 @@ namespace LF2.Client{
         private bool frameTransitionAnim;
         private bool m_Launched;
 
-        public override bool ShouldAnticipate(ref InputPackage requestData)
-        {
-            if (inputEnable && requestData.StateTypeEnum == StateType.Attack){
+        public override bool ShouldAnticipate(ref StateType requestData)        {
+            if (inputEnable && requestData is  StateType.Attack or StateType.Attack2){
                 cantransition_ToNextAnimation = true;
                 return true;
             }
 
             // For Debug Only
-            if (requestData.StateTypeEnum == StateType.Defense){
+            if (requestData == StateType.Defense){
                 stateMachineFX.idle();
             }
             return false;

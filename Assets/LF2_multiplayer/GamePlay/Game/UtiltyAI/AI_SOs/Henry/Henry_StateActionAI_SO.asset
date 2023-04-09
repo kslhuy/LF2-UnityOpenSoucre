@@ -26,6 +26,9 @@ MonoBehaviour:
   - A_Availlable: {fileID: 11400000, guid: 8f78460f0ecf27d48b5be8983365187c, type: 2}
     Disable: 0
     ShowScore: 0
+  - A_Availlable: {fileID: 11400000, guid: 4580968cc527d0a4e9b7823a4b75b91c, type: 2}
+    Disable: 0
+    ShowScore: 0
   - A_Availlable: {fileID: 11400000, guid: 2bbffcc29b9cac44eafab2a202ae0652, type: 2}
     Disable: 0
     ShowScore: 0

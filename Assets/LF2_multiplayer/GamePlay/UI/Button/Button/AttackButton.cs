@@ -18,6 +18,7 @@ namespace UnityEngine.InputSystem.OnScreen
         private bool Down;
 
 
+
         private void Awake() {
             var slotUpButton = GameObject.FindGameObjectWithTag("UpSlotUI").GetComponent<UpSlotButton>();            
             var slotDownButton = GameObject.FindGameObjectWithTag("DownSlotUI").GetComponent<DownSlotButton>();       
@@ -53,7 +54,13 @@ namespace UnityEngine.InputSystem.OnScreen
         {
             canvasGroup.alpha = 0.6f;
             transform.localScale = k_DownScale;
-            AttackAction?.Invoke(StateType.Attack);
+            int nbAimation = UnityEngine.Random.Range(1,3);
+                if (nbAimation == 1){
+                     AttackAction?.Invoke(StateType.Attack);
+                }else{
+                     AttackAction?.Invoke(StateType.Attack2);
+                }
+            
             
         }
 

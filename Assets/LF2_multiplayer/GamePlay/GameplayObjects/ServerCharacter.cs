@@ -25,27 +25,8 @@ namespace LF2.Server
             get { return NetState.IsNpc; }
         }
 
-        [SerializeField]
-        NetworkAvatarGuidState m_State;
 
-        // Just for debug
-        [SerializeField]
-        CharacterClass m_CharacterClass;
 
-        public CharacterClass CharacterClass
-        {
-            get
-            {
-                if (m_CharacterClass == null)
-                {
-                    m_CharacterClass = m_State.RegisteredAvatar.CharacterClass;
-                }
-
-                return m_CharacterClass;
-            }
-
-            set => m_CharacterClass = value;
-        }
 
         
         // [SerializeField]
@@ -151,7 +132,7 @@ namespace LF2.Server
         {
             if (NetState.LifeState == LifeState.Fainted)
             {
-                NetState.HPPoints = Mathf.Clamp(HP, 0, CharacterClass.BaseHP.Value);
+                NetState.HPPoints = Mathf.Clamp(HP, 0, NetState.CharacterClass.BaseHP.Value);
                 NetState.LifeState = LifeState.Alive;
             }
         }
@@ -172,7 +153,6 @@ namespace LF2.Server
 
         private void OnHPChange(int HP)
         {
-
 #if UNITY_EDITOR || DEVELOPMENT_BUILD
             if (HP < 0 && m_NetworkCharacterState.NetworkLifeState.IsGodMode.Value ){
             // Don't apply damage if god mode is on
@@ -198,7 +178,7 @@ namespace LF2.Server
         }
         private void OnMPChange(int MP)
         {
-            m_NetworkCharacterState.MPPoints = Mathf.Clamp(m_NetworkCharacterState.MPPoints + MP,0 ,m_NetworkCharacterState.CharacterClass.BaseHP.Value );
+            m_NetworkCharacterState.MPPoints = Mathf.Clamp(m_NetworkCharacterState.MPPoints - MP,0 ,m_NetworkCharacterState.CharacterClass.BaseHP.Value );
         }
 
 

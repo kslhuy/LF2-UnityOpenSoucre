@@ -31,11 +31,6 @@ namespace LF2.Client{
 
         }
 
-        public override void End(){
-
-            stateMachineFX.idle();
-        }
-
 
         public override void PlayAnim( int nbanim = 1 , bool sequence = false)
         {
@@ -62,10 +57,17 @@ namespace LF2.Client{
         public override void OnAnimEvent(int id)
         {
             // Beacause the xSlash move quick and big size so dont need to sync transform and so , we can spwan direct in client 
-            SpwanProjectile(stateData.Projectiles[0], new Vector3(stateMachineFX.CoreMovement.GetFacingDirection() ,0,stateMachineFX.InputZ));
-            
-                   
+            SpwanProjectile(stateData.Projectiles[0], new Vector3(stateMachineFX.CoreMovement.GetFacingDirection() ,0,stateMachineFX.InputZ));   
             m_Launched = true;
+        }
+
+        
+        public override void End(){
+            if (stateMachineFX.m_ClientVisual._IsServer && !m_Launched) {
+                SpwanProjectile(stateData.Projectiles[0], new Vector3(stateMachineFX.CoreMovement.GetFacingDirection(),0 ,stateMachineFX.InputZ));
+            }
+            m_Launched = false;   
+            stateMachineFX.idle();
         }
 
 

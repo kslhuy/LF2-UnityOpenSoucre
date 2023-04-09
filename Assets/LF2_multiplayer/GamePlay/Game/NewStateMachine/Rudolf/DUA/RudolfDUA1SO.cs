@@ -30,12 +30,11 @@ namespace LF2.Client{
         }
 
          // Can switch to DUA2 or DUA3  direcly
-        public override bool ShouldAnticipate(ref InputPackage requestData)
-        {
+        public override bool ShouldAnticipate(ref StateType requestData)        {
 
 
             // For Debug Only
-            if (requestData.StateTypeEnum == StateType.Defense){
+            if (requestData == StateType.Defense){
                 stateMachineFX.idle();
             }
             return false;

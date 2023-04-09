@@ -32,17 +32,16 @@ namespace LF2.Client{
         }
 
 
-        public override bool ShouldAnticipate(ref InputPackage requestData)
-        {
+        public override bool ShouldAnticipate(ref StateType requestData)        {
             // Debug.Log(attackOnce);
-            if (requestData.StateTypeEnum == StateType.Attack && !attackOnce){
+            if (requestData == StateType.Attack && !attackOnce){
                 attackOnce = true;
                 stateMachineFX.m_ClientVisual.NormalAnimator.Play(attackDUJ3);
                 return true;
             }
 
             // For Debug Only
-            if (requestData.StateTypeEnum == StateType.Defense){
+            if (requestData == StateType.Defense){
                 stateMachineFX.idle();
             }
             return false;
@@ -82,6 +81,7 @@ namespace LF2.Client{
 
         public override void PlayAnim(int nbanim = 1 , bool sequence = false)
         {
+            stateMachineFX.CoreMovement.CustomJump(stateData.Dy ,stateData.Dx );
             base.PlayAnim();
             attackOnce =  false;
             stateMachineFX.m_ClientVisual.NormalAnimator.Play(stateMachineFX.m_ClientVisual.VizAnimation.a_DUA_3);
@@ -94,7 +94,6 @@ namespace LF2.Client{
 
                 stateMachineFX.m_ClientVisual.m_NetState.AddPredictState_and_SyncServerRpc(GetId());
             }
-            stateMachineFX.CoreMovement.CustomJump(stateData.Dy ,stateData.Dx );
             PlayAnim(nbanim , sequence);
         }
         public override StateType GetId()

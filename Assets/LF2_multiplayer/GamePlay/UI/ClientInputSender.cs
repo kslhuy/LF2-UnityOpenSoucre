@@ -18,14 +18,26 @@ namespace LF2.Client
         ////// ********* NEW ****** ///
         [SerializeField] private NetworkCharacterState m_NetworkCharacter;
 
+        private CharacterStateSOs characterStateSOs {
+            get
+            {
+                CharacterStateSOs result;
+                var found = GameDataSourceNew.Instance.AllStateCharacterByType.TryGetValue(m_NetworkCharacter.CharacterType, out result);
+                // Debug.Log(result);
+                Debug.AssertFormat(found, "Tried to find Character but it was missing from GameDataSource!");
+                return result;
+            }
+        }
+
         #region event
-        public Action<InputPackage> ActionInputEvent; 
+        public Action<StateType> ActionInputEvent; 
         public Action<float, float> ActionMoveInputEvent; 
 
             
         #endregion
 
         private bool CommitToState ; 
+        private bool _isClient;
 
 
 
@@ -42,30 +54,52 @@ namespace LF2.Client
                 }
 
             CommitToState  =  IsHost; 
+
             // values = (StateType[])Enum.GetValues(typeof(StateType));
 
         }
 
+        public StateType ConvertToRunTimeStateType(StateType inputState){
 
-
-
-
-        private void SendStateInput(InputPackage action)
-        {
-            // If we are host (= server) dont neeed to send to the server again 
-            // else , client send to server
-
-
-            // if (CommitToState){
-            //    StartCoroutine(DelayActionOnHostEvent(action));
-            //     ActionInputEvent?.Invoke(action);
-            // }else   {
-            //     ActionInputEvent(action);
-
-            // }
-            ActionInputEvent?.Invoke(action);
-
+            if (inputState == StateType.DDA1){
+                return characterStateSOs.RunTimeDDA.RunTimeStateType;
+            }
+            else if (inputState == StateType.DDJ1){
+                return characterStateSOs.RunTimeDDJ.RunTimeStateType;
+            }
+            else if (inputState == StateType.DUA1){
+                return characterStateSOs.RunTimeDUA.RunTimeStateType;
+            }
+            else if (inputState == StateType.DUJ1){
+                return characterStateSOs.RunTimeDUJ.RunTimeStateType;
+            }else {
+                return inputState;
+            }
         }
+
+
+
+
+
+        // private void SendStateInput(InputPackage action)
+        // {
+        //     // If we are host (= server) dont neeed to send to the server again 
+        //     // else , client send to server
+
+
+        //     // if (CommitToState){
+        //     //    StartCoroutine(DelayActionOnHostEvent(action));
+        //     //     ActionInputEvent?.Invoke(action);
+        //     // }else   {
+        //     //     ActionInputEvent(action);
+
+        //     // }
+        //     ActionInputEvent?.Invoke(action);
+        //     // if (_isClient){
+        //     //     m_NetworkCharacter.SendInputActionToServerRpc(action);
+        //     // }
+
+        // }
 
         public void SendMoveInput(int inputX , int inputZ )
         {
@@ -99,20 +133,19 @@ namespace LF2.Client
 
             // In the furture may be we can developp this feature
         /// <param name="triggerStyle">What input style triggered this action.</param>
-        public void RequestAction(StateType actionType,float inputX = 0 , float inputZ = 0 , int nbAniamtion = 0, ulong targetId = 0 )
+        public void RequestAction(StateType actionType,float inputX = 0 , float inputZ = 0 )
         {
             // Debug.Log(inputX);
 
             // In that time we can extend data more 
             // But now only StateType are send 
-            var data = new InputPackage(){
-                StateTypeEnum = actionType,
-            };
-            // Debug.Log(data.InputX);
-            if (nbAniamtion != 0){
-                data.NbAnimation = (byte)nbAniamtion;
-            }
-            SendStateInput(data);
+            // var data = new InputPackage(){
+            //     StateTypeEnum = ConvertToRunTimeStateType(actionType),
+            // };
+            // Debug.Log(actionType + " convert to " + ConvertToRunTimeStateType(actionType)); 
+            ActionInputEvent?.Invoke(ConvertToRunTimeStateType(actionType));
+
+            // SendStateInput(data);
             
         }
 

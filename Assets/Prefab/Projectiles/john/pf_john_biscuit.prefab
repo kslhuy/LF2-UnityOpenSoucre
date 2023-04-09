@@ -147,15 +147,15 @@ MonoBehaviour:
   k_GroundLayerMask: 0
   ProjectileDamage:
   - {fileID: 11400000, guid: 4c7d02b80baede346a9bf712668c0e93, type: 2}
-  Speed_m_s: 250
+  Speed_m_s: 200
   Range: 0
-  MaxVictims: 5
+  MaxVictims: 3
   m_OnHitParticlePrefab: {fileID: 0}
   _sfxEventChannel: {fileID: 11400000, guid: 1981ab6cbad46e54ca529e09ba189c16, type: 2}
   _audioConfig: {fileID: 11400000, guid: e8a6884befaa7e544b61747452adc267, type: 2}
   Sounds: []
   EndAnimation: john_biscuit3
-  DestroyAfterSec: 10
+  DestroyAfterSec: 8
   DestroyAfterHit: 0
   m_BoxType: 0
   _animator: {fileID: 2824757819236973845}
@@ -164,8 +164,8 @@ MonoBehaviour:
   timerBorning: 0.35
   m_timerTeleport_dessappear: 0.3
   m_timerTeleport_appear: 0.2
-  timeToFlying: 3
-  timeToFinish: 10
+  timeToFlying: 2
+  timeToFinish: 8
   bisCuitState: 0
   _NoiseCurveChase:
     serializedVersion: 2

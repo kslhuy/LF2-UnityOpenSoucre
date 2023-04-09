@@ -18,12 +18,12 @@ namespace LF2
         public string Name ;
         public TeamType TeamType ;
 
-        public NetworkGuid NetworkAvatarGuid ;
-        public PersistentBOT(string name, TeamType teamType , NetworkGuid networkGuid)
+        public CharacterTypeEnum CharacterType ;
+        public PersistentBOT(string name, TeamType teamType , CharacterTypeEnum characterType)
         {
             Name = name;
             TeamType = teamType;
-            NetworkAvatarGuid = networkGuid;
+            CharacterType = characterType;
         }
 
     }

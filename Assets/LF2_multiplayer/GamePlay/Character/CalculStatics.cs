@@ -27,8 +27,8 @@ namespace LF2{
                 // 1 : if  amor absord the Bdenfens so , dont need to acumulated
                 // 2 : else  amor can't absord the Bdenfens so , need to acumulated
 
-                Current_BDefense += inputBDefense ;
                 
+                UpdateBdefend(inputBDefense);
 
                 // 1 & -1 = oposite direction
                 
@@ -38,6 +38,13 @@ namespace LF2{
                     if (opositeDir) return StateType.FallingFront;//4*
                     else return StateType.FallingBack;
                 }
+            }
+
+            public void UpdateBdefend(int bdefend) {
+                Current_BDefense += bdefend ;
+            }
+            public void UpdateFall(int inputFall) {
+                Current_Fall += inputFall ;
             }
 
 //             There are 4 injury frames, and 6 categories of fall values:
@@ -54,14 +61,23 @@ namespace LF2{
 // * When you get sent into injury, your bdefend value is automatically set to 45.
 
 // When you reach each fall threshold, your fall value is actually automatically set to the maximum for that threshold.
-            public StateType FallLeft(int inputFall, bool opositeDir, bool inMid_Air,int inputBDefense ){
+            public StateType FallLeft(int inputFall, bool opositeDir, bool inMid_Air,int inputBDefense ,StateType currentState = default){
                 // Debug.Log( "Input Fall " + inputFall);
-                Current_Fall += inputFall ;
+                UpdateFall(inputFall);
                 Current_BDefense = 45;
                 // Debug.Log( "Current Fall " + Current_Fall);
                 // eFacing = Mathf.Abs(eFacing)/eFacing;
                 // bool opositeDir = eFacing != ourFacing;
                 // Debug.Log($"eFacing + {eFacing} vs ourFacing {ourFacing} = opositeDir {opositeDir}" );
+                
+                // if already DOP , state after need to be Falling 
+                if (currentState == StateType.DOP){
+                    if (opositeDir) 
+                        return StateType.FallingFront; //7*
+                    else 
+                        return StateType.FallingBack;//7* 
+                }
+
                 if (Current_Fall <= 20  ){ //3*
                     Current_Fall = 20;
                     return StateType.Hurt1;

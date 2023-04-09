@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using LF2.Utils;
 using UnityEngine;
 
@@ -102,12 +103,11 @@ namespace LF2.Client
             }     
 
         }
-      
      
             
         // Aticipate State in CLient , 
         // Do change state but most importance its run Animation predict   
-        public void DoAnticipate(ref InputPackage requestData)
+        public void DoAnticipate(ref StateType requestData)
         {
             // Debug.Log($"Currenstate {CurrentStateViz} ");
             CurrentStateViz.ShouldAnticipate(ref requestData);   
@@ -124,11 +124,7 @@ namespace LF2.Client
             else 
                 state = StateType.Idle;
 
-            InputPackage data =  new InputPackage{
-                StateTypeEnum = state ,
-                }; 
-
-            DoAnticipate(ref data);
+            DoAnticipate(ref state);
 
 
         }
@@ -145,6 +141,26 @@ namespace LF2.Client
                 
             // Debug.Log("Change State 2");
             ChangeState(stateTypeSync);
+            
+        }
+
+        public void PerformInnerSyncStateFX(ref byte stateIndex)
+        {
+            // Debug.Log("Change State");
+                
+            // Debug.Log("Change State 2");
+            // ChangeState(CurrentStateViz.stateData.SubStateLogicSO[stateIndex] );
+            
+        }
+
+        // Play correct State that sent by Server  (broad-cast to all client)
+        public void PlayEndAnimationFX(ref StateType stateTypeSync)
+        {
+            // Debug.Log("Change State");
+            if (CurrentStateViz.GetId().Equals(stateTypeSync)) {
+                CurrentStateViz.PlayEndAnimation();
+            }
+            
             
         }
 
@@ -191,18 +207,7 @@ namespace LF2.Client
             if ( LastStateViz != CurrentStateViz){
                 LastStateViz = CurrentStateViz;
             }
-                    // USe late when we finish ajust the game play
-            // if (CurrentStateViz.stateData != null && CurrentStateViz.stateData.expirable)
-            // {
-            //     // Debug.Log($"Sub_TimeAnimation = {Time.time -  CurrentStateViz.TimeStarted_Animation} "); 
-            //     bool timeExpired = Time.time -  CurrentStateViz.TimeStarted_Animation >= CurrentStateViz.stateData.DurationSeconds;
-            //     // Check if this State Can End Naturally (== time Expired )
-            //     if ( timeExpired ){
 
-            //         CurrentStateViz?.End();
-            //         return;
-            //     }
-            // }
             
                     //// Use full , take value from ref of SOs , so we can change value in real time
             if (m_ClientVisual.StateChange_After_Timer){
@@ -232,6 +237,10 @@ namespace LF2.Client
             }
             CurrentStateViz?.LogicUpdate();
             CurrentStateViz.nbTickRender++;
+            // if (currentFrameNumber > int.MaxValue - 2 ){
+            //     currentFrameNumber = 0 ;
+            //     return;    
+            // }
             currentFrameNumber++;
 
             // if (m_ClientVisual.CanCommit)
@@ -257,7 +266,7 @@ namespace LF2.Client
             var stateAction = GetState(state);
 
             
-            if (stateAction.stateData.UseMana){
+            if (m_ClientVisual.debugUseMana){
                 if (stateAction.stateData.ManaCost < 0){
                     Debug.LogWarning("You Forgot to Set Mana Cost");
 
@@ -266,13 +275,39 @@ namespace LF2.Client
                 {
                     m_ClientVisual.MPChange(stateAction.stateData.ManaCost);
                     CurrentStateViz.Exit();
-                    CurrentStateViz = combo? QueueStateFX[0]: GetState(state);
+                    CurrentStateViz = combo? QueueStateFX[0]: stateAction;
                     CurrentStateViz.nbTickRender = frameRender;
                     CurrentStateViz.Enter();
                 }
             }else{
                 CurrentStateViz.Exit();
-                CurrentStateViz = combo? QueueStateFX[0]: GetState(state);
+                CurrentStateViz = combo? QueueStateFX[0]: stateAction;
+                CurrentStateViz.nbTickRender = frameRender;
+                CurrentStateViz.Enter();
+            }
+        }
+
+        // Switch to Another State , (we force to Change State , so that mean this State may be not End naturally , be interruped by some logic  ) 
+        ///  Only exucute when server call !!!!
+        public void ChangeState( StateActionLogic stateAction , int frameRender = 1,bool combo = false ){
+            _onceEnd = false;
+
+            if (m_ClientVisual.debugUseMana){
+                if (stateAction.stateData.ManaCost < 0){
+                    Debug.LogWarning("You Forgot to Set Mana Cost");
+
+                }
+                if (stateAction.stateData.ManaCost < m_ClientVisual.MPRemain())
+                {
+                    m_ClientVisual.MPChange(stateAction.stateData.ManaCost);
+                    CurrentStateViz.Exit();
+                    CurrentStateViz = combo? QueueStateFX[0]: stateAction;
+                    CurrentStateViz.nbTickRender = frameRender;
+                    CurrentStateViz.Enter();
+                }
+            }else{
+                CurrentStateViz.Exit();
+                CurrentStateViz = combo? QueueStateFX[0]: stateAction;
                 CurrentStateViz.nbTickRender = frameRender;
                 CurrentStateViz.Enter();
             }
@@ -284,33 +319,75 @@ namespace LF2.Client
 
 
             if (m_ClientVisual.debugUseMana){
-                if (stateAction.stateData.UseMana){
-                    if (stateAction.stateData.ManaCost > 0){
-                        Debug.LogWarning("You Forgot to Set Mana Cost");
+                // if (stateAction.stateData.ManaCost > 0){
+                //     Debug.LogWarning("You Forgot to Set Mana Cost");
+                // }
+                if (stateAction.stateData.ManaCost < m_ClientVisual.MPRemain())
+                {
+                    m_ClientVisual.MPChange(stateAction.stateData.ManaCost);
+                    // Exit current state
+                    CurrentStateViz.Exit();
+                    // assigne new stat to CurrentState
+                    CurrentStateViz = combo? QueueStateFX[0]: stateAction;
+                    CurrentStateViz.nbTickRender = frameRender;
+                    if (m_ClientVisual.Owner){
+                        m_ClientVisual.m_NetState.AddPredictState_and_SyncServerRpc(state);
                     }
-                    if (stateAction.stateData.ManaCost < m_ClientVisual.MPRemain())
-                    {
-                        m_ClientVisual.MPChange(stateAction.stateData.ManaCost);
-                        // Exit current state
-                        CurrentStateViz.Exit();
-                        // assigne new stat to CurrentState
-                        CurrentStateViz = combo? QueueStateFX[0]: GetState(state);
-                        CurrentStateViz.nbTickRender = frameRender;
-                        CurrentStateViz.PlayPredictState();
-                        // Debug.Log($"You have {m_ClientVisual.MPRemain()} remain");
 
-                    }
-            }
+                    CurrentStateViz.PlayAnim(frameRender);
+
+                    // CurrentStateViz.PlayPredictState();
+                    // Debug.Log($"You have {m_ClientVisual.MPRemain()} remain");
+
+                }
             }else {
                 CurrentStateViz.Exit();
-                CurrentStateViz = combo? QueueStateFX[0]: GetState(state);
+                CurrentStateViz = combo? QueueStateFX[0]: stateAction;
                 CurrentStateViz.nbTickRender = frameRender;
-                CurrentStateViz.PlayPredictState(frameRender);
+                if (m_ClientVisual.Owner){
+                    m_ClientVisual.m_NetState.AddPredictState_and_SyncServerRpc(state);
+                } 
+                CurrentStateViz.PlayAnim(frameRender);
             }
-
-            
-
         }
+
+
+        // public void AnticipateInnerState(  StateActionLogic stateAction,byte indexInnerState , bool combo = false ){
+        //     _onceEnd = false;
+
+        //     if (m_ClientVisual.debugUseMana){
+        //         // if (stateAction.stateData.ManaCost > 0){
+        //         //     Debug.LogWarning("You Forgot to Set Mana Cost");
+        //         // }
+        //         if (stateAction.stateData.ManaCost < m_ClientVisual.MPRemain())
+        //         {
+        //             m_ClientVisual.MPChange(stateAction.stateData.ManaCost);
+        //             // Exit current state
+        //             CurrentStateViz.Exit();
+        //             // assigne new stat to CurrentState
+        //             CurrentStateViz = combo? QueueStateFX[0]: stateAction;
+        //             CurrentStateViz.nbTickRender = 1;
+        //             if (m_ClientVisual.Owner){
+        //                 m_ClientVisual.m_NetState.AddPredict_InnerStateServerRpc(indexInnerState);
+        //             }
+
+        //             CurrentStateViz.PlayAnim(1);
+
+        //             // CurrentStateViz.PlayPredictState();
+        //             // Debug.Log($"You have {m_ClientVisual.MPRemain()} remain");
+
+        //         }
+        //     }else {
+        //         CurrentStateViz.Exit();
+        //         CurrentStateViz = combo? QueueStateFX[0]: stateAction;
+        //         CurrentStateViz.nbTickRender = 1;
+        //         if (m_ClientVisual.Owner){
+        //             m_ClientVisual.m_NetState.AddPredictState_and_SyncServerRpc(state);
+        //         } 
+        //         CurrentStateViz.PlayAnim(1);
+        //     }
+        // }
+
 
         
         /// <summary>
@@ -351,16 +428,18 @@ namespace LF2.Client
             }
 
 
+            if (CurrentStateViz.GetId() != StateType.Ice){
+                AnticipateState(nextState);
+            }
 
-            AnticipateState(nextState);
             // owner apply direct
             // if (m_ClientVisual.Owner)  {
             // }
             if (attkdata.Direction != Vector3.zero) {
                 // Debug.Log(attkdata.Direction);
                 m_ClientVisual.coreMovement.TakeControlTransform(true);
-                CurrentStateViz.HurtResponder(attkdata.Direction);
             }
+            CurrentStateViz.HurtResponder(attkdata.Direction);
 
             // if (m_ClientVisual.Owner){
             //     Debug.Log("owner be hurted recveied direction" + attkdata.Direction); 
@@ -381,8 +460,17 @@ namespace LF2.Client
             int eFacing = (int)(Mathf.Abs(attkdata.Direction.x)/attkdata.Direction.x);
             bool opositeDir = eFacing != CoreMovement.GetFacingDirection();
             
-            if (attkdata.Effect == (int)DamageEffect.Fire ) return StateType.Fire ;
-            if (attkdata.Effect == (int)DamageEffect.Ice) return StateType.Ice ;
+            if (attkdata.Effect == (int)DamageEffect.Fire ) {
+                calculStatics.UpdateBdefend(attkdata.BDefense_p) ;
+                calculStatics.UpdateFall(attkdata.Fall_p);
+                return StateType.Fire ;
+            }
+            if (attkdata.Effect == (int)DamageEffect.Ice) {
+                calculStatics.UpdateBdefend(attkdata.BDefense_p) ;
+                calculStatics.UpdateFall(attkdata.Fall_p);
+                return StateType.Ice ;
+            
+            }
 
             // Debug.Log( " HP " + m_ClientVisual.HPRemain() + ":" + "damage"  + attkdata.Amount_injury  );
             if (m_ClientVisual.HPRemain() < -attkdata.Amount_injury){
@@ -400,7 +488,7 @@ namespace LF2.Client
                 return  calculStatics.BdefenseLeft(attkdata.BDefense_p, opositeDir);
             }
 
-            return (calculStatics.FallLeft(attkdata.Fall_p, opositeDir,!CoreMovement.IsGounded() , attkdata.BDefense_p));
+            return (calculStatics.FallLeft(attkdata.Fall_p, opositeDir,!CoreMovement.IsGounded() , attkdata.BDefense_p ,CurrentStateViz.GetId() ));
         }
 
         public void idle()
@@ -413,9 +501,9 @@ namespace LF2.Client
             CurrentStateViz?.AddCollider(collider);
         }
 
-        public void OnTriggerStay(Collider collider) {
-            CurrentStateViz?.OnStayCollider(collider);
-        }
+        // public void OnTriggerStay(Collider collider) {
+        //     CurrentStateViz?.OnStayCollider(collider);
+        // }
         public void OnTriggerExit(Collider collider) {
             CurrentStateViz?.RemoveCollider(collider);
         }

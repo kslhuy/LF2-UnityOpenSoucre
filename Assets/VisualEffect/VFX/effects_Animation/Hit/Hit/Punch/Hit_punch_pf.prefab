@@ -10,8 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7893645823285868478}
   - component: {fileID: -2480035301405101790}
-  - component: {fileID: -7683937526813160875}
-  - component: {fileID: 6063082925442648448}
+  - component: {fileID: 4483254491953404590}
   m_Layer: 0
   m_Name: Hit_punch_pf
   m_TagString: Untagged
@@ -86,27 +85,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!95 &-7683937526813160875
-Animator:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3176774311174098334}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: ef98c59158c440f4aabdeb94261cf8e4, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &6063082925442648448
+--- !u!114 &4483254491953404590
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -115,8 +94,96 @@ MonoBehaviour:
   m_GameObject: {fileID: 3176774311174098334}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: acf3c1ff527af4f4d90647da987a352a, type: 3}
+  m_Script: {fileID: 11500000, guid: 42a36e518854b3b42977489e2910a2d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_AutoShutdownTime: 0.333
-  animator: {fileID: -7683937526813160875}
+  m_AutoShutdownTime: -1
+  m_AutoPlay: -1
+  spriteRenderer: {fileID: 0}
+  frameChecker:
+    clip: {fileID: 7400000, guid: 8c3f570d762b455408b289c93c7edbfc, type: 2}
+    totalFrames: 4
+    arest: 0
+    vrest: 0
+    _frameStruct:
+    - sprite: {fileID: -4488528447827022224, guid: 4f25609e1eae34e4bb7b943aa426d649, type: 3}
+      time: 0
+      dvx: 0
+      dvy: 0
+      dvz: 0
+      pressed_A: 0
+      pressed_J: 0
+      pressed_D: 0
+      haveInteraction: 0
+      interaction:
+        damageAmount: 0
+        Effect: 0
+        fall: 0
+        Bdefend: 0
+        vrest: 0
+        Dirxyz: {x: 0, y: 0, z: 0}
+      SpwanObject: {fileID: 0}
+      Sound: {fileID: 0}
+      NextFrame: 1
+      wait: 1
+    - sprite: {fileID: -7579776903069701461, guid: 4f25609e1eae34e4bb7b943aa426d649, type: 3}
+      time: 0
+      dvx: 0
+      dvy: 0
+      dvz: 0
+      pressed_A: 0
+      pressed_J: 0
+      pressed_D: 0
+      haveInteraction: 0
+      interaction:
+        damageAmount: 0
+        Effect: 0
+        fall: 0
+        Bdefend: 0
+        vrest: 0
+        Dirxyz: {x: 0, y: 0, z: 0}
+      SpwanObject: {fileID: 0}
+      Sound: {fileID: 0}
+      NextFrame: 2
+      wait: 1
+    - sprite: {fileID: 7199366509229232482, guid: 4f25609e1eae34e4bb7b943aa426d649, type: 3}
+      time: 0
+      dvx: 0
+      dvy: 0
+      dvz: 0
+      pressed_A: 0
+      pressed_J: 0
+      pressed_D: 0
+      haveInteraction: 0
+      interaction:
+        damageAmount: 0
+        Effect: 0
+        fall: 0
+        Bdefend: 0
+        vrest: 0
+        Dirxyz: {x: 0, y: 0, z: 0}
+      SpwanObject: {fileID: 0}
+      Sound: {fileID: 0}
+      NextFrame: 3
+      wait: 1
+    - sprite: {fileID: 8752121374690723409, guid: 4f25609e1eae34e4bb7b943aa426d649, type: 3}
+      time: 0
+      dvx: 0
+      dvy: 0
+      dvz: 0
+      pressed_A: 0
+      pressed_J: 0
+      pressed_D: 0
+      haveInteraction: 0
+      interaction:
+        damageAmount: 0
+        Effect: 0
+        fall: 0
+        Bdefend: 0
+        vrest: 0
+        Dirxyz: {x: 0, y: 0, z: 0}
+      SpwanObject: {fileID: 0}
+      Sound: {fileID: 0}
+      NextFrame: 999
+      wait: 1
+    layerNumber: 0

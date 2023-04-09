@@ -22,15 +22,14 @@ namespace LF2.Client{
             stateMachineFX = stateMachine;
         }
 
-         public override bool ShouldAnticipate(ref InputPackage requestData)
-        {
-            if (requestData.StateTypeEnum == StateType.Attack){
+         public override bool ShouldAnticipate(ref StateType requestData)        {
+            if (requestData == StateType.Attack || requestData == StateType.Attack2){
                 cantransition_ToNextAnimation = true;
                 return true;
             }
 
             // For Debug Only
-            if (requestData.StateTypeEnum == StateType.Defense){
+            if (requestData == StateType.Defense){
                 stateMachineFX.idle();
             }
             return false;

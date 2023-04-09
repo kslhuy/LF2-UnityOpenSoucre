@@ -25,6 +25,10 @@ namespace LF2
             return avatarValue != null;
         }
 
+        public Avatar GetAvatar(CharacterTypeEnum characterType){
+            return  Array.Find(m_Avatars, avatar => avatar.CharacterClass.CharacterType == characterType) ;
+        }
+
         public Avatar GetRandomAvatar()
         {
             if (m_Avatars == null || m_Avatars.Length == 0)

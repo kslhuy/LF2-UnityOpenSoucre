@@ -87,28 +87,7 @@ namespace LF2
 
         public AvatarRegistry AvatarRegistry;
 
-        private Dictionary<CharacterTypeEnum, Avatar> m_AvatarByHero;
 
-        public Dictionary<CharacterTypeEnum, Avatar> AvatarByHero{
-            get
-                {
-                    if( m_AvatarByHero == null )
-                    {
-                        m_AvatarByHero = new Dictionary<CharacterTypeEnum, Avatar>();
-                        // Hoi bi rac roi cach viet
-                        // co 1 list SkillsDescription o tren , lay tung cai 1 .
-                        foreach (Avatar avatar in AvatarRegistry.m_Avatars)
-                        {
-                            if (m_AvatarByHero.ContainsKey(avatar.CharacterClass.CharacterType))
-                            {
-                                throw new System.Exception($"Duplicate PlayerChamp definition detected: {avatar.CharacterClass.CharacterType}");
-                            }
-                            m_AvatarByHero[avatar.CharacterClass.CharacterType] = avatar;
-                        }
-                    }
-                    return m_AvatarByHero;
-                }
-        }
 
 
 

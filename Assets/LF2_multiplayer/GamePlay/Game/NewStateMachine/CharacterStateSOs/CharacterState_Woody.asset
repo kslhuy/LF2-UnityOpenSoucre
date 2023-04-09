@@ -44,3 +44,18 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 0070e53432a8ccc46812840d859806ba, type: 2}
   - {fileID: 11400000, guid: 6cde4aeca0cf9754a9ea7dccf742b5eb, type: 2}
   - {fileID: 11400000, guid: da42944ffdb05e24e84ce293feeb0567, type: 2}
+  - {fileID: 11400000, guid: c69bb4658c71a58489257c5f7c4d42a2, type: 2}
+  - {fileID: 11400000, guid: 4d7bce9ed77923d40be4db8fc9ec74ce, type: 2}
+  ListAllComboSkills: []
+  RunTimeDDA:
+    RunTimeStateType: 30
+    InputToConvert: 0
+  RunTimeDDJ:
+    RunTimeStateType: 33
+    InputToConvert: 0
+  RunTimeDUA:
+    RunTimeStateType: 39
+    InputToConvert: 0
+  RunTimeDUJ:
+    RunTimeStateType: 36
+    InputToConvert: 0

@@ -30,15 +30,14 @@ namespace LF2.Client{
 
 
          // Can switch to DUA2 or DUA3  direcly
-        public override bool ShouldAnticipate(ref InputPackage requestData)
-        {
-            if (inputEnable && requestData.StateTypeEnum == StateType.Attack){
+        public override bool ShouldAnticipate(ref StateType requestData)        {
+            if (inputEnable && requestData == StateType.Attack){
                 cantransition_ToNextAnimation = true;
                 _stateToPlay = StateType.DUA2;
                 return true;
             }
 
-            if (inputEnable && requestData.StateTypeEnum == StateType.Jump){
+            if (inputEnable && requestData == StateType.Jump){
                 cantransition_ToNextAnimation = true;
                 _stateToPlay = StateType.DUA3;
 
@@ -49,7 +48,7 @@ namespace LF2.Client{
             
 
             // For Debug Only
-            if (requestData.StateTypeEnum == StateType.Defense){
+            if (requestData == StateType.Defense){
                 stateMachineFX.idle();
             }
             return false;

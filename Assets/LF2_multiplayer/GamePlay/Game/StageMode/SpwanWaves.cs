@@ -20,4 +20,6 @@ public class SpwanWaves {
 
     [Tooltip("Normal we spawn in the right , check this for add more spawn point on the left.")]
     public bool m_SpawnLeft ;
+
+    public bool IsBoss ;
 }

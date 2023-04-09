@@ -49,7 +49,7 @@ namespace LF2.Client
                 if (targetNetObj != null ){
                     if( ( targetNetObj.NetworkObjectId != m_SpawnerId) )
                     {
-                        Debug.Log(targetNetObj);
+                        // Debug.Log(targetNetObj);
 
                         AttackDataSend Atk_data = new AttackDataSend();
                         Atk_data.Direction = new Vector3(ProjectileDamage[0].Dirxyz.x * transform.right.x , ProjectileDamage[0].Dirxyz.y,ProjectileDamage[0].Dirxyz.z) ;

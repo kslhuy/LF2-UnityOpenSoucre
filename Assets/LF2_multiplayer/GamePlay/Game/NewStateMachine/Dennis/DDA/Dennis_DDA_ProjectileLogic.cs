@@ -43,25 +43,17 @@ namespace LF2.Client
 
             if (collider.CompareTag("HurtBox")){
 
-                var targetNetObj = collider.GetComponentInParent<IHurtBox>();
+                var targetNetObj = GetTargetObject(collider , out bool isOKtoUse);
 
-                if (targetNetObj != null ){
-                    if( ( targetNetObj.NetworkObjectId != m_SpawnerId) )
-                    {
-                        Debug.Log(targetNetObj);
+                if (isOKtoUse){
+                    SendHitData(targetNetObj);
+                    PlayAudio();
+                    CanMove = false;
+                    m_Started = false;
 
-                        AttackDataSend Atk_data = new AttackDataSend();
-                        Atk_data.Direction = new Vector3(ProjectileDamage[0].Dirxyz.x * transform.right.x , ProjectileDamage[0].Dirxyz.y,ProjectileDamage[0].Dirxyz.z) ;
-                        Atk_data.BDefense_p = ProjectileDamage[0].Bdefend;
-                        Atk_data.Fall_p = ProjectileDamage[0].fall;
-                        targetNetObj.ReceiveHP(Atk_data);
-                        CanMove = false;
-                        animator.Play(Hit);
-                        if (ProjectileDamage[0].SoundHit.Length > 0 )PlayAudio(ProjectileDamage[0].SoundHit[0], transform.position);
-                        m_Started = false;
-                        Coro_Balldp(DestroyAfterHit);
-
-                    }
+                    Instantiate(m_OnHitParticlePrefab , transform.position ,Quaternion.identity);
+                    Coro_Balldp(DestroyAfterHit);
+     
                 }
             }
 

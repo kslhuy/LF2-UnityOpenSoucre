@@ -7,7 +7,7 @@ AnimationClip:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: DDA_1_Woody
-  serializedVersion: 6
+  serializedVersion: 7
   m_Legacy: 0
   m_Compressed: 0
   m_UseHighQualityCurve: 1
@@ -61,6 +61,7 @@ AnimationClip:
       typeID: 212
       customType: 23
       isPPtrCurve: 1
+      isIntCurve: 0
     pptrCurveMapping:
     - {fileID: 7212234366283444033, guid: 672fc5aaf14bb5646a7a718ef5c677a7, type: 3}
     - {fileID: -1353556487799840615, guid: 672fc5aaf14bb5646a7a718ef5c677a7, type: 3}
@@ -104,9 +105,23 @@ AnimationClip:
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
+    intParameter: 100
+    messageOptions: 0
+  - time: 0.41666666
+    functionName: OnAnimEvent
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
     intParameter: 0
     messageOptions: 0
   - time: 0.5
+    functionName: OnAnimEvent
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 100
+    messageOptions: 0
+  - time: 0.6666667
     functionName: OnAnimEvent
     data: 
     objectReferenceParameter: {fileID: 0}

@@ -25,10 +25,12 @@ namespace LF2.Client{
             itr = stateMachine.itr;
         }
 
-        public override bool ShouldAnticipate(ref InputPackage data)
+        public override bool ShouldAnticipate(ref StateType data)
         {
-
-            stateMachineFX.AnticipateState(data.StateTypeEnum);
+            if (data is StateType.Attack or StateType.Attack2){
+                stateMachineFX.AnticipateState(StateType.Attack);
+            }
+            stateMachineFX.AnticipateState(data);
             return true;
         }
 

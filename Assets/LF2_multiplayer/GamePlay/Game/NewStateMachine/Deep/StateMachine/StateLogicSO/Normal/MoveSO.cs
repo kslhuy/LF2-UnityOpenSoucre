@@ -22,29 +22,24 @@ namespace LF2.Client{
             stateMachineFX = stateMachine;
         }
 
-        public override bool ShouldAnticipate(ref InputPackage data)
+        public override bool ShouldAnticipate(ref StateType data)
         {
-            if ( data.StateTypeEnum == StateType.Jump ){
+            if ( data == StateType.Jump ){
                 // stateMachineFX.m_ClientVisual.coreMovement.SetJump(stateMachineFX.InputX,stateMachineFX.InputZ);
                 stateMachineFX.AnticipateState(StateType.Jump);
-                return true;
             }
-            else if (data.StateTypeEnum == StateType.Attack)
+            else if (data == StateType.Attack)
             {
-                stateMachineFX.AnticipateState(data.StateTypeEnum);
-                return true;
+                stateMachineFX.AnticipateState(data);
             }
-            else if (data.StateTypeEnum == StateType.Defense){
-                stateMachineFX.AnticipateState(data.StateTypeEnum);
-                return true;
+            else if (data == StateType.Defense){
+                stateMachineFX.AnticipateState(data);
             }
-            else if(data.StateTypeEnum == StateType.Run){
+            else if(data == StateType.Run){
                 stateMachineFX.AnticipateState(StateType.Run);
-                return true;
             }
-            else if(data.StateTypeEnum == StateType.Idle){
+            else if(data == StateType.Idle){
                 stateMachineFX.AnticipateState(StateType.Idle);
-                return true;
             }
             return false;
         }
@@ -93,15 +88,7 @@ namespace LF2.Client{
             // }
         }
 
-        // public bool IsAnimating()
-        // {
-        //     if (stateMachineFX.m_ClientVisual.NormalAnimator.GetCurrentAnimatorStateInfo(0).shortNameHash == stateData.vizAnim[0].AnimHashId) {
-        //         return true;
-        //     }
-        //     stateMachineFX.m_ClientVisual.NormalAnimator.Play(stateMachineFX.m_ClientVisual.VizAnimation.a_Walk);
-        //     return false;
 
-        // }
 
         public override void Exit()
         {

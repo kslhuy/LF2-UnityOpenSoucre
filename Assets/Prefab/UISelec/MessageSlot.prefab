@@ -189,7 +189,7 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 6333937
+    rgba: 4284524017
   m_fontColor: {r: 0.9433962, g: 0.6472864, b: 0.37824848, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
@@ -279,7 +279,7 @@ RectTransform:
   m_Children:
   - {fileID: 7341736177572210195}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}

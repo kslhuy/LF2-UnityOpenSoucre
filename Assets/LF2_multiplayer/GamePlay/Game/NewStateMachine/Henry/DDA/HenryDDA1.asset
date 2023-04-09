@@ -14,11 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   StateType: 30
   Logic: 3
-  UseMana: 1
-  ManaCost: 0
+  NextStateLogicSO: []
+  ManaCost: 75
   DamageDetails:
   - {fileID: 11400000, guid: ed256d8f033d3894899d9c058d919b5c, type: 2}
-  Interactions: []
   Dx: 0
   Dy: 0
   Dz: 0
@@ -32,8 +31,9 @@ MonoBehaviour:
   - ProjectilePrefab: {fileID: 4477627029082403580, guid: b9773402a3b36b54cbe70829b695191f, type: 3}
     pivot: {x: 50, y: 40, z: 0}
   DurationSeconds: 0.4
+  Duration: 24
   expirable: 1
-  ReuseTimeSeconds: 0
+  ReuseTimeSeconds: 2
   ActionInterruptible: 0
   Sounds: {fileID: 0}
   delayLoopSound: 0
@@ -62,6 +62,7 @@ MonoBehaviour:
         Effect: 0
         fall: 0
         Bdefend: 0
+        vrest: 0
         Dirxyz: {x: 0, y: 0, z: 0}
       SpwanObject: {fileID: 0}
       Sound: {fileID: 0}
@@ -81,6 +82,7 @@ MonoBehaviour:
         Effect: 0
         fall: 0
         Bdefend: 0
+        vrest: 0
         Dirxyz: {x: 0, y: 0, z: 0}
       SpwanObject: {fileID: 0}
       Sound: {fileID: 0}
@@ -100,6 +102,7 @@ MonoBehaviour:
         Effect: 0
         fall: 0
         Bdefend: 0
+        vrest: 0
         Dirxyz: {x: 0, y: 0, z: 0}
       SpwanObject: {fileID: 0}
       Sound: {fileID: 0}
@@ -119,6 +122,7 @@ MonoBehaviour:
         Effect: 0
         fall: 0
         Bdefend: 0
+        vrest: 0
         Dirxyz: {x: 0, y: 0, z: 0}
       SpwanObject: {fileID: 0}
       Sound: {fileID: 0}

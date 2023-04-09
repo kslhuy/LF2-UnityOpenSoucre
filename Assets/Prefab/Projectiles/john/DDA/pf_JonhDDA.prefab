@@ -104,17 +104,6 @@ Animator:
   m_CorrespondingSourceObject: {fileID: 3672223636655927781, guid: e1e6fa40b644751498970cb113c8b0a1, type: 3}
   m_PrefabInstance: {fileID: 1568895022039502064}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &4100799406809116488 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3255296454070526904, guid: e1e6fa40b644751498970cb113c8b0a1, type: 3}
-  m_PrefabInstance: {fileID: 1568895022039502064}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4479758005046589536}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 39975f2fa809f7d44883789ef7323259, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &4479758005046589536 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3165636493918647440, guid: e1e6fa40b644751498970cb113c8b0a1, type: 3}
@@ -132,16 +121,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ee08189ae61b59468e61d9322afb487, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_NetState: {fileID: 4100799406809116488}
   m_OurCollider: {fileID: 7058080987340510452}
-  m_Rigidbody: {fileID: 6891968443062646232}
   k_GroundLayerMask: 0
   ProjectileDamage:
   - {fileID: 11400000, guid: 6a69a589152cda04696b850a3b5ceb2c, type: 2}
   Speed_m_s: 450
   Range: 0
   MaxVictims: 1
-  SpawnFX: {fileID: 0}
+  m_OnHitParticlePrefab: {fileID: 6898505785670920129, guid: 84cace23e1ed0cf418ae970542ce0f56, type: 3}
   _sfxEventChannel: {fileID: 11400000, guid: 1981ab6cbad46e54ca529e09ba189c16, type: 2}
   _audioConfig: {fileID: 11400000, guid: e8a6884befaa7e544b61747452adc267, type: 2}
   Sounds: []
@@ -164,11 +151,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _shadowPrefab: {fileID: 1064790220466893712, guid: 4be219a5eb526744ea033501ebe49921, type: 3}
   Offset: {x: 0, y: -45, z: 0}
---- !u!54 &6891968443062646232 stripped
-Rigidbody:
-  m_CorrespondingSourceObject: {fileID: 5359535883441174824, guid: e1e6fa40b644751498970cb113c8b0a1, type: 3}
-  m_PrefabInstance: {fileID: 1568895022039502064}
-  m_PrefabAsset: {fileID: 0}
 --- !u!65 &7058080987340510452 stripped
 BoxCollider:
   m_CorrespondingSourceObject: {fileID: 8374024554256111620, guid: e1e6fa40b644751498970cb113c8b0a1, type: 3}

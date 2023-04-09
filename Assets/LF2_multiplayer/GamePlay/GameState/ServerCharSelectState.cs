@@ -69,7 +69,7 @@ namespace LF2.Server
                 BackGroundSelectData.OnHostClickedReady += OnHostReady;
 
                 NetworkManager.Singleton.SceneManager.OnSceneEvent += OnSceneEvent;
-                Debug.Log("huy");
+                // Debug.Log("huy");
             }
         }
         public void OnNetworkDespawn()
@@ -315,12 +315,12 @@ namespace LF2.Server
                     // pass avatar GUID to PersistentPlayer
                         // CharSelectData.AvatarByHero.TryGetValue(m_PlayerSeats[seatIdx].NameChampion,out avatar);
                         // Debug.Log("palyer Infor Champ" + playerInfo.PlayerChamp);
-                        if (!CharSelectData.AvatarByHero.TryGetValue(playerInfo.PlayerChamp , out Avatar avatar)){
+                        if (!CharSelectData.AvatarRegistry.TryGetAvatar(playerInfo.PlayerChamp , out Avatar avatar)){
                             Debug.LogError("Dont Have Avatar for " + playerInfo.PlayerChamp);
                             return ; 
                         }
                         // Debug.Log("Character Type " + avatar.CharacterClass.CharacterType); 
-                        persistentPlayer.NetworkAvatarGuidState.AvatarGuid.Value = avatar.Guid.ToNetworkGuid();
+                        persistentPlayer.NetworkAvatarGuidState.AvatarType.Value = avatar.CharacterClass.CharacterType;
                         persistentPlayer.NetworkNameState.Team.Value = playerInfo.PlayerTeam;
                         // Save result Background 
                         persistentPlayer.PersistentBackGround.NetworkBackGround = BackGroundSelectData.backGroundGameRegistry.TryGetBackGround(BackGroundSelectData.BackGroundNumber.Value).NameBackGround ;
@@ -333,7 +333,7 @@ namespace LF2.Server
                 {
                     // pass avatar GUID to PersistentPlayer
                         // CharSelectData.AvatarByHero.TryGetValue(m_PlayerSeats[seatIdx].NameChampion,out avatar);
-                        if (!CharSelectData.AvatarByHero.TryGetValue(botInfo.PlayerChamp , out Avatar avatar)){
+                        if (!CharSelectData.AvatarRegistry.TryGetAvatar(botInfo.PlayerChamp , out Avatar avatar)){
                             Debug.LogError("Dont Have BOT Avatar for " + botInfo.PlayerChamp);
                             return ; 
                         }
@@ -341,7 +341,8 @@ namespace LF2.Server
                         persistentPlayer1.AddPersistentBotData(new PersistentBOT (
                             botInfo.PlayerName,
                             botInfo.PlayerTeam,
-                            avatar.Guid.ToNetworkGuid()
+                            avatar.CharacterClass.CharacterType
+                            // avatar.Guid.ToNetworkGuid()
                         ));
                 }
             }

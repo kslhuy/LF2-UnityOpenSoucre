@@ -19,7 +19,7 @@ namespace LF2.Client{
     {
 
         private List<IHurtBox> _Listdamagable = new List<IHurtBox>();
-        private float timeNow ;
+        // private float timeNow ;
         // private float timeStart;
         AttackDataSend Atk_data = new AttackDataSend();
         private int indexSounds;
@@ -44,9 +44,8 @@ namespace LF2.Client{
             Atk_data.Fall_p = stateData.DamageDetails[0].fall;            
         }
 
-        public override bool ShouldAnticipate(ref InputPackage requestData)
-        {
-            if(requestData.StateTypeEnum == StateType.Defense){
+        public override bool ShouldAnticipate(ref StateType requestData)        {
+            if(requestData == StateType.Defense){
                 stateMachineFX.AnticipateState(StateType.Idle);
             }
             return true;
@@ -86,17 +85,15 @@ namespace LF2.Client{
         }
         public override void LogicUpdate()
         {
-            if (stateMachineFX.m_ClientVisual._IsServer) {
-
-                if (Time.time - timeNow >  stateData.DamageDetails[0].vrest){
-                    foreach (IHurtBox damagable in _Listdamagable){
-                        if (damagable != null && damagable.IsDamageable(stateMachineFX.team)) {
-                            damagable.ReceiveHP(Atk_data);
-                        }
+            if (nbTickRender % stateData.DamageDetails[0].vrest == 0){
+                foreach (IHurtBox damagable in _Listdamagable){
+                    if (damagable != null && damagable.IsDamageable(stateMachineFX.team)) {
+                        damagable.ReceiveHP(Atk_data);
                     }
-                    timeNow = Time.time;
                 }
             }
+            // if (stateMachineFX.m_ClientVisual._IsServer) {
+            // }
         }
 
 

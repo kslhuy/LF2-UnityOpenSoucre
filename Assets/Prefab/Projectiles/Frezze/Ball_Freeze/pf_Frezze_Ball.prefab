@@ -4961,13 +4961,13 @@ MonoBehaviour:
   Speed_m_s: 200
   Range: 0
   MaxVictims: 1
-  m_OnHitParticlePrefab: {fileID: 0}
+  m_OnHitParticlePrefab: {fileID: 5053789524903787661, guid: f3b19b9dbabee0f469f576359a6441c3, type: 3}
   _sfxEventChannel: {fileID: 11400000, guid: 1981ab6cbad46e54ca529e09ba189c16, type: 2}
   _audioConfig: {fileID: 11400000, guid: e8a6884befaa7e544b61747452adc267, type: 2}
   Sounds: []
   EndAnimation: Freeze_Ball_DDA_hitting
   DestroyAfterSec: 3
-  DestroyAfterHit: 0.2
+  DestroyAfterHit: 0.1
   m_BoxType: 0
   animator: {fileID: 2824757819236973845}
   m_ProjectilHurtboxMask: 1

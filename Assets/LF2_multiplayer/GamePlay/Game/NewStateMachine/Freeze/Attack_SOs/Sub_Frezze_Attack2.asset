@@ -12,15 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2eb2663c5ade5549bd2b0822f6a4bbe, type: 3}
   m_Name: Sub_Frezze_Attack2
   m_EditorClassIdentifier: 
-  m_AnimationName: 
   damageAmount: -20
   Effect: 0
   fall: 20
   Bdefend: 20
   arest: 0
   vrest: 0
-  Dirxyz: {x: 0, y: 0, z: 0}
+  Dirxyz: {x: 10, y: 0, z: 0}
   durration: 0
   SoundHit:
   - {fileID: 11400000, guid: 158f835497fddfb43820c2e21726426c, type: 2}
-  AnimationNameHash: 0

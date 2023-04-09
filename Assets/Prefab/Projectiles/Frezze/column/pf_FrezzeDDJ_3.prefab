@@ -78,11 +78,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3165636493918647440, guid: e1e6fa40b644751498970cb113c8b0a1, type: 3}
       propertyPath: m_Layer
-      value: 9
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 3165636493918647440, guid: e1e6fa40b644751498970cb113c8b0a1, type: 3}
       propertyPath: m_TagString
       value: Dummy
+      objectReference: {fileID: 0}
+    - target: {fileID: 3361775951114032659, guid: e1e6fa40b644751498970cb113c8b0a1, type: 3}
+      propertyPath: Offset.x
+      value: -10
       objectReference: {fileID: 0}
     - target: {fileID: 3672223636655927781, guid: e1e6fa40b644751498970cb113c8b0a1, type: 3}
       propertyPath: m_Controller
@@ -98,15 +102,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8374024554256111620, guid: e1e6fa40b644751498970cb113c8b0a1, type: 3}
       propertyPath: m_Size.x
-      value: 72.535645
+      value: 38.665092
+      objectReference: {fileID: 0}
+    - target: {fileID: 8374024554256111620, guid: e1e6fa40b644751498970cb113c8b0a1, type: 3}
+      propertyPath: m_Size.y
+      value: 46.265614
       objectReference: {fileID: 0}
     - target: {fileID: 8374024554256111620, guid: e1e6fa40b644751498970cb113c8b0a1, type: 3}
       propertyPath: m_Center.x
-      value: 6.2678223
+      value: -0.30263233
       objectReference: {fileID: 0}
     - target: {fileID: 8374024554256111620, guid: e1e6fa40b644751498970cb113c8b0a1, type: 3}
       propertyPath: m_Center.y
-      value: 21.5
+      value: 22.632807
       objectReference: {fileID: 0}
     - target: {fileID: 8374024554256111620, guid: e1e6fa40b644751498970cb113c8b0a1, type: 3}
       propertyPath: m_Material
@@ -114,7 +122,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8374024554256111620, guid: e1e6fa40b644751498970cb113c8b0a1, type: 3}
       propertyPath: m_IsTrigger
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 5359535883441174824, guid: e1e6fa40b644751498970cb113c8b0a1, type: 3}

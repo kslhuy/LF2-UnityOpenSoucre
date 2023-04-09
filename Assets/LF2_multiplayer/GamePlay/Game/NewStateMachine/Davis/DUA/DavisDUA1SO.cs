@@ -50,6 +50,7 @@ namespace LF2.Client{
         // Nhay len troi 1 khoang
         public override void PlayAnim( int nbanim = 1 , bool sequence = false)
         {
+            stateMachineFX.CoreMovement.CustomJump(stateData.Dy, stateData.Dx);
             base.PlayAnim();
             stateMachineFX.m_ClientVisual.NormalAnimator.Play(stateMachineFX.m_ClientVisual.VizAnimation.a_DUA_1);
 
@@ -60,7 +61,6 @@ namespace LF2.Client{
             if (stateMachineFX.m_ClientVisual.Owner) {
                 stateMachineFX.m_ClientVisual.m_NetState.AddPredictState_and_SyncServerRpc(GetId());
             }
-            stateMachineFX.CoreMovement.CustomJump(stateData.Dy, stateData.Dx);
             PlayAnim(nbanim , sequence);
         }
 

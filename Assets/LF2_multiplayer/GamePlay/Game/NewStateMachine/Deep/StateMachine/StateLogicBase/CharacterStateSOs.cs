@@ -1,6 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
-
+using LF2.Data;
 
 namespace LF2.Client{
 
@@ -13,6 +13,13 @@ namespace LF2.Client{
         public CharacterTypeEnum CharacterType;
 
         public StateLogicSO[] StatesSO ;
+
+        public ComboSkill[] ListAllComboSkills ;
+        // public StateLogicSO[] RunTimeComboSkills ;
+        public StateLogicSOAddInfo RunTimeDDA ;
+        public StateLogicSOAddInfo RunTimeDDJ ;
+        public StateLogicSOAddInfo RunTimeDUA ;
+        public StateLogicSOAddInfo RunTimeDUJ ;
 
         private Dictionary<StateType, StateLogicSO> m_StateLogicSOsMap ;
         public Dictionary<StateType, StateLogicSO> StateLogicSOsByType {
@@ -35,7 +42,11 @@ namespace LF2.Client{
                     return m_StateLogicSOsMap;
                 }
         }
+
+
+        
    
+
 
 
 	// 	[Header("-------Movement State-----------")]

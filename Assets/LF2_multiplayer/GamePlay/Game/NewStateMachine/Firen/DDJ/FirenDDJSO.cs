@@ -39,13 +39,11 @@ namespace LF2.Client{
             attackDataSend.Direction = new Vector3 (stateData.DamageDetails[0].Dirxyz.x * stateMachineFX.CoreMovement.GetFacingDirection(),stateData.DamageDetails[0].Dirxyz.y , stateData.DamageDetails[0].Dirxyz.z ) ;
             attackDataSend.BDefense_p = stateData.DamageDetails[0].Bdefend;
             attackDataSend.Fall_p = stateData.DamageDetails[0].fall;
-                
-            projectileInfo = GetProjectileInfo(stateData);
+            projectileInfo = stateData.Projectiles[0];
         }
 
-        public override bool ShouldAnticipate(ref InputPackage requestData)
-        {
-            if (requestData.StateTypeEnum.Equals(StateType.Defense)){
+        public override bool ShouldAnticipate(ref StateType requestData)        {
+            if (requestData.Equals(StateType.Defense)){
                 stateMachineFX.AnticipateState(StateType.Sliding);
 
             }
@@ -87,16 +85,16 @@ namespace LF2.Client{
 
         public override void LogicUpdate()
         {
-            stateMachineFX.CoreMovement.CustomMove_InputZ(stateData.Dx , 0,stateMachineFX.InputZ);
+            stateMachineFX.CoreMovement.CustomMove_InputZ(stateData.Dx , stateData.Dz , stateMachineFX.InputZ);
             // if (stateMachineFX.m_ClientVisual._IsServer) {
             if (Time.time - timeNow >  tickRate){
                 timeNow = Time.time;
                 var playerPOS = stateMachineFX.CoreMovement.transform;
 
-                var projectile = GameObject.Instantiate(projectileInfo.ProjectilePrefab, playerPOS.position + new Vector3(projectileInfo.pivot.x * stateMachineFX.CoreMovement.GetFacingDirection() ,projectileInfo.pivot.y,projectileInfo.pivot.z) ,playerPOS.rotation);
+                var projectile = GameObject.Instantiate(stateData.Projectiles[0].ProjectilePrefab, playerPOS.position + new Vector3(projectileInfo.pivot.x * stateMachineFX.CoreMovement.GetFacingDirection() ,projectileInfo.pivot.y,projectileInfo.pivot.z) ,playerPOS.rotation);
                 projectile.GetComponent<ProjectileLogic>().Initialize(stateMachineFX.m_ClientVisual.NetworkObjectId,stateMachineFX.team ,new Vector3( stateMachineFX.CoreMovement.GetFacingDirection() ,0,0) );
 
-                var projectile2 = GameObject.Instantiate(projectileInfo.ProjectilePrefab, projectile.transform.position + distanceBtw  + new Vector3(projectileInfo.pivot.x * stateMachineFX.CoreMovement.GetFacingDirection() ,projectileInfo.pivot.y,projectileInfo.pivot.z) ,playerPOS.rotation);
+                var projectile2 = GameObject.Instantiate(stateData.Projectiles[0].ProjectilePrefab, projectile.transform.position + distanceBtw  + new Vector3(projectileInfo.pivot.x * stateMachineFX.CoreMovement.GetFacingDirection() ,projectileInfo.pivot.y,projectileInfo.pivot.z) ,playerPOS.rotation);
                 projectile2.GetComponent<ProjectileLogic>().Initialize(stateMachineFX.m_ClientVisual.NetworkObjectId,stateMachineFX.team,new Vector3( stateMachineFX.CoreMovement.GetFacingDirection() ,0,0) );
 
                 // SpwanProjectile(stateData, new Vector3(stateMachineFX.CoreMovement.GetFacingDirection(),0 ,stateMachineFX.InputZ));

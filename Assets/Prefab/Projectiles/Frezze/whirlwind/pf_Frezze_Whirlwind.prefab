@@ -101,6 +101,10 @@ PrefabInstance:
       value: 180.39084
       objectReference: {fileID: 0}
     - target: {fileID: 8374024554256111620, guid: e1e6fa40b644751498970cb113c8b0a1, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8374024554256111620, guid: e1e6fa40b644751498970cb113c8b0a1, type: 3}
       propertyPath: m_Center.x
       value: -0.86170197
       objectReference: {fileID: 0}
@@ -112,9 +116,15 @@ PrefabInstance:
       propertyPath: m_IsTrigger
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5419839728806143420, guid: e1e6fa40b644751498970cb113c8b0a1, type: 3}
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: e1e6fa40b644751498970cb113c8b0a1, type: 3}
+--- !u!95 &2824757819236973845 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 3672223636655927781, guid: e1e6fa40b644751498970cb113c8b0a1, type: 3}
+  m_PrefabInstance: {fileID: 1568895022039502064}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &4479758005046589536 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3165636493918647440, guid: e1e6fa40b644751498970cb113c8b0a1, type: 3}
@@ -136,7 +146,7 @@ MonoBehaviour:
   k_GroundLayerMask: 0
   ProjectileDamage:
   - {fileID: 11400000, guid: 697a9edb84a0bb54aa7f1af621650e08, type: 2}
-  Speed_m_s: 200
+  Speed_m_s: 50
   Range: 0
   MaxVictims: 0
   m_OnHitParticlePrefab: {fileID: 0}
@@ -145,10 +155,12 @@ MonoBehaviour:
   Sounds:
   - {fileID: 11400000, guid: e635a7f302778324f9d4a02b9df9a66d, type: 2}
   EndAnimation: 
-  DestroyAfterSec: 5
+  DestroyAfterSec: 3
   DestroyAfterHit: 0
   m_BoxType: 0
-  animator: {fileID: 0}
+  animator: {fileID: 2824757819236973845}
+  animationName: whirlwind
+  _Nbloop: 6
 --- !u!65 &7058080987340510452 stripped
 BoxCollider:
   m_CorrespondingSourceObject: {fileID: 8374024554256111620, guid: e1e6fa40b644751498970cb113c8b0a1, type: 3}

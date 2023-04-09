@@ -27,6 +27,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -43,6 +44,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f5d6b8370d1bf14fb5045e3b13a78cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_CharacterData: []
-  m_CharacterStateSOs: []
-  BackGround: 0
+  m_CharacterData:
+  - {fileID: 11400000, guid: c4bca58da2bd1e7429512482e4d8477b, type: 2}
+  - {fileID: 11400000, guid: d09d677bee6d5f04c9a467d71bf56d58, type: 2}
+  - {fileID: 11400000, guid: 168868c9e32f94f41b4142261c5f75bd, type: 2}
+  - {fileID: 11400000, guid: 089dcc2f05da2054ebd8de729d051f04, type: 2}
+  - {fileID: 11400000, guid: 49f741018166a9249aa3698d2fb6e365, type: 2}
+  - {fileID: 11400000, guid: eb939585d7fe15a48927b32737e415f9, type: 2}
+  - {fileID: 11400000, guid: 19ca6cef4d2990e4d9e63ec47b717279, type: 2}
+  - {fileID: 11400000, guid: fdb64e20d0f0d9549ac3b3e37296effa, type: 2}
+  - {fileID: 11400000, guid: 29ff95359c632d746ab2484d42feb201, type: 2}
+  - {fileID: 11400000, guid: 01133d60cbd904945b75ecb173ca30bf, type: 2}
+  m_CharacterStateSOs:
+  - {fileID: 11400000, guid: ac6e22767e25de541bb0e9d6693e3e30, type: 2}
+  - {fileID: 11400000, guid: 125334c544ac912418ff021ae999f08d, type: 2}
+  - {fileID: 11400000, guid: dbd69427aa1c5b349bb527fb2445a6d2, type: 2}
+  - {fileID: 11400000, guid: c80c5395db240064db5942fe21a50385, type: 2}
+  - {fileID: 11400000, guid: 56e0c411a382ea647910b8390fe3d3aa, type: 2}
+  - {fileID: 11400000, guid: 05d0297af476f25419c6478e4c3ab145, type: 2}
+  - {fileID: 11400000, guid: fc62ff3742fe61f4aaf5f994b4826587, type: 2}
+  - {fileID: 11400000, guid: 4e09bc9fcb23dcb449b2b4fa15716f7e, type: 2}
+  - {fileID: 11400000, guid: 7a817d98fafd6a547bc3dc10085e1fba, type: 2}
+  - {fileID: 11400000, guid: 078a8feb3f8d31c4783965cbee2d1fad, type: 2}

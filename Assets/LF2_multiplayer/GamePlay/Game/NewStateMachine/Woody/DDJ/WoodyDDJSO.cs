@@ -46,6 +46,38 @@ namespace LF2.Client{
 
         public override void PlayAnim( int nbanim = 1 , bool sequen = false)
         {
+            if (stateMachineFX.m_ClientVisual.Owner) {
+
+                nbCharacterViz = new List<ClientCharacterVisualization>();
+                // Look throught all active PCs or NPCs 
+                foreach (ClientCharacterVisualization viz in NbPlayer.GetCharacter()){
+                    if (viz.NetworkObjectId != stateMachineFX.m_ClientVisual.NetworkObjectId && viz.IsDamageable(stateMachineFX.m_ClientVisual.teamType)){
+                        // Debug.Log("clientCharacter" + viz);
+                        nbCharacterViz.Add(viz);
+                    }
+                }
+                // Find the closest enemy
+                if (nbCharacterViz.Count > 0){
+
+                    // ClientCharacterVisualization _selectedFoe = null;
+                    float closestDistanceSqr = int.MaxValue;
+                    Vector3 myPosition = stateMachineFX.CoreMovement.transform.position;
+                    
+                    foreach (var foe in nbCharacterViz){
+                        closetFoePosition =  foe.PhysicsWrapper.Transform.position;
+                        float distanceSqr = (myPosition - closetFoePosition).sqrMagnitude;
+                        if (distanceSqr < closestDistanceSqr)
+                        {
+                            closestDistanceSqr = distanceSqr;
+                            // _selectedFoe = foe;
+                        }
+
+                    }
+                }else{
+                    closetFoePosition = stateMachineFX.CoreMovement.transform.position;
+                }
+            }
+
             base.PlayAnim();
             stateMachineFX.m_ClientVisual.NormalAnimator.Play(stateMachineFX.m_ClientVisual.VizAnimation.a_DDJ_1);
         }
@@ -57,37 +89,6 @@ namespace LF2.Client{
 
         public override void PlayPredictState( int nbanim = 1 , bool sequence = false)
         {
-            nbCharacterViz = new List<ClientCharacterVisualization>();
-            // Look throught all active PCs or NPCs 
-            foreach (ClientCharacterVisualization viz in NbPlayer.GetCharacter()){
-                if (viz.NetworkObjectId != stateMachineFX.m_ClientVisual.NetworkObjectId && viz.IsDamageable(stateMachineFX.m_ClientVisual.teamType)){
-                    // Debug.Log("clientCharacter" + viz);
-                    nbCharacterViz.Add(viz);
-                }
-            }
-            // Find the closest enemy
-            if (nbCharacterViz.Count > 0){
-
-                // ClientCharacterVisualization _selectedFoe = null;
-                float closestDistanceSqr = int.MaxValue;
-                Vector3 myPosition = stateMachineFX.CoreMovement.transform.position;
-                
-                foreach (var foe in nbCharacterViz){
-                    closetFoePosition =  foe.PhysicsWrapper.Transform.position;
-                    float distanceSqr = (myPosition - closetFoePosition).sqrMagnitude;
-                    if (distanceSqr < closestDistanceSqr)
-                    {
-                        closestDistanceSqr = distanceSqr;
-                        // _selectedFoe = foe;
-                    }
-
-                }
-            }
-            else{
-                closetFoePosition = stateMachineFX.CoreMovement.transform.position;
-            }
-
-
             if (stateMachineFX.m_ClientVisual.Owner) {
                 stateMachineFX.m_ClientVisual.m_NetState.AddPredictState_and_SyncServerRpc(GetId());
             }
@@ -97,7 +98,7 @@ namespace LF2.Client{
  
         public override void OnAnimEvent(int id)
         {
-            if (stateMachineFX.m_ClientVisual.Owner) {
+            if (stateMachineFX.m_ClientVisual.Owner ) {
                 stateMachineFX.CoreMovement.TeleportPlayer(closetFoePosition + Vector3.right*stateData.Dx*-stateMachineFX.CoreMovement.GetFacingDirection());
             }
             stateMachineFX.m_ClientVisual.NormalAnimator.Play(stateMachineFX.m_ClientVisual.VizAnimation.a_DDJ_2);

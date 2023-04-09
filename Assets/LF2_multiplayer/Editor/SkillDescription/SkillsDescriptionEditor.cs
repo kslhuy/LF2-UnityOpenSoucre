@@ -21,7 +21,7 @@ public class SkillsDescriptionEditor : Editor
         root.Add(button);
         button.RegisterCallback<ClickEvent>(evt  =>{
             var skilDes = (SkillsDescription)target;
-            skilDes.frameChecker.initialize();
+            skilDes.frameChecker.InitializeFrameStruct();
         });
 
         // Return the finished inspector UI

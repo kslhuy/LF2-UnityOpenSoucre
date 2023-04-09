@@ -25,9 +25,8 @@ namespace LF2.Client{
         }
 
 
-         public override bool ShouldAnticipate(ref InputPackage requestData)
-        {
-            // if (inputEnable && requestData.StateTypeEnum == StateType.Attack){
+         public override bool ShouldAnticipate(ref StateType requestData)        {
+            // if (inputEnable && requestData == StateType.Attack){
             //     cantransition_ToNextAnimation = true;
 
             //     PlayPredictState();
@@ -36,7 +35,7 @@ namespace LF2.Client{
 
 
             // For Debug Only
-            if (requestData.StateTypeEnum == StateType.Defense){
+            if (requestData == StateType.Defense){
                 stateMachineFX.idle();
             }
             return false;

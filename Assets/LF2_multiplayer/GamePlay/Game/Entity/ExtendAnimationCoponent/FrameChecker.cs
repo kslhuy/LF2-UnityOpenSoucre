@@ -32,7 +32,7 @@ namespace LF2
         public int pressed_A;
         
         public int pressed_J;
-        
+
         public int pressed_D;
         public bool haveInteraction;
         public Interaction interaction;
@@ -42,6 +42,9 @@ namespace LF2
         public int NextFrame;
         public int wait;
 
+        public Vector3 center;
+        public Vector3 offset;
+        
     }
 
 
@@ -89,6 +92,13 @@ namespace LF2
             
             // initCheck();
         }
+
+        public void InitializeVFX(SpriteRenderer sp)
+        {
+            _spriteRenderer = sp;
+
+            // initCheck();
+        }
         public void initialize(IFrameCheckHandler frameCheckHandler,SpriteRenderer sp)
         {
             _frameCheckHandler = frameCheckHandler;
@@ -98,39 +108,40 @@ namespace LF2
         }
 
         // Get Data from existing Animation Clip to initialize FramStruct 
-        public void initialize()
-        {       
+#if UNITY_EDITOR
+
+        public void InitializeFrameStruct()
+        {
             if (!clip) return;
             totalFrames = Mathf.RoundToInt(clip.length * clip.frameRate);
             length = clip.length;
-            // InitializeFrameStruct(clip);
-
-        }
-
-        // public void InitializeFrameStruct(AnimationClip clip)
-        // {
-        //     _frameStruct = new FrameStruct[totalFrames];
-        //     var sprites = new List<Sprite> ();
-        //     var times = new List<float> ();
+            _frameStruct = new FrameStruct[totalFrames];
+            var sprites = new List<Sprite> ();
+            // var times = new List<float> ();
 
 
-        //     foreach(var binding in AnimationUtility.GetObjectReferenceCurveBindings(clip))
-        //     {
-        //         var keyframes = AnimationUtility.GetObjectReferenceCurve (clip, binding);
-        //         foreach(var frame in keyframes)
-        //         {
-        //             sprites.Add((Sprite) frame.value);
-        //             times.Add(frame.time);
-        //         }
-        //     }
-        //     for (int i=0 ; i<totalFrames ; i++){
-        //         _frameStruct[i].sprite = sprites[i]; 
-        //         _frameStruct[i].time = times[i]; 
-                
-        //     }
+            foreach(var binding in AnimationUtility.GetObjectReferenceCurveBindings(clip))
+            {
+                var keyframes = AnimationUtility.GetObjectReferenceCurve (clip, binding);
+                foreach(var frame in keyframes)
+                {
+                    sprites.Add((Sprite) frame.value);
+                    // times.Add(frame.time);
+                }
+            }
+            for (int i=0 ; i<totalFrames ; i++){
+                _frameStruct[i].sprite = sprites[i]; 
+                // _frameStruct[i].time = times[i]; 
+                _frameStruct[i].wait = 1; 
+
+                _frameStruct[i].NextFrame = i + 1; 
+                if (i == totalFrames -1 ){
+                    _frameStruct[i].NextFrame = 999;
+                }
+            }
             
-        // }
-        
+        }
+#endif 
         //First Frame 
         public void initCheck(int renderFrame)
         {
@@ -183,6 +194,50 @@ namespace LF2
                     _frameCheckHandler.onAttackFrame(Atk_data);
                 }
             }
+            
+        }
+
+        public void CheckFrameVFX(Action endState ){
+            
+            if (_frameNow != 999 && (_tickNow % (_frameStruct[_frameNow].wait + 1)) == 0) {
+                // _timeNow = Time.time ;
+                _tickNow = 0;
+                _frameNow = _frameStruct[_frameNow].NextFrame;
+                if(_frameNow == 999) {
+                    endState.Invoke();
+                    return;
+                }
+                _spriteRenderer.sprite =_frameStruct[_frameNow].sprite;
+                // if (_frameStruct[_frameNow].Sound){
+                //     _frameCheckHandler.playSound(_frameStruct[_frameNow].Sound);
+                // }
+                // _frameCheckHandler.onMoveFrame(_frameNow);
+            }
+            // increment timer attack 
+            // _timerAttack ++;
+            _tickNow++;
+            // The values of these tags are the duration in TU that the object must wait before hitting the character again.
+            // if (_frameStruct[_frameNow].haveInteraction) {
+            //     if (arest){
+            //         Atk_data.Amount_injury = _frameStruct[_frameNow].interaction.damageAmount;
+            //         Atk_data.Direction = _frameStruct[_frameNow].interaction.Dirxyz;
+            //         Atk_data.BDefense_p = _frameStruct[_frameNow].interaction.Bdefend;
+            //         Atk_data.Fall_p = _frameStruct[_frameNow].interaction.fall;
+            //         Atk_data.Effect = (byte)_frameStruct[_frameNow].interaction.Effect;
+            //         // Debug.Log("ON attack frame");
+            //         _frameCheckHandler.onAttackFrame(Atk_data);    
+            //     }else if (_timerAttack >= vrest){      
+            //         _timerAttack = 0;
+
+            //         Atk_data.Amount_injury = _frameStruct[_frameNow].interaction.damageAmount;
+            //         Atk_data.Direction = _frameStruct[_frameNow].interaction.Dirxyz;
+            //         Atk_data.BDefense_p = _frameStruct[_frameNow].interaction.Bdefend;
+            //         Atk_data.Fall_p = _frameStruct[_frameNow].interaction.fall;
+            //         Atk_data.Effect = (byte)_frameStruct[_frameNow].interaction.Effect;
+            //         // Debug.Log("ON attack frame");
+            //         _frameCheckHandler.onAttackFrame(Atk_data);
+            //     }
+            // }
             
         }
 

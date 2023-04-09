@@ -13,37 +13,13 @@ MonoBehaviour:
   m_Name: Stage_Data
   m_EditorClassIdentifier: 
   description: 
-  m_MinSpawnCap: 2
-  m_MaxSpawnCap: 10
-  m_SpawnCapIncreasePerPlayer: 1
   Phases:
   - BoundLimit: {x: 0, y: 0, z: 0}
     spwanWaves:
     - waveInfo:
-        BotType: 2
+        BotType: 4
         NumberSpawn: 1
       m_SpawnLeft: 0
-    - waveInfo:
-        BotType: 0
-        NumberSpawn: 1
-      m_SpawnLeft: 1
-    m_TimeBetweenWaves: 1
-    m_TimeBetweenPhases: 5
+      IsBoss: 0
+    m_TimeBetweenWaves: 0.5
     m_TimeBetweenSpawns: 0.2
-    m_RestartDelay: 10
-    m_ProximityDistance: 30
-  - BoundLimit: {x: 600, y: 0, z: 0}
-    spwanWaves:
-    - waveInfo:
-        BotType: 0
-        NumberSpawn: 1
-      m_SpawnLeft: 0
-    - waveInfo:
-        BotType: 2
-        NumberSpawn: 1
-      m_SpawnLeft: 1
-    m_TimeBetweenWaves: 1
-    m_TimeBetweenPhases: 5
-    m_TimeBetweenSpawns: 0.2
-    m_RestartDelay: 10
-    m_ProximityDistance: 30
