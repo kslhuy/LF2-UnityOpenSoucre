@@ -35,5 +35,5 @@ MonoBehaviour:
   DetectRange: 0
   DisplayedName: 
   InfoChampion: Bla bla
-  StateAI: {fileID: 11400000, guid: 26f4d75eb3124c844a74fb562de5e4c7, type: 2}
+  StateAI: {fileID: 0}
   objectPollingRegistry: {fileID: 11400000, guid: 3edc63065b551e844ac347475ddd5c15, type: 2}

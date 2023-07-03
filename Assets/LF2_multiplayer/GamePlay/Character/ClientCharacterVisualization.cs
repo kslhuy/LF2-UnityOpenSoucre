@@ -28,7 +28,7 @@ namespace LF2.Client
         [SerializeField] private BoxCollider _hitBox;
         [SerializeField] private BoxCollider _hurtBox;
 
-        public BoxCollider HitBox => _hitBox;
+        // public BoxCollider HitBox => _hitBox;
 
         private Vector3 _InitSizeHurtBox;
         private Vector3 _InitCenterHurtBox;
@@ -90,11 +90,12 @@ namespace LF2.Client
         private CharacterStateSOs characterStateSOs {
             get
             {
-                CharacterStateSOs result;
-                var found = GameDataSourceNew.Instance.AllStateCharacterByType.TryGetValue(m_NetState.CharacterType, out result);
-                // Debug.Log(result);
-                Debug.AssertFormat(found, "Tried to find Character but it was missing from GameDataSource!");
-                return result;
+                return m_NetState.CharacterStateSO;
+                // CharacterStateSOs result;
+                // var found = GameDataSourceNew.Instance.AllStateCharacterByType.TryGetValue(m_NetState.CharacterType, out result);
+                // // Debug.Log(result);
+                // Debug.AssertFormat(found, "Tried to find Character but it was missing from GameDataSource!");
+                // return result;
             }
         }
         public StateType LastStateViz { get; private set; }
@@ -197,9 +198,10 @@ namespace LF2.Client
 
 
             // ...and visualize the current char-select value that we know about
-            m_CharacterSwapper = GetComponentInChildren<CharacterSwap>();
-            SetAppearanceSwap();
+            // m_CharacterSwapper = GetComponentInChildren<CharacterSwap>();
+            // SetAppearanceSwap();
             StartCoroutine(Coro_WaitToStart(1));
+            
             if (m_NetState.CharacterClass.objectPollingRegistry){
                 for (int i = 0 ; i < m_NetState.CharacterClass.objectPollingRegistry.PooledPrefabsList.Count ; i++){
                     NetworkObjectPool.Singleton.AddPrefab(m_NetState.CharacterClass.objectPollingRegistry.PooledPrefabsList[i].Prefab , m_NetState.CharacterClass.objectPollingRegistry.PooledPrefabsList[i].PrewarmCount ) ;
@@ -316,7 +318,7 @@ namespace LF2.Client
             // MStateMachinePlayerViz.PerformInnerSyncStateFX(ref stateData);
         }
 
-        public void PerformSyncStateFX(StateType stateData)
+        public void PerformSyncStateFX(StateType stateData )
         {
             // That event do State receive from Server .
             // Debug.Log($"data  = {data}" );
@@ -384,7 +386,7 @@ namespace LF2.Client
 
 
 
-        private void OnTriggerEnter(Collider collider) {
+        public void OnTriggerEnter(Collider collider) {
             if (collider.CompareTag("HurtBox")){
                 MStateMachinePlayerViz?.OnTriggerEnter(collider);
             }
@@ -400,7 +402,7 @@ namespace LF2.Client
         // }
 
 
-        private void OnTriggerExit(Collider collider) {
+        public void OnTriggerExit(Collider collider) {
             if (collider.CompareTag("HurtBox")){
                 MStateMachinePlayerViz?.OnTriggerExit(collider);
             }

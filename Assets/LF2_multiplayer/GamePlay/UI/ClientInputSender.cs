@@ -18,16 +18,17 @@ namespace LF2.Client
         ////// ********* NEW ****** ///
         [SerializeField] private NetworkCharacterState m_NetworkCharacter;
 
-        private CharacterStateSOs characterStateSOs {
-            get
-            {
-                CharacterStateSOs result;
-                var found = GameDataSourceNew.Instance.AllStateCharacterByType.TryGetValue(m_NetworkCharacter.CharacterType, out result);
-                // Debug.Log(result);
-                Debug.AssertFormat(found, "Tried to find Character but it was missing from GameDataSource!");
-                return result;
-            }
-        }
+        private CharacterStateSOs characterStateSOs ;
+            // get
+            // {
+                
+            //     // CharacterStateSOs result;
+            //     // var found = GameDataSourceNew.Instance.AllStateCharacterByType.TryGetValue(m_NetworkCharacter.CharacterType, out result);
+            //     // // Debug.Log(result);
+            //     // Debug.AssertFormat(found, "Tried to find Character but it was missing from GameDataSource!");
+            //     return m_NetworkCharacter.CharacterStateSO;
+            // }
+        
 
         #region event
         public Action<StateType> ActionInputEvent; 
@@ -35,10 +36,6 @@ namespace LF2.Client
 
             
         #endregion
-
-        private bool CommitToState ; 
-        private bool _isClient;
-
 
 
 
@@ -52,8 +49,10 @@ namespace LF2.Client
                     // dont need to do anything else if not the owner
                     return;
                 }
+            characterStateSOs = m_NetworkCharacter.CharacterStateSO;
 
-            CommitToState  =  IsHost; 
+            
+
 
             // values = (StateType[])Enum.GetValues(typeof(StateType));
 

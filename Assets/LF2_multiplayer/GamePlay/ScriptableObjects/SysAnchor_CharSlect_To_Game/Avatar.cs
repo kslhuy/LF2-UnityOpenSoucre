@@ -19,6 +19,7 @@ namespace LF2
         public GameObject Graphics;
 
         public GameObject GraphicsCharacterSelect;
+        public RuntimeAnimatorController AnimatorController;
 
         public Sprite Portrait;
 

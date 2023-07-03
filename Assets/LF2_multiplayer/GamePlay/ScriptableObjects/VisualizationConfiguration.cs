@@ -14,7 +14,7 @@ namespace LF2
 
     [Header("------------ Movement -------------")]
     [SerializeField] public string Idle = "Idle_anim";
-    [SerializeField] string Walk = "Walk_anim";
+    [SerializeField] public string Walk = "Walk_anim";
     [SerializeField] string Run = "Run_anim";
     [SerializeField] string Jump = "Jump_anim";
     [SerializeField] string  JumpBack1 = "JumpBack1_anim";

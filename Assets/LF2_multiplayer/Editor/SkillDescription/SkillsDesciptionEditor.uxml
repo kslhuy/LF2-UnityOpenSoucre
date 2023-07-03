@@ -29,17 +29,16 @@
             <ui:VisualElement />
         </ui:VisualElement>
     </ui:VisualElement>
-    <ui:VisualElement style="height: 110px;">
+    <ui:VisualElement style="height: 100px;">
         <ui:Label tabindex="-1" text="Move Velocity" display-tooltip-when-elided="true" name="Label" class="section" style="-unity-text-align: upper-center; -unity-font-style: bold; color: rgb(90, 92, 255); font-size: 20px; height: 30px;" />
         <ui:VisualElement style="flex-direction: row; margin-left: 50px; margin-right: 0; margin-top: 0; margin-bottom: 0;">
             <ui:FloatField label="Dx" value="42.2" binding-path="Dx" style="flex-direction: column; width: 30%; -unity-text-align: upper-center; align-items: center; white-space: normal; justify-content: flex-start; margin-left: 6px; margin-right: 6px; margin-top: 6px; margin-bottom: 6px;" />
             <ui:FloatField label="Dy" value="42.2" binding-path="Dy" style="flex-direction: column; width: 30%; -unity-text-align: upper-center; margin-left: 6px; margin-right: 6px; margin-top: 6px; margin-bottom: 6px;" />
             <ui:FloatField label="Dz" value="42.2" binding-path="Dz" style="flex-direction: column; width: 30%; -unity-text-align: upper-center; margin-left: 6px; margin-right: 6px; margin-top: 6px; margin-bottom: 6px;" />
         </ui:VisualElement>
-        <uie:CurveField label="Curve" binding-path="curve" />
     </ui:VisualElement>
     <ui:VisualElement>
-        <ui:Label tabindex="-1" text="Sound" display-tooltip-when-elided="true" name="Label" class="section" style="-unity-text-align: upper-center; -unity-font-style: bold; color: rgb(90, 92, 255); font-size: 20px;" />
+        <ui:Label tabindex="-1" text="Sound" display-tooltip-when-elided="true" name="Label" class="section" style="-unity-text-align: upper-center; -unity-font-style: bold; color: rgb(90, 92, 255); font-size: 20px; height: 30px;" />
         <uie:PropertyField binding-path="Sounds" label="Sound" />
         <uie:PropertyField binding-path="Start_Sounds" label="Many Sounds" />
     </ui:VisualElement>

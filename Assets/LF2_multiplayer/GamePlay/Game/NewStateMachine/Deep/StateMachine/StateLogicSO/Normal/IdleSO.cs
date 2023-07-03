@@ -64,8 +64,8 @@ namespace LF2.Client{
             stateMachineFX.m_ClientVisual.SetHitBox(false);
             base.PlayAnim();
             stateMachineFX.m_ClientVisual.NormalAnimator.Play(stateMachineFX.m_ClientVisual.VizAnimation.a_Idle);
-            // stateMachineFX.m_ClientVisual.UpdateSizeHurtBox();
-
+            stateMachineFX.CoreMovement.SetFallingDown();
+            //UpdateSizeHurtBox
             stateMachineFX.m_ClientVisual.InitializeSizeHurtBox();  
         }
 
@@ -93,23 +93,18 @@ namespace LF2.Client{
             //
             if (nbTickRender > 4 ){
                 stateMachineFX.m_ClientVisual.coreMovement.TakeControlTransform(false);
-            }             
-            if (nbTickRender > 8 && stateMachineFX.m_ClientVisual.Owner){
-                if(!stateMachineFX.CoreMovement.IsGounded()){
-                    // Debug.Log("Air Owner");
-                    stateMachineFX.ChangeState(StateType.Air);
-                } 
-            }else{
-                if( nbTickRender > 12 && !stateMachineFX.CoreMovement.CheckGoundedClose(15f)){
-                    // Debug.Log("Air Not Owner");
-                    stateMachineFX.ChangeState(StateType.Air);
-                } 
             }
 
-            // if (!isPlayAnimation){
-            //     isPlayAnimation = IsAnimating(stateMachineFX.m_ClientVisual.VizAnimation.Idle);
-            // }
-            stateMachineFX.CoreMovement.SetFallingDown();
+            if(!stateMachineFX.CoreMovement.CheckGoundedClose(20f)){
+                stateMachineFX.ChangeState(StateType.Air);
+            } 
+
+            // if not owner ,and distance from ground not to big so do not change state
+            if (nbTickRender > 8 && !stateMachineFX.CoreMovement.CheckGoundedClose(12f)){
+                // Debug.Log("Air Not Owner");
+                stateMachineFX.ChangeState(StateType.Air);
+            } 
+            
         }
 
 

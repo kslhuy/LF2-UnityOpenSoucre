@@ -18,7 +18,7 @@ namespace LF2.Client{
             stateMachineFX = stateMachine;
         }
 
-        public override void Enter()        {
+        public override void Enter(){
             if(!Anticipated)
             {
                 PlayAnim();    
@@ -35,17 +35,16 @@ namespace LF2.Client{
 
         public override void PlayPredictState( int nbanim = 1 , bool sequence = false)
         {
-            if (stateMachineFX.m_ClientVisual.Owner) {
-                stateMachineFX.m_ClientVisual.m_NetState.AddPredictState_and_SyncServerRpc(StateType.Sliding);
-            }
+            stateMachineFX.m_ClientVisual.m_NetState.AddPredictState_and_SyncServerRpc(StateType.Sliding);
             PlayAnim(nbanim , sequence);
         }
 
 
         public override void LogicUpdate()
         {
-            if (stateMachineFX.m_ClientVisual.Owner) stateMachineFX.m_ClientVisual.coreMovement.SetSliding(stateData.Dx);
-            base.LogicUpdate();
+            if (stateMachineFX.m_ClientVisual.Owner) {
+                stateMachineFX.m_ClientVisual.coreMovement.SetSliding(stateData.Dx);
+            }
         }
 
 
@@ -53,7 +52,7 @@ namespace LF2.Client{
 
         public override void End()
         {
-            stateMachineFX.AnticipateState(StateType.Idle);
+            base.End();
 
         }
 

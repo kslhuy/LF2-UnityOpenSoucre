@@ -54,7 +54,7 @@ Material:
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 0}
     - _MainTextureTilingOffset: {r: 1, g: 1, b: 0, a: 0}
-    - _OutlineColor: {r: 0.20754719, g: 0.16545035, b: 0.20754719, a: 0.972549}
+    - _OutlineColor: {r: 0.26415092, g: 0.215008, b: 0.19811319, a: 0.972549}
   m_BuildTextureStacks: []
 --- !u!114 &3578568811277515999
 MonoBehaviour:

@@ -134,10 +134,17 @@ namespace LF2.Client
         {
             // Debug.Log("Change State");
             if (CurrentStateViz.GetId().Equals(stateTypeSync)) return;
-            if (stateTypeSync == StateType.Land && stateTypeSync == StateType.Crouch &&  stateTypeSync == StateType.Idle ){
-                // Debug.Log( "Return car StateType is Land");
-                return;
-            } 
+            
+            if (CurrentStateViz.stateData.Dy > 10) {
+                if (stateTypeSync == StateType.Land || stateTypeSync == StateType.Crouch ||  stateTypeSync == StateType.Idle ){
+                    // Debug.Log( "Return car StateType is Land");
+                    return;
+                }
+            }
+            // if (stateTypeSync == StateType.Land || stateTypeSync == StateType.Crouch ||  stateTypeSync == StateType.Idle ){
+            //     // Debug.Log( "Return car StateType is Land");
+            //     return;
+            // } 
                 
             // Debug.Log("Change State 2");
             ChangeState(stateTypeSync);
@@ -188,14 +195,13 @@ namespace LF2.Client
 
                     // Cast Skill in queue first when we just arrive in Idle State   
                 if (QueueStateFX.Count > 0 ) {
-                    ChangeState(QueueStateFX[0].GetId(),1,true);
+                    AnticipateState(QueueStateFX[0].GetId(),1,true);
                     QueueStateFX.RemoveAt(0);
+                    return;
                 } 
                 CurrentStateViz.LogicUpdate();
                 CurrentStateViz.nbTickRender++;
-
                 return;
-                // if (IsMove) AnticipateState(StateType.Move) ;
             }
 
             if (CurrentStateViz.GetId() == StateType.Move){
@@ -237,14 +243,8 @@ namespace LF2.Client
             }
             CurrentStateViz?.LogicUpdate();
             CurrentStateViz.nbTickRender++;
-            // if (currentFrameNumber > int.MaxValue - 2 ){
-            //     currentFrameNumber = 0 ;
-            //     return;    
-            // }
             currentFrameNumber++;
 
-            // if (m_ClientVisual.CanCommit)
-            // Debug.Log($"nbHit = {nbHit}");  
 
             
 
@@ -265,7 +265,6 @@ namespace LF2.Client
             _onceEnd = false;
             var stateAction = GetState(state);
 
-            
             if (m_ClientVisual.debugUseMana){
                 if (stateAction.stateData.ManaCost < 0){
                     Debug.LogWarning("You Forgot to Set Mana Cost");
@@ -493,6 +492,7 @@ namespace LF2.Client
 
         public void idle()
         {
+            CoreMovement.ResetVelocity();
             nbJump = 0;
             ChangeState(StateType.Idle);
         }

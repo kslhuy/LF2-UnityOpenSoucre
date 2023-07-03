@@ -72,7 +72,7 @@ namespace LF2.Client{
         }
         public override void LogicUpdate()
         {
-            if (Time.time - TimeStarted_Animation > 0.2f){
+            if (nbTickRender > 12){
                 if (stateMachineFX.CoreMovement.IsGounded()){
                     stateMachineFX.ChangeState(StateType.Crouch);
                 }

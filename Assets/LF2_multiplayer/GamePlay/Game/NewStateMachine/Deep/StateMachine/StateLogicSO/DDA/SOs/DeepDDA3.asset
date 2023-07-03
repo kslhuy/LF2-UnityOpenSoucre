@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   StateType: 32
   Logic: 3
-  NextStateLogicSO: []
+  SubStateLogicSO: []
   ManaCost: 10
   DamageDetails:
   - {fileID: 11400000, guid: e8304f9836ee68249aad7582b34551be, type: 2}
@@ -28,7 +28,7 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   Projectiles:
-  - ProjectilePrefab: {fileID: 4477627029082403580, guid: d2c2b131f78655f45a0a014787ad8905, type: 3}
+  - ProjectilePrefab: {fileID: 6845245021028583583, guid: 3f0bf6c187d21d94fb5e683ba6e8e7fd, type: 3}
     pivot: {x: 20, y: 35, z: 0}
   DurationSeconds: 0.5
   Duration: 30

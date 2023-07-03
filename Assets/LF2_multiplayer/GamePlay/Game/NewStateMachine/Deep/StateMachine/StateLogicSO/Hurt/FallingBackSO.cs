@@ -42,7 +42,7 @@ namespace LF2.Client{
         public override void LogicUpdate()
         {      
             // Debug.Log(("fallback")); 
-            if (Time.time - TimeStarted_Animation > 0.15f){
+            if (nbTickRender > 10){
                 if (stateMachineFX.CoreMovement.IsGounded()  ){
                     stateMachineFX.ChangeState(StateType.LayingBack);
                     return;

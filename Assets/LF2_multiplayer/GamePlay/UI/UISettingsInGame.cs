@@ -13,6 +13,7 @@ namespace LF2.Gameplay.UI
     /// </summary>
     public class UISettingsInGame : MonoBehaviour
     {
+        [SerializeField] GameObject MasterObject; 
         [SerializeField]
         private GameObject m_SettingsPanelRoot;
 
@@ -50,6 +51,13 @@ namespace LF2.Gameplay.UI
         {
             m_QuitPanelRoot.SetActive(!m_QuitPanelRoot.activeSelf);
             m_SettingsPanelRoot.SetActive(false);
+        }
+
+        public void OnClickControlSetting()
+        {
+            MasterObject.SetActive(false);
+            SceneManager.LoadSceneAsync("DebugUIScene" ,LoadSceneMode.Additive);
+
         }
 
 

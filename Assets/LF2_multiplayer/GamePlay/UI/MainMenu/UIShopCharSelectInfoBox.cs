@@ -81,6 +81,7 @@ namespace LF2.Gameplay.UI
         private bool alreadyTwinkling;
 
         private CharacterTypeEnum LastCharacterSelect = CharacterTypeEnum.NONE ;
+        private ComboSkill currentSelectSkillToBuy;
 
 
 
@@ -192,18 +193,37 @@ namespace LF2.Gameplay.UI
 
         #endregion
 
-        public void OnPurchaseClicked(ComboSkill virtualShopItem)
+        public void OnPurchaseClicked(ComboSkill comboSkill)
         {
-            int currentBalance = EconomyManager.instance.GetCurrencyBalance("COIN");
-            if (currentBalance >= virtualShopItem.Price){
+            // Popup which currency is choice for purchase (COIN or DIAMAND)
+            UIPopUpBuy.Show(comboSkill.PriceCoin , comboSkill.PriceDiamand);
+            // 
+            currentSelectSkillToBuy = comboSkill;
+            // currentBalance
+            // UIPopUpBuy.Show();
+
+        }
+        public void OnPurchaseByDiamand(){
+            // TODO : Change Current ID of PERL 
+            int currentBalance = EconomyManager.instance.GetCurrencyBalance("PERL");
+            if (currentBalance >= currentSelectSkillToBuy.PriceDiamand){
                 UIPopUpBuy.Success();
             }
             else{
                 UIPopUpBuy.Fail();
             }
-            // currentBalance
-            // UIPopUpBuy.Show();
-
         }
+
+        public void OnPurchaseByCoin( ){
+            int currentBalance = EconomyManager.instance.GetCurrencyBalance("COIN");
+            if (currentBalance >= currentSelectSkillToBuy.PriceCoin){
+                UIPopUpBuy.Success();
+            }
+            else{
+                UIPopUpBuy.Fail();
+            }
+        }
+
+
     }
 }

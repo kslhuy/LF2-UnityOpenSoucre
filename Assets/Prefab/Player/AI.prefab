@@ -147,6 +147,10 @@ PrefabInstance:
       propertyPath: GlobalObjectIdHash
       value: 951099334
       objectReference: {fileID: 0}
+    - target: {fileID: 2515697468701254475, guid: 687160c7cfd6cd748877c28fe515d9c6, type: 3}
+      propertyPath: EnabledBox
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2808402712987922594, guid: 687160c7cfd6cd748877c28fe515d9c6, type: 3}
       propertyPath: m_Name
       value: AI
@@ -243,14 +247,26 @@ PrefabInstance:
       propertyPath: k_ObstactLayerMask.m_Bits
       value: 4096
       objectReference: {fileID: 0}
+    - target: {fileID: 4589008937821555167, guid: 687160c7cfd6cd748877c28fe515d9c6, type: 3}
+      propertyPath: clientCharacterViz
+      value: 
+      objectReference: {fileID: 2687536125078336820}
     - target: {fileID: 4799267694107263265, guid: 687160c7cfd6cd748877c28fe515d9c6, type: 3}
       propertyPath: m_CharacterClass
       value: 
       objectReference: {fileID: 4962415711599271908}
+    - target: {fileID: 5948379090898866286, guid: 687160c7cfd6cd748877c28fe515d9c6, type: 3}
+      propertyPath: clientCharacterVisualization
+      value: 
+      objectReference: {fileID: 2687536125078336820}
     - target: {fileID: 7128102238112117302, guid: 687160c7cfd6cd748877c28fe515d9c6, type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7219922636587789738, guid: 687160c7cfd6cd748877c28fe515d9c6, type: 3}
+      propertyPath: _hitBox
+      value: 
+      objectReference: {fileID: 5887207807341476834}
     - target: {fileID: 7234482614249149150, guid: 687160c7cfd6cd748877c28fe515d9c6, type: 3}
       propertyPath: _audioHits
       value: 
@@ -267,6 +283,10 @@ PrefabInstance:
       propertyPath: m_VisualsInjuryAnimator
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 8110582300940577404, guid: 687160c7cfd6cd748877c28fe515d9c6, type: 3}
+      propertyPath: m_CachedClientCharacter
+      value: 
+      objectReference: {fileID: 2687536125078336820}
     - target: {fileID: 8994507685575570671, guid: 687160c7cfd6cd748877c28fe515d9c6, type: 3}
       propertyPath: m_Controller
       value: 
@@ -274,6 +294,8 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 2534825432546787825, guid: 687160c7cfd6cd748877c28fe515d9c6, type: 3}
     - {fileID: 1480621980762124376, guid: 687160c7cfd6cd748877c28fe515d9c6, type: 3}
+    - {fileID: 7234482614249149150, guid: 687160c7cfd6cd748877c28fe515d9c6, type: 3}
+    - {fileID: 3476414894392922439, guid: 687160c7cfd6cd748877c28fe515d9c6, type: 3}
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 2808402712987922597, guid: 687160c7cfd6cd748877c28fe515d9c6, type: 3}
       insertIndex: -1
@@ -290,9 +312,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a16ed9cc400b3e41bb31e5d13eeec08, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &2672975597524765248 stripped
+--- !u!114 &2687536125078336820 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7234482614249149150, guid: 687160c7cfd6cd748877c28fe515d9c6, type: 3}
+  m_CorrespondingSourceObject: {fileID: 7219922636587789738, guid: 687160c7cfd6cd748877c28fe515d9c6, type: 3}
   m_PrefabInstance: {fileID: 4719309237053757598}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
@@ -312,6 +334,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25357ad53a30590439cb5fda10cddb76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!65 &5887207807341476834 stripped
+BoxCollider:
+  m_CorrespondingSourceObject: {fileID: 1210847008461529980, guid: 687160c7cfd6cd748877c28fe515d9c6, type: 3}
+  m_PrefabInstance: {fileID: 4719309237053757598}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &7459977332869851195 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2808402712987922597, guid: 687160c7cfd6cd748877c28fe515d9c6, type: 3}
@@ -391,8 +418,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c0d678128de2914cbe62c5fc971782a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Self: {fileID: 2672975597524765248}
-  m_SenseTf: {fileID: 0}
+  Self: {fileID: 2687536125078336820}
+  m_SenseTf: {fileID: 788163577655177985}
   m_BrainEnabled: 0
   Event_ToggleAIBrain: {fileID: 11400000, guid: 4cd01d303e04a7745925426656509c30, type: 2}
   AIDebugMode: 0

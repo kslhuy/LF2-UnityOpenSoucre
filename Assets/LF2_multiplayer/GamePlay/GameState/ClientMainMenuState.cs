@@ -144,7 +144,7 @@ namespace LF2.Client
                 // APIs as both use the cached data list. (Though it wouldn't be necessary to do if only using Remote
                 // Config in your project and not Economy.)
                 // Debug.Log("RefreshEconomyConfiguration");
-                if (economyManager == null ) return;
+                // if (economyManager == null ) return;
                 // await economyManager.RefreshEconomyConfiguration(); // Uncomment that if some day need use cached data
                 // Debug.Log("RefreshEconomyConfiguration Compleyt !!!!!");
 
@@ -173,7 +173,8 @@ namespace LF2.Client
         async Task LoadServicesData()
         {
             await Task.WhenAll(
-                CloudSaveManager.instance.LoadAndCacheData(),
+                // Debug.Log();
+                // CloudSaveManager.instance.test(),
                 economyManager.RefreshCurrencyBalances()
                 // RemoteConfigManager.instance.FetchConfigs()
             );

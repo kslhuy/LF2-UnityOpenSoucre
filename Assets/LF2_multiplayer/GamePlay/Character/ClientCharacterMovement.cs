@@ -67,7 +67,6 @@ namespace LF2.Client
 
 
         [Header("----- JUMP ------")]
-        #region Jump
 
 
         // 
@@ -79,7 +78,6 @@ namespace LF2.Client
         [SerializeField] private float _fallMultiplierQuick = 50f;
         [SerializeField] private float _distanceFromGround = 50f;
 
-        [SerializeField] private bool UseFallMultiplierNormal = true;
 
 
 
@@ -89,11 +87,9 @@ namespace LF2.Client
         float jumpDistance => m_MovementSource.CharacterClass.jump_distance;
         float doubleJumpHieght => m_MovementSource.CharacterClass.doublejump_height;
         float doubleJumpDistance => m_MovementSource.CharacterClass.doublejump_distance;
-        #endregion
 
         [Header("----- Collision Detection ------")]
 
-        #region Collision Detection
 
         private int k_GroundLayerMask;
 
@@ -113,7 +109,6 @@ namespace LF2.Client
 
 
 
-        #endregion
 
 
         private void Awake()
@@ -429,7 +424,7 @@ namespace LF2.Client
         public bool IsGounded()
         {
             // var _isGround = Physics.OverlapSphereNonAlloc(transform.position + new Vector3(0, _grounderOffset), _grounderRadius, _ground, k_GroundLayerMask) > 0;
-            int number = Physics.RaycastNonAlloc(m_BoxCollider.bounds.center, Vector3.down, GroundHit, m_BoxCollider.bounds.extents.y + 0.1f, k_GroundLayerMask);
+            int number = Physics.RaycastNonAlloc(m_BoxCollider.bounds.center, Vector3.down, GroundHit, m_BoxCollider.bounds.extents.y + 0.2f, k_GroundLayerMask);
 
             if (number == 0) return false;
             // if is ground 
@@ -441,7 +436,7 @@ namespace LF2.Client
 
         public void ResetVelocity()
         {
-            m_Rigidbody.velocity = Vector3.zero;
+            m_Rigidbody.velocity = Vector3.down*_fallMultiplierNormal;
             m_Rigidbody.drag = 0;
         }
 

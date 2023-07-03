@@ -147,6 +147,37 @@ namespace UnityGamingServicesUseCases
         //     }
         // }
 
+        public async void DecrementBalanceAsync(string currencyID ,  int amout){
+
+            // string writeLock = "someLockValueFromPreviousRequest";
+            // DecrementBalanceOptions options = new DecrementBalanceOptions
+            // {
+            //     WriteLock = writeLock
+            // };
+
+            PlayerBalance newBalance = await EconomyService.Instance.PlayerBalances.DecrementBalanceAsync(currencyID, amout);
+            currencyHudView.SetBalances(newBalance);
+
+            // OR
+            // PlayerBalance otherNewBalance = await EconomyService.Instance.PlayerBalances.DecrementBalanceAsync(currencyID, newAmount, options);
+
+        }
+
+        public async void IncrementBalanceAsync(string currencyID ,  int amout){
+
+            PlayerBalance newBalance = await EconomyService.Instance.PlayerBalances.IncrementBalanceAsync(currencyID, amout);
+            currencyHudView.SetBalances(newBalance);
+
+            // OR
+            // PlayerBalance otherNewBalance = await EconomyService.Instance.PlayerBalances.DecrementBalanceAsync(currencyID, newAmount, options);
+
+        }
+        
+
+        
+
+        
     }
-    
+
+
 }

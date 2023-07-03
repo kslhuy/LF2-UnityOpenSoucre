@@ -82,6 +82,9 @@ namespace LF2.Client{
                 // Debug.Log(stateMachineFX.InputX);
                 stateMachineFX.CoreMovement.SetXZ(stateMachineFX.InputX,stateMachineFX.InputZ);
             }
+            if (!isPlayAnimation){
+                isPlayAnimation = IsAnimating(stateMachineFX.m_ClientVisual.VizAnimation.Walk);
+            }
 
             // if (!isPlayAnimation){
             //     isPlayAnimation = IsAnimating();

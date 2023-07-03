@@ -50,6 +50,36 @@ namespace UnityGamingServicesUseCases
             }
         }
 
+        public void SetBalances(PlayerBalance playerBalanceResult)
+        {
+            // Check that scene has not been unloaded while processing async wait to prevent throw.
+            if (this == null) return;
+
+            if (playerBalanceResult is null) return;
+
+            var currenciesString = new StringBuilder();
+            currenciesString.Append($", {playerBalanceResult.CurrencyId}:{playerBalanceResult.Balance}");
+                
+        
+            foreach (var currencyItemView in m_CurrencyItemViews)
+            {
+                if (string.Equals(playerBalanceResult.CurrencyId, currencyItemView.definitionId))
+                {
+                    currencyItemView.SetBalance(playerBalanceResult.Balance);
+                }
+            }
+            
+
+            if (currenciesString.Length > 0)
+            {
+                Debug.Log($"Currency balances updated. Value(s): {currenciesString.Remove(0, 2)}");
+            }
+            else
+            {
+                Debug.Log("Currency balances updated -- none found.");
+            }
+        }
+
         public void SetBalance(string currencyId, long balance)
         {
             foreach (var currencyItemView in m_CurrencyItemViews)

@@ -63,8 +63,10 @@ namespace LF2.Client{
 
         public override void LogicUpdate()
         {   
-            if (Time.time - TimeStarted_Animation > 0.15f){
-                if (stateMachineFX.CoreMovement.IsGounded()) stateMachineFX.AnticipateState(StateType.Crouch);
+            if (nbTickRender > 10){
+                if (stateMachineFX.CoreMovement.IsGounded()) {
+                    stateMachineFX.AnticipateState(StateType.Crouch);
+                }
             }
             stateMachineFX.CoreMovement.SetFallingDown();
 

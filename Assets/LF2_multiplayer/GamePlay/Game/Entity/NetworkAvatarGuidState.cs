@@ -11,12 +11,10 @@ namespace LF2
     /// </summary>
     public class NetworkAvatarGuidState : NetworkBehaviour
     {
-        [FormerlySerializedAs("BackGroundGuidArray")]
         [HideInInspector]
         // Use full , for save GUID and Use in between scene 
         //  From that GUID , we can extrait data from SessionPlayerData 
         public NetworkVariable<CharacterTypeEnum> AvatarType = new NetworkVariable<CharacterTypeEnum>();        
-            
 
         CharacterClassContainer m_CharacterClassContainer;
 
@@ -69,15 +67,13 @@ namespace LF2
             }
             // Debug.Log("avatar NetWorkdGuidState" + avatar);
             m_Avatar = avatar;
-            if (gameObject.layer == LayerMask.NameToLayer("PCs"))   m_CharacterClassContainer.SetCharacterClass(avatar.CharacterClass);
-            else m_CharacterClassContainer.SetCharacterClass(avatar.CharacterClassNPC);
+            if (gameObject.layer == LayerMask.NameToLayer("PCs"))   m_CharacterClassContainer.SetCharacterClass(avatar.CharacterClass , avatar.CharacterStateSOs);
+            else m_CharacterClassContainer.SetCharacterClass(avatar.CharacterClassNPC, avatar.CharacterStateSOs);
         }
 
         public void RegisterAvatar(CharacterTypeEnum characterType)
         {
             // Debug.Log("RegisteredAvatar");
-
-
             // based on the Guid received, Avatar is fetched from AvatarRegistry
             if (!m_AvatarRegistry.TryGetAvatar(characterType, out Avatar avatar))
             {
@@ -92,14 +88,12 @@ namespace LF2
             }
             // Debug.Log("avatar NetWorkdGuidState" + avatar);
             m_Avatar = avatar;
-            if (gameObject.layer == LayerMask.NameToLayer("PCs"))   m_CharacterClassContainer.SetCharacterClass(avatar.CharacterClass);
-            else m_CharacterClassContainer.SetCharacterClass(avatar.CharacterClassNPC);
+            if (gameObject.layer == LayerMask.NameToLayer("PCs"))   m_CharacterClassContainer.SetCharacterClass(avatar.CharacterClass, avatar.CharacterStateSOs);
+            else m_CharacterClassContainer.SetCharacterClass(avatar.CharacterClassNPC, avatar.CharacterStateSOs);
         }
 
         public void RegisterAvatar(Avatar avatar)
         {
-
-
             if (m_Avatar != null)
             {
                 // already set, this is an idempotent call, we don't want to Instantiate twice
@@ -107,8 +101,8 @@ namespace LF2
             }
             // Debug.Log("avatar NetWorkdGuidState" + avatar);
             m_Avatar = avatar;
-            if (gameObject.layer == LayerMask.NameToLayer("PCs"))   m_CharacterClassContainer.SetCharacterClass(avatar.CharacterClass);
-            else m_CharacterClassContainer.SetCharacterClass(avatar.CharacterClassNPC);
+            if (gameObject.layer == LayerMask.NameToLayer("PCs"))   m_CharacterClassContainer.SetCharacterClass(avatar.CharacterClass, avatar.CharacterStateSOs);
+            else m_CharacterClassContainer.SetCharacterClass(avatar.CharacterClassNPC, avatar.CharacterStateSOs);
         }
     }
 }

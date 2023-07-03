@@ -45,7 +45,7 @@ namespace LF2.Client{
 
         public override void LogicUpdate() {
             
-            if (Time.time - TimeStarted_Animation > 0.3f){
+            if (nbTickRender > 20){
                 if (stateMachineFX.CoreMovement.IsGounded()){
                     stateMachineFX.ChangeState(StateType.Land);
                 }

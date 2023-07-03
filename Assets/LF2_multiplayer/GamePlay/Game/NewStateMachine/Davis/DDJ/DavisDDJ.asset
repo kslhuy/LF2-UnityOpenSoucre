@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   StateType: 33
   Logic: 3
-  NextStateLogicSO: []
+  SubStateLogicSO: []
   ManaCost: 75
   DamageDetails:
   - {fileID: 11400000, guid: 7ab6bcd018829a3449d6db60ecde8d1e, type: 2}
@@ -28,8 +28,8 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   Projectiles: []
-  DurationSeconds: 0.75
-  Duration: 45
+  DurationSeconds: 1
+  Duration: 60
   expirable: 1
   ReuseTimeSeconds: 0
   ActionInterruptible: 0

@@ -1,4 +1,5 @@
 using System;
+using LF2.Client;
 using LF2.Utils;
 using Unity.Netcode;
 using UnityEngine;
@@ -38,10 +39,10 @@ namespace LF2
             }
         }
 
-        /// <summary>
-        /// The active target of this character.
-        /// </summary>
-        public NetworkVariable<ulong> TargetId { get; } = new NetworkVariable<ulong>();
+        // /// <summary>
+        // /// The active target of this character.
+        // /// </summary>
+        // public NetworkVariable<ulong> TargetId { get; } = new NetworkVariable<ulong>();
 
         /// <summary>
         /// Current HP. This value is populated at startup time from CharacterClass data.
@@ -95,6 +96,9 @@ namespace LF2
         /// </summary>
         public CharacterTypeEnum CharacterType => m_CharacterClassContainer.CharacterClass.CharacterType;
 
+        public CharacterStateSOs CharacterStateSO => m_CharacterClassContainer.CharacterStateSOs;
+
+
 
 
         public override void OnNetworkSpawn()
@@ -114,7 +118,7 @@ namespace LF2
 
         // ACTION SYSTEM
 
-        public event Action<StateType> StateDataSync;
+        public event Action<StateType > StateDataSync;
         public event Action<byte> InnerStateDataSync;
 
         public event Action<StateType> SyncEndAnimation;      
@@ -134,16 +138,19 @@ namespace LF2
 
 
         // Play Sync State 
+        
+
+
         [ServerRpc]
-        public void AddPredictState_and_SyncServerRpc(StateType state)
+        public void AddPredictState_and_SyncServerRpc(StateType state )
         {
-            AddPredictState_and_SyncClientRPC(state);
+            AddPredictState_and_SyncClientRPC(state  );
         }
 
         [ClientRpc]
-        public void AddPredictState_and_SyncClientRPC(StateType state)
+        public void AddPredictState_and_SyncClientRPC(StateType state )
         {
-            StateDataSync?.Invoke(state);
+            StateDataSync?.Invoke(state );
         }
         // Play Sync State 
 

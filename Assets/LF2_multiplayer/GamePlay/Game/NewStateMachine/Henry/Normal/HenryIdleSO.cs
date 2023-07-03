@@ -11,7 +11,7 @@ namespace LF2.Client{
         }
     }
 
-    public class HenryIdleLogic : StateActionLogic
+    public class HenryIdleLogic : IdleLogic
     {
 
         // private bool isPlayAnimation;
@@ -69,22 +69,7 @@ namespace LF2.Client{
         public override void LogicUpdate()
         {
             // Debug.Log("Idle");
-            if (stateMachineFX.m_ClientVisual.Owner){
-
-                if(!stateMachineFX.CoreMovement.IsGounded()){
-                    Debug.Log("Air Owner");
-                    stateMachineFX.ChangeState(StateType.Air);
-                } 
-            }else{
-                if( Time.time - TimeStarted_Animation > 0.1f && !stateMachineFX.CoreMovement.IsGoundedNotOwner()){
-                    Debug.Log("Air Not Owner");
-                    stateMachineFX.ChangeState(StateType.Air);
-                } 
-            }
-
-            // if (!isPlayAnimation){
-            //     isPlayAnimation = IsAnimating();
-            // }
+            base.LogicUpdate();
 
 
         }

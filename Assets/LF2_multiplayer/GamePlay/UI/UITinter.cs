@@ -8,6 +8,7 @@ namespace LF2.Gameplay.UI
     {
         [SerializeField]
         Color[] m_TintColors;
+        [SerializeField]
         Image m_Image;
         void Awake()
         {
@@ -18,7 +19,7 @@ namespace LF2.Gameplay.UI
         {
             if (colorIndex >= m_TintColors.Length)
                 return;
-            m_Image.color = m_TintColors[colorIndex];
+            // m_Image.color = m_TintColors[colorIndex];
         }
     }
 }

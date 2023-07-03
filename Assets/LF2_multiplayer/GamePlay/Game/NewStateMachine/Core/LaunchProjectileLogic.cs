@@ -51,9 +51,8 @@ namespace LF2.Client
 
         protected void SpwanProjectileNormal(SkillsDescription.ProjectileInfo projectileInfo , Vector3 dirToMove , Vector3 rotaion = default){
             var playerPOS = stateMachineFX.CoreMovement.transform;
-            var projectile = GameObject.Instantiate(projectileInfo.ProjectilePrefab, playerPOS.position + new Vector3(projectileInfo.pivot.x * stateMachineFX.CoreMovement.GetFacingDirection() ,projectileInfo.pivot.y,projectileInfo.pivot.z) , rotaion != default ? Quaternion.Euler(rotaion) : playerPOS.rotation  );
-            
-            projectile.GetComponent<ProjectileLogic>().Initialize(stateMachineFX.m_ClientVisual.NetworkObjectId,stateMachineFX.team, dirToMove);
+            var projectile = GameObject.Instantiate(projectileInfo.ProjectilePrefab, playerPOS.position + new Vector3(projectileInfo.pivot.x * stateMachineFX.CoreMovement.GetFacingDirection() ,projectileInfo.pivot.y,projectileInfo.pivot.z) , rotaion != default ? Quaternion.Euler(rotaion) : playerPOS.rotation );
+            projectile.GetComponent<ProjectileLogicSimple>().Initialize(stateMachineFX.m_ClientVisual.NetworkObjectId,stateMachineFX.team, dirToMove);
 
         }
         protected void SpwanFX(LF2.SkillsDescription.SpawnsObject spawner ,int facing = 0)

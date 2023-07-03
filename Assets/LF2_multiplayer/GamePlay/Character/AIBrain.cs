@@ -306,7 +306,7 @@ namespace LF2.Client
         public void PerformStateDirect(StateType state){
             // if (IsReusable(state)) {
             // }
-            PerformStateEvent?.Invoke(state);
+            PerformStateEvent?.Invoke(state );
             // SendInput(state);
             m_LastUsedTimestamps[state] = Time.time;
         }
@@ -414,7 +414,7 @@ namespace LF2.Client
                     {
                         if (foe.m_NetState.HPPoints < LowHP_Threshold){
                             _MethodeChoseFoe = 2;
-                            Debug.Log(" Switch to Chase enemy lowest HP ");
+                            // Debug.Log(" Switch to Chase enemy lowest HP ");
                         }
                         Vector3 closetFoePosition =  foe.PhysicsWrapper.Transform.position;
 

@@ -67,21 +67,17 @@ namespace LF2.Client{
         public override void LogicUpdate() {
             
             if (stateMachineFX.m_ClientVisual.Owner){
-                if (Time.time - TimeStarted_Animation > 0.1f){
-                    // Debug.Log($"Time Start  Owner ={TimeStarted_Animation} ");
+                if (nbTickRender > 10){
                     if (stateMachineFX.CoreMovement.IsGounded()){
                         stateMachineFX.ChangeState(StateType.Land);
                     }
                 }
                 stateMachineFX.CoreMovement.SetFallingDown();
-                // Debug.Log(stateMachineFX.InputX);
                 stateMachineFX.CoreMovement.CheckIfShouldFlip((int)stateMachineFX.InputX);
 
             } 
             else {
-                // Debug.Log($"Time Start Not Owner ={TimeStarted_Animation} ");
-                if (Time.time - TimeStarted_Animation > 0.15f){
-                    // Debug.Log("TIMER Ok , Check Is Grounded");
+                if (nbTickRender > 11){
                     if (stateMachineFX.CoreMovement.IsGounded()){
                         Debug.Log("Land Not owner");
                         stateMachineFX.ChangeState(StateType.Land);

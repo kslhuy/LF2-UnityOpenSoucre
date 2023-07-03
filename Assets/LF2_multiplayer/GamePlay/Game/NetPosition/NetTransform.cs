@@ -558,7 +558,10 @@ namespace LF2
 
             if (((clientCharaterMovement.CheckGoundedClose(distanceY) || networkState.IsTeleportingNextFrame) && (networkState.PositionY - adjustedPosition.y < 0.2)))
             {
+                // KeepSyncWithOwner = false;
                 adjustedPosition.y = networkState.PositionY;
+                // adjustedPosition.y = m_PositionYInterpolator.GetInterpolatedValue();
+
             }
             else
             {
@@ -684,7 +687,7 @@ namespace LF2
             }
             
             // Apply direct Rotation here (Not interpolate)
-            if (newState.HasRotAngleY) {
+            if (newState.RotY != _lastRotY ) {
                 // transform.Rotate(0, 180, 0);
 
                 clientCharaterMovement.ChangeValueFacingDirection();

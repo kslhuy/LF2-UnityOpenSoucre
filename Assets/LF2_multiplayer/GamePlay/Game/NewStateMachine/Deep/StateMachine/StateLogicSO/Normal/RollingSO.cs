@@ -64,7 +64,7 @@ namespace LF2.Client{
         public override void PlayAnim(int nbAniamtion = 1, bool sequen = false)
         {
             base.PlayAnim();
-            stateMachineFX.m_ClientVisual.NormalAnimator.Play("Rolling_anim");
+            stateMachineFX.m_ClientVisual.NormalAnimator.Play(stateMachineFX.m_ClientVisual.VizAnimation.a_Rolling);
             stateMachineFX.m_ClientVisual.SetHitBox(false);
             stateMachineFX.m_ClientVisual.UpdateSizeHurtBox(true);
             if (stateData.Sounds) stateMachineFX.m_ClientVisual.PlayAudio(stateData.Sounds);

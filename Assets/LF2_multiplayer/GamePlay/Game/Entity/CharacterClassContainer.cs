@@ -1,3 +1,4 @@
+using LF2.Client;
 using UnityEngine;
 
 namespace LF2
@@ -19,20 +20,28 @@ namespace LF2
                 if (m_CharacterClass == null ){
                     if(gameObject.layer == LayerMask.NameToLayer("PCs") )
                     {
-                        // Debug.Log("PCs");
                         // Debug.Log(gameObject.layer +" = "+ LayerMask.NameToLayer("PCs")); 
                         // Debug.Log(m_State.RegisteredAvatar.CharacterClass);
                         m_CharacterClass = m_State.RegisteredAvatar.CharacterClass;
                         // Debug.Log(m_CharacterClass);
                     }else{
-                        // Debug.Log("get CharacterClass");
-                        // Debug.Log(gameObject.layer +" != "+ LayerMask.NameToLayer("PCs"));
 
                         m_CharacterClass = m_State.RegisteredAvatar.CharacterClassNPC;
                     }
                 }
                 // Debug.Log(m_CharacterClass);
                 return m_CharacterClass;
+            }
+        }
+        [SerializeField] CharacterStateSOs m_CharacterStateSOs;
+        public CharacterStateSOs CharacterStateSOs
+        {
+            get
+            {
+                if (m_CharacterStateSOs == null ){   
+                    m_CharacterStateSOs = m_State.RegisteredAvatar.CharacterStateSOs;                    
+                }
+                return m_CharacterStateSOs;
             }
         }
 
@@ -46,9 +55,10 @@ namespace LF2
 
         // set only in Server side 
         // so if want to work propety need to set NetworkVaribale also 
-        public void SetCharacterClass(CharacterClass characterClass)
+        public void SetCharacterClass(CharacterClass characterClass , CharacterStateSOs characterStateSOs)
         {
             // Debug.Log("Set already");
+            m_CharacterStateSOs = characterStateSOs;
             m_CharacterClass = characterClass;
             // Debug.Log(m_CharacterClass);
         }

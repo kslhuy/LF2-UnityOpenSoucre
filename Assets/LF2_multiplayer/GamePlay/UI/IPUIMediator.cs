@@ -155,6 +155,8 @@ namespace LF2.Gameplay.UI
 
         public void Show()
         {
+            gameObject.SetActive(true);
+
             m_CanvasGroup.alpha = 1f;
             m_CanvasGroup.interactable = true;
             m_CanvasGroup.blocksRaycasts = true;
@@ -164,9 +166,10 @@ namespace LF2.Gameplay.UI
 
         public void Hide()
         {
-            m_CanvasGroup.alpha = 0f;
-            m_CanvasGroup.interactable = false;
-            m_CanvasGroup.blocksRaycasts = false;
+            gameObject.SetActive(false);
+            // m_CanvasGroup.alpha = 0f;
+            // m_CanvasGroup.interactable = false;
+            // m_CanvasGroup.blocksRaycasts = false;
         }
 
         // To be called from the Cancel (X) UI button

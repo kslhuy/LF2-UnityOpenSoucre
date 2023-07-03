@@ -174,20 +174,26 @@ namespace LF2.Client
 
         protected virtual void OnTriggerEnter(Collider collider) {
             // Debug.Log(collider);
-            // if (!m_cachedIsServer) return; 
+            if (!m_cachedIsServer) return; 
 
             if (collider.CompareTag("HitBox"))
             {
+                var targetNetObj = collider.GetComponentInParent<IHurtBox>();
+                if (targetNetObj.NetworkObjectId != m_SpawnerId){
+                    ChangeSpawnerID(collider);
+                    Rebound();
+                    return;
+                }
                 // Change Spawne Id mean can hit Creator ;
-                ChangeSpawnerID(collider);
-                Rebound();
-                return;
             }
 
             if (collider.CompareTag("BlockToRebound")){
-                ChangeSpawnerID(collider);
-                Rebound();
-                return;
+                var targetNetObj = collider.GetComponentInParent<IHurtBox>();
+                if (targetNetObj.NetworkObjectId != m_SpawnerId){
+                    ChangeSpawnerID(collider);
+                    Rebound();
+                    return;
+                }
             }
         
             if (collider.CompareTag("HurtBox"))

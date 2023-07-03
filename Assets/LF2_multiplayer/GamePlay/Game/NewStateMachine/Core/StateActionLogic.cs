@@ -48,7 +48,6 @@ namespace LF2.Client{
 
 
  
-        public float TimeStarted_Animation ;
         public int nbTickRender;
 
         public bool Anticipated { get; protected set; }
@@ -58,7 +57,6 @@ namespace LF2.Client{
         // Alaways check if player are already play animation first
         public virtual void Enter(){
             Anticipated = false; //once you start for real you are no longer an anticipated action.
-            TimeStarted_Animation = Time.time;
             // NOTE TimeStarted_Animation in Hurt State can be refesh many time to extend duree the cycle of this State 
 
         }
@@ -88,7 +86,6 @@ namespace LF2.Client{
 
         public virtual void  PlayAnim( int frameRender = 1 , bool sequen = false ){
             Anticipated = true;
-            TimeStarted_Animation = Time.time;  
         }
         public virtual void  PlayPredictState( int frameRender = 1 , bool sequen = false ){
             PlayAnim(frameRender , sequen);

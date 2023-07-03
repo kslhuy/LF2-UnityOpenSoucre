@@ -56,6 +56,11 @@ namespace UnityGamingServicesUseCases
             }
         }
 
+
+        public async Task test(){
+            Debug.Log("here");
+        }
+
         public async Task LoadAndCacheData()
         {
             try
@@ -85,7 +90,8 @@ namespace UnityGamingServicesUseCases
                     missingData.Add(k_PlayerXPKey, k_NewPlayerXP);
                     m_CachedCloudData[k_PlayerXPKey] = k_NewPlayerXP;
                 }
-
+                // Debug.Log(missingData.Count);
+                // Debug.Log(m_CachedCloudData);
                 if (missingData.Count > 0)
                 {
                     Debug.Log("Run missing data");

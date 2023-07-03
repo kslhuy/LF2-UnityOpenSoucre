@@ -11,7 +11,9 @@ namespace LF2.Data{
         public string Descrtion;
 
         public bool Own;
-        public int Price;
+        public int PriceCoin;
+        public int PriceDiamand;
+
         public StateLogicSO[] StateLogicSO;
 
  

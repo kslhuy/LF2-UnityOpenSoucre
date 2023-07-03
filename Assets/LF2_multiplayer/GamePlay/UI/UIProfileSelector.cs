@@ -103,6 +103,7 @@ namespace LF2.Gameplay.UI
 
         public void Show()
         {
+            gameObject.SetActive(true);
             m_CanvasGroup.alpha = 1f;
             m_CanvasGroup.blocksRaycasts = true;
             m_NewProfileField.text = "";
@@ -111,6 +112,7 @@ namespace LF2.Gameplay.UI
 
         public void ShowFirstTime()
         {
+            gameObject.SetActive(true);
             m_CanvasGroup.alpha = 1f;
             m_CanvasGroup.blocksRaycasts = true;
             m_NewProfileField.text = "";
@@ -118,8 +120,9 @@ namespace LF2.Gameplay.UI
 
         public void Hide()
         {
-            m_CanvasGroup.alpha = 0f;
-            m_CanvasGroup.blocksRaycasts = false;
+            gameObject.SetActive(false);
+            // m_CanvasGroup.alpha = 0f;
+            // m_CanvasGroup.blocksRaycasts = false;
         }
     }
 }

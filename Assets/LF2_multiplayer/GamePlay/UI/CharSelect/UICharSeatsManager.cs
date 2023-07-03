@@ -8,11 +8,18 @@ namespace LF2.Client{
         [SerializeField] private AvatarRegistry avatarRegistry;
         private void Start() {
             for (int i = 0 ; i < avatarRegistry.m_Avatars.Length ; i++){
-                if (avatarRegistry.m_Avatars[i].Own){
-                    UICharSelectPlayerSeat uICharSelectPlayerSeat = Instantiate(uICharSeat_pf , rectTF_Seats);
-                    uICharSelectPlayerSeat.SetCharacterType(avatarRegistry.m_Avatars[i].CharacterClass.CharacterType , avatarRegistry.m_Avatars[i].Portrait);
-                }
+                UICharSelectPlayerSeat uICharSelectPlayerSeat = Instantiate(uICharSeat_pf , rectTF_Seats);
+                uICharSelectPlayerSeat.SetCharacterType(avatarRegistry.m_Avatars[i].CharacterClass.CharacterType , avatarRegistry.m_Avatars[i].Portrait);
             }
+            
+
+                // for (int i = 0 ; i < avatarRegistry.m_Avatars.Length ; i++){
+                //     if (avatarRegistry.m_Avatars[i].Own){
+                //         UICharSelectPlayerSeat uICharSelectPlayerSeat = Instantiate(uICharSeat_pf , rectTF_Seats);
+                //         uICharSelectPlayerSeat.SetCharacterType(avatarRegistry.m_Avatars[i].CharacterClass.CharacterType , avatarRegistry.m_Avatars[i].Portrait);
+                //     }
+                // }
+            
         }
 
     }

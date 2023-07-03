@@ -37,13 +37,15 @@ namespace LF2.Gameplay.UI
 
         public void Show()
         {
+            gameObject.SetActive(true);
             m_CanvasGroup.alpha = 1f;
             m_CanvasGroup.blocksRaycasts = true;
         }
 
         public void Hide()
         {
-            m_CanvasGroup.alpha = 0f;
+            gameObject.SetActive(false);
+            // m_CanvasGroup.alpha = 0f;
             m_CanvasGroup.blocksRaycasts = false;
         }
     }

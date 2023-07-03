@@ -127,6 +127,11 @@ namespace LF2.Gameplay.UI
             {
                 DisplayUIHealth();
             }
+
+            // if (m_ClientAvatarGuidHandler)
+            // {
+            //     m_ClientAvatarGuidHandler.AvatarGraphicsSpawned += TrackGraphicsTransform;
+            // }
         }
 
         void OnDisable()
@@ -142,10 +147,10 @@ namespace LF2.Gameplay.UI
                 m_NetworkHealthState.HitPointsDepleted -= RemoveUIHealth;
             }
 
-            if (m_ClientAvatarGuidHandler)
-            {
-                m_ClientAvatarGuidHandler.AvatarGraphicsSpawned -= TrackGraphicsTransform;
-            }
+            // if (m_ClientAvatarGuidHandler)
+            // {
+            //     m_ClientAvatarGuidHandler.AvatarGraphicsSpawned -= TrackGraphicsTransform;
+            // }
         }
 
         void DisplayUIName()

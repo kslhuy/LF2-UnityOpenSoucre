@@ -58,7 +58,7 @@ namespace LF2.Client{
             // stateMachineFX.m_ClientVisual.NormalAnimator.enabled = false;
 
             // stateData.frameChecker.initCheck(frameRender);
-            stateMachineFX.m_ClientVisual.coreMovement.TakeControlTransform(true);
+            // stateMachineFX.m_ClientVisual.coreMovement.TakeControlTransform(true);
 
             stateMachineFX.m_ClientVisual.NormalAnimator.Play(stateMachineFX.m_ClientVisual.VizAnimation.a_DDJ_1);
         }

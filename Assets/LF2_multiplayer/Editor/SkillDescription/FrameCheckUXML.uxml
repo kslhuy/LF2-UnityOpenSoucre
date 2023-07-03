@@ -2,27 +2,42 @@
     <Style src="project://database/Assets/LF2_multiplayer/Editor/margin.uss?fileID=7433441132597879392&amp;guid=f428da7cc83e4f242b0ff60b0e74cce8&amp;type=3#margin" />
     <ui:VisualElement style="flex-direction: row;">
         <ui:VisualElement name="left" class="section" style="flex-direction: column; width: 30%;">
-            <uie:ObjectField label="SpwanObject" binding-path="SpwanObject" allow-scene-objects="true" type="UnityEngine.GameObject, UnityEngine.CoreModule" style="flex-direction: column;" />
-            <uie:ObjectField label="Sound" binding-path="Sound" allow-scene-objects="true" type="LF2.AudioCueSO, LF2.GamePlay" style="flex-direction: column;" />
             <ui:IntegerField label="Wait" value="42" binding-path="wait" />
             <ui:IntegerField label="NextFrame" value="42" binding-path="NextFrame" />
             <ui:Toggle label="Toggle" binding-path="haveInteraction" style="background-color: rgb(101, 99, 99);" />
-            <ui:FloatField label="Time" value="42.2" binding-path="time" />
+            <ui:VisualElement style="flex-direction: row;">
+                <uie:ObjectField label="Sound" binding-path="Sound" allow-scene-objects="true" type="LF2.AudioCueSO, LF2.GamePlay" style="flex-direction: column; width: 45%;" />
+                <uie:ObjectField label="SpwanObject" binding-path="SpwanObject" allow-scene-objects="true" type="UnityEngine.GameObject, UnityEngine.CoreModule" style="flex-direction: column; width: 45%;" />
+            </ui:VisualElement>
+            <ui:Foldout text="HurtBox" value="false" style="color: rgb(100, 123, 255);">
+                <ui:VisualElement name="hitbox">
+                    <ui:Vector3Field label="Center" binding-path="center" style="flex-direction: column;" />
+                    <ui:Vector3Field label="Size" binding-path="size" style="flex-direction: column;" />
+                </ui:VisualElement>
+            </ui:Foldout>
         </ui:VisualElement>
         <ui:VisualElement name="right" class="section" style="width: 30%;">
-            <uie:ObjectField label="Sprite" binding-path="sprite" type="UnityEngine.Sprite, UnityEngine.CoreModule" name="spriteImg" style="flex-direction: column;" />
-            <ui:IntegerField label="dvx" value="42" binding-path="dvx" />
-            <ui:IntegerField label="dvy" value="42" binding-path="dvy" />
-            <ui:IntegerField label="dvz" value="42" binding-path="dvz" />
-            <ui:IntegerField label="pressed_A" value="42" binding-path="pressed_A" />
-            <ui:IntegerField label="pressed_J" value="42" binding-path="pressed_J" />
-            <ui:IntegerField label="pressed_D" value="42" binding-path="pressed_D" />
+            <uie:ObjectField label="Sprite" binding-path="sprite" type="UnityEngine.Sprite, UnityEngine.CoreModule" name="spriteImg" style="flex-direction: row; flex-wrap: nowrap; align-items: stretch; justify-content: flex-start; -unity-text-align: upper-left; white-space: normal;" />
+            <ui:VisualElement style="flex-direction: row;">
+                <ui:IntegerField label="dvy" value="42" binding-path="dvy" style="flex-direction: column; width: 30%;" />
+                <ui:IntegerField label="dvz" value="42" binding-path="dvz" style="flex-direction: column; width: 30%;" />
+                <ui:IntegerField label="dvx" value="42" binding-path="dvx" style="flex-direction: column; width: 30%;" />
+            </ui:VisualElement>
+            <ui:VisualElement style="flex-direction: row;">
+                <ui:IntegerField label="pressed_J" value="42" binding-path="pressed_J" style="width: 30%; flex-direction: column;" />
+                <ui:IntegerField label="pressed_D" value="42" binding-path="pressed_D" style="width: 30%; flex-direction: column;" />
+                <ui:IntegerField label="pressed_A" value="42" binding-path="pressed_A" style="width: 30%; flex-direction: column;" />
+            </ui:VisualElement>
+            <ui:Foldout text="HitBox" usage-hints="None" value="false" style="color: rgb(241, 99, 99); flex-direction: column; flex-wrap: nowrap;">
+                <ui:VisualElement name="hitbox">
+                    <ui:Vector3Field label="Center" binding-path="center" style="flex-direction: column;" />
+                    <ui:Vector3Field label="Size" binding-path="size" style="flex-direction: column;" />
+                </ui:VisualElement>
+            </ui:Foldout>
         </ui:VisualElement>
         <ui:VisualElement style="width: 30%;">
-            <ui:VisualElement>
-                <ui:Vector3Field label="Center" binding-path="center" style="flex-direction: column;" />
-                <ui:Vector3Field label="Size" binding-path="size" style="flex-direction: column;" />
-            </ui:VisualElement>
+            <ui:Label tabindex="-1" text="Frame Number" display-tooltip-when-elided="true" enable-rich-text="false" />
+            <ui:Label tabindex="-1" text="0" display-tooltip-when-elided="true" style="-unity-text-align: upper-center; -unity-font-style: bold; font-size: 21px;" />
             <ui:VisualElement name="mid" class="section" style="width: auto; height: auto;" />
         </ui:VisualElement>
     </ui:VisualElement>

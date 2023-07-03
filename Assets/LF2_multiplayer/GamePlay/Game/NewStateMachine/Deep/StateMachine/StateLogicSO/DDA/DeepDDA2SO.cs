@@ -69,11 +69,12 @@ namespace LF2.Client{
             else if( id == 2 ) frameTransitionAnim = true;
             else {
                 stateMachineFX.m_ClientVisual.PlayAudio(stateData.Sounds);
-                if (stateMachineFX.m_ClientVisual._IsServer) {
-                    stateMachineFX.m_ClientVisual.PlayAudio(stateData.Sounds);
-                    SpwanProjectileObjectPooling(stateData.Projectiles[0], new Vector3(stateMachineFX.CoreMovement.GetFacingDirection() ,0,stateMachineFX.InputZ));
-                    m_Launched = true;
-                }
+                SpwanProjectileNormal(stateData.Projectiles[0], new Vector3(stateMachineFX.CoreMovement.GetFacingDirection() ,0,0));
+                // if (stateMachineFX.m_ClientVisual._IsServer) {
+                //     stateMachineFX.m_ClientVisual.PlayAudio(stateData.Sounds);
+                //     // SpwanProjectileObjectPooling(stateData.Projectiles[0], new Vector3(stateMachineFX.CoreMovement.GetFacingDirection() ,0,stateMachineFX.InputZ));
+                // }
+                m_Launched = true;
             }                  
 
         }
@@ -84,9 +85,11 @@ namespace LF2.Client{
         public override void End(){
             if (!m_Launched) {
                 stateMachineFX.m_ClientVisual.PlayAudio(stateData.Sounds);
-                if (stateMachineFX.m_ClientVisual._IsServer) {
-                    SpwanProjectile(stateData.Projectiles[0], new Vector3 (stateMachineFX.CoreMovement.GetFacingDirection(),0,stateMachineFX.InputZ));
-                }
+                SpwanProjectileNormal(stateData.Projectiles[0], new Vector3 (stateMachineFX.CoreMovement.GetFacingDirection(),0,0));
+
+                // if (stateMachineFX.m_ClientVisual._IsServer) {
+                //     SpwanProjectile(stateData.Projectiles[0], new Vector3 (stateMachineFX.CoreMovement.GetFacingDirection(),0,stateMachineFX.InputZ));
+                // }
             }
             stateMachineFX.idle();
         }

@@ -24,7 +24,6 @@ namespace LF2
     public struct FrameStruct{
         // How far this frame can move 
         public Sprite sprite;
-        public float time;
         public int dvx;
         public int dvy;
         public int dvz;
@@ -42,13 +41,21 @@ namespace LF2
         public int NextFrame;
         public int wait;
 
-        public Vector3 center;
-        public Vector3 offset;
+        public AnimationBox HitBox;
+        public AnimationBox HurtBox;
         
     }
 
+    [Serializable]
+    public struct AnimationBox {
+        public Vector3 size;
+        public Vector3 center;
+    }
 
-    [System.Serializable]
+
+
+
+    [Serializable]
     public class FrameChecker
     {
         public AnimationClip clip;

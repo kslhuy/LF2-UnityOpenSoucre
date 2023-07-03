@@ -13,6 +13,7 @@ public class AvatarRegistryEditor : Editor {
         var m_MyToggle = new Toggle("Own") { text = "Set All be Own" };
         m_MyToggle.RegisterValueChangedCallback(OnTestToggleChanged);
         root.Add(m_MyToggle);
+        m_MyToggle.value = true;
         
         var folout = new Foldout() {
             viewDataKey = "Avatar resgiter" , text = "Full Inspector"

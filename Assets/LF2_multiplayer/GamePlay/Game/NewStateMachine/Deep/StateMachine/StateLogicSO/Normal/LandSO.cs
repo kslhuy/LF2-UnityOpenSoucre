@@ -46,7 +46,12 @@ namespace LF2.Client{
         public override void PlayAnim( int nbanim = 1 , bool sequence = false)
         {
             base.PlayAnim();
-            GameObject.Instantiate(stateData.SpawnsFX[0]._Object,stateMachineFX.m_ClientVisual.transform.position , Quaternion.identity);
+            if (stateMachineFX.m_ClientVisual.IsOwner){
+                GameObject.Instantiate(stateData.SpawnsFX[0]._Object, stateMachineFX.m_ClientVisual.transform.position , Quaternion.identity);
+            }else{  
+                GameObject.Instantiate(stateData.SpawnsFX[0]._Object, new Vector3(stateMachineFX.m_ClientVisual.transform.position.x , 64 , stateMachineFX.m_ClientVisual.transform.position.z)  , Quaternion.identity);
+            }
+
             stateMachineFX.m_ClientVisual.NormalAnimator.Play(stateMachineFX.m_ClientVisual.VizAnimation.a_Land);
             stateMachineFX.m_ClientVisual.PlayAudio(stateData.Sounds);
         }
@@ -60,9 +65,10 @@ namespace LF2.Client{
             PlayAnim(nbanim , sequence);
         }
         public override void End(){
-            if (stateMachineFX.CoreMovement.IsGounded()){
-                stateMachineFX.idle();
-            }
+            // if (stateMachineFX.CoreMovement.IsGounded()){
+            //     stateMachineFX.idle();
+            // }
+            stateMachineFX.idle();
         }
 
 

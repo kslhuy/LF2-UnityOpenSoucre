@@ -68,14 +68,15 @@ namespace UnityGamingServicesUseCases
 
         void UpdatePlayerLevel()
         {
+            // Debug.Log(CloudSaveManager.instance.playerLevel);
             playerLevel.text = CloudSaveManager.instance.playerLevel.ToString();
         }
 
         void UpdateProgressBar()
         {
-            progressBar.maxValue = RemoteConfigManager.instance.levelUpXPNeeded;
+            // progressBar.maxValue = RemoteConfigManager.instance.levelUpXPNeeded;
             progressBar.value = CloudSaveManager.instance.playerXP;
-            playerXPProgressText.text = $"{CloudSaveManager.instance.playerXP}/{RemoteConfigManager.instance.levelUpXPNeeded}";
+            playerXPProgressText.text = $"{CloudSaveManager.instance.playerXP}/{50}";
         }
 
         // void UpdateButtons()

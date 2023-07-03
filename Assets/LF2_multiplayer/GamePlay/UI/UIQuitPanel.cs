@@ -37,5 +37,10 @@ namespace Gameplay.UI
 
             gameObject.SetActive(false);
         }
+
+        public void QuitUISetting(){
+            Debug.Log("Quit UI Setttings");
+        }
+
     }
 }

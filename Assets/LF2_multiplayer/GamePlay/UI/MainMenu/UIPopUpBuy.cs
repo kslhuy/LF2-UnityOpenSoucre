@@ -18,6 +18,10 @@ namespace LF2.Gameplay.UI
         [SerializeField]
         public GameObject m_Fail;
 
+        [SerializeField] private TextMeshProUGUI m_TextDiamandPrice;
+
+        [SerializeField] private TextMeshProUGUI m_TextCoinPrice;
+
 
         public UIShopCharSelectInfoBox uIShopCharSelectInfo;
 
@@ -25,7 +29,10 @@ namespace LF2.Gameplay.UI
         private bool m_IsDisabled;
 
 
-        public void Show(){
+        public void Show(int priceCoin , int priceDiamand){
+            m_TextDiamandPrice.text = priceDiamand + " Diamande";
+            m_TextCoinPrice.text = priceCoin + " Coin";
+            
             gameObject.SetActive(true);
         }
 
@@ -46,12 +53,15 @@ namespace LF2.Gameplay.UI
         // Called directly by Button in UI
         public void OnClickedDiamon()
         {
-            // uIShopCharSelectInfo.
+            uIShopCharSelectInfo.OnPurchaseByDiamand();
+            
+
         }
 
         public void OnClickedCoin()
         {
-            
+            uIShopCharSelectInfo.OnPurchaseByCoin();
+
         }
 
         public void ClickedClose()

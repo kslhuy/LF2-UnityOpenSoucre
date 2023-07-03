@@ -46,14 +46,13 @@ namespace LF2.Client{
         public override void LogicUpdate()
         {   
             if (nbTickRender > 12 ){
-                if (stateMachineFX.CoreMovement.IsGounded()) {
-                    // Debug.Log("crouch");
+                if (stateMachineFX.CoreMovement.CheckGoundedClose(5)) {
                     stateMachineFX.AnticipateState(StateType.Crouch);
                     return;
                 }
             }
+            
             stateMachineFX.CoreMovement.SetFallingDown();
-            base.LogicUpdate();
 
 
         }

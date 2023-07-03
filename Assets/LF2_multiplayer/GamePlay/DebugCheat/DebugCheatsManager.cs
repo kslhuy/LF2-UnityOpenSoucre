@@ -55,6 +55,9 @@ namespace Unity.BossRoom.DebugCheats
         [Inject]
         IPublisher<CheatUsedMessage> m_CheatUsedMessagePublisher;
 
+
+        private GameObject _cachedCurrentPlayer;
+
         // void Update()
         // {
         //     if (Input.touchCount == k_NbTouchesToOpenWindow && AnyTouchDown() ||
@@ -75,6 +78,10 @@ namespace Unity.BossRoom.DebugCheats
         //     }
         //     return false;
         // }
+
+        public void StartHost(){
+            NetworkManager.Singleton.StartHost();
+        }
 
         public void SpawnEnemy()
         {
@@ -246,6 +253,86 @@ namespace Unity.BossRoom.DebugCheats
             // spawn players characters with destroyWithScene = true
             newPlayer.SpawnWithOwnership(clientId, true);
         
+        }
+
+        public void SpawnPlayerOffline()
+        {
+            if (_cachedCurrentPlayer != null){
+                Destroy(_cachedCurrentPlayer);
+            }
+
+            var newPlayer = Instantiate(m_PlayerPrefab, Vector3.zero, Quaternion.identity);
+            _cachedCurrentPlayer = newPlayer.gameObject;
+
+            var newPlayerCharacter = newPlayer.GetComponent<ServerCharacter>();
+
+            var physicsTransform = newPlayerCharacter.physicsWrapper.Transform;
+
+            physicsTransform.SetPositionAndRotation(spawnPoint.position, spawnPoint.rotation);
+
+            // var persistentPlayerExists = playerNetworkObject.TryGetComponent(out PersistentPlayer persistentPlayer);
+            // Assert.IsTrue(persistentPlayerExists,
+            //     $"Matching persistent PersistentPlayer for client {clientId} not found!");
+
+            // pass character type from persistent player to avatar
+            var networkAvatarGuidStateExists =
+                newPlayer.TryGetComponent(out NetworkAvatarGuidState networkAvatarGuidState);
+
+            Assert.IsTrue(networkAvatarGuidStateExists,
+                $"NetworkCharacterGuidState not found on player avatar!");
+
+            LF2.Avatar _PlayeravatarValue;
+            avatarRegistry.TryGetAvatar(BotTypeToSpawn, out _PlayeravatarValue);
+            networkAvatarGuidState.RegisterAvatar(_PlayeravatarValue);
+
+            // pass name from persistent player to avatar
+            if (newPlayer.TryGetComponent(out NetworkNameState networkNameState))
+            {
+                // Debug.Log("Network Name " + persistentPlayer.NetworkNameState.Name.Value);
+                networkNameState.Name.Value = "player";
+                // Debug.Log("Network Team " + persistentPlayer.NetworkNameState.Team.Value);
+                networkNameState.Team.Value = TeamType.INDEPENDANT;
+
+            }
+            newPlayer.Spawn(true);
+
+
+        
+        }
+
+        public void SpawnEnemyOffline()
+        {
+
+            // Find a spawn point 
+            // Instaite a Bot Object
+            var newBOT = Instantiate(m_AIPrefab);
+            var newBOTCharacter = newBOT.GetComponent<ServerCharacter>();
+
+            var physicsTransform = newBOTCharacter.physicsWrapper.Transform;
+
+            //     // Set position and rotation to the Bot Object in the scene
+                physicsTransform.SetPositionAndRotation(spawnPoint.position, spawnPoint.rotation);
+
+            // Check if the Bot Object have Componenet NetworkAvatarGuidState  
+            var networkAvatarGuidStateExists =
+                newBOT.TryGetComponent(out NetworkAvatarGuidState networkAvatarGuidState);
+
+            Assert.IsTrue(networkAvatarGuidStateExists,
+                $"NetworkCharacterGuidState not found on player avatar!");
+
+            // LF2.Avatar _botavatarValue;
+            // avatarRegistry.TryGetAvatar(BotTypeToSpawn, out _botavatarValue);
+            networkAvatarGuidState.AvatarType.Value = BotTypeToSpawn;
+            // networkAvatarGuidState.RegisterAvatar(_botavatarValue);
+
+            // pass name , team type from persistent player to avatar
+            if (newBOT.TryGetComponent(out NetworkNameState networkNameState))
+            {
+                networkNameState.Name.Value = BotTypeToSpawn.ToString() + "BOT"; 
+                networkNameState.Team.Value = BotTeamTypeToSpawn;
+            }
+            newBOT.Spawn( true);
+
         }
 
         // [ServerRpc(RequireOwnership = false)]
