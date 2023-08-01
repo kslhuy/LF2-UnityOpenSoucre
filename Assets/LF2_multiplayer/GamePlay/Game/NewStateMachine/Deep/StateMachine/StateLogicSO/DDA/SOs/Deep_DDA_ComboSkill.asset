@@ -14,5 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nameSkills: Energy Blast
   Descrtion: 
+  Own: 0
+  PriceCoin: 0
+  PriceDiamand: 0
   StateLogicSO:
   - {fileID: 11400000, guid: a79ac352d1fb2b34fbe672e72c05e78d, type: 2}
+  - {fileID: 11400000, guid: abbdfba689b1d3646a5253989f8ea66b, type: 2}
+  - {fileID: 11400000, guid: 3518ffbd1c9284c4ebcb1247749b8983, type: 2}

@@ -59,6 +59,9 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Back2
+    uniqueID: 4097264651
+    locked: 0
   - name: Back
     uniqueID: 999154591
     locked: 0
