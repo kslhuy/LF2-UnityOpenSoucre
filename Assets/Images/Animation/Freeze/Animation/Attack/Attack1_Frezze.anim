@@ -7,7 +7,7 @@ AnimationClip:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Attack1_Frezze
-  serializedVersion: 6
+  serializedVersion: 7
   m_Legacy: 0
   m_Compressed: 0
   m_UseHighQualityCurve: 1
@@ -209,6 +209,7 @@ AnimationClip:
       typeID: 65
       customType: 0
       isPPtrCurve: 0
+      isIntCurve: 0
     - serializedVersion: 2
       path: 0
       attribute: 4197328169
@@ -216,6 +217,7 @@ AnimationClip:
       typeID: 65
       customType: 0
       isPPtrCurve: 0
+      isIntCurve: 0
     - serializedVersion: 2
       path: 0
       attribute: 605858901
@@ -223,6 +225,7 @@ AnimationClip:
       typeID: 65
       customType: 0
       isPPtrCurve: 0
+      isIntCurve: 0
     - serializedVersion: 2
       path: 0
       attribute: 1394318531
@@ -230,6 +233,7 @@ AnimationClip:
       typeID: 65
       customType: 0
       isPPtrCurve: 0
+      isIntCurve: 0
     - serializedVersion: 2
       path: 0
       attribute: 2368279999
@@ -237,6 +241,7 @@ AnimationClip:
       typeID: 65
       customType: 0
       isPPtrCurve: 0
+      isIntCurve: 0
     - serializedVersion: 2
       path: 0
       attribute: 0
@@ -244,6 +249,7 @@ AnimationClip:
       typeID: 212
       customType: 23
       isPPtrCurve: 1
+      isIntCurve: 0
     - serializedVersion: 2
       path: 0
       attribute: 3390229881
@@ -251,6 +257,7 @@ AnimationClip:
       typeID: 65
       customType: 0
       isPPtrCurve: 0
+      isIntCurve: 0
     pptrCurveMapping:
     - {fileID: 8347667387627922043, guid: 2d02a6d2d361dac418a441b3b9e2b1e7, type: 3}
     - {fileID: 7532551554104674473, guid: 2d02a6d2d361dac418a441b3b9e2b1e7, type: 3}

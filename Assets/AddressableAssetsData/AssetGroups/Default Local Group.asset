@@ -15,10 +15,17 @@ MonoBehaviour:
   m_GroupName: Default Local Group
   m_Data:
     m_SerializedData: []
+<<<<<<< Updated upstream
   m_GUID: 66c6c2ab891c19943b56b82972c03679
   m_SerializeEntries:
   - m_GUID: 01fe1c990e708794a9fb7cf7172f274c
     m_Address: Assets/Prefab/Background/Game/Coliseum.prefab
+=======
+  m_GUID: 1e017e41fee91f445b2b5cb46f7c86fc
+  m_SerializeEntries:
+  - m_GUID: d3740350b8c5a9f4b987731532b3580e
+    m_Address: Assets/henry skill1.psd
+>>>>>>> Stashed changes
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

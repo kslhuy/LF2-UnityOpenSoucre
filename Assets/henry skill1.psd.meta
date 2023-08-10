@@ -1,0 +1,517 @@
+fileFormatVersion: 2
+guid: d3740350b8c5a9f4b987731532b3580e
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 0
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 0
+  spriteMeshType: 0
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 1
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 0
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 1024
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: 4
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 1024
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 1024
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 1024
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: henry skill1_0
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 477
+        width: 103
+        height: 80
+      alignment: 9
+      pivot: {x: 0.20565933, y: -0.008622741}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 982c24662171262469a724e6a647d28b
+      internalID: 159997859
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: henry skill1_3
+      rect:
+        serializedVersion: 2
+        x: 173
+        y: 478
+        width: 85
+        height: 80
+      alignment: 9
+      pivot: {x: 0.30467978, y: 0.00040007802}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 68d269c3586f06b448f898271be8de41
+      internalID: 37811582
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: henry skill1_5
+      rect:
+        serializedVersion: 2
+        x: 334
+        y: 478
+        width: 122
+        height: 81
+      alignment: 9
+      pivot: {x: 0.18641563, y: 0.0093116285}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 628e180f08709ad40846a9f88d47e3ad
+      internalID: 1372787142
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: henry skill1_8
+      rect:
+        serializedVersion: 2
+        x: 493
+        y: 477
+        width: 109
+        height: 74
+      alignment: 9
+      pivot: {x: 0.23015502, y: -0.009625329}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4140e26d717182f40a21a25bf611fd74
+      internalID: 542663940
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: henry skill1_9
+      rect:
+        serializedVersion: 2
+        x: 631
+        y: 476
+        width: 91
+        height: 69
+      alignment: 9
+      pivot: {x: 0.4278171, y: -0.0103736995}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 25caf049788801d438cde87feb9c0945
+      internalID: -1553930756
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: henry skill1_10
+      rect:
+        serializedVersion: 2
+        x: 733
+        y: 476
+        width: 67
+        height: 68
+      alignment: 9
+      pivot: {x: 0.3707166, y: -0.02147374}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8bc60fb848d4d014a9c8761f15ba30fa
+      internalID: 1689747567
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: henry skill1_11
+      rect:
+        serializedVersion: 2
+        x: 397
+        y: 474
+        width: 5
+        height: 4
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eb9f5c577ebe6274e8af1b67fa2d147d
+      internalID: 271261512
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: henry skill1_12
+      rect:
+        serializedVersion: 2
+        x: 14
+        y: 398
+        width: 67
+        height: 67
+      alignment: 9
+      pivot: {x: 0.36465573, y: 0.00040006638}
+      border: {x: 0, y: 1, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4756926784fb63146a958bea9365c0d2
+      internalID: 1207606891
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: henry skill1_13
+      rect:
+        serializedVersion: 2
+        x: 89
+        y: 398
+        width: 60
+        height: 67
+      alignment: 9
+      pivot: {x: 0.40043667, y: 0.00040006638}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 249b2e906a9363440af40b89821a8200
+      internalID: 406395732
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: henry skill1_14
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 343
+        width: 503
+        height: 31
+      alignment: 9
+      pivot: {x: 0.5, y: 0.0004}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 137f87607375d054494272498042415f
+      internalID: -1256005162
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: henry skill1_15
+      rect:
+        serializedVersion: 2
+        x: 667
+        y: 350
+        width: 13
+        height: 10
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f3ebb77d16e22ea4e827f53abb7ea096
+      internalID: 767121519
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: henry skill1_16
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 266
+        width: 766
+        height: 34
+      alignment: 9
+      pivot: {x: 0.5, y: 0.0004}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ca48b995d48f2b3448b9979a79f9a95c
+      internalID: -1651535886
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: henry skill1_17
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 185
+        width: 792
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: 0.0004}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 71013bd222cf5b2468f631e2fbb0e968
+      internalID: 687774568
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: henry skill1_18
+      rect:
+        serializedVersion: 2
+        x: 659
+        y: 162
+        width: 17
+        height: 13
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3df567b5244c291469294799a9f7114a
+      internalID: -737557343
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: henry skill1_19
+      rect:
+        serializedVersion: 2
+        x: 26
+        y: 102
+        width: 714
+        height: 27
+      alignment: 9
+      pivot: {x: 0.5, y: 0.0004}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fa42645b4be12bc4db39c5e1caf12b78
+      internalID: -1344117902
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: henry skill1_20
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 21
+        width: 523
+        height: 23
+      alignment: 9
+      pivot: {x: 0.5, y: 0.0004}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b1bb7e890b1630b42b2b6e045a0a73db
+      internalID: 1604925304
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 832dbc75dcbc00142bda7c248ed349bc
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      henry skill1_6: 575237057
+      henry skill1_1: 363832877
+      henry skill1_17: 687774568
+      henry skill1_0: 159997859
+      henry skill1_13: 406395732
+      henry skill1_16: -1651535886
+      henry skill1_2: 1974374663
+      henry skill1_7: -889953646
+      henry skill1_3: 37811582
+      henry skill1_10: 1689747567
+      henry skill1_4: 977378107
+      henry skill1_15: 767121519
+      henry skill1_14: -1256005162
+      henry skill1_11: 271261512
+      henry skill1_5: 1372787142
+      henry skill1_18: -737557343
+      henry skill1_20: 1604925304
+      henry skill1_9: -1553930756
+      henry skill1_12: 1207606891
+      henry skill1_8: 542663940
+      henry skill1_19: -1344117902
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
