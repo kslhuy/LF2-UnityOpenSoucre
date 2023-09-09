@@ -1,6 +1,6 @@
 using System;
 using UnityEngine;
-using UnityEngine.AddressableAssets;
+// using UnityEngine.AddressableAssets;
 namespace LF2
 {
     /// <summary>
@@ -22,7 +22,7 @@ namespace LF2
     {
         public BackGroundEnum NameBackGround;
 
-        public AssetReference BackGroundPreFab;
+        // public AssetReference BackGroundPreFab;
 
         public Sprite BackGroundImage;
         public AudioCueSO musicTrack;

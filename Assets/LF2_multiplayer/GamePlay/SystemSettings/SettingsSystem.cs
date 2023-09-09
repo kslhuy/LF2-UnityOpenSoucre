@@ -6,7 +6,7 @@ public class SettingsSystem : MonoBehaviour
 
 	[SerializeField] private SettingsSO _currentSettings = default;
 	// [SerializeField] private UniversalRenderPipelineAsset _urpAsset = default;
-	[SerializeField] private SaveSystem _saveSystem = default;
+	// [SerializeField] private SaveSystem _saveSystem = default;
 
 	// [SerializeField] private FloatEventChannelSO _changeMasterVolumeEventChannel = default;
 	// [SerializeField] private FloatEventChannelSO _changeSFXVolumeEventChannel = default;

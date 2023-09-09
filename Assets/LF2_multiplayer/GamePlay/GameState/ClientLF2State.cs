@@ -5,7 +5,6 @@ using TMPro;
 using Unity.Multiplayer.Infrastructure;
 using Unity.Netcode;
 using UnityEngine;
-using UnityEngine.AddressableAssets;
 using VContainer;
 
 namespace LF2.Client

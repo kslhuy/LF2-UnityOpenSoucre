@@ -11,7 +11,6 @@ using UnityEngine;
 using UnityEngine.Assertions;
 using UnityEngine.SceneManagement;
 using Random = UnityEngine.Random;
-using UnityEngine.AddressableAssets;
 using VContainer;
 using LF2.Gameplay.GameState;
 using LF2.ConnectionManagement;

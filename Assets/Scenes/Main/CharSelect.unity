@@ -3766,6 +3766,22 @@ PrefabInstance:
       propertyPath: m_QuitMode
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8733984209758469239, guid: 88020d7a35ce89e45ab4fb974765bd12, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8733984209870632912, guid: 88020d7a35ce89e45ab4fb974765bd12, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8733984209914561847, guid: 88020d7a35ce89e45ab4fb974765bd12, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8733984209945630852, guid: 88020d7a35ce89e45ab4fb974765bd12, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8733984210365835121, guid: 88020d7a35ce89e45ab4fb974765bd12, type: 3}
       propertyPath: m_Pivot.x
       value: 0

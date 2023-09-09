@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-using UnityEngine.AddressableAssets;
+// using UnityEngine.AddressableAssets;
 
 
 namespace LF2.Client

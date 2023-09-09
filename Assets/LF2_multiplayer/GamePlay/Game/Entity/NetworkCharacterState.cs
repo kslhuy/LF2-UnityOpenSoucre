@@ -119,7 +119,7 @@ namespace LF2
         // ACTION SYSTEM
 
         public event Action<StateType > StateDataSync;
-        public event Action<byte> InnerStateDataSync;
+        // public event Action<byte> InnerStateDataSync;
 
         public event Action<StateType> SyncEndAnimation;      
 
