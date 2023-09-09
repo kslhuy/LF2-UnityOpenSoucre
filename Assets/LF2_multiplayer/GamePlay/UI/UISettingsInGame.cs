@@ -55,8 +55,8 @@ namespace LF2.Gameplay.UI
 
         public void OnClickControlSetting()
         {
-            MasterObject.SetActive(false);
-            SceneManager.LoadSceneAsync("DebugUIScene" ,LoadSceneMode.Additive);
+            // MasterObject.SetActive(false);
+            SceneManager.LoadSceneAsync("DebugUIScene" ,LoadSceneMode.Single);
 
         }
 

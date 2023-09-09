@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using System;
 
 public enum ButtonType {
@@ -193,8 +194,10 @@ public class PositionUIButton : MonoBehaviour {
 	}
 
 	public void QuitUISetting(){
-		Master.SetActive(false);
+		// Master.SetActive(false);
 		// Quit_Panel.SetActive(true);
+		SceneManager.LoadSceneAsync("MainMenu" ,LoadSceneMode.Single);
+
 	}
 
 
