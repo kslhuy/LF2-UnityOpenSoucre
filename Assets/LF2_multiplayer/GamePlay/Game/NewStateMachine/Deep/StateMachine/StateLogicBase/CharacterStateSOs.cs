@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
+using LF2.Test;
 using LF2.Data;
 
 namespace LF2.Client{
@@ -16,10 +17,7 @@ namespace LF2.Client{
 
         public ComboSkill[] ListAllComboSkills ;
         // public StateLogicSO[] RunTimeComboSkills ;
-        public StateLogicSOAddInfo RunTimeDDA ;
-        public StateLogicSOAddInfo RunTimeDDJ ;
-        public StateLogicSOAddInfo RunTimeDUA ;
-        public StateLogicSOAddInfo RunTimeDUJ ;
+        public Config skillConfig;
 
         private Dictionary<StateType, StateLogicSO> m_StateLogicSOsMap ;
         public Dictionary<StateType, StateLogicSO> StateLogicSOsByType {

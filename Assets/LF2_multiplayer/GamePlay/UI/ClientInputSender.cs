@@ -61,16 +61,16 @@ namespace LF2.Client
         public StateType ConvertToRunTimeStateType(StateType inputState){
 
             if (inputState == StateType.DDA1){
-                return characterStateSOs.RunTimeDDA.RunTimeStateType;
+                return characterStateSOs.skillConfig.DDA;
             }
             else if (inputState == StateType.DDJ1){
-                return characterStateSOs.RunTimeDDJ.RunTimeStateType;
+                return characterStateSOs.skillConfig.DDJ;
             }
             else if (inputState == StateType.DUA1){
-                return characterStateSOs.RunTimeDUA.RunTimeStateType;
+                return characterStateSOs.skillConfig.DUA;
             }
             else if (inputState == StateType.DUJ1){
-                return characterStateSOs.RunTimeDUJ.RunTimeStateType;
+                return characterStateSOs.skillConfig.DUJ;
             }else {
                 return inputState;
             }

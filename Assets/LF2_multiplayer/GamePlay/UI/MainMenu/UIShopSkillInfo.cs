@@ -1,10 +1,16 @@
+using LF2;
 using LF2.Data;
 using LF2.Gameplay.UI;
+using LF2.Test;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class UIShopSkillInfo : MonoBehaviour {
+    public StateType stateType;
+
+    public string nameSkill;
+
     [SerializeField]    
     private TextMeshProUGUI m_NameSkills;
     [SerializeField]
@@ -30,10 +36,19 @@ public class UIShopSkillInfo : MonoBehaviour {
         m_ManaCost.text = comboSkill.StateLogicSO[0].ManaCost.ToString();
         background.SetActive(comboSkill.Own);
         // m_Descption.text = descrption;
+        stateType = comboSkill.StateLogicSO[0].StateType;
+
+        nameSkill = comboSkill.nameSkills;
     }
 
     public void OnPurchaseButtonClicked(){
         m_UIInfoBoxManager.OnPurchaseClicked(m_ComboSkill);
     }
     
+
+    public void OnSetButtonClicked(){
+        UIHeroInventory.Instance.showSlotButton();
+        UIHeroInventory.Instance.selectedSkill = this;
+
+    }
 }
