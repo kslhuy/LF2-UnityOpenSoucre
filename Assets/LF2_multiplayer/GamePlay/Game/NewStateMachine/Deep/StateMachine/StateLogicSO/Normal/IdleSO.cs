@@ -44,6 +44,12 @@ namespace LF2.Client{
             }
             else if ( data == StateType.Attack || data == StateType.Attack2  ){
                 // Debug.Log($"NB Animation{data.NbAnimation}");
+
+                if (itr.Check_Pickup_Object()){
+                    Debug.Log("Get object");
+                    stateMachineFX.AnticipateState(StateType.Hold_LightObject);
+                }
+
                 if (itr.TriggerAttack3 ) {
                     stateMachineFX.AnticipateState(StateType.Attack3);
                 }

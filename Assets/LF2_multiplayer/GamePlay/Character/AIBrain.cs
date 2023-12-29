@@ -23,7 +23,7 @@ namespace LF2.Client
         public Action<float, float> ActionMoveInputEvent { get; internal set; }
 
         public Action<StateType> ActionInputEvent { get; internal set; }
-        public Action<StateType> PerformStateEvent { get; internal set; }
+        public Action<StateType , SkillNumber> PerformStateEvent { get; internal set; }
 
         private bool CollectEnemy ;
         
@@ -222,55 +222,55 @@ namespace LF2.Client
 
 #region   Not use : deprecated
 
-        // Not use : deprecated
-        private void approach_opponent(ClientCharacterVisualization _selectedFoe)
-        {
-             // if we are not too close
-            if(!range(0,5,variables.zdistanceAbs)||!range(0,65,variables.xdir_distane)){
-                // if we are far engouh to run 
-                if(Self.MStateMachinePlayerViz.CurrentStateViz.GetId() == StateType.Move &&!range(0,300,variables.xdir_distane) && facing_towards()){
-                    Self.MStateMachinePlayerViz.ChangeState(StateType.Run);
+        // // Not use : deprecated
+        // private void approach_opponent(ClientCharacterVisualization _selectedFoe)
+        // {
+        //      // if we are not too close
+        //     if(!range(0,5,variables.zdistanceAbs)||!range(0,65,variables.xdir_distane)){
+        //         // if we are far engouh to run 
+        //         if(Self.MStateMachinePlayerViz.CurrentStateViz.GetId() == StateType.Move &&!range(0,300,variables.xdir_distane) && facing_towards()){
+        //             Self.MStateMachinePlayerViz.ChangeState(StateType.Run);
 
-                }
-                //  ( we move )
-                else {
-                    var dir = new Vector2(variables.xdistance , variables.zdistance).normalized;
+        //         }
+        //         //  ( we move )
+        //         else {
+        //             var dir = new Vector2(variables.xdistance , variables.zdistance).normalized;
                     
-                    ActionMoveInputEvent?.Invoke(dir.x , dir.y);
-                    // Self.MStateMachinePlayerViz.ChangeState(StateType.Move);
-                }
-            }
-        }
+        //             ActionMoveInputEvent?.Invoke(dir.x , dir.y);
+        //             // Self.MStateMachinePlayerViz.ChangeState(StateType.Move);
+        //         }
+        //     }
+        // }
 
-        // Not use : deprecated
+        // // Not use : deprecated
 
-        private int egoAI(){
+        // private int egoAI(){
             
-            // DDJ
-            // Checck in the range , 
-            if(range(0,80,variables.xdir_distane)&&variables.zdistanceAbs<=17 ){Do(StateType.DDJ1);return 1;} // 
+        //     // DDJ
+        //     // Checck in the range , 
+        //     if(range(0,80,variables.xdir_distane)&&variables.zdistanceAbs<=17 ){Do(StateType.DDJ1);return 1;} // 
 
-             //no mp combo
+        //      //no mp combo
 
-            //  variables.xdir_distane >= 0 : Not to close , in  right direction (forward enemy ) 
-            // variables.zdistance > 60 +  variables.zdistance < 90 : Not too far  
-            if ( variables.xdir_distane >= 0 &&  variables.zdistanceAbs <= 18){
-                if (Self.MStateMachinePlayerViz.CurrentStateViz.GetId() == StateType.Idle ) {
-                    Do(StateType.Attack);
-                    Debug.Log("no mp combo"); 
-                    return 1;}
-            }
+        //     //  variables.xdir_distane >= 0 : Not to close , in  right direction (forward enemy ) 
+        //     // variables.zdistance > 60 +  variables.zdistance < 90 : Not too far  
+        //     if ( variables.xdir_distane >= 0 &&  variables.zdistanceAbs <= 18){
+        //         if (Self.MStateMachinePlayerViz.CurrentStateViz.GetId() == StateType.Idle ) {
+        //             Do(StateType.Attack);
+        //             Debug.Log("no mp combo"); 
+        //             return 1;}
+        //     }
 
-              //blasts
-            if ( variables.xdir_distane >= 500 && variables.zdistanceAbs <= 40 && Self.MStateMachinePlayerViz.CurrentStateViz.GetId() == StateType.Idle ){Do(StateType.DDA1);}
-            else if (variables.xdir_distane > 600 && variables.zdistanceAbs <= 40 && Self.MStateMachinePlayerViz.CurrentStateViz.GetId() == StateType.DDA1){Do(StateType.Attack);}
-            else if (Self.MStateMachinePlayerViz.CurrentStateViz.GetId() == StateType.DDA1){return 1;}             
-            return 0;
-        }
-        private void attack()
-        {
-            Do(StateType.Attack);
-        }
+        //       //blasts
+        //     if ( variables.xdir_distane >= 500 && variables.zdistanceAbs <= 40 && Self.MStateMachinePlayerViz.CurrentStateViz.GetId() == StateType.Idle ){Do(StateType.DDA1);}
+        //     else if (variables.xdir_distane > 600 && variables.zdistanceAbs <= 40 && Self.MStateMachinePlayerViz.CurrentStateViz.GetId() == StateType.DDA1){Do(StateType.Attack);}
+        //     else if (Self.MStateMachinePlayerViz.CurrentStateViz.GetId() == StateType.DDA1){return 1;}             
+        //     return 0;
+        // }
+        // private void attack()
+        // {
+        //     Do(StateType.Attack);
+        // }
     
 #endregion
 
@@ -303,10 +303,8 @@ namespace LF2.Client
             return true;
         }
 
-        public void PerformStateDirect(StateType state){
-            // if (IsReusable(state)) {
-            // }
-            PerformStateEvent?.Invoke(state );
+        public void PerformStateDirect(StateType state ){
+            PerformStateEvent?.Invoke(state, SkillNumber.Skill_1);
             // SendInput(state);
             m_LastUsedTimestamps[state] = Time.time;
         }

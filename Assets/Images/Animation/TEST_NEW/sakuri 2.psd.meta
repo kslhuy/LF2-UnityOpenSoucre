@@ -1,0 +1,846 @@
+fileFormatVersion: 2
+guid: c34e7c6658312d84a8b4973616a77dda
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 0
+  spriteMeshType: 0
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 1
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 0
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 1024
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 1024
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: 4
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 1024
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 1024
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 1024
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: sakuri 2_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 480
+        width: 80
+        height: 80
+      alignment: 9
+      pivot: {x: 0.5, y: 0.0004}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e35c667c7f1b1f94f84a57a825836b8f
+      internalID: 668281400
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sakuri 2_2
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 480
+        width: 160
+        height: 80
+      alignment: 9
+      pivot: {x: 0.7453269, y: 0.018572235}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d982ccb0628399a4888ac56ce78ddc09
+      internalID: -2009553439
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sakuri 2_4
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 480
+        width: 160
+        height: 80
+      alignment: 9
+      pivot: {x: 0.73624074, y: 0.00039978029}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 87ec46d6bcf1a434cad12aac431a1dd3
+      internalID: -219047317
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sakuri 2_5
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 480
+        width: 160
+        height: 80
+      alignment: 9
+      pivot: {x: 0.7771286, y: 0.00039978029}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 15bd28030b799b14a9934d466f0302d1
+      internalID: -1062323903
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sakuri 2_6
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 480
+        width: 160
+        height: 80
+      alignment: 9
+      pivot: {x: 0.7862148, y: 0.00039978029}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b9ee2e12db1474d4e9d3c522fba676b3
+      internalID: 706985771
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sakuri 2_8
+      rect:
+        serializedVersion: 2
+        x: 560
+        y: 480
+        width: 160
+        height: 80
+      alignment: 9
+      pivot: {x: 0.7771286, y: 0.00039978029}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1b2be6e9651cdf4468775830bab5d7b9
+      internalID: -1414856642
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sakuri 2_16
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 241
+        width: 160
+        height: 160
+      alignment: 9
+      pivot: {x: 0.72261155, y: 0.49105397}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7b5c7fe4888a6fc48a39d40cfe3feab8
+      internalID: -1185169044
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sakuri 2_17
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 320
+        width: 160
+        height: 80
+      alignment: 9
+      pivot: {x: 0.2773884, y: 0.00039978029}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f5ad5f82e17378640950724dd0ee1a98
+      internalID: -679348184
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sakuri 2_18
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 320
+        width: 80
+        height: 80
+      alignment: 9
+      pivot: {x: 0.5, y: 0.0004}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 051ee0bebb4933842bd81283127fa39b
+      internalID: 1407279448
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sakuri 2_19
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 320
+        width: 160
+        height: 160
+      alignment: 9
+      pivot: {x: 0.26674634, y: 0.0042238235}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6835441d9b6707d4fabc74b7f30aa37b
+      internalID: 800775915
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sakuri 2_21
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 320
+        width: 160
+        height: 161
+      alignment: 9
+      pivot: {x: 0.2819313, y: 0.009429553}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0607053b117857a4ca1d7f500b340c6e
+      internalID: -372702995
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sakuri 2_23
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 241
+        width: 80
+        height: 159
+      alignment: 9
+      pivot: {x: 0.5, y: 0.0004}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 76a45dec8de594c4da9e262e34384961
+      internalID: 574726497
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sakuri 2_24
+      rect:
+        serializedVersion: 2
+        x: 720
+        y: 239
+        width: 80
+        height: 241
+      alignment: 9
+      pivot: {x: 0.49999923, y: 0.0010322159}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f1c6e6f05b5507b44805f05630584194
+      internalID: 632024545
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sakuri 2_35
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 160
+        width: 80
+        height: 160
+      alignment: 9
+      pivot: {x: 0.5, y: 0.0004}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1b5c97f377cc81f46ba61fce7a7038f1
+      internalID: -683360509
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sakuri 2_36
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 160
+        width: 80
+        height: 160
+      alignment: 9
+      pivot: {x: 0.5, y: 0.0004}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5a56110cf89328e4dad1eda164662258
+      internalID: 859095865
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sakuri 2_37
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 160
+        width: 80
+        height: 161
+      alignment: 9
+      pivot: {x: 0.5, y: 0.0004}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f87a39e4fa16fe741b3cccad7a3df4ac
+      internalID: -897051826
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sakuri 2_38
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 160
+        width: 80
+        height: 159
+      alignment: 9
+      pivot: {x: 0.5, y: 0.0004}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 194aaacb3491a1b4d967ed2af4d2fc95
+      internalID: -2057751280
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sakuri 2_39
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 160
+        width: 160
+        height: 80
+      alignment: 9
+      pivot: {x: 0.26337013, y: 0.0094860075}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5854c626438bb9341948cba5492f0b4c
+      internalID: 1235664372
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sakuri 2_41
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 160
+        width: 160
+        height: 80
+      alignment: 9
+      pivot: {x: 0.25921592, y: 0.000399971}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 88efbc89849d1a34786ed19cc30c17ce
+      internalID: 1663560135
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sakuri 2_43
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 80
+        width: 80
+        height: 80
+      alignment: 9
+      pivot: {x: 0.5, y: 0.0004}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a6c09a456a47b804ab9d6bf1e7f8115a
+      internalID: 1223980424
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sakuri 2_44
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 80
+        width: 80
+        height: 80
+      alignment: 9
+      pivot: {x: 0.5, y: 0.0004}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3682507ad4b49764ca6dbe9b41f3581a
+      internalID: -1327930110
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sakuri 2_45
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 80
+        width: 160
+        height: 80
+      alignment: 9
+      pivot: {x: 0.5, y: 0.0004}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bab42ed92f1ee4b4ab2c1d0285090647
+      internalID: 1317976575
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sakuri 2_46
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 80
+        width: 160
+        height: 80
+      alignment: 9
+      pivot: {x: 0.5, y: 0.0004}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 73f1e1b2dd7ff884aaa6d1ed7d8f4e90
+      internalID: -2130487949
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sakuri 2_48
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 79
+        width: 160
+        height: 80
+      alignment: 9
+      pivot: {x: 0.5, y: 0.0004}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dae4ca046fc0d9544bd69b1a435302da
+      internalID: -1597874833
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sakuri 2_50
+      rect:
+        serializedVersion: 2
+        x: 560
+        y: 80
+        width: 80
+        height: 80
+      alignment: 9
+      pivot: {x: 0.5, y: 0.0004}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5dba1b568c58f7347ad3c85230eef4e1
+      internalID: 1921711225
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sakuri 2_51
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 80
+        width: 80
+        height: 80
+      alignment: 9
+      pivot: {x: 0.5, y: 0.0004}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4e76ea318bcf9834ba6f3746f88ed2ad
+      internalID: 2099772580
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sakuri 2_52
+      rect:
+        serializedVersion: 2
+        x: 720
+        y: 80
+        width: 80
+        height: 80
+      alignment: 9
+      pivot: {x: 0.5, y: 0.0004}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 507a075309229074a8257ecafc79ba1e
+      internalID: -1379258012
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sakuri 2_53
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 1
+        width: 80
+        height: 80
+      alignment: 9
+      pivot: {x: 0.5, y: 0.0004}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ebdd0823a65b92a4e8e8d0fc3e1e37f4
+      internalID: 1922823241
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sakuri 2_54
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 0
+        width: 80
+        height: 80
+      alignment: 9
+      pivot: {x: 0.5, y: 0.0004}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: efb46857c64611040b60cbd7e084959d
+      internalID: -21012476
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sakuri 2_55
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 0
+        width: 80
+        height: 80
+      alignment: 9
+      pivot: {x: 0.5, y: 0.0004}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 98dff40108a16c044b5ffd2a1099fef3
+      internalID: -964355328
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 832dbc75dcbc00142bda7c248ed349bc
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      sakuri 2_0: 668281400
+      sakuri 2_40: 1867393585
+      sakuri 2_17: -679348184
+      sakuri 2_27: 623236542
+      sakuri 2_34: 1216857403
+      sakuri 2_49: 246379616
+      sakuri 2_43: 1223980424
+      sakuri 2_1: -113593168
+      sakuri 2_3: -1852912976
+      sakuri 2_6: 706985771
+      sakuri 2_16: -1185169044
+      sakuri 2_23: 574726497
+      sakuri 2_42: -1435382657
+      sakuri 2_9: 1752630136
+      sakuri 2_11: 285888291
+      sakuri 2_21: -372702995
+      sakuri 2_24: 632024545
+      sakuri 2_48: -1597874833
+      sakuri 2_32: 668793250
+      sakuri 2_29: -1018170644
+      sakuri 2_41: 1663560135
+      sakuri 2_20: -1228310422
+      sakuri 2_33: 324868320
+      sakuri 2_38: -2057751280
+      sakuri 2_22: -390042876
+      sakuri 2_4: -219047317
+      sakuri 2_36: 859095865
+      sakuri 2_19: 800775915
+      sakuri 2_8: -1414856642
+      sakuri 2_44: -1327930110
+      sakuri 2_26: -1165742385
+      sakuri 2_55: -964355328
+      sakuri 2_53: 1922823241
+      sakuri 2_18: 1407279448
+      sakuri 2_45: 1317976575
+      sakuri 2_35: -683360509
+      sakuri 2_25: -320695205
+      sakuri 2_52: -1379258012
+      sakuri 2_28: -37020092
+      sakuri 2_31: -358269076
+      sakuri 2_39: 1235664372
+      sakuri 2_37: -897051826
+      sakuri 2_30: 1242985400
+      sakuri 2_50: 1921711225
+      sakuri 2_14: 1819442724
+      sakuri 2_5: -1062323903
+      sakuri 2_13: 1403737315
+      sakuri 2_47: -1489532930
+      sakuri 2_46: -2130487949
+      sakuri 2_15: -835516151
+      sakuri 2_12: 138034898
+      sakuri 2_10: 754626108
+      sakuri 2_2: -2009553439
+      sakuri 2_7: -2052269224
+      sakuri 2_51: 2099772580
+      sakuri 2_54: -21012476
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

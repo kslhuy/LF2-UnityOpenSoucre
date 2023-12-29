@@ -5,14 +5,16 @@ using UnityEngine;
 namespace LF2.Client
 {
     /// <summary>
-    /// Attached to the player-characters' prefab, this maintains a list of active ServerCharacter objects for players.
+    /// Attached to the player-characters' prefab, this maintains a list of active ClientCharacterVisualization objects for players.
     /// </summary>
     /// <remarks>
-    /// This is an optimization. In server code you can already get a list of players' ServerCharacters by
+    /// This is an optimization. In Client code you can already get a list of players' ClientCharacterVisualization by
     /// iterating over the active connections and calling GetComponent() on their PlayerObject. But we need
     /// to iterate over all players quite often -- the monsters' IdleAIState does so in every Update() --
     /// and all those GetComponent() calls add up! So this optimization lets us iterate without calling
-    /// GetComponent(). This will be refactored with a ScriptableObject-based approach on player collection.
+    /// GetComponent().
+
+    // TODO : This will be refactored with a ScriptableObject-based approach on player collection.
     /// </remarks>
     // [RequireComponent(typeof(ServerCharacter))]
     public class NbPlayer : NetworkBehaviour{
@@ -25,10 +27,7 @@ namespace LF2.Client
 
         public override void OnNetworkSpawn()
         {
-            if( !IsServer )
-            {
-                enabled = false;
-            }
+
             s_ActiveCharacter.Add(m_CachedClientCharacter);
             if (!m_CachedClientCharacter.IsNPC){
                 s_ActivePlayers.Add(m_CachedClientCharacter);
@@ -45,7 +44,7 @@ namespace LF2.Client
         }
 
         /// <summary>
-        /// Returns a list of all active players' ServerCharacters. Treat the list as read-only!
+        /// Returns a list of all active Chararater including AI bot ' ServerCharacters. Treat the list as read-only!
         /// The list will be empty on the client.
         /// </summary>
         public static List<ClientCharacterVisualization> GetCharacter()
@@ -55,7 +54,7 @@ namespace LF2.Client
         }
 
         /// <summary>
-        /// Returns a list of all active players' ServerCharacters. Treat the list as read-only!
+        /// Returns a list of all active "Players" . Treat the list as read-only!
         /// The list will be empty on the client.
         /// </summary>
         public static List<ClientCharacterVisualization> GetPlayers()

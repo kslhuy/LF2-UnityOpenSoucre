@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40bfb46afffbacd4aa1c04e04de10a5c, type: 3}
+  m_Name: Deep_ComboSkill_3
+  m_EditorClassIdentifier: 
+  nameSkills: Shadow Strike
+  StateType: 32
+  Descrtion: 
+  Own: 0
+  PriceCoin: 0
+  PriceDiamand: 0
+  StateLogicSOs:
+  - {fileID: 11400000, guid: 93e2584a711d3034fa3811a4c60f2485, type: 2}
+  - {fileID: 11400000, guid: 53b67af31b1c4a543bd1e4e369962987, type: 2}
+  - {fileID: 11400000, guid: 294850846160c4a4ca49ee664c392346, type: 2}

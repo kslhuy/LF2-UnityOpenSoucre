@@ -1,0 +1,545 @@
+fileFormatVersion: 2
+guid: d51a3e5f3160bc9458d1710b00b26310
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 0
+  spriteMeshType: 0
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 1
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 0
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 1024
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 1024
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: 4
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 1024
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 1024
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 1024
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: block hyper dash_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 480
+        width: 240
+        height: 80
+      alignment: 9
+      pivot: {x: 0.7767037, y: 0.0040000915}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dca97a38eb0fdc444a1f3564832bd77a
+      internalID: 1649627323
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: block hyper dash_3
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 480
+        width: 240
+        height: 80
+      alignment: 9
+      pivot: {x: 0.84888726, y: 0.0040000915}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 48d3aef8d41c44d478806bfd1c0ad9a4
+      internalID: -2100633093
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: block hyper dash_6
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 480
+        width: 240
+        height: 80
+      alignment: 9
+      pivot: {x: 0.815803, y: 0.0040000915}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 20acabbf11326544897b482cd79e39f3
+      internalID: -2034681002
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: block hyper dash_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 400
+        width: 240
+        height: 80
+      alignment: 9
+      pivot: {x: 0.8007649, y: 0.0040000915}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c23bd2f931fe4d4c95627eefd3f05bd
+      internalID: -984742254
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: block hyper dash_11
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 400
+        width: 1
+        height: 80
+      alignment: 9
+      pivot: {x: 0.5, y: 0.004}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0160809ae95a1194fab5f61883dd824b
+      internalID: 1578296125
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: block hyper dash_13
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 400
+        width: 240
+        height: 80
+      alignment: 9
+      pivot: {x: 0.8037725, y: -0.0050228117}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7fef92145462fd640adf0e66147c57bd
+      internalID: -166758369
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: block hyper dash_15
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 400
+        width: 80
+        height: 80
+      alignment: 9
+      pivot: {x: 0.5, y: 0.004}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d831b9008445d6c4bb5135943529acc7
+      internalID: 600080141
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: block hyper dash_16
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 400
+        width: 240
+        height: 80
+      alignment: 9
+      pivot: {x: 0.77068835, y: 0.0040000915}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2b72cc18f9da44c439de329651334fa3
+      internalID: -1632921969
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: block hyper dash_20
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 320
+        width: 240
+        height: 80
+      alignment: 9
+      pivot: {x: 0.76166546, y: 0.013022995}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 75a7d8a98d89fa744aa24700a05e2695
+      internalID: -234982499
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: block hyper dash_23
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 320
+        width: 320
+        height: 80
+      alignment: 9
+      pivot: {x: 0.76392126, y: -0.014045715}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d90a85bc78e095444a3eff1fc7388e68
+      internalID: -777826266
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: block hyper dash_27
+      rect:
+        serializedVersion: 2
+        x: 560
+        y: 320
+        width: 240
+        height: 80
+      alignment: 9
+      pivot: {x: 0.82482606, y: 0.0040000915}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 87371da831fc7174c8874188e2bd4fb3
+      internalID: 326137097
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: block hyper dash_30
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 239
+        width: 239
+        height: 80
+      alignment: 9
+      pivot: {x: 0.7295377, y: 0.0220459}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2ef478d7ded42374583f48ff242339fb
+      internalID: -1846481772
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: block hyper dash_33
+      rect:
+        serializedVersion: 2
+        x: 241
+        y: 241
+        width: 159
+        height: 80
+      alignment: 9
+      pivot: {x: 0.74515194, y: -0.0050230026}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b3cddb19944fb3b4c95b280d821760f2
+      internalID: -491047278
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: block hyper dash_36
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 240
+        width: 160
+        height: 80
+      alignment: 9
+      pivot: {x: 0.78873444, y: -0.0050228117}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3424b5e8412d90246aa6546b51caef47
+      internalID: -1589683160
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: block hyper dash_37
+      rect:
+        serializedVersion: 2
+        x: 560
+        y: 241
+        width: 80
+        height: 79
+      alignment: 9
+      pivot: {x: 0.68045884, y: -0.00513719}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 54bf39e6cb69705428b4cb1d77f76344
+      internalID: -631415512
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 832dbc75dcbc00142bda7c248ed349bc
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      block hyper dash_32: -918888038
+      block hyper dash_9: -132021370
+      block hyper dash_38: 1068596608
+      block hyper dash_67: 176252426
+      block hyper dash_24: 109066227
+      block hyper dash_14: -613686988
+      block hyper dash_33: -491047278
+      block hyper dash_39: 1699343370
+      block hyper dash_57: 1034716674
+      block hyper dash_26: 78504331
+      block hyper dash_36: -1589683160
+      block hyper dash_59: 2033160118
+      block hyper dash_2: -945292380
+      block hyper dash_21: 1859374336
+      block hyper dash_19: 574053796
+      block hyper dash_4: 97153916
+      block hyper dash_8: -1748153039
+      block hyper dash_18: 1603451692
+      block hyper dash_69: 2122870725
+      block hyper dash_34: 759891580
+      block hyper dash_55: 1074485203
+      block hyper dash_42: 1748172684
+      block hyper dash_25: 1924204690
+      block hyper dash_16: -1632921969
+      block hyper dash_48: -403802977
+      block hyper dash_44: 59659859
+      block hyper dash_10: -984742254
+      block hyper dash_64: 1921232502
+      block hyper dash_29: -1781903675
+      block hyper dash_58: 600541006
+      block hyper dash_1: 704203498
+      block hyper dash_31: -1745073494
+      block hyper dash_49: -883994542
+      block hyper dash_40: 1877217824
+      block hyper dash_7: -2050814462
+      block hyper dash_35: 1807580987
+      block hyper dash_43: -1504918805
+      block hyper dash_6: -2034681002
+      block hyper dash_46: -207022502
+      block hyper dash_5: -699382278
+      block hyper dash_13: -166758369
+      block hyper dash_56: -669142175
+      block hyper dash_53: -1399717387
+      block hyper dash_50: -1452568835
+      block hyper dash_12: 677665874
+      block hyper dash_47: 233814742
+      block hyper dash_28: 2010362039
+      block hyper dash_22: -1859374384
+      block hyper dash_30: -1846481772
+      block hyper dash_66: -577918676
+      block hyper dash_68: 509554325
+      block hyper dash_17: -569303637
+      block hyper dash_3: -2100633093
+      block hyper dash_51: 1897823460
+      block hyper dash_60: 915213053
+      block hyper dash_61: 766593098
+      block hyper dash_52: -2073075993
+      block hyper dash_41: 1814717378
+      block hyper dash_11: 1578296125
+      block hyper dash_15: 600080141
+      block hyper dash_54: -1898661383
+      block hyper dash_37: -631415512
+      block hyper dash_62: -206666671
+      block hyper dash_20: -234982499
+      block hyper dash_0: 1649627323
+      block hyper dash_45: -1519357560
+      block hyper dash_65: -59387267
+      block hyper dash_23: -777826266
+      block hyper dash_27: 326137097
+      block hyper dash_63: 750968970
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

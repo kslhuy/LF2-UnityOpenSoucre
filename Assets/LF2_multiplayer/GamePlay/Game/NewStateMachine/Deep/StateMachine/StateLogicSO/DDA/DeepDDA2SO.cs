@@ -50,7 +50,7 @@ namespace LF2.Client{
 
         public override StateType GetId()
         {
-            return StateType.DDA2;
+            return stateData.StateType;
         }
 
         public override void LogicUpdate()
@@ -59,7 +59,7 @@ namespace LF2.Client{
                 inputEnable = false;
                 frameTransitionAnim = false;
                 cantransition_ToNextAnimation = false;
-                stateMachineFX.AnticipateState(StateType.DDA3);
+                stateMachineFX.AnticipateState(GetId());
             }
         }
 

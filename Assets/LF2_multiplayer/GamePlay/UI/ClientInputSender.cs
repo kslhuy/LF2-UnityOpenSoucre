@@ -5,6 +5,9 @@ using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.OnScreen;
 using UnityEngine.Assertions;
 using System.Collections;
+using LF2;
+
+using System.Collections.Generic;
 
 namespace LF2.Client
 {
@@ -17,6 +20,21 @@ namespace LF2.Client
 
         ////// ********* NEW ****** ///
         [SerializeField] private NetworkCharacterState m_NetworkCharacter;
+        // [SerializeField] private ClientCharacterVisualization m_ClientCharacter;
+
+
+        public InputSerialization.DirectionalInput dirInput;
+
+
+
+        readonly InputPackage[] m_InputPackages = new InputPackage[5];
+        private InputPackage m_InputThisFrame;
+
+
+
+
+
+        
 
         private CharacterStateSOs characterStateSOs ;
             // get
@@ -32,12 +50,26 @@ namespace LF2.Client
 
         #region event
         public Action<StateType> ActionInputEvent; 
-        public Action<float, float> ActionMoveInputEvent; 
 
-            
+        public Action<InputPackage> ActionLocalInputEvent; 
+
+        public Action<float, float> ActionMoveInputEvent;
+        private int m_InputRequestCount;
+
+
         #endregion
 
 
+
+
+        private void Awake() {
+            // clientStateBuffer = new CircularBuffer<StatePackage>(k_bufferSize);
+            // clientInputBuffer = new CircularBuffer<InputPackage>(k_bufferSize);
+            
+            // serverStateBuffer = new CircularBuffer<StatePackage>(k_bufferSize);
+            // serverInputQueue = new Queue<InputPackage>();
+   
+        }
 
 
         // COMBO
@@ -50,27 +82,23 @@ namespace LF2.Client
                     return;
                 }
             characterStateSOs = m_NetworkCharacter.CharacterStateSO;
-
-            
-
-
             // values = (StateType[])Enum.GetValues(typeof(StateType));
-
+         
         }
 
         public StateType ConvertToRunTimeStateType(StateType inputState){
 
             if (inputState == StateType.DDA1){
-                return characterStateSOs.RunTimeDDA.RunTimeStateType;
+                return characterStateSOs.RunTimeDDA.StateLogicSOs[0].StateType;
             }
             else if (inputState == StateType.DDJ1){
-                return characterStateSOs.RunTimeDDJ.RunTimeStateType;
+                return characterStateSOs.RunTimeDDJ.StateLogicSOs[0].StateType;
             }
             else if (inputState == StateType.DUA1){
-                return characterStateSOs.RunTimeDUA.RunTimeStateType;
+                return characterStateSOs.RunTimeDUA.StateLogicSOs[0].StateType;
             }
             else if (inputState == StateType.DUJ1){
-                return characterStateSOs.RunTimeDUJ.RunTimeStateType;
+                return characterStateSOs.RunTimeDUJ.StateLogicSOs[0].StateType;
             }else {
                 return inputState;
             }
@@ -78,6 +106,39 @@ namespace LF2.Client
 
 
 
+
+
+
+
+        public void SendMoveInput(int inputX , int inputZ )
+        {
+            // if (CommitToState){
+            //     m_NetworkCharacter.MoveInputEventClientRPC(inputX,inputZ);
+            // }
+            // else   m_NetworkCharacter.MoveInputEventServerRPC(inputX,inputZ);
+            
+            ActionMoveInputEvent?.Invoke(inputX,inputZ);
+
+            dirInput = InputSerialization.ConvertInputAxisToDirectionalInput((sbyte)inputX, (sbyte)inputZ);
+            Debug.Log(dirInput);
+
+        }
+
+        public void SendMoveInput(Vector2 input )
+        {
+            // if (CommitToState){
+            //     m_NetworkCharacter.MoveInputEventClientRPC((int)input.x,(int)input.y);
+            // }
+            // else   m_NetworkCharacter.MoveInputEventServerRPC(inputX,inputZ);
+            
+            ActionMoveInputEvent?.Invoke(input.x,input.y);
+
+            
+            dirInput = InputSerialization.ConvertInputAxisToDirectionalInput((sbyte)input.x, (sbyte)input.y);
+
+            Debug.Log(dirInput);
+
+        }
 
 
         // private void SendStateInput(InputPackage action)
@@ -100,27 +161,50 @@ namespace LF2.Client
 
         // }
 
-        public void SendMoveInput(int inputX , int inputZ )
+        void SendInput(InputPackage inputPackage)
         {
-            // if (CommitToState){
-            //     m_NetworkCharacter.MoveInputEventClientRPC(inputX,inputZ);
+            // if (IsHost) {
+            //     m_NetworkCharacter.RecvDoActionClientRPC(inputPackage);
+            //     ActionLocalInputEvent?.Invoke(inputPackage);
             // }
-            // else   m_NetworkCharacter.MoveInputEventServerRPC(inputX,inputZ);
             
-            ActionMoveInputEvent?.Invoke(inputX,inputZ);
+            // else if (IsClient && !IsHost ) {
+            //     m_NetworkCharacter.SendToServerRpc(inputPackage);
+            //     ActionLocalInputEvent?.Invoke(inputPackage);
+            // }
+
+            m_NetworkCharacter.SendToServerRpc(inputPackage);
+            ActionLocalInputEvent?.Invoke(inputPackage);
+            // ActionInputEvent?.Invoke(action);
+            // m_NetworkCharacter.RecvDoActionServerRPC(inputPackage);
+        }
+
+
+
+
+
+        
+        private void FixedUpdate() {
+            HandleClientTick();
+        }
+
+
+
+        void HandleClientTick() {
+            if (!IsClient || !IsOwner) return;
+
+            // var currentTick = m_ClientCharacter.NetworkTimer.CurrentTick;
+
+            InputPackage inputPayload = new InputPackage() {
+                // tick = currentTick,
+                dir = m_InputThisFrame.dir,
+                buttonID = m_InputThisFrame.buttonID
+            };
+            
+            SendInput(inputPayload);
 
         }
 
-        public void SendMoveInput(Vector2 input )
-        {
-            // if (CommitToState){
-            //     m_NetworkCharacter.MoveInputEventClientRPC((int)input.x,(int)input.y);
-            // }
-            // else   m_NetworkCharacter.MoveInputEventServerRPC(inputX,inputZ);
-            
-            ActionMoveInputEvent?.Invoke(input.x,input.y);
-
-        }
 
 
 
@@ -134,15 +218,21 @@ namespace LF2.Client
         /// <param name="triggerStyle">What input style triggered this action.</param>
         public void RequestAction(StateType actionType,float inputX = 0 , float inputZ = 0 )
         {
-            // Debug.Log(inputX);
 
-            // In that time we can extend data more 
-            // But now only StateType are send 
-            // var data = new InputPackage(){
-            //     StateTypeEnum = ConvertToRunTimeStateType(actionType),
-            // };
-            // Debug.Log(actionType + " convert to " + ConvertToRunTimeStateType(actionType)); 
-            ActionInputEvent?.Invoke(ConvertToRunTimeStateType(actionType));
+            // m_InputThisFrame.tick =  m_ClientCharacter.NetworkTimer.CurrentTick;
+            m_InputThisFrame.buttonID = ConvertToRunTimeStateType(actionType);
+            m_InputThisFrame.dir = dirInput;
+
+            // if (m_InputRequestCount < m_InputPackages.Length)
+            // {
+            //     m_InputPackages[m_InputRequestCount].tick = m_ClientCharacter.NetworkTimer.CurrentTick;
+            //     m_InputPackages[m_InputRequestCount].buttonID = ConvertToRunTimeStateType(actionType);
+            //     m_InputPackages[m_InputRequestCount].dir = dirInput;
+
+            //     m_InputRequestCount++;
+            // }
+
+            // ActionInputEvent?.Invoke(ConvertToRunTimeStateType(actionType));
 
             // SendStateInput(data);
             

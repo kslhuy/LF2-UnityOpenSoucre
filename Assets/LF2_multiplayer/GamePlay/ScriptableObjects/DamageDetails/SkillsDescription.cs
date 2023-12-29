@@ -19,8 +19,6 @@ namespace LF2{
         public StateType StateType; 
         public StateLogic Logic;
 
-        public StateLogicSO[] SubStateLogicSO;
-
         // public bool UseMana;
         public int ManaCost;
 
@@ -99,9 +97,9 @@ namespace LF2{
 
                 }
             }
-            if (Logic != StateLogic.Movement && DurationSeconds == 0){
-                Debug.LogWarning($"You may forgot setting DurationSeconds in  {StateType} SOs ");
-            }
+            // if (Logic != StateLogic.Movement && DurationSeconds == 0){
+            //     Debug.LogWarning($"You may forgot setting DurationSeconds in  {StateType} SOs ");
+            // }
             Duration = (int)(Math.Round(DurationSeconds / 0.016667f));
 
             // if (DamageDetails.Length > 0 ){

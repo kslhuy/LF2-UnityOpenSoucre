@@ -19,7 +19,7 @@ namespace LF2.Client{
         private bool cantransition_ToNextAnimation; // Or mean Next State
         private bool frameTransitionAnim;
 
-        private StateType _stateToPlay;
+        private SkillNumber _stateToPlay;
         public override void Awake(StateMachineNew stateMachine)
         {
             stateMachineFX = stateMachine;
@@ -33,13 +33,13 @@ namespace LF2.Client{
         public override bool ShouldAnticipate(ref StateType requestData)        {
             if (inputEnable && requestData == StateType.Attack){
                 cantransition_ToNextAnimation = true;
-                _stateToPlay = StateType.DUA2;
+                _stateToPlay = SkillNumber.Skill_2;
                 return true;
             }
 
             if (inputEnable && requestData == StateType.Jump){
                 cantransition_ToNextAnimation = true;
-                _stateToPlay = StateType.DUA3;
+                _stateToPlay = SkillNumber.Skill_3;
 
                 // _state = 3;
                 return true;
@@ -76,7 +76,7 @@ namespace LF2.Client{
                 inputEnable = false;
                 frameTransitionAnim = false;
                 cantransition_ToNextAnimation = false;
-                stateMachineFX.AnticipateState(_stateToPlay);
+                stateMachineFX.AnticipateState(GetId(),_stateToPlay);
             }
             // base.LogicUpdate();
         }

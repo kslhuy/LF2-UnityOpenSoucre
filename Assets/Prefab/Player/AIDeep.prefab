@@ -1,5 +1,50 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &17886303669822972
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6114802526994289355}
+  - component: {fileID: 3561094044912867249}
+  m_Layer: 8
+  m_Name: Pickup
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6114802526994289355
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 17886303669822972}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2808402712987922597}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &3561094044912867249
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 17886303669822972}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 29.669708, y: 28.478127, z: 18}
+  m_Center: {x: -5.57514, y: 15.658939, z: 0}
 --- !u!1 &168493202262108771
 GameObject:
   m_ObjectHideFlags: 0
@@ -276,6 +321,7 @@ Transform:
   - {fileID: 1475563613463191703}
   - {fileID: 1804512642032569926}
   - {fileID: 5219192287394355149}
+  - {fileID: 6114802526994289355}
   - {fileID: 4777043569842241374}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -310,7 +356,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_NetworkStatics: {fileID: 5306942716750395604}
   m_NetworkLifeState: {fileID: 758663530373189659}
-  IsHOST: 0
   m_CharacterClassContainer: {fileID: 405412423302776698}
 --- !u!114 &758663530373189659
 MonoBehaviour:
@@ -341,6 +386,7 @@ MonoBehaviour:
   m_NetworkCharacterState: {fileID: 7541297034058180883}
   m_PhysicsWrapper: {fileID: 4344797016811615346}
   textMesh: {fileID: 2580333590150333618}
+  m_KilledDestroyDelaySeconds: 3
 --- !u!114 &5867131433311756624
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -366,6 +412,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f156150d8f0802e4eae4de97e12eca31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AvatarType:
+    m_InternalValue: 0
   m_AvatarRegistry: {fileID: 11400000, guid: cd92c35a99fc45748b8c2d6c8259f45e, type: 2}
 --- !u!114 &405412423302776698
 MonoBehaviour:
@@ -380,6 +428,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_CharacterClass: {fileID: 11400000, guid: ae7b0c7b0514bf74d96b167d53cd5e9c, type: 2}
+  m_CharacterStateSOs: {fileID: 0}
 --- !u!114 &4344797016811615346
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -423,6 +472,7 @@ MonoBehaviour:
     m_InternalValue: 0
   MPPoints:
     m_InternalValue: 0
+  timerMPrecover: 60
 --- !u!54 &2344242058887112502
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -465,7 +515,6 @@ MonoBehaviour:
   ScaleThreshold: 0.01
   InLocalSpace: 0
   Interpolate: 1
-  CanCommitToTransform: 0
 --- !u!114 &286147417724944532
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -478,11 +527,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c0d678128de2914cbe62c5fc971782a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stateActionAI_SO: {fileID: 0}
   Self: {fileID: 2187254710490370959}
+  m_SenseTf: {fileID: 0}
   m_BrainEnabled: 0
-  m_KilledDestroyDelaySeconds: 3
-  fontSize: 20
+  Event_ToggleAIBrain: {fileID: 0}
+  AIDebugMode: 0
+  ShowScoreAll: 0
+  LowHP_Threshold: 250
+  _MethodeChoseFoe: 1
 --- !u!114 &7969067064689218194
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -511,8 +563,19 @@ MonoBehaviour:
   m_Rigidbody: {fileID: 2344242058887112502}
   m_BoxCollider: {fileID: 2998920864178759091}
   m_MovementSource: {fileID: 7541297034058180883}
-  _jumpVelocityFalloff: 100
-  _fallMultiplier: 150
+  ClientNetTransform: {fileID: 0}
+  Drag: 1
+  _jumpVelocityFalloffQuick: 1
+  _jumpVelocityFalloffLimit: -200
+  _fallMultiplierNormal: 10
+  _fallMultiplierQuick: 50
+  _distanceFromGround: 50
+  extraYCheckGround: 0
+  m_ExtendCheckBord: 10
+  m_ExtendCheckCollision: 10
+  k_ObstactLayerMask:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!114 &6363449254425713831
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1930,18 +1993,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_VisualsNormalAnimator: {fileID: 8994507685575570671}
-  m_VisualsInjuryAnimator: {fileID: 8178009952498181045}
   _hitBox: {fileID: 3476414894392922439}
   _hurtBox: {fileID: 273651650605624825}
   coreMovement: {fileID: 1715018088079183179}
   InteractionZone: {fileID: 5948379090898866286}
   m_NetState: {fileID: 7541297034058180883}
   textMesh: {fileID: 7936842902865023946}
-  spriteRenderer: {fileID: 0}
+  <spriteRenderer>k__BackingField: {fileID: 0}
   VizAnimation: {fileID: 0}
   _sfxEventChannel: {fileID: 11400000, guid: 1981ab6cbad46e54ca529e09ba189c16, type: 2}
   _audioConfig: {fileID: 11400000, guid: e8a6884befaa7e544b61747452adc267, type: 2}
+  _audioHits: {fileID: 0}
+  _damagePopUpChannel: {fileID: 0}
+  StateChange_After_Timer: 0
   m_StateToPlay: 0
+  debugUseMana: 0
+  debug_timedelay: 2
 --- !u!1 &7635380138880829336
 GameObject:
   m_ObjectHideFlags: 0
@@ -2800,8 +2867,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 014ccee2242bd3841b537469ad9e6d4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_boxCollider: {fileID: 2212554633395426309}
-  physicsWrapper: {fileID: 4344797016811615346}
+  _shadowPrefab: {fileID: 0}
+  Offset: {x: 0, y: 0, z: 0}
 --- !u!65 &2212554633395426309
 BoxCollider:
   m_ObjectHideFlags: 0

@@ -21,7 +21,7 @@ namespace LF2.Client
         public Animator graphicsAnimator => m_GraphicsAnimator;
 
 
-        public event Action<GameObject> AvatarGraphicsSpawned;
+        // public event Action<GameObject> AvatarGraphicsSpawned;
 
         public override void OnNetworkSpawn()
         {

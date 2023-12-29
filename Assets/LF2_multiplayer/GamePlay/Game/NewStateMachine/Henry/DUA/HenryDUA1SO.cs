@@ -59,7 +59,7 @@ namespace LF2.Client{
 
         public override StateType GetId()
         {
-            return StateType.DUA1;
+            return stateData.StateType;
         }
 
         public override void OnAnimEvent(int id)

@@ -51,7 +51,7 @@ namespace LF2.Client{
 
         public override StateType GetId()
         {
-            return StateType.DDA2;
+            return stateData.StateType;
         }
 
 
@@ -62,7 +62,7 @@ namespace LF2.Client{
                 m_Launched = true;
                 frameTransitionAnim = false;
                 cantransition_ToNextAnimation = false;
-                stateMachineFX.AnticipateState(StateType.DDA3);
+                stateMachineFX.AnticipateState(GetId());
             }
         }
         public override void OnAnimEvent(int id)

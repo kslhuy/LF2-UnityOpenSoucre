@@ -12,12 +12,15 @@ namespace LF2.Server
     /// iterating over the active connections and calling GetComponent() on their PlayerObject. But we need
     /// to iterate over all players quite often -- the monsters' IdleAIState does so in every Update() --
     /// and all those GetComponent() calls add up! So this optimization lets us iterate without calling
-    /// GetComponent(). This will be refactored with a ScriptableObject-based approach on player collection.
+    /// GetComponent(). 
+    
+    // TODO : This will be refactored with a ScriptableObject-based approach on player collection.
+
     /// </remarks>
     // [RequireComponent(typeof(ServerCharacter))]
     public class PlayerServerCharacter : NetworkBehaviour
     {
-        static List<ServerCharacter> s_ActivePlayers = new List<ServerCharacter>();
+        static List<ServerCharacter> S_ActivePlayers = new List<ServerCharacter>();
 
         [SerializeField]
         ServerCharacter m_CachedServerCharacter;
@@ -28,13 +31,13 @@ namespace LF2.Server
             {
                 enabled = false;
             }
-            s_ActivePlayers.Add(m_CachedServerCharacter);
+            S_ActivePlayers.Add(m_CachedServerCharacter);
 
         }
 
         void OnDisable()
         {
-            s_ActivePlayers.Remove(m_CachedServerCharacter);
+            S_ActivePlayers.Remove(m_CachedServerCharacter);
         }
 
         /// <summary>
@@ -44,11 +47,11 @@ namespace LF2.Server
         public static List<ServerCharacter> GetPlayerServerCharacters()
         {
 
-            return s_ActivePlayers;
+            return S_ActivePlayers;
         }
         public static ServerCharacter GetPlayerServerCharacter(ulong ownerClientId)
         {
-            foreach (var playerServerCharacter in s_ActivePlayers)
+            foreach (var playerServerCharacter in S_ActivePlayers)
             {
                 if (playerServerCharacter.OwnerClientId == ownerClientId)
                 {

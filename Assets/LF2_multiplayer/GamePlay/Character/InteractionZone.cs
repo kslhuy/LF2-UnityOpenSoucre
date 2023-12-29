@@ -4,24 +4,17 @@ using LF2.Client;
 public class InteractionZone : MonoBehaviour {
     [SerializeField] ClientCharacterVisualization clientCharacterVisualization;
     public bool TriggerAttack3 {get ; private set;}    
-    private void OnTriggerStay(Collider collider) {
-        // if (clientCharacterVisualization.m_NetState.IsNpc){
-        //     return;
-        // }
-        // if (collider.CompareTag("HurtBox")){
 
-        //     Debug.Log($"Interaction with = {collider}"); 
-        //     IHurtBox damageable = collider.GetComponentInParent<IHurtBox>();
-        //     Debug.Log($"Interaction with  damageble = {damageable}"); 
-        // }
-        // if (damageable != null)
+    [SerializeField] private BoxCollider Pickup_Box;
+    [SerializeField] private LayerMask objectLayer;
+
+    private void OnTriggerStay(Collider collider) {
         
         if (collider.CompareTag("HurtBox")){
-
             // Debug.Log($"Interaction with = {collider}"); 
             IHurtBox damageable = collider.GetComponentInParent<IHurtBox>();
         
-        //     // ClientCharacter targetClientChar = collider.GetComponentInParent<ClientCharacter>();
+            // ClientCharacter targetClientChar = collider.GetComponentInParent<ClientCharacter>();
             if (damageable != null && damageable.NetworkObjectId != clientCharacterVisualization.NetworkObjectId){
                 // Debug.Log($"Interaction with  damageble = {damageable}"); 
                 // Debug.Log($"targetClientChar = {targetClientChar}");
@@ -37,6 +30,7 @@ public class InteractionZone : MonoBehaviour {
             }
         }
     }
+
 
     // private void OnTriggerExit(Collider collider) {
     //     // if (clientCharacterVisualization.m_NetState.IsNpc){
@@ -56,5 +50,14 @@ public class InteractionZone : MonoBehaviour {
     //         }
     //     }
     // }
+
+
+    public bool Check_Pickup_Object(){
+        Collider[] res = new Collider[1];
+        int number = Physics.OverlapBoxNonAlloc(Pickup_Box.center , Pickup_Box.size,res , Quaternion.identity,objectLayer );
+        if (number > 0)
+            return true;
+        else return false;
+    }
     
 }

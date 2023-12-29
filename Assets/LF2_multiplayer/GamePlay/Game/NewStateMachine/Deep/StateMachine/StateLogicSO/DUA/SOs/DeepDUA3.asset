@@ -12,9 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d99db9500212934584f6b3885b32d1c, type: 3}
   m_Name: DeepDUA3
   m_EditorClassIdentifier: 
-  StateType: 41
+  StateType: 32
   Logic: 3
-  NextStateLogicSO: []
   ManaCost: 50
   DamageDetails:
   - {fileID: 11400000, guid: 9b6c8af134455a543a8581d572462432, type: 2}

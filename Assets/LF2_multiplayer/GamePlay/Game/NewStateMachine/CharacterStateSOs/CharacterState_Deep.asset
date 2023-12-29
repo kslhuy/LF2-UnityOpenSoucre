@@ -43,28 +43,16 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 33e6f119431e25341b9cdad2fefcd4ee, type: 2}
   - {fileID: 11400000, guid: 37980d8d80c74e0458c3ab652bdb40db, type: 2}
   - {fileID: 11400000, guid: 56baa03d6fc404b498f14fedb9d2035c, type: 2}
-  - {fileID: 11400000, guid: a79ac352d1fb2b34fbe672e72c05e78d, type: 2}
-  - {fileID: 11400000, guid: abbdfba689b1d3646a5253989f8ea66b, type: 2}
-  - {fileID: 11400000, guid: 3518ffbd1c9284c4ebcb1247749b8983, type: 2}
-  - {fileID: 11400000, guid: e7c63851b8167a84186c066282306264, type: 2}
-  - {fileID: 11400000, guid: 93e2584a711d3034fa3811a4c60f2485, type: 2}
-  - {fileID: 11400000, guid: 53b67af31b1c4a543bd1e4e369962987, type: 2}
-  - {fileID: 11400000, guid: 294850846160c4a4ca49ee664c392346, type: 2}
-  - {fileID: 11400000, guid: c69d80b3fb1eef1419afd25e643fcfbd, type: 2}
   ListAllComboSkills:
   - {fileID: 11400000, guid: f0d54ddc3a81988428028ce556e1a1b7, type: 2}
   - {fileID: 11400000, guid: ff488b46607caac4ead659c450edb7b3, type: 2}
   - {fileID: 11400000, guid: 86271495902a5a0499310dfe05586987, type: 2}
   - {fileID: 11400000, guid: ec86487e426b6134f9cf14daf32d51dc, type: 2}
-  RunTimeDDA:
-    RunTimeStateType: 30
-    InputToConvert: 30
-  RunTimeDDJ:
-    RunTimeStateType: 33
-    InputToConvert: 33
-  RunTimeDUA:
-    RunTimeStateType: 39
-    InputToConvert: 39
-  RunTimeDUJ:
-    RunTimeStateType: 36
-    InputToConvert: 36
+  RunTimeDDA: {fileID: 11400000, guid: f0d54ddc3a81988428028ce556e1a1b7, type: 2}
+  RunTimeDDJ: {fileID: 11400000, guid: ff488b46607caac4ead659c450edb7b3, type: 2}
+  RunTimeDUA: {fileID: 11400000, guid: 86271495902a5a0499310dfe05586987, type: 2}
+  RunTimeDUJ: {fileID: 11400000, guid: ec86487e426b6134f9cf14daf32d51dc, type: 2}
+  DefautDDA: {fileID: 11400000, guid: f0d54ddc3a81988428028ce556e1a1b7, type: 2}
+  DefautDDJ: {fileID: 11400000, guid: ff488b46607caac4ead659c450edb7b3, type: 2}
+  DefautDUA: {fileID: 11400000, guid: 86271495902a5a0499310dfe05586987, type: 2}
+  DefautDUJ: {fileID: 11400000, guid: ec86487e426b6134f9cf14daf32d51dc, type: 2}

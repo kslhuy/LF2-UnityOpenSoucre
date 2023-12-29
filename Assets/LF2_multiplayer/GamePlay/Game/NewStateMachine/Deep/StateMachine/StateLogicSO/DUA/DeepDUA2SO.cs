@@ -34,7 +34,7 @@ namespace LF2.Client{
 
             if (inputEnable && requestData == StateType.Jump){
                 cantransition_ToNextAnimation = true;
-                _stateToPlay = StateType.DUA3;
+                _stateToPlay = GetId();
                 return true;
             }
 
@@ -48,7 +48,7 @@ namespace LF2.Client{
         }
 
 
-        public override void Enter()        {
+        public override void Enter(){
             if(!Anticipated)
             {
                 PlayAnim();
@@ -106,7 +106,7 @@ namespace LF2.Client{
         }
         public override StateType GetId()
         {
-            return StateType.DUA2;
+            return stateData.StateType;
         }
 
         public override void OnAnimEvent(int id)

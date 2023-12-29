@@ -47,14 +47,14 @@ Material:
     m_Ints: []
     m_Floats:
     - CORNERS: 1
-    - _OutlineThickness: 1.5
+    - _OutlineThickness: 1.05
     - _QueueControl: 0
     - _QueueOffset: 0
     - _UseAlpha: 1
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 0}
     - _MainTextureTilingOffset: {r: 1, g: 1, b: 0, a: 0}
-    - _OutlineColor: {r: 0.26415092, g: 0.215008, b: 0.19811319, a: 0.972549}
+    - _OutlineColor: {r: 0.1981132, g: 0.1981132, b: 0.1981132, a: 0.59607846}
   m_BuildTextureStacks: []
 --- !u!114 &3578568811277515999
 MonoBehaviour:

@@ -87,7 +87,11 @@ namespace LF2
             m_PersistentBOTRuntimeCollection.Add(dataBOT);
         }
 
-        public int HowManyBOTData(){
+        public int NumberPlayersInGame(){
+            return m_PersistentPlayerRuntimeCollection.Items.Count  ;
+        }
+
+        public int NumberBOTsInGame(){
             return m_PersistentBOTRuntimeCollection.Items.Count  ;
         }
 

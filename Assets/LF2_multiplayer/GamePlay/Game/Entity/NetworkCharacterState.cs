@@ -118,12 +118,21 @@ namespace LF2
 
         // ACTION SYSTEM
 
-        public event Action<StateType > StateDataSync;
+        public event Action<StateType,SkillNumber> StateDataSync;
         // public event Action<byte> InnerStateDataSync;
 
         public event Action<StateType> SyncEndAnimation;      
 
         public event Action<AttackDataSend> RecvHPClient;
+
+        public event Action<InputPackage> ClientPlayInputRecvie; 
+        public event Action<InputPackage> ServerSaveInput; 
+
+        public event Action<StatePackage> ServerStateRecevie; 
+
+        
+
+        // ServerSaveInput
 
 
 
@@ -140,36 +149,64 @@ namespace LF2
         // Play Sync State 
         
 
-
         [ServerRpc]
-        public void AddPredictState_and_SyncServerRpc(StateType state )
+        public void AddPredictState_and_SyncServerRpc(StateType state  )
         {
-            AddPredictState_and_SyncClientRPC(state  );
+            AddPredictState_and_SyncClientRPC(state,SkillNumber.Skill_1 );
         }
 
-        [ClientRpc]
-        public void AddPredictState_and_SyncClientRPC(StateType state )
+        [ServerRpc]
+        public void AddPredictState_and_SyncServerRpc(StateType state , SkillNumber skillNumber  )
         {
-            StateDataSync?.Invoke(state );
+            AddPredictState_and_SyncClientRPC(state,skillNumber );
+        }
+
+
+
+
+        [ClientRpc]
+        public void AddPredictState_and_SyncClientRPC(StateType state , SkillNumber skillNumber  )
+        {
+            StateDataSync?.Invoke(state , skillNumber);
         }
         // Play Sync State 
 
 
-        // Play Sync Inner State , that for old systeme
-        // [ServerRpc]
-        // public void AddPredict_InnerStateServerRpc(byte indexState)
-        // {
-        //     AddPredict_InnerStateClientRPC(indexState);
-        // }
+        /* BEGIN :  New netCode here */
 
 
-        // [ClientRpc]
-        // public void AddPredict_InnerStateClientRPC(byte indexState)
-        // {
-        //     InnerStateDataSync.Invoke(indexState);
-        // }
-        // Play Sync Inner State , that for old systeme
 
+        [ServerRpc]
+        public void SendToServerRpc(InputPackage inputPackage)
+        {
+            ServerSaveInput?.Invoke(inputPackage);
+        }
+
+        // only Client (Not a Host) will use that to send => SerVer => then send => All Client 
+        [ServerRpc]
+        public void RecvDoActionServerRPC(InputPackage inputPackage)
+        {
+
+            RecvDoActionClientRPC(inputPackage);
+        }
+
+        // Use direct if player is Host 
+
+        [ClientRpc]
+        public void RecvDoActionClientRPC(InputPackage inputPackage)
+        {
+            ClientPlayInputRecvie?.Invoke(inputPackage);
+        }
+
+
+        [ClientRpc]
+        public void SendServerStateToClientRpc(StatePackage statePackage)
+        {
+            ServerStateRecevie?.Invoke(statePackage);
+        }
+
+
+        /* Fin : New netCode here */
 
         // Play Sync Animation End  , that for some state that have animation loop
 
@@ -216,10 +253,7 @@ namespace LF2
         {
             LifeState = lifeState;
         }
-
-
-
-
-
+        
+        
     }
 }

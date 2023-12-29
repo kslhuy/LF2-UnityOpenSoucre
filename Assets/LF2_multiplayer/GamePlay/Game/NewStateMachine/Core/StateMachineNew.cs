@@ -8,6 +8,8 @@ using UnityEngine;
 
 namespace LF2.Client
 {
+
+
 	public class StateMachineNew 
 	{
 
@@ -39,10 +41,11 @@ namespace LF2.Client
         public TeamType team {get ;private set;}
 
         public CalculStatics calculStatics;
-        private float TU = 0.04f;
-        // private float currentTimerTU = 0f;
 
         private Dictionary<StateType, StateActionLogic> m_StateLogicaMap ;
+        
+        private Dictionary<EnumPair, StateActionLogic> m_State_Skill_Dict ;
+
 
 
 
@@ -74,6 +77,7 @@ namespace LF2.Client
 
             team = parentViz.teamType;
             m_StateLogicaMap = new Dictionary<StateType, StateActionLogic>();
+            m_State_Skill_Dict = new Dictionary<EnumPair, StateActionLogic>();
 
             ///
             currentFrameNumber = 0;
@@ -81,39 +85,65 @@ namespace LF2.Client
   
             CurrentStateViz = m_StateLogicaMap[StateType.Idle] = CharacterAllStateSOs.StateLogicSOsByType[StateType.Idle].GetAction(this);
         }
+
+
         
       
         // Do convert enum StateType == > State corresponse 
-        public StateActionLogic GetState (StateType stateType ){
-            // if already instantied so return 
-            if ( m_StateLogicaMap.TryGetValue(stateType , out StateActionLogic value)){
-                return value;
-            }else {
+        public StateActionLogic GetState (StateType stateType , SkillNumber skillNumber = SkillNumber.Skill_1 ){
+            EnumPair key = new EnumPair(stateType, skillNumber);
 
-                if (CharacterAllStateSOs.StateLogicSOsByType.TryGetValue(stateType , out StateLogicSO stateLogicSO)){
-                    m_StateLogicaMap[stateType] = stateLogicSO.GetAction(this);
-                    return m_StateLogicaMap[stateType];            
-                }                
-                // Try to get it in IStateLogicSO from CharacterStates
-                else{
-                    // May not have this state
-                    Debug.Log($"Tried to find State {stateType} but it was missing from CharacterStates!");
-                    return m_StateLogicaMap[StateType.Idle];            
+            // Normal State 
+            if (stateType is not (StateType.Combo1 or  StateType.Combo2 or StateType.Combo3  or StateType.Combo4) ){
+
+                // if already instantied so return 
+                if ( m_StateLogicaMap.TryGetValue(stateType , out StateActionLogic value)){
+                    return value;
+                }else {
+
+                    if (CharacterAllStateSOs.StateLogicSOsByType.TryGetValue(stateType , out StateLogicSO stateLogicSO)){
+                        m_StateLogicaMap[stateType] = stateLogicSO.GetAction(this);
+                        return m_StateLogicaMap[stateType];            
+                    }                
+                    // Try to get it in IStateLogicSO from CharacterStates
+                    else{
+                        // May not have this state
+                        Debug.Log($"Tried to find State {stateType} but it was missing from CharacterStates!");
+                        return m_StateLogicaMap[StateType.Idle];            
+                    }
+                }         
+            }
+
+            // Combo in Skill 
+            else
+            {
+                if (!m_State_Skill_Dict.ContainsKey(key))
+                {
+                    StateLogicSO stateLogicSo = CharacterAllStateSOs.Get_StateLogicSO(stateType,skillNumber);
+                    if (stateLogicSo == null){
+                        Debug.Log($"Tried to find State {stateType} but it was missing from CharacterStates!");
+                        return m_StateLogicaMap[StateType.Idle];      
+                    }
+                    m_State_Skill_Dict[key] = stateLogicSo.GetAction(this);
                 }
-            }     
 
+                // Return the PowerPlayer instance from the dictionary
+                return m_State_Skill_Dict[key];
+            }
+        
+        
         }
      
             
         // Aticipate State in CLient , 
         // Do change state but most importance its run Animation predict   
-        public void DoAnticipate(ref StateType requestData)
+        public void ShouldChangeState(ref StateType requestData)
         {
             // Debug.Log($"Currenstate {CurrentStateViz} ");
             CurrentStateViz.ShouldAnticipate(ref requestData);   
         }
 
-        public void SaveMoveInput(ref float inputX , ref float inputZ  )
+        public void SaveMoveInput( sbyte inputX ,  sbyte inputZ  )
         {
             // Debug.Log($"inputX = {inputX}");
             InputX = inputX;
@@ -124,17 +154,18 @@ namespace LF2.Client
             else 
                 state = StateType.Idle;
 
-            DoAnticipate(ref state);
+            ShouldChangeState(ref state);
 
 
         }
 
         // Play correct State that sent by Server  (broad-cast to all client)
-        public void PerformSyncStateFX(ref StateType stateTypeSync)
+        public void PerformSyncStateFX(ref StateType stateTypeSync , ref SkillNumber skillNumber )
         {
-            // Debug.Log("Change State");
+                // Debug.Log("Change State");
             if (CurrentStateViz.GetId().Equals(stateTypeSync)) return;
             
+            // Warring : 22/09/2023 ?? WTF is that 
             if (CurrentStateViz.stateData.Dy > 10) {
                 if (stateTypeSync == StateType.Land || stateTypeSync == StateType.Crouch ||  stateTypeSync == StateType.Idle ){
                     // Debug.Log( "Return car StateType is Land");
@@ -147,18 +178,11 @@ namespace LF2.Client
             // } 
                 
             // Debug.Log("Change State 2");
-            ChangeState(stateTypeSync);
+            ChangeState(stateTypeSync , skillNumber);        
+
             
         }
 
-        public void PerformInnerSyncStateFX(ref byte stateIndex)
-        {
-            // Debug.Log("Change State");
-                
-            // Debug.Log("Change State 2");
-            // ChangeState(CurrentStateViz.stateData.SubStateLogicSO[stateIndex] );
-            
-        }
 
         // Play correct State that sent by Server  (broad-cast to all client)
         public void PlayEndAnimationFX(ref StateType stateTypeSync)
@@ -195,7 +219,7 @@ namespace LF2.Client
 
                     // Cast Skill in queue first when we just arrive in Idle State   
                 if (QueueStateFX.Count > 0 ) {
-                    AnticipateState(QueueStateFX[0].GetId(),1,true);
+                    AnticipateState(QueueStateFX[0].GetId(),SkillNumber.Skill_1,1,true);
                     QueueStateFX.RemoveAt(0);
                     return;
                 } 
@@ -215,7 +239,7 @@ namespace LF2.Client
             }
 
             
-                    //// Use full , take value from ref of SOs , so we can change value in real time
+            //// Use full , take value from ref of SOs , so we can change value in real time
             if (m_ClientVisual.StateChange_After_Timer){
                 // Debug.Log("Huy");
                 if ( CurrentStateViz.stateData.expirable)
@@ -249,21 +273,19 @@ namespace LF2.Client
             
 
         }
-            // ID 300 = Play sound
+
+        // ID 300 = Play sound
         public void OnAnimEvent(int id)
         {
             CurrentStateViz.OnAnimEvent(id);
         }
 
 
-
-
-
         // Switch to Another State , (we force to Change State , so that mean this State may be not End naturally , be interruped by some logic  ) 
         ///  Only exucute when server call !!!!
-        public void ChangeState( StateType state , int frameRender = 1,bool combo = false ){
+        public void ChangeState( StateType state ,SkillNumber skillNumber = SkillNumber.Skill_1 , int frameRender = 1,bool combo = false ){
             _onceEnd = false;
-            var stateAction = GetState(state);
+            var stateAction = GetState(state , skillNumber);
 
             if (m_ClientVisual.debugUseMana){
                 if (stateAction.stateData.ManaCost < 0){
@@ -312,10 +334,49 @@ namespace LF2.Client
             }
         }
 
-        public void AnticipateState( StateType state ,int frameRender = 1, bool combo = false ){
-            _onceEnd = false;
-            var stateAction = GetState(state);
+        // public void AnticipateState(StateType state,int frameRender = 1, bool combo = false ){
+        //     _onceEnd = false;
+        //     var stateAction = GetState(state);
 
+
+        //     if (m_ClientVisual.debugUseMana){
+        //         // if (stateAction.stateData.ManaCost > 0){
+        //         //     Debug.LogWarning("You Forgot to Set Mana Cost");
+        //         // }
+        //         if (stateAction.stateData.ManaCost < m_ClientVisual.MPRemain())
+        //         {
+        //             m_ClientVisual.MPChange(stateAction.stateData.ManaCost);
+        //             // Exit current state
+        //             CurrentStateViz.Exit();
+        //             // assigne new stat to CurrentState
+        //             CurrentStateViz = combo? QueueStateFX[0]: stateAction;
+        //             CurrentStateViz.nbTickRender = frameRender;
+        //             if (m_ClientVisual.Owner){
+        //                 m_ClientVisual.m_NetState.AddPredictState_and_SyncServerRpc(state);
+        //             }
+
+        //             CurrentStateViz.PlayAnim(frameRender);
+
+        //             // CurrentStateViz.PlayPredictState();
+        //             // Debug.Log($"You have {m_ClientVisual.MPRemain()} remain");
+
+        //         }
+        //     }else {
+        //         CurrentStateViz.Exit();
+        //         CurrentStateViz = combo? QueueStateFX[0]: stateAction;
+        //         CurrentStateViz.nbTickRender = frameRender;
+        //         if (m_ClientVisual.Owner){
+        //             m_ClientVisual.m_NetState.AddPredictState_and_SyncServerRpc(state);
+        //         } 
+        //         CurrentStateViz.PlayAnim(frameRender);
+        //     }
+        // }
+
+        public void AnticipateState( StateType state , SkillNumber skillNumber = SkillNumber.Skill_1, int frameRender = 1, bool combo = false ){
+            _onceEnd = false;
+            // var stateAction = GetState(state);
+
+            var stateAction = GetState(state , skillNumber);
 
             if (m_ClientVisual.debugUseMana){
                 // if (stateAction.stateData.ManaCost > 0){
@@ -351,41 +412,7 @@ namespace LF2.Client
         }
 
 
-        // public void AnticipateInnerState(  StateActionLogic stateAction,byte indexInnerState , bool combo = false ){
-        //     _onceEnd = false;
-
-        //     if (m_ClientVisual.debugUseMana){
-        //         // if (stateAction.stateData.ManaCost > 0){
-        //         //     Debug.LogWarning("You Forgot to Set Mana Cost");
-        //         // }
-        //         if (stateAction.stateData.ManaCost < m_ClientVisual.MPRemain())
-        //         {
-        //             m_ClientVisual.MPChange(stateAction.stateData.ManaCost);
-        //             // Exit current state
-        //             CurrentStateViz.Exit();
-        //             // assigne new stat to CurrentState
-        //             CurrentStateViz = combo? QueueStateFX[0]: stateAction;
-        //             CurrentStateViz.nbTickRender = 1;
-        //             if (m_ClientVisual.Owner){
-        //                 m_ClientVisual.m_NetState.AddPredict_InnerStateServerRpc(indexInnerState);
-        //             }
-
-        //             CurrentStateViz.PlayAnim(1);
-
-        //             // CurrentStateViz.PlayPredictState();
-        //             // Debug.Log($"You have {m_ClientVisual.MPRemain()} remain");
-
-        //         }
-        //     }else {
-        //         CurrentStateViz.Exit();
-        //         CurrentStateViz = combo? QueueStateFX[0]: stateAction;
-        //         CurrentStateViz.nbTickRender = 1;
-        //         if (m_ClientVisual.Owner){
-        //             m_ClientVisual.m_NetState.AddPredictState_and_SyncServerRpc(state);
-        //         } 
-        //         CurrentStateViz.PlayAnim(1);
-        //     }
-        // }
+        
 
 
         

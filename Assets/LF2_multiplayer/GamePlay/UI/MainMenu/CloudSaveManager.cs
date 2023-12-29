@@ -57,10 +57,6 @@ namespace UnityGamingServicesUseCases
         }
 
 
-        public async Task test(){
-            Debug.Log("here");
-        }
-
         public async Task LoadAndCacheData()
         {
             try

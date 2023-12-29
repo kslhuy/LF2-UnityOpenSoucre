@@ -6,6 +6,8 @@ using UnityEngine;
 
 namespace Unity.Services.Samples.RewardedAds
 {
+
+    // Not that , shold try with REMOTE Config
     public class CloudSaveManager : MonoBehaviour
     {
         public static CloudSaveManager instance { get; private set; }

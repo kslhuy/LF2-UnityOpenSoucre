@@ -88,6 +88,14 @@ namespace LF2
     [SerializeField] string Empty = "Empty_anim";
 
     [SerializeField] string RecoverMana = "RecoverMana_anim";
+    [Header("------------ Pickup State -------------")]
+    
+    [SerializeField] string Pick_Up_Light = "PickUp_Light_anim";
+    [SerializeField] string Pick_Up_Hevy = "PickUp_Hevy_anim";
+
+    [SerializeField] string Walk_with_Object = "Walk_with_Object_anim";
+    [SerializeField] string Run_with_Object = "Run_with_Object_anim";
+
 
 
 
@@ -172,6 +180,15 @@ namespace LF2
 
     [SerializeField] [HideInInspector] public int a_RecoverMana;
 
+    // ------------ Pickup State -------------
+    
+    [SerializeField] [HideInInspector] public int a_Pick_Up_Light;
+    [SerializeField] [HideInInspector] public int a_Pick_Up_Hevy;
+
+    [SerializeField] [HideInInspector] public int a_Walk_with_Object ;
+    [SerializeField] [HideInInspector] public int a_Run_with_Object;
+
+
     #endregion
 
     void OnValidate()
@@ -252,6 +269,15 @@ namespace LF2
 
         a_Empty = Animator.StringToHash(Empty);
         a_RecoverMana = Animator.StringToHash(RecoverMana);
-        }
+
+
+    // ------------ Pickup State -------------
+    
+        a_Pick_Up_Light = Animator.StringToHash(Pick_Up_Light);
+        a_Pick_Up_Hevy = Animator.StringToHash(Pick_Up_Hevy);
+
+        a_Walk_with_Object = Animator.StringToHash(Walk_with_Object) ;
+        a_Run_with_Object = Animator.StringToHash(Run_with_Object);
+    }
     }
 }

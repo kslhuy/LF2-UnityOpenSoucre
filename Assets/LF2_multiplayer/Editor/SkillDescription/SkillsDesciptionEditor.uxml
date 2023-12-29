@@ -5,10 +5,11 @@
         <uie:ObjectField label="Script" binding-path="m_Script" style="height: 20px;" />
         <ui:Label tabindex="-1" text="State" display-tooltip-when-elided="true" name="Label" class="section" style="-unity-text-align: upper-center; -unity-font-style: bold; color: rgb(90, 92, 255); font-size: 20px; height: 30px;" />
         <ui:VisualElement name="state" class="comparerBoxContainer section" style="flex-direction: row; background-color: rgb(82, 82, 82); height: 60px;">
-            <ui:EnumField label="StateType" type="UnityEngine.TextAlignment, UnityEngine.TextRenderingModule" value="Center" binding-path="StateType" style="justify-content: space-around; flex-direction: column; width: 30%; align-items: center; -unity-text-align: upper-center;" />
-            <ui:EnumField label="Logic" type="UnityEngine.TextAlignment, UnityEngine.TextRenderingModule" value="Center" binding-path="Logic" style="flex-direction: column; width: 30%; align-items: center; -unity-text-align: upper-center;" />
+            <ui:EnumField label="StateType" type="UnityEngine.TextAlignment, UnityEngine.TextRenderingModule" value="Center" binding-path="StateType" style="justify-content: space-around; flex-direction: column; width: 114px; align-items: center; -unity-text-align: upper-center;" />
+            <ui:EnumField label="SkillType" type="UnityEngine.TextAlignment, UnityEngine.TextRenderingModule" value="Center" binding-path="SkillType" style="justify-content: space-around; flex-direction: column; width: 116px; align-items: center; -unity-text-align: upper-center;" />
+            <ui:EnumField label="Logic" type="UnityEngine.TextAlignment, UnityEngine.TextRenderingModule" value="Center" binding-path="Logic" style="flex-direction: column; width: 115px; align-items: center; -unity-text-align: upper-center;" />
             <ui:Toggle label="UseMana" binding-path="UseMana" style="width: 18%; flex-direction: column; height: 38px; margin-left: 4px; -unity-text-align: upper-center; white-space: normal; align-items: center; margin-right: 4px; margin-top: 4px; margin-bottom: 4px;" />
-            <ui:IntegerField label="ManaCost" value="42" binding-path="ManaCost" style="flex-direction: column; width: 20%; -unity-text-align: upper-center; align-items: center;" />
+            <ui:IntegerField label="ManaCost" value="42" binding-path="ManaCost" style="flex-direction: column; width: 15%; -unity-text-align: upper-center; align-items: center;" />
         </ui:VisualElement>
         <ui:VisualElement name="Timer" class="section" style="flex-direction: row; background-color: rgb(72, 71, 71); height: 50px;">
             <ui:IntegerField label="nbTick" value="0" binding-path="Duration" style="flex-direction: column; width: 50px;" />

@@ -12,9 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44155e3c42811af4090d80e84c11354c, type: 3}
   m_Name: DeepDDJ
   m_EditorClassIdentifier: 
-  StateType: 33
+  StateType: 31
   Logic: 3
-  NextStateLogicSO: []
   ManaCost: 150
   DamageDetails:
   - {fileID: 11400000, guid: 6dd3bc46633a40d41a41d2823e7e82c0, type: 2}
@@ -46,7 +45,6 @@ MonoBehaviour:
     vrest: 0
     _frameStruct:
     - sprite: {fileID: 8816120288205638843, guid: 50d772d658d083946b7f9649b39e1606, type: 3}
-      time: 0
       dvx: 60
       dvy: 0
       dvz: 0
@@ -65,8 +63,13 @@ MonoBehaviour:
       Sound: {fileID: 11400000, guid: 94572e4123d57f04c8cd13ff5d0f4d71, type: 2}
       NextFrame: 1
       wait: 1
+      HitBox:
+        size: {x: 0, y: 0, z: 0}
+        center: {x: 0, y: 0, z: 0}
+      HurtBox:
+        size: {x: 0, y: 0, z: 0}
+        center: {x: 0, y: 0, z: 0}
     - sprite: {fileID: -4296138835935708497, guid: 50d772d658d083946b7f9649b39e1606, type: 3}
-      time: 0.13333334
       dvx: 120
       dvy: 0
       dvz: 0
@@ -85,8 +88,13 @@ MonoBehaviour:
       Sound: {fileID: 11400000, guid: 2446551300a2315499c976a27afd6177, type: 2}
       NextFrame: 2
       wait: 1
+      HitBox:
+        size: {x: 0, y: 0, z: 0}
+        center: {x: 0, y: 0, z: 0}
+      HurtBox:
+        size: {x: 0, y: 0, z: 0}
+        center: {x: 0, y: 0, z: 0}
     - sprite: {fileID: 3100185628507192181, guid: 50d772d658d083946b7f9649b39e1606, type: 3}
-      time: 0.2
       dvx: 120
       dvy: 0
       dvz: 0
@@ -105,8 +113,13 @@ MonoBehaviour:
       Sound: {fileID: 0}
       NextFrame: 3
       wait: 1
+      HitBox:
+        size: {x: 0, y: 0, z: 0}
+        center: {x: 0, y: 0, z: 0}
+      HurtBox:
+        size: {x: 0, y: 0, z: 0}
+        center: {x: 0, y: 0, z: 0}
     - sprite: {fileID: 4041829116060478547, guid: 50d772d658d083946b7f9649b39e1606, type: 3}
-      time: 0.26666668
       dvx: 120
       dvy: 0
       dvz: 0
@@ -125,8 +138,13 @@ MonoBehaviour:
       Sound: {fileID: 0}
       NextFrame: 4
       wait: 1
+      HitBox:
+        size: {x: 0, y: 0, z: 0}
+        center: {x: 0, y: 0, z: 0}
+      HurtBox:
+        size: {x: 0, y: 0, z: 0}
+        center: {x: 0, y: 0, z: 0}
     - sprite: {fileID: 4503186890618113623, guid: 50d772d658d083946b7f9649b39e1606, type: 3}
-      time: 0.33333334
       dvx: 120
       dvy: 0
       dvz: 0
@@ -145,8 +163,13 @@ MonoBehaviour:
       Sound: {fileID: 0}
       NextFrame: 5
       wait: 1
+      HitBox:
+        size: {x: 0, y: 0, z: 0}
+        center: {x: 0, y: 0, z: 0}
+      HurtBox:
+        size: {x: 0, y: 0, z: 0}
+        center: {x: 0, y: 0, z: 0}
     - sprite: {fileID: 5334504943880872833, guid: 50d772d658d083946b7f9649b39e1606, type: 3}
-      time: 0.4
       dvx: 240
       dvy: 0
       dvz: 0
@@ -165,8 +188,13 @@ MonoBehaviour:
       Sound: {fileID: 11400000, guid: 2446551300a2315499c976a27afd6177, type: 2}
       NextFrame: 6
       wait: 1
+      HitBox:
+        size: {x: 0, y: 0, z: 0}
+        center: {x: 0, y: 0, z: 0}
+      HurtBox:
+        size: {x: 0, y: 0, z: 0}
+        center: {x: 0, y: 0, z: 0}
     - sprite: {fileID: -2964160479591083159, guid: 50d772d658d083946b7f9649b39e1606, type: 3}
-      time: 0.46666667
       dvx: 120
       dvy: 0
       dvz: 0
@@ -185,8 +213,13 @@ MonoBehaviour:
       Sound: {fileID: 0}
       NextFrame: 7
       wait: 1
+      HitBox:
+        size: {x: 0, y: 0, z: 0}
+        center: {x: 0, y: 0, z: 0}
+      HurtBox:
+        size: {x: 0, y: 0, z: 0}
+        center: {x: 0, y: 0, z: 0}
     - sprite: {fileID: -7639048893276487894, guid: 50d772d658d083946b7f9649b39e1606, type: 3}
-      time: 0.53333336
       dvx: 120
       dvy: 0
       dvz: 0
@@ -205,8 +238,13 @@ MonoBehaviour:
       Sound: {fileID: 0}
       NextFrame: 8
       wait: 1
+      HitBox:
+        size: {x: 0, y: 0, z: 0}
+        center: {x: 0, y: 0, z: 0}
+      HurtBox:
+        size: {x: 0, y: 0, z: 0}
+        center: {x: 0, y: 0, z: 0}
     - sprite: {fileID: -5144871884555356421, guid: 50d772d658d083946b7f9649b39e1606, type: 3}
-      time: 0.6
       dvx: 240
       dvy: 0
       dvz: 0
@@ -225,8 +263,13 @@ MonoBehaviour:
       Sound: {fileID: 0}
       NextFrame: 9
       wait: 1
+      HitBox:
+        size: {x: 0, y: 0, z: 0}
+        center: {x: 0, y: 0, z: 0}
+      HurtBox:
+        size: {x: 0, y: 0, z: 0}
+        center: {x: 0, y: 0, z: 0}
     - sprite: {fileID: 3253036706295975270, guid: 50d772d658d083946b7f9649b39e1606, type: 3}
-      time: 0.6666667
       dvx: 120
       dvy: 0
       dvz: 0
@@ -245,8 +288,13 @@ MonoBehaviour:
       Sound: {fileID: 0}
       NextFrame: 10
       wait: 1
+      HitBox:
+        size: {x: 0, y: 0, z: 0}
+        center: {x: 0, y: 0, z: 0}
+      HurtBox:
+        size: {x: 0, y: 0, z: 0}
+        center: {x: 0, y: 0, z: 0}
     - sprite: {fileID: -1549547644930157745, guid: 50d772d658d083946b7f9649b39e1606, type: 3}
-      time: 0.73333335
       dvx: 120
       dvy: 0
       dvz: 0
@@ -265,8 +313,13 @@ MonoBehaviour:
       Sound: {fileID: 0}
       NextFrame: 11
       wait: 1
+      HitBox:
+        size: {x: 0, y: 0, z: 0}
+        center: {x: 0, y: 0, z: 0}
+      HurtBox:
+        size: {x: 0, y: 0, z: 0}
+        center: {x: 0, y: 0, z: 0}
     - sprite: {fileID: -3610632171984693758, guid: 50d772d658d083946b7f9649b39e1606, type: 3}
-      time: 0.8
       dvx: 120
       dvy: 0
       dvz: 0
@@ -285,8 +338,13 @@ MonoBehaviour:
       Sound: {fileID: 0}
       NextFrame: 12
       wait: 1
+      HitBox:
+        size: {x: 0, y: 0, z: 0}
+        center: {x: 0, y: 0, z: 0}
+      HurtBox:
+        size: {x: 0, y: 0, z: 0}
+        center: {x: 0, y: 0, z: 0}
     - sprite: {fileID: 7909950824724644275, guid: 50d772d658d083946b7f9649b39e1606, type: 3}
-      time: 0.8666667
       dvx: 120
       dvy: 0
       dvz: 0
@@ -305,8 +363,13 @@ MonoBehaviour:
       Sound: {fileID: 0}
       NextFrame: 13
       wait: 1
+      HitBox:
+        size: {x: 0, y: 0, z: 0}
+        center: {x: 0, y: 0, z: 0}
+      HurtBox:
+        size: {x: 0, y: 0, z: 0}
+        center: {x: 0, y: 0, z: 0}
     - sprite: {fileID: 2678212901317358866, guid: 50d772d658d083946b7f9649b39e1606, type: 3}
-      time: 0.93333334
       dvx: 120
       dvy: 0
       dvz: 0
@@ -325,8 +388,13 @@ MonoBehaviour:
       Sound: {fileID: 0}
       NextFrame: 14
       wait: 1
+      HitBox:
+        size: {x: 0, y: 0, z: 0}
+        center: {x: 0, y: 0, z: 0}
+      HurtBox:
+        size: {x: 0, y: 0, z: 0}
+        center: {x: 0, y: 0, z: 0}
     - sprite: {fileID: -282980171007443733, guid: 50d772d658d083946b7f9649b39e1606, type: 3}
-      time: 1
       dvx: 240
       dvy: 0
       dvz: 0
@@ -345,8 +413,13 @@ MonoBehaviour:
       Sound: {fileID: 0}
       NextFrame: 15
       wait: 1
+      HitBox:
+        size: {x: 0, y: 0, z: 0}
+        center: {x: 0, y: 0, z: 0}
+      HurtBox:
+        size: {x: 0, y: 0, z: 0}
+        center: {x: 0, y: 0, z: 0}
     - sprite: {fileID: -8222258665723892870, guid: 50d772d658d083946b7f9649b39e1606, type: 3}
-      time: 1.0666667
       dvx: 60
       dvy: 0
       dvz: 0
@@ -365,8 +438,13 @@ MonoBehaviour:
       Sound: {fileID: 0}
       NextFrame: 16
       wait: 1
+      HitBox:
+        size: {x: 0, y: 0, z: 0}
+        center: {x: 0, y: 0, z: 0}
+      HurtBox:
+        size: {x: 0, y: 0, z: 0}
+        center: {x: 0, y: 0, z: 0}
     - sprite: {fileID: 126222110510126913, guid: 50d772d658d083946b7f9649b39e1606, type: 3}
-      time: 1.1333333
       dvx: 0
       dvy: 0
       dvz: 0
@@ -385,8 +463,13 @@ MonoBehaviour:
       Sound: {fileID: 0}
       NextFrame: 17
       wait: 1
+      HitBox:
+        size: {x: 0, y: 0, z: 0}
+        center: {x: 0, y: 0, z: 0}
+      HurtBox:
+        size: {x: 0, y: 0, z: 0}
+        center: {x: 0, y: 0, z: 0}
     - sprite: {fileID: 3408670022775566053, guid: 50d772d658d083946b7f9649b39e1606, type: 3}
-      time: 1.2
       dvx: 0
       dvy: 0
       dvz: 0
@@ -405,8 +488,13 @@ MonoBehaviour:
       Sound: {fileID: 0}
       NextFrame: 18
       wait: 1
+      HitBox:
+        size: {x: 0, y: 0, z: 0}
+        center: {x: 0, y: 0, z: 0}
+      HurtBox:
+        size: {x: 0, y: 0, z: 0}
+        center: {x: 0, y: 0, z: 0}
     - sprite: {fileID: 2872705502114225833, guid: 50d772d658d083946b7f9649b39e1606, type: 3}
-      time: 1.2666667
       dvx: 0
       dvy: 0
       dvz: 0
@@ -425,4 +513,10 @@ MonoBehaviour:
       Sound: {fileID: 0}
       NextFrame: 999
       wait: 3
+      HitBox:
+        size: {x: 0, y: 0, z: 0}
+        center: {x: 0, y: 0, z: 0}
+      HurtBox:
+        size: {x: 0, y: 0, z: 0}
+        center: {x: 0, y: 0, z: 0}
     layerNumber: 0

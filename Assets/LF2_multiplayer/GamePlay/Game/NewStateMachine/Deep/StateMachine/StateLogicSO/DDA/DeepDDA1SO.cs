@@ -31,7 +31,7 @@ namespace LF2.Client{
         }
 
          public override bool ShouldAnticipate(ref StateType requestData)        {
-            if (inputEnable && (requestData is  StateType.Attack or StateType.Attack2 or  StateType.DDA1)){
+            if (inputEnable && (requestData is  StateType.Attack or StateType.Attack2 )){
                 cantransition_ToNextAnimation = true;
                 return true;
             }
@@ -57,7 +57,7 @@ namespace LF2.Client{
 
         public override StateType GetId()
         {
-            return StateType.DDA1;
+            return stateData.StateType;
         }
 
         public override void LogicUpdate()
@@ -67,7 +67,7 @@ namespace LF2.Client{
                 frameTransitionAnim = false;
                 cantransition_ToNextAnimation = false;
 
-                stateMachineFX.AnticipateState(StateType.DDA2);
+                stateMachineFX.AnticipateState(GetId());
             }
         }
 

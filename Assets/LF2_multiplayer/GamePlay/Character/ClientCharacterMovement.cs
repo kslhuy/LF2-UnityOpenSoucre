@@ -477,6 +477,8 @@ namespace LF2.Client
             return _isGround;
         }
 
+        
+
         public void SetHurtMovement(Vector3 dir){
             m_Rigidbody.velocity = dir;
         }

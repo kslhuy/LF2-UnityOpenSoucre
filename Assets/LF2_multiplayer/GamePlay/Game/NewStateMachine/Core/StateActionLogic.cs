@@ -43,11 +43,6 @@ namespace LF2.Client{
 
         protected StateMachineNew stateMachineFX;
 
-        // public InputPackage Data = new InputPackage();
-
-
-
- 
         public int nbTickRender;
 
         public bool Anticipated { get; protected set; }

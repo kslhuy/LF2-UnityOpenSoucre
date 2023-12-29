@@ -18,6 +18,6 @@ MonoBehaviour:
   CharacterStateSOs: {fileID: 11400000, guid: 125334c544ac912418ff021ae999f08d, type: 2}
   Graphics: {fileID: 1128737043197552253, guid: d374aa7708028ae4bb091f2b966203ff, type: 3}
   GraphicsCharacterSelect: {fileID: 5307423579264072845, guid: 4689bd9a9e25265419471fed94ce6b58, type: 3}
-  AnimatorController: {fileID: 22100000, guid: 3e76740409ccbc44ba95e68d82aef226, type: 2}
+  AnimatorController: {fileID: 9100000, guid: 03bcadce80c48e64d9e95dc3aac7ad26, type: 2}
   Portrait: {fileID: 21300000, guid: a46a7e576dd62b345be5401f70e86768, type: 3}
   Own: 0

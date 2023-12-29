@@ -12,9 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 945ad62e60190d144b4c877090d9301d, type: 3}
   m_Name: DeepDDA3
   m_EditorClassIdentifier: 
-  StateType: 32
+  StateType: 30
   Logic: 3
-  SubStateLogicSO: []
   ManaCost: 10
   DamageDetails:
   - {fileID: 11400000, guid: e8304f9836ee68249aad7582b34551be, type: 2}

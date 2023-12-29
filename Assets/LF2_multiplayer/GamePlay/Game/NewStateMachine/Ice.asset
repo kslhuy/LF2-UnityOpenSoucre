@@ -12,10 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0bf5119135911574b95c8cad041dce80, type: 3}
   m_Name: Ice
   m_EditorClassIdentifier: 
-  StateType: 44
+  StateType: 40
   Logic: 2
-  NextStateLogicSO: []
-  UseMana: 0
   ManaCost: 0
   DamageDetails: []
   Dx: 0

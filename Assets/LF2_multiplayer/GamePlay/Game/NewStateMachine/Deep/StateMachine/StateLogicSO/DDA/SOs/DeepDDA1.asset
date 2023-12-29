@@ -14,7 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   StateType: 30
   Logic: 3
-  SubStateLogicSO: []
   ManaCost: 75
   DamageDetails:
   - {fileID: 11400000, guid: 4e2d5f76eb0c7984990d544252fa0fc1, type: 2}

@@ -98,7 +98,7 @@ namespace LF2.Client{
         }
         public override StateType GetId()
         {
-            return StateType.DUA3;
+            return stateData.StateType;
         }
 
 

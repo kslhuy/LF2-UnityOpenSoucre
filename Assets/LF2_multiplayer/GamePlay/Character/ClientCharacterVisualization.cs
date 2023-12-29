@@ -129,7 +129,29 @@ namespace LF2.Client
 
 
 
+
+
+
         // End Header
+
+        // Netcode client specific
+        CircularBuffer<StatePackage> LocalStateBuffer;
+        // CircularBuffer<StatePackage> RemoteStateBuffer;
+
+        CircularBuffer<InputPackage> LocalInputBuffer;
+        CircularBuffer<InputPackage> RemoteInputBuffer;
+
+
+        StatePackage lastServerState;
+        StatePackage lastProcessedState;
+
+        const float k_serverTickRate = 60f; // 60 FPS
+        const int k_bufferSize = 1024;
+
+
+        InputPackage m_LastRemoteInputRecieved ;
+
+
 
 
 
@@ -138,8 +160,13 @@ namespace LF2.Client
         public override void OnNetworkSpawn()
         {            
             // Only server dont have this component
-            if (!NetworkManager.Singleton.IsClient )
+            if (!NetworkManager.Singleton.IsClient)
             {
+                enabled = false;
+                return;
+            }
+
+            if(IsOwner && IsHost ){
                 enabled = false;
                 return;
             }
@@ -190,11 +217,32 @@ namespace LF2.Client
                 if (m_NetState.IsOwner )
                 {
                     gameObject.AddComponent<CameraController>();
-                    
-                   
+
+                    // --- Test new Netcode here
+                    LocalStateBuffer = new CircularBuffer<StatePackage>(k_bufferSize);
+                    LocalInputBuffer = new CircularBuffer<InputPackage>(k_bufferSize);
+                }
+                else{
+                    // RemoteStateBuffer = new CircularBuffer<StatePackage>(k_bufferSize);
+                    RemoteInputBuffer = new CircularBuffer<InputPackage>(k_bufferSize);
                 }
 
+                
+
+
+
             }
+
+
+            // ----  Test new Netcode here
+            if (!IsHost){
+                m_NetState.ServerStateRecevie += NewServerState;
+            }
+
+            inputSender.ActionLocalInputEvent += AddLocalInput;
+
+
+
 
 
             // ...and visualize the current char-select value that we know about
@@ -202,6 +250,8 @@ namespace LF2.Client
             // SetAppearanceSwap();
             StartCoroutine(Coro_WaitToStart(1));
             
+
+            // ------------- Object Polling 
             if (m_NetState.CharacterClass.objectPollingRegistry){
                 for (int i = 0 ; i < m_NetState.CharacterClass.objectPollingRegistry.PooledPrefabsList.Count ; i++){
                     NetworkObjectPool.Singleton.AddPrefab(m_NetState.CharacterClass.objectPollingRegistry.PooledPrefabsList[i].Prefab , m_NetState.CharacterClass.objectPollingRegistry.PooledPrefabsList[i].PrewarmCount ) ;
@@ -209,22 +259,77 @@ namespace LF2.Client
             }
         }
 
+        private void NewServerState(StatePackage package)
+        {
+            lastServerState = package;
+        }
+
+        private void AddRemoteInput(InputPackage inputpackage)
+        {
+
+            //----------- No Sense Bla bla  ------------
+            // Prevent call 2 time in Client side
+            // Because : Client (Not Host) already trigger ActionLocalInputEvent before the ClientPlayInputRecvie sended by server 
+            // ----- 
+            // Why call 2 time :  because ClientRPC will send to all Client 
+            // -----
+            // Why need ActionLocalInput event in client side : beacause the unity netcode use architechture dedicated to server side 
+            //      Basicly , we need to send message to server (by ServerRPC) and then in server send back to all client (by ClientRPC)
+            //      So the time client side recevied the message will be delay 
+            //      So use ActionLocalInput that , clien call execute immedialy (can call that a prediction)
+            //----------- No Sense Bla bla ------------
+
+            // clientInputBuffer in The Remote Side (for RollBack or Reconcilliation) 
+                      
+            var bufferIndex = inputpackage.tick % 1024;
+            // m_LastRemoteInputRecieved = inputpackage; 
+            RemoteInputBuffer.Add(inputpackage ,bufferIndex);
+        }
+
+        
+        private void AddLocalInput(InputPackage inputpackage){
+            // clientInputBuffer in The Local Side 
+
+            var bufferIndex = inputpackage.tick % 1024;
+            LocalInputBuffer.Add(inputpackage ,bufferIndex);
+            // MStateMachinePlayerViz.ShouldChangeState(ref inputpackage.buttonID);
+
+        }
+
+        private void PredictRemoteInputs(int localFrameAdvantage){
+            if (localFrameAdvantage <= 0 ) return;
+            InputPackage predictedRemote = new InputPackage(){
+                buttonID = lastServerState.StateTypeEnum,
+                TargetIds = lastServerState.TargetIds,
+            };
+            for (int i = 1; i <= localFrameAdvantage; ++i) //fill in missing remote inputs
+            {
+
+                //update until we are back at current frame
+                predictedRemote.tick = (ushort)(lastServerState.tick + i);
+                if (lastServerState.StateTypeEnum != StateType.Move) predictedRemote.buttonID = StateType.Idle; 
+                AddRemoteInput(predictedRemote);
+            }
+        }
+
+
+
         public IEnumerator Coro_WaitToStart(float time){
             yield return new WaitForSeconds(time); 
+
+            // IS player 
             if (!IsNPC){
                 if (m_NetState.IsOwner ){
                     inputSender = GetComponentInParent<ClientInputSender>();
                     inputSender.ActionInputEvent += OnActionInput;
                     inputSender.ActionMoveInputEvent += PerformInputMove;
                 }
-                // else {
-                //     m_NetState.InputSendServer += PerformInput;
-                // }
+
             }
 
             if (!m_NetState.IsOwner){
                 m_NetState.StateDataSync += PerformSyncStateFX;
-                // m_NetState.InnerStateDataSync += 
+ 
                 m_NetState.SyncEndAnimation += PlayEndAnimationFX;
                 // TriangleUI.color = Color.red;
             }
@@ -243,6 +348,7 @@ namespace LF2.Client
 
 
             }
+
 
 
         }
@@ -267,7 +373,17 @@ namespace LF2.Client
                 }
                 m_NetState.RecvHPClient -= ReceiveHP;
 
+                // ----  Test new Netcode here
+
+                if (!IsOwner){
+                    m_NetState.ClientPlayInputRecvie -= AddRemoteInput;
+                }
+                inputSender.ActionLocalInputEvent -= AddLocalInput;
+
+
             }
+
+            
 
         }
         
@@ -279,14 +395,14 @@ namespace LF2.Client
         
         // private void PerformInput(StateType data)
         // {
-        //     MStateMachinePlayerViz.DoAnticipate(ref data);
+        //     MStateMachinePlayerViz.ShouldChangeState(ref data);
         // }
         
         // Remote Client Receive Input So Do Aniticipate like the true player
         private void PerformInputMove(float inputX, float inputZ)
         {
             // Debug.Log($"OnActionInput = {inputX}");
-            MStateMachinePlayerViz.SaveMoveInput(ref inputX, ref inputZ);
+            MStateMachinePlayerViz.SaveMoveInput( (sbyte)inputX,  (sbyte) inputZ);
         }
 
 
@@ -306,7 +422,7 @@ namespace LF2.Client
         private void OnActionInput(StateType data)
         {
             // Debug.Log("perform");
-            MStateMachinePlayerViz.DoAnticipate(ref data);
+            MStateMachinePlayerViz.ShouldChangeState(ref data);
         }
 
 
@@ -318,12 +434,12 @@ namespace LF2.Client
             // MStateMachinePlayerViz.PerformInnerSyncStateFX(ref stateData);
         }
 
-        public void PerformSyncStateFX(StateType stateData )
+        public void PerformSyncStateFX(StateType stateData , SkillNumber skillNumber )
         {
             // That event do State receive from Server .
             // Debug.Log($"data  = {data}" );
 
-            MStateMachinePlayerViz.PerformSyncStateFX(ref stateData);
+            MStateMachinePlayerViz.PerformSyncStateFX(ref stateData , ref skillNumber);
         }
 
         
@@ -353,25 +469,90 @@ namespace LF2.Client
 
 
 
+        public void Tick(int currenFrame) {
+            if(IsOwner && IsHost ){
+                return;
+            }
 
+            InputPackage inputThisFrame;
+            if (IsOwner){
+                inputThisFrame = LocalInputBuffer.Get(currenFrame);
+            }else{
+                PredictRemoteInputs(currenFrame - lastServerState.tick);
+                inputThisFrame = RemoteInputBuffer.Get(currenFrame);
+            }
 
-
-
-
-
-        private void FixedUpdate() 
-        {
-            // Debug.Log(MStateMachinePlayerViz);
-            // if (m_NetState.LifeState != LifeState.Dead){    
             MStateMachinePlayerViz.OnUpdate();
             if (LastStateViz !=  MStateMachinePlayerViz.CurrentStateViz.GetId()){
                 LastStateViz = MStateMachinePlayerViz.CurrentStateViz.GetId();
                 textMesh.text = LastStateViz.ToString();
                 // textMesh.text = coreMovement.GetFacingDirection().ToString();
-            }
-            // }
-            // UpdateSizeHurtBox();
+            } 
+
+            // Need move this code to above or below MStateMachinePlayerViz.OnUpdate();
+            // Dont decide yet 
+
+            (sbyte inputX, sbyte inputZ) = InputSerialization.ConvertDirectionalInputToAxis(inputThisFrame.dir);
+            MStateMachinePlayerViz.SaveMoveInput(inputX , inputZ);
+            MStateMachinePlayerViz.ShouldChangeState(ref inputThisFrame.buttonID);
+
         }
+
+
+        // public void TickServer(InputPackage inputThisFrame ) {
+            
+        //     MStateMachinePlayerViz.OnUpdate();
+        //     if (LastStateViz !=  MStateMachinePlayerViz.CurrentStateViz.GetId()){
+        //         LastStateViz = MStateMachinePlayerViz.CurrentStateViz.GetId();
+        //         textMesh.text = LastStateViz.ToString();
+        //         // textMesh.text = coreMovement.GetFacingDirection().ToString();
+        //     } 
+
+        //     // Need move this code to above or below MStateMachinePlayerViz.OnUpdate();
+        //     // Dont decide yet 
+
+        //     (sbyte inputX, sbyte inputZ) = InputSerialization.ConvertDirectionalInputToAxis(inputThisFrame.dir);
+        //     MStateMachinePlayerViz.SaveMoveInput(inputX , inputZ);
+        //     MStateMachinePlayerViz.ShouldChangeState(ref inputThisFrame.buttonID);
+
+        // }
+
+        // void HandleServerTick() {
+        //     if (!IsServer) return;
+             
+        //     var bufferIndex = -1;
+        //     InputPackage inputPayload = default;
+        //     while (serverInputQueue.Count > 0) {
+        //         inputPayload = serverInputQueue.Dequeue();
+                
+        //         bufferIndex = inputPayload.tick % k_bufferSize;
+        //         if (!IsOwner) TickServer(inputPayload);
+        //         SaveGameState(inputPayload.tick , local: false);
+        //         // serverStateBuffer.Add(statePayload, bufferIndex);
+        //     }
+            
+        //     if (bufferIndex == -1) return;
+        //     // HandleExtrapolation(serverStateBuffer.Get(bufferIndex), CalculateLatencyInMillis(inputPayload));
+        //     SendToClientRpc(serverStateBuffer.Get(bufferIndex));
+        // }
+
+
+
+
+
+        // private void FixedUpdate() 
+        // {
+        //     // Debug.Log(MStateMachinePlayerViz);
+        //     // if (m_NetState.LifeState != LifeState.Dead){    
+        //     MStateMachinePlayerViz.OnUpdate();
+        //     if (LastStateViz !=  MStateMachinePlayerViz.CurrentStateViz.GetId()){
+        //         LastStateViz = MStateMachinePlayerViz.CurrentStateViz.GetId();
+        //         textMesh.text = LastStateViz.ToString();
+        //         // textMesh.text = coreMovement.GetFacingDirection().ToString();
+        //     }
+        //     // }
+        //     // UpdateSizeHurtBox();
+        // }
 
 
         // ID 300 = Play sound
@@ -580,9 +761,46 @@ namespace LF2.Client
             }
         }
 
+        public void SaveGameState(int currentTick , bool local)
+        {
+            if(IsOwner && IsHost ){
+                return;
+            }
+            var bufferIndex = currentTick % 1024;
+            StatePackage stateThisFrame = new StatePackage() {
+                tick = currentTick,
+                TargetIds = this.NetworkObjectId,
+                StateTypeEnum = MStateMachinePlayerViz.CurrentStateViz.GetId(),
+                Position = transform.position,
+                Velocity = coreMovement.RB.velocity,
+                Rotation_Y = (sbyte)coreMovement.FacingDirection
+            };
+            LocalStateBuffer.Add(stateThisFrame ,bufferIndex );
+        }
+
+        public void HandleRollbacks()
+        {
+
+            // GameState g = null;
+            // lock (GameStateDictionary)
+            // {
+            //     GameStateDictionary.TryGetValue(RollbackFrames.Min(), out g);
+            //     RollbackFrames.Clear();
+            // }
+            // if (g == null) return current;
+            // while (g.frameID < current.frameID)
+            // {
+            //     FrameInputDictionary.TryGetValue((ushort)g.frameID, out InputSerialization.FrameInfo f);
+            //     g = g.Tick(f);
+            // }
+            // rollbackCount++;
+            // return g;
+    
+        }
 
 
-#endregion
+
+        #endregion
 
 
 

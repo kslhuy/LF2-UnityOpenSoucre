@@ -374,10 +374,10 @@ namespace Utilities.AssetsCache
                             path = assetPath,
                         };
 
-                        CacheObjectLocation location = CacheObjectLocation.Assets;
+                        // CacheObjectLocation location = CacheObjectLocation.Assets;
                         if (currentPrefab != null)
                         {
-                            item.prefabPath = currentPrefab.prefabAssetPath;
+                            item.prefabPath = currentPrefab.assetPath;
                             item.location = CacheObjectLocation.Prefab;
                         }
                         else

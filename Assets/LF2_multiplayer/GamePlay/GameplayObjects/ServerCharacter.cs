@@ -4,6 +4,8 @@ using UnityEngine;
 using TMPro;
 using System;
 using LF2.Utils;
+using LF2.Client;
+using System.Collections.Generic;
 
 namespace LF2.Server
 {
@@ -37,6 +39,10 @@ namespace LF2.Server
 
         // public ServerCharacterMovement Movement => m_Movement;
 
+
+        public StateMachineNew MStateMachinePlayer{ get; private set; }
+
+
         [SerializeField]
         PhysicsWrapper m_PhysicsWrapper;
 
@@ -53,16 +59,23 @@ namespace LF2.Server
         [Tooltip("Setting negative value disables destroying object after it is killed.")]
         private int m_KilledDestroyDelaySeconds = 3;
 
+        [SerializeField] ClientCharacterVisualization clientCharacterVisualization;
 
-        // Start Here because the GameObject being intantied when we go to the Scence GamePlay LF2
-        private void Start()
-        {
-            
-            // MStateMachinePlayer = new StateMachineServer(this ,m_NetworkCharacterState.CharacterType);
-                        // For Debug
-            m_lastState = StateType.Idle;
-            textMesh.text = m_lastState.ToString();
-        }
+        // Netcode server specific
+        CircularBuffer<StatePackage> serverStateBuffer;
+        List<InputPackage> serverInputQueue;
+
+        const int k_bufferSize = 1024;
+
+        InputPackage lastinputRecv;
+
+        Queue<int> FrameServerPredict;
+
+
+
+        
+
+
 
         public override void OnNetworkSpawn()
         {
@@ -78,10 +91,26 @@ namespace LF2.Server
                 NetState.HPPoints = NetState.CharacterClass.BaseHP.Value;
                 NetState.MPPoints = NetState.CharacterClass.BaseMP.Value;
 
-
-
             }
+                                    // For Debug
+            m_lastState = StateType.Idle;
+            textMesh.text = m_lastState.ToString();
+
+
             teamType = NetState.TryGetTeamType();
+
+
+
+            MStateMachinePlayer = new StateMachineNew( clientCharacterVisualization,NetState.CharacterStateSO );
+
+            serverInputQueue = new List<InputPackage>();
+            NetState.ServerSaveInput += ServerSaveInput;
+
+            serverStateBuffer = new CircularBuffer<StatePackage>(k_bufferSize);
+
+            lastinputRecv = new InputPackage();
+
+
         }
 
 
@@ -96,21 +125,118 @@ namespace LF2.Server
         }
 
 
+        private void ServerSaveInput(InputPackage inputpackage)
+        {
+
+
+            // ServerSaveInput  (for simulation in Server side) 
+                      
+            // var bufferIndex = inputpackage.tick % 1024;
+            // m_LastRemoteInputRecieved = inputpackage; 
+            // RemoteInputBuffer.Add(inputpackage ,bufferIndex);
+
+            // Debug.Log("REcevie input");
+
+            serverInputQueue.Add(inputpackage);
+        }
 
 
 
+        public void Tick(int frameNb) {
+
+            // MStateMachinePlayer.OnUpdate();
+             
+            var bufferIndex = -1;
+            InputPackage inputPayload = default;
+            
+            // Debug.Log("tick");
+
+            //reconciliation
+            if (serverInputQueue.Count > 0){
+                inputPayload = serverInputQueue[0];
+                bufferIndex = inputPayload.tick % k_bufferSize;
+                TickServer(inputPayload, doAnticipateState : true);
+                SaveGameState(inputPayload.tick );
+                serverInputQueue.RemoveAt(0);
+
+            }else{
+                inputPayload = lastinputRecv;
+                inputPayload.tick = lastinputRecv.tick + 1;
+                // Save this predict frame . To Use for Reconcilliation  
+                FrameServerPredict.Enqueue(frameNb);
+
+                // Only do Check Should Aniticipate State for some State that may be frequenly do , and this state not impact the game to much
+                // Like Move , players tend to clicked move frequely . 
+                // Or may be Attack
+                if (inputPayload.buttonID == StateType.Move) {
+                    inputPayload.buttonID = StateType.Move;
+                    TickServer(inputPayload ,doAnticipateState : true);
+                }
+                else {
+                    inputPayload.buttonID = StateType.Idle;
+                    TickServer(inputPayload , doAnticipateState : true);
+                } 
+                SaveGameState(inputPayload.tick );
+            }
 
 
-        // void Update()
-        // {
+            
+        
+            
+            // if (bufferIndex == -1) return;
+            // HandleExtrapolation(serverStateBuffer.Get(bufferIndex), CalculateLatencyInMillis(inputPayload));
+            NetState.SendServerStateToClientRpc(serverStateBuffer.Get(inputPayload.tick));
+        
+            // update last input from clients
+            lastinputRecv = inputPayload;
 
-        //     // MStateMachinePlayer.Update();
-        //     // if(m_lastState != MStateMachinePlayer.CurrentState.GetId()){
-        //     //     m_lastState = MStateMachinePlayer.CurrentState.GetId();
-        //     //     textMesh.text = m_lastState.ToString();
-        //     // }
+        }
 
+
+
+        public void TickServer(InputPackage inputThisFrame , bool doAnticipateState ) {
+            
+            (sbyte inputX, sbyte inputZ) = InputSerialization.ConvertDirectionalInputToAxis(inputThisFrame.dir);
+            MStateMachinePlayer.SaveMoveInput(inputX , inputZ);
+            // TODO : Aniticipate in Server , So don't need send ClientRPC  
+            MStateMachinePlayer.ShouldChangeState(ref inputThisFrame.buttonID);
+
+            MStateMachinePlayer.OnUpdate();
+            // if (LastStateViz !=  MStateMachinePlayer.CurrentStateViz.GetId()){
+            //     LastStateViz = MStateMachinePlayer.CurrentStateViz.GetId();
+            //     textMesh.text = LastStateViz.ToString();
+            //     // textMesh.text = coreMovement.GetFacingDirection().ToString();
+            // } 
+
+            // Need move this code to above or below MStateMachinePlayer.OnUpdate();
+            // Dont decide yet 
+
+
+        }
+
+
+        public void SaveGameState(int currentTick )
+        {
+            var bufferIndex = currentTick % 1024;
+            StatePackage stateThisFrame = new StatePackage() {
+                tick = currentTick,
+                StateTypeEnum = MStateMachinePlayer.CurrentStateViz.GetId(),
+                Position = transform.position,
+                Velocity = clientCharacterVisualization.coreMovement.RB.velocity,
+                Rotation_Y = (sbyte)(clientCharacterVisualization.coreMovement.FacingDirection)
+            };
+
+            serverStateBuffer.Add(stateThisFrame , bufferIndex);
+        }
+
+
+        
+        // if(m_lastState != MStateMachinePlayer.CurrentState.GetId()){
+        //     m_lastState = MStateMachinePlayer.CurrentState.GetId();
+        //     textMesh.text = m_lastState.ToString();
         // }
+
+    
 
 
         // For projectil ( Use server authoriza )

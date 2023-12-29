@@ -76,6 +76,16 @@ namespace LF2.Server
 
         private Coroutine Coro_GameEnd;
 
+
+        // Netcode general
+        public NetworkTimer NetworkTimer;
+        private bool isServerReady;
+        const float k_serverTickRate = 60f; // 60 FPS
+        const int k_bufferSize = 1024;
+
+
+        
+
         protected override void Awake()
         {
             base.Awake();
@@ -101,6 +111,8 @@ namespace LF2.Server
 
             SessionManager<SessionPlayerData>.Instance.OnSessionStarted();
 
+
+            NetworkTimer = new NetworkTimer(k_serverTickRate); 
 
         }
 
@@ -138,9 +150,11 @@ namespace LF2.Server
                 //somebody joined after the initial spawn. This is a Late Join scenario. This player may have issues
                 //(either because multiple people are late-joining at once, or because some dynamic entities are
                 //getting spawned while joining. But that's not something we can fully address by changes in
-                //ServerBossRoomState.
+                //ServerLF2Sate.
                 SpawnPlayer(clientId, true);
             }
+
+
         }
 
 
@@ -156,7 +170,14 @@ namespace LF2.Server
                 }
                 SpawnBOTandBackGround(NetworkManager.ServerClientId, true);
             }
+
+            _ClientLF2State.StartPlay();
+            isServerReady = true;
+
+
         }
+
+        
 
         void OnClientDisconnect(ulong clientId)
         {
@@ -263,7 +284,7 @@ namespace LF2.Server
                 $"Matching persistent PersistentPlayer for Bot not found!");
 
 
-            for (int b = 0; b < persistentPlayer.HowManyBOTData(); b++){
+            for (int b = 0; b < persistentPlayer.NumberBOTsInGame(); b++){
                 // Find a spawn point 
                 int index = Random.Range(0, m_PlayerSpawnPoints.Length);
                 spawnPoint = m_PlayerSpawnPoints[index];
@@ -422,6 +443,21 @@ namespace LF2.Server
             // If we made it this far, all players are down! switch to post game
             
             Coro_GameEnd = StartCoroutine(CoroGameOver(k_Delay));
+        }
+
+
+        private void Update() {
+            if (isServerReady){
+                NetworkTimer.Update(Time.deltaTime);
+                if (NetworkTimer.ShouldTick()){
+                    Debug.Log("server tick ");
+                    foreach ( ServerCharacter serverCharacter in PlayerServerCharacter.GetPlayerServerCharacters()){
+                        serverCharacter.Tick(NetworkTimer.CurrentTick);
+
+                    }
+                }        
+            } 
+
         }
 
 

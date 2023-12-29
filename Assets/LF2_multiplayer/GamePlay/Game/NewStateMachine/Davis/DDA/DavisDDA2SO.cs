@@ -46,7 +46,7 @@ namespace LF2.Client{
 
         public override StateType GetId()
         {
-            return StateType.DDA2;
+            return stateData.StateType;
         }
 
         public override void OnAnimEvent(int id)
@@ -69,7 +69,7 @@ namespace LF2.Client{
             if (cantransition_ToNextAnimation  && frameTransitionAnim){
                 m_Launched = true;
                 cantransition_ToNextAnimation = false;
-                stateMachineFX.AnticipateState(StateType.DDA3);
+                stateMachineFX.AnticipateState( GetId(), SkillNumber.Skill_2);
             }
         }
 

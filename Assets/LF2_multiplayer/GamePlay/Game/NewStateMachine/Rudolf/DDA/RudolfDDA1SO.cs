@@ -34,7 +34,7 @@ namespace LF2.Client{
 
         public override StateType GetId()
         {
-            return StateType.DDA1;
+            return stateData.StateType;
         }
 
         public override void LogicUpdate()
